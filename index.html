@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digitale, interaktive Fassung des BRUCHLASTcharts.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
+  <link rel="stylesheet" href="style.css?v=0.2.0">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Digitale Arbeitsfassung</p>
+        <h1>BRUCHLASTchart</h1>
+      </div>
+      <span class="version">Prototyp 0.2.0</span>
+    </header>
+
+    <section class="chart-shell" aria-labelledby="chartTitle">
+      <div class="chart-heading">
+        <div>
+          <h2 id="chartTitle">Zeitachse 1700–2100</h2>
+          <p>Versioniert freigegebene Messreihen aus dem GWL-Panel. Beobachtung ist verpflichtend; historische Rekonstruktionen und qualifizierte Szenarien können ergänzen.</p>
+        </div>
+        <output id="seriesCount" class="status" aria-live="polite">Import wird geprüft …</output>
+      </div>
+
+      <div id="importStatus" class="import-status" role="status" aria-live="polite">Lokales Übergabepaket wird geladen und verifiziert.</div>
+      <div id="chart" class="chart" aria-label="Zeitreihen des BRUCHLASTcharts"></div>
+    </section>
+  </main>
+
+  <script src="data.js?v=0.2.0"></script>
+  <script src="app.js?v=0.2.0"></script>
+</body>
+</html>

@@ -1,0 +1,1208 @@
+{
+  "format": "gwl-blc-curve-export-v1",
+  "version": "1.0",
+  "manifestVersion": "1.0",
+  "curves": [
+    {
+      "curveId": "knowledge:data/knowledge/gwl_biosphere_functional_integrity_v0.1.json#biosphere_hanpp_1910_2020",
+      "boundaryId": "biosphere",
+      "itemId": "functional-integrity-hanpp",
+      "seriesId": "biosphere_hanpp_1910_2020",
+      "source": "data/knowledge/gwl_biosphere_functional_integrity_v0.1.json",
+      "label": "Funktionelle Integrität – HANPP",
+      "metric": "Human Appropriation of Net Primary Production (HANPP) als Anteil der Referenz-NPP",
+      "unit": "%",
+      "geography": "Global",
+      "reference": {
+        "type": "planetary_boundary",
+        "value": 10,
+        "unit": "%",
+        "display": "Planetare Grenze: etwa 10 % HANPP"
+      },
+      "observations": [
+        {
+          "year": 1910,
+          "value": 13,
+          "display": "≈ 13,0 % HANPP",
+          "finding": "Für 1910 liegt HANPP näherungsweise bei 13,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1920,
+          "value": 13.8,
+          "display": "≈ 13,8 % HANPP",
+          "finding": "Für 1920 liegt HANPP näherungsweise bei 13,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1930,
+          "value": 14.8,
+          "display": "≈ 14,8 % HANPP",
+          "finding": "Für 1930 liegt HANPP näherungsweise bei 14,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1940,
+          "value": 15.8,
+          "display": "≈ 15,8 % HANPP",
+          "finding": "Für 1940 liegt HANPP näherungsweise bei 15,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1950,
+          "value": 17,
+          "display": "≈ 17,0 % HANPP",
+          "finding": "Für 1950 liegt HANPP näherungsweise bei 17,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 18.5,
+          "display": "≈ 18,5 % HANPP",
+          "finding": "Für 1960 liegt HANPP näherungsweise bei 18,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 20.5,
+          "display": "≈ 20,5 % HANPP",
+          "finding": "Für 1970 liegt HANPP näherungsweise bei 20,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 22.8,
+          "display": "≈ 22,8 % HANPP",
+          "finding": "Für 1980 liegt HANPP näherungsweise bei 22,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 24.8,
+          "display": "≈ 24,8 % HANPP",
+          "finding": "Für 1990 liegt HANPP näherungsweise bei 24,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 26.5,
+          "display": "≈ 26,5 % HANPP",
+          "finding": "Für 2000 liegt HANPP näherungsweise bei 26,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 28,
+          "display": "≈ 28,0 % HANPP",
+          "finding": "Für 2010 liegt HANPP näherungsweise bei 28,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 30,
+          "display": "≈ 30,0 % HANPP",
+          "finding": "Für 2020 liegt HANPP bei etwa 30,0 % der Referenz-NPP.",
+          "uncertainty": "Separate 2020-Abschätzung; methodisch unterschiedliche Datensätze ergeben unterschiedliche absolute Werte.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_richardson_2023",
+          "title": "Earth beyond six of nine planetary boundaries",
+          "publisher": "Science Advances",
+          "year": 2023,
+          "url": "https://www.science.org/doi/10.1126/sciadv.adh2458",
+          "doi": "10.1126/sciadv.adh2458",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_phc_2025",
+          "title": "Planetary Health Check 2025",
+          "publisher": "Planetary Health Check",
+          "year": 2025,
+          "url": "https://www.planetaryhealthcheck.org/boundary/change-in-biosphere-integrity/",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_climate_change_pilot_v0.1.json#global_co2_noaa_annual",
+      "boundaryId": "climate",
+      "itemId": "global-warming",
+      "seriesId": "global_co2_noaa_annual",
+      "source": "data/knowledge/gwl_climate_change_pilot_v0.1.json",
+      "label": "Globales atmosphärisches CO₂ · NOAA",
+      "metric": "Jahresmittel der global gemittelten atmosphärischen CO₂-Konzentration über marinen Hintergrundstationen",
+      "unit": "ppm",
+      "geography": "Global",
+      "reference": {
+        "type": "planetary_boundary",
+        "value": 350,
+        "unit": "ppm",
+        "display": "Planetare Grenze: 350 ppm CO₂"
+      },
+      "observations": [
+        {
+          "year": 1979,
+          "value": 336.85,
+          "display": "1979: 336,85 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,10 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 338.91,
+          "display": "1980: 338,91 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 340.11,
+          "display": "1981: 340,11 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,08 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 340.85,
+          "display": "1982: 340,85 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,03 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 342.53,
+          "display": "1983: 342,53 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 344.07,
+          "display": "1984: 344,07 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 345.54,
+          "display": "1985: 345,54 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 346.97,
+          "display": "1986: 346,97 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 348.68,
+          "display": "1987: 348,68 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 351.16,
+          "display": "1988: 351,16 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 352.79,
+          "display": "1989: 352,79 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 354.06,
+          "display": "1990: 354,06 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 355.4,
+          "display": "1991: 355,40 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 356.09,
+          "display": "1992: 356,09 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 356.83,
+          "display": "1993: 356,83 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 358.33,
+          "display": "1994: 358,33 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 360.18,
+          "display": "1995: 360,18 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 361.93,
+          "display": "1996: 361,93 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 363.04,
+          "display": "1997: 363,04 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 365.7,
+          "display": "1998: 365,70 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 367.79,
+          "display": "1999: 367,79 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 368.96,
+          "display": "2000: 368,96 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 370.57,
+          "display": "2001: 370,57 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 372.58,
+          "display": "2002: 372,58 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 375.14,
+          "display": "2003: 375,14 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 376.94,
+          "display": "2004: 376,94 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 378.98,
+          "display": "2005: 378,98 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 381.15,
+          "display": "2006: 381,15 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 382.9,
+          "display": "2007: 382,90 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 385.02,
+          "display": "2008: 385,02 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 386.5,
+          "display": "2009: 386,50 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 388.75,
+          "display": "2010: 388,75 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 390.62,
+          "display": "2011: 390,62 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 392.65,
+          "display": "2012: 392,65 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 395.4,
+          "display": "2013: 395,40 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 397.34,
+          "display": "2014: 397,34 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 399.65,
+          "display": "2015: 399,65 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 403.07,
+          "display": "2016: 403,07 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 405.22,
+          "display": "2017: 405,22 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,08 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 407.61,
+          "display": "2018: 407,61 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,08 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 410.07,
+          "display": "2019: 410,07 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 412.44,
+          "display": "2020: 412,44 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 414.7,
+          "display": "2021: 414,70 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 417.08,
+          "display": "2022: 417,08 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,08 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 419.35,
+          "display": "2023: 419,35 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,10 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 422.79,
+          "display": "2024: 422,79 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,10 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 425.62,
+          "display": "2025: 425,62 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_co2_ipcc_ar6_ssp119",
+          "scenario": "SSP1-1.9",
+          "scenarioLabel": "SSP1-1.9 · sehr niedrige Emissionen",
+          "uncertainty": "IPCC-SSP-Konzentrationspfad, keine Prognose mit Eintrittswahrscheinlichkeit. Nur publizierte Dekadenwerte werden gezeigt.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 434,
+              "display": "2030: 434 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2040,
+              "value": 440,
+              "display": "2040: 440 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2050,
+              "value": 438,
+              "display": "2050: 438 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2060,
+              "value": 431,
+              "display": "2060: 431 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2070,
+              "value": 424,
+              "display": "2070: 424 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2080,
+              "value": 415,
+              "display": "2080: 415 ppm CO₂ · SSP1-1.9"
+            },
+            {
+              "year": 2090,
+              "value": 405,
+              "display": "2090: 405 ppm CO₂ · SSP1-1.9"
+            }
+          ]
+        },
+        {
+          "id": "global_co2_ipcc_ar6_ssp126",
+          "scenario": "SSP1-2.6",
+          "scenarioLabel": "SSP1-2.6 · niedrige Emissionen",
+          "uncertainty": "IPCC-SSP-Konzentrationspfad, keine Prognose mit Eintrittswahrscheinlichkeit. Nur publizierte Dekadenwerte werden gezeigt.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 440,
+              "display": "2030: 440 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2040,
+              "value": 458,
+              "display": "2040: 458 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2050,
+              "value": 469,
+              "display": "2050: 469 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2060,
+              "value": 474,
+              "display": "2060: 474 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2070,
+              "value": 473,
+              "display": "2070: 473 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2080,
+              "value": 467,
+              "display": "2080: 467 ppm CO₂ · SSP1-2.6"
+            },
+            {
+              "year": 2090,
+              "value": 457,
+              "display": "2090: 457 ppm CO₂ · SSP1-2.6"
+            }
+          ]
+        },
+        {
+          "id": "global_co2_ipcc_ar6_ssp245",
+          "scenario": "SSP2-4.5",
+          "scenarioLabel": "SSP2-4.5 · mittlere Emissionen",
+          "uncertainty": "IPCC-SSP-Konzentrationspfad, keine Prognose mit Eintrittswahrscheinlichkeit. Nur publizierte Dekadenwerte werden gezeigt.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 444,
+              "display": "2030: 444 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2040,
+              "value": 475,
+              "display": "2040: 475 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2050,
+              "value": 507,
+              "display": "2050: 507 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2060,
+              "value": 537,
+              "display": "2060: 537 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2070,
+              "value": 564,
+              "display": "2070: 564 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2080,
+              "value": 585,
+              "display": "2080: 585 ppm CO₂ · SSP2-4.5"
+            },
+            {
+              "year": 2090,
+              "value": 598,
+              "display": "2090: 598 ppm CO₂ · SSP2-4.5"
+            }
+          ]
+        },
+        {
+          "id": "global_co2_ipcc_ar6_ssp370",
+          "scenario": "SSP3-7.0",
+          "scenarioLabel": "SSP3-7.0 · hohe Emissionen",
+          "uncertainty": "IPCC-SSP-Konzentrationspfad, keine Prognose mit Eintrittswahrscheinlichkeit. Nur publizierte Dekadenwerte werden gezeigt.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 451,
+              "display": "2030: 451 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2040,
+              "value": 493,
+              "display": "2040: 493 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2050,
+              "value": 541,
+              "display": "2050: 541 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2060,
+              "value": 593,
+              "display": "2060: 593 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2070,
+              "value": 652,
+              "display": "2070: 652 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2080,
+              "value": 716,
+              "display": "2080: 716 ppm CO₂ · SSP3-7.0"
+            },
+            {
+              "year": 2090,
+              "value": 787,
+              "display": "2090: 787 ppm CO₂ · SSP3-7.0"
+            }
+          ]
+        },
+        {
+          "id": "global_co2_ipcc_ar6_ssp585",
+          "scenario": "SSP5-8.5",
+          "scenarioLabel": "SSP5-8.5 · sehr hohe Emissionen",
+          "uncertainty": "IPCC-SSP-Konzentrationspfad, keine Prognose mit Eintrittswahrscheinlichkeit. Nur publizierte Dekadenwerte werden gezeigt.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 452,
+              "display": "2030: 452 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2040,
+              "value": 500,
+              "display": "2040: 500 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2050,
+              "value": 563,
+              "display": "2050: 563 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2060,
+              "value": 643,
+              "display": "2060: 643 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2070,
+              "value": 744,
+              "display": "2070: 744 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2080,
+              "value": 864,
+              "display": "2080: 864 ppm CO₂ · SSP5-8.5"
+            },
+            {
+              "year": 2090,
+              "value": 998,
+              "display": "2090: 998 ppm CO₂ · SSP5-8.5"
+            }
+          ]
+        }
+      ],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_ipcc_ar6_wgi_annex_iii",
+          "title": "IPCC AR6 WGI Annex III: Tables of Historical and Projected Well-mixed Greenhouse Gas Mixing Ratios",
+          "publisher": "Intergovernmental Panel on Climate Change",
+          "year": 2021,
+          "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_ipcc_ar6_syr_2023",
+          "title": "AR6 Synthesis Report: Climate Change 2023",
+          "publisher": "Intergovernmental Panel on Climate Change",
+          "year": 2023,
+          "url": "https://www.ipcc.ch/report/ar6/syr/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_wmo_state_climate_2025",
+          "title": "State of the Global Climate 2025",
+          "publisher": "World Meteorological Organization",
+          "year": 2026,
+          "url": "https://wmo.int/publication-series/state-of-global-climate/state-of-global-climate-2025",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_c3s_sea_level_2026",
+          "title": "Climate Indicators — Sea level",
+          "publisher": "Copernicus Climate Change Service",
+          "year": 2026,
+          "url": "https://climate.copernicus.eu/climate-indicators/sea-level",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_c3s_ocean_heat_2026",
+          "title": "Climate Indicators — Ocean heat content",
+          "publisher": "Copernicus Climate Change Service",
+          "year": 2026,
+          "url": "https://climate.copernicus.eu/climate-indicators/ocean-heat-content",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_richardson_pb_2023",
+          "title": "Earth beyond six of nine planetary boundaries",
+          "publisher": "Science Advances",
+          "year": 2023,
+          "url": "https://www.science.org/doi/10.1126/sciadv.adh2458",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_noaa_global_co2_2026",
+          "title": "Trends in globally-averaged CO₂",
+          "publisher": "NOAA Global Monitoring Laboratory",
+          "year": 2026,
+          "url": "https://gml.noaa.gov/ccgg/trends/gl_data.html",
+          "doi": "10.15138/9N0H-ZH07",
+          "access": "open_data"
+        },
+        {
+          "id": "src_who_heat_health_2026",
+          "title": "Heat and health",
+          "publisher": "WHO",
+          "year": 2026,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json#blue_water_streamflow",
+      "boundaryId": "freshwater",
+      "itemId": "blue-water-streamflow",
+      "seriesId": "blue_water_streamflow",
+      "source": "data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json",
+      "label": "Blaues Wasser – ungewöhnlicher Abfluss",
+      "metric": "Anteil der globalen eisfreien Landfläche mit ungewöhnlich hohem oder niedrigem Abfluss gegenüber dem früher üblichen Bereich. Höher bedeutet mehr gestörte Fläche, nicht mehr Wasser.",
+      "unit": "%",
+      "geography": "Global",
+      "observations": [
+        {
+          "year": 1905,
+          "value": 14.33
+        },
+        {
+          "year": 1910,
+          "value": 11.87
+        },
+        {
+          "year": 1915,
+          "value": 14.45
+        },
+        {
+          "year": 1920,
+          "value": 13.78
+        },
+        {
+          "year": 1925,
+          "value": 11.53
+        },
+        {
+          "year": 1930,
+          "value": 10.34
+        },
+        {
+          "year": 1935,
+          "value": 10.81
+        },
+        {
+          "year": 1940,
+          "value": 13.77
+        },
+        {
+          "year": 1945,
+          "value": 16.01
+        },
+        {
+          "year": 1950,
+          "value": 14.19
+        },
+        {
+          "year": 1955,
+          "value": 13.62
+        },
+        {
+          "year": 1960,
+          "value": 13.35
+        },
+        {
+          "year": 1965,
+          "value": 14.76
+        },
+        {
+          "year": 1970,
+          "value": 16.43
+        },
+        {
+          "year": 1975,
+          "value": 17.11
+        },
+        {
+          "year": 1980,
+          "value": 15.94
+        },
+        {
+          "year": 1985,
+          "value": 19.07
+        },
+        {
+          "year": 1990,
+          "value": 19.25
+        },
+        {
+          "year": 1995,
+          "value": 18.31
+        },
+        {
+          "year": 2000,
+          "value": 21.11
+        },
+        {
+          "year": 2005,
+          "value": 20.31
+        },
+        {
+          "year": 2010,
+          "value": 22.56
+        },
+        {
+          "year": 2015,
+          "value": 23.22
+        },
+        {
+          "year": 2019,
+          "value": 22.84
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "porkka_2024_historical_reconstruction",
+          "label": "Historische Vorgängerrekonstruktion",
+          "points": [
+            {
+              "year": 1861,
+              "value": 12.27
+            },
+            {
+              "year": 1865,
+              "value": 12.26
+            },
+            {
+              "year": 1870,
+              "value": 10.07
+            },
+            {
+              "year": 1875,
+              "value": 11.21
+            },
+            {
+              "year": 1880,
+              "value": 9.58
+            },
+            {
+              "year": 1885,
+              "value": 9.61
+            },
+            {
+              "year": 1890,
+              "value": 10.18
+            },
+            {
+              "year": 1895,
+              "value": 10.4
+            },
+            {
+              "year": 1900,
+              "value": 10.02
+            }
+          ]
+        }
+      ],
+      "projections": [],
+      "methodBreaks": [
+        {
+          "year": 1901
+        }
+      ],
+      "sources": [
+        {
+          "id": "dataset-source",
+          "title": "Virkki et al. (2026), Regionally divergent drivers behind transgressions of the freshwater change planetary boundary, Nature Communications 17, 5132",
+          "doi": "10.5281/zenodo.19663531"
+        }
+      ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_land_system_change_pilot_v0.1.json#global_forest_cover_1992_2022",
+      "boundaryId": "land",
+      "itemId": "global-forest-status",
+      "seriesId": "global_forest_cover_1992_2022",
+      "source": "data/knowledge/gwl_land_system_change_pilot_v0.1.json",
+      "label": "Globaler Waldanteil relativ zur potenziellen natürlichen Waldfläche",
+      "metric": "",
+      "unit": "%",
+      "geography": "Global",
+      "reference": {
+        "value": 75,
+        "unit": "%",
+        "display": "Grenze: 75 %"
+      },
+      "observations": [
+        {
+          "year": 1992,
+          "value": 60.2,
+          "display": "≈ 60,2 %",
+          "finding": "Für 1992 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,2 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 60,
+          "display": "≈ 60,0 %",
+          "finding": "Für 1995 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,0 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 59.6,
+          "display": "≈ 59,6 %",
+          "finding": "Für 2000 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,6 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 59.5,
+          "display": "≈ 59,5 %",
+          "finding": "Für 2005 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,5 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 59.4,
+          "display": "≈ 59,4 %",
+          "finding": "Für 2010 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,4 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 59.1,
+          "display": "≈ 59,1 %",
+          "finding": "Für 2015 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,1 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 58.9,
+          "display": "≈ 58,9 %",
+          "finding": "Für 2020 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 58,9 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 59,
+          "display": "≈ 59,0 %",
+          "finding": "Für 2022 liegt der globale Waldanteil bei rund 59 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Gerundeter aktueller Zustandswert des Planetary Health Check; die vollständige numerische Jahresreihe liegt hier nicht tabellarisch vor.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_phc_2025_report",
+          "title": "Planetary Health Check 2025",
+          "publisher": "Potsdam Institute for Climate Impact Research (PIK)",
+          "year": 2025,
+          "url": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_phc_land_2025",
+          "title": "Land System Change",
+          "publisher": "Planetary Health Check",
+          "year": 2025,
+          "url": "https://www.planetaryhealthcheck.org/boundary/land-system-change/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_richardson_2023",
+          "title": "Earth beyond six of nine planetary boundaries",
+          "publisher": "Science Advances",
+          "year": 2023,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499318/",
+          "doi": "10.1126/sciadv.adh2458",
+          "access": "open_full_text"
+        }
+      ]
+    }
+  ],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
+    "hash": "da0a55519c17eaf969956deb75e080fb6ce8a5c5dbfc193cdba842f0af37bedd"
+  }
+}
