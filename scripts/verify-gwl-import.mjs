@@ -1,8 +1,9 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const projectRoot = path.resolve(new URL("..", import.meta.url).pathname.replace(/^\/(.:)/, "$1"));
+const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const importPath = path.join(projectRoot, "data", "gwl", "blc-curve-export-v1.json");
 const payload = JSON.parse(await fs.readFile(importPath, "utf8"));
 const fail = message => { throw new Error(message); };

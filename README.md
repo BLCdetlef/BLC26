@@ -2,6 +2,12 @@
 
 Digitale, interaktive Fassung des BRUCHLASTcharts.
 
+Alle freigegebenen Langzeitkurven werden in einem gemeinsamen Diagramm auf der
+Zeitachse 1700–2100 gezeigt. Da die Quellen unterschiedliche Einheiten besitzen,
+wird jede Kurve für den visuellen Vergleich auf ihre eigene Verlaufsspanne von
+0 bis 100 Prozent normiert; Originalwerte und Einheiten bleiben in den
+Datenpunkt-Tooltips erhalten.
+
 ## Sichere GWL-Übergabe
 
 BLC26 ruft keine Kurvendaten von einer öffentlichen Laufzeit-API ab. Es liest ausschließlich die gemeinsam mit BLC26 versionierte Datei `data/gwl/blc-curve-export-v1.json`.
