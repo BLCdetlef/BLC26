@@ -2,11 +2,18 @@
 
 Digitale, interaktive Fassung des BRUCHLASTcharts.
 
-Alle freigegebenen Langzeitkurven werden in einem gemeinsamen Diagramm auf der
-Zeitachse 1700–2100 gezeigt. Da die Quellen unterschiedliche Einheiten besitzen,
-wird jede Kurve für den visuellen Vergleich auf ihre eigene Verlaufsspanne von
-0 bis 100 Prozent normiert; Originalwerte und Einheiten bleiben in den
-Datenpunkt-Tooltips erhalten.
+Alle freigegebenen Langzeitkurven werden in einer gemeinsamen Zeichenfläche auf
+der Zeitachse 1700–2100 überlagert. Die vertikale Position jeder Kurve zeigt den
+Verlauf innerhalb ihrer eigenen Datenspanne; eine gemeinsame Y-Skala wird nicht
+angezeigt. Originalwerte und Einheiten bleiben in Legende und Tooltips erhalten.
+Je 20 Prozent vertikaler Darstellungsraum ober- und unterhalb der Daten beruhigen
+das Kurvenbild, ohne die Messwerte zu verändern.
+
+Oberhalb der Zeichenfläche ordnet ein zurückhaltendes Ereignisband ausgewählte
+historische Zeiträume ein. Dauerhafte Ereignisse erscheinen als helle graue
+Flächen; bei Maus- oder Tastaturfokus werden Hilfslinie und Langtext zugänglich.
+Die Ereignisse dienen nur der zeitlichen Orientierung und behaupten keine
+Kausalität zwischen Ereignis und Kurvenverlauf.
 
 ## Sichere GWL-Übergabe
 
@@ -37,7 +44,7 @@ Bei einem Fehler wird der gesamte Import gesperrt. Quelldaten werden nur über D
 
 ## Lokal testen
 
-`start-server.cmd` doppelt anklicken und anschließend `http://localhost:3000` öffnen. Der Server wird mit `Strg+C` beendet.
+`start-server.cmd` doppelt anklicken und anschließend `http://localhost:3000` öffnen. Der lokale Server benötigt nur Node.js, lädt keine Pakete nach und wird mit `Strg+C` beendet.
 
 Alternativ:
 
