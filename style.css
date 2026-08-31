@@ -11,10 +11,12 @@ body { min-width: 320px; min-height: 100vh; margin: 0; }
 .app-shell { width: min(1600px, 100%); min-height: 100vh; margin: 0 auto; padding: clamp(1rem, 3vw, 3rem); }
 .topbar, .chart-heading, .series-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .topbar { padding-bottom: 1.25rem; border-bottom: 0.7rem solid #171717; }
-.eyebrow, .version, .status, .series-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.eyebrow, .series-eyebrow { margin: 0 0 0.45rem; }
+.version, .status, .series-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.series-eyebrow { margin: 0 0 0.45rem; }
 h1, h2, h3, p { margin-top: 0; }
-h1 { margin-bottom: 0; font-size: clamp(2.6rem, 7vw, 7rem); line-height: 0.86; letter-spacing: -0.055em; }
+h1 { margin-bottom: 0; font-size: clamp(1.3rem, 3.5vw, 3.5rem); line-height: 0.9; letter-spacing: -0.055em; }
+.brand-name { color: #3f403e; }
+.brand-chart { color: #8a6a16; font-style: italic; font-weight: 600; letter-spacing: -0.035em; }
 h2 { margin-bottom: .35rem; }
 .chart-shell { margin-top: 2rem; }
 .chart-heading p { max-width: 58rem; margin-bottom: 0; line-height: 1.45; }
@@ -57,7 +59,7 @@ h2 { margin-bottom: .35rem; }
 .historical-event:focus .historical-event-label { fill: #171717; font-weight: 700; }
 .series-legend { margin-top: 1rem; color: #555; font-size: .75rem; }
 .legend-series-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 1.5rem; margin-bottom: .9rem; }
-.legend-series { position: relative; display: grid; gap: .14rem; padding-left: 2rem; }
+.legend-series { position: relative; display: grid; width: 100%; gap: .14rem; padding: 0 0 0 2rem; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .legend-series::before { position: absolute; top: .46rem; left: 0; width: 1.5rem; border-top: 4px solid var(--series-color); content: ""; }
 .legend-series strong { color: #292927; font-size: .78rem; line-height: 1.25; }
 .legend-series span { text-transform: uppercase; letter-spacing: .06em; }
@@ -67,6 +69,13 @@ h2 { margin-bottom: .35rem; }
 .series-legend .legend-historical::before { border-color: #69736f; border-top-style: dashed; }
 .series-legend .legend-projection::before { border-color: #6c596e; border-top-style: dotted; }
 .combined-chart figcaption { max-width: 62rem; margin-top: .85rem; color: #5b5b57; font-size: .76rem; line-height: 1.45; }
+.curve-series { cursor: pointer; outline: none; }
+.curve-series:focus-visible { outline: 2px solid #6e6d68; outline-offset: 4px; }
+.curve-reference { margin-top: .85rem; padding: .75rem .85rem; border-left: .28rem solid #77766f; background: #efeee8; color: #343432; font-size: .8rem; line-height: 1.4; }
+.curve-reference-title { display: block; margin-bottom: .35rem; font-size: .88rem; }
+.curve-reference p { margin: .16rem 0; }
+.curve-reference-status { font-weight: 700; }
+.curve-reference-sources { color: #62615d; font-size: .74rem; }
 .empty-state { display: grid; min-height: 42vh; margin: 0; place-items: center; border: 1px solid #171717; background: #f8f7f2; color: #5b5b57; }
 .empty-state.is-error { color: #812020; }
 

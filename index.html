@@ -7,23 +7,22 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=0.5.1">
+  <link rel="stylesheet" href="style.css?v=0.5.3">
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div>
-        <p class="eyebrow">Digitale Arbeitsfassung</p>
-        <h1>BRUCHLASTchart</h1>
+        <h1><span class="brand-name">BRUCHLAST</span><span class="brand-chart">chart</span></h1>
       </div>
-      <span class="version">Prototyp 0.5.1</span>
+      <span class="version">Prototyp 0.5.3</span>
     </header>
 
     <section class="chart-shell" aria-labelledby="chartTitle">
       <div class="chart-heading">
         <div>
           <h2 id="chartTitle">Zeitachse 1700–2100</h2>
-          <p>Vier ökologische Zeitreihen überlagert in einer gemeinsamen Zeichenfläche. Die vertikale Position zeigt den Verlauf innerhalb der jeweiligen Datenspanne.</p>
+          <p>Alle freigegebenen ökologischen Zeitreihen in einer gemeinsamen Zeichenfläche. Die vertikale Position zeigt den Verlauf innerhalb der jeweiligen Datenspanne.</p>
         </div>
         <output id="seriesCount" class="status" aria-live="polite">Import wird geprüft …</output>
       </div>
@@ -33,8 +32,9 @@
     </section>
   </main>
 
-  <script src="data.js?v=0.5.1"></script>
-  <script src="events.js?v=0.5.1"></script>
-  <script src="app.js?v=0.5.1"></script>
+  <script src="data.js?v=0.5.3"></script>
+  <script src="events.js?v=0.5.3"></script>
+  <script src="reference.js?v=0.5.3"></script>
+  <script src="app.js?v=0.5.3"></script>
 </body>
 </html>

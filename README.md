@@ -31,6 +31,8 @@ Vor der Darstellung prüft der Browser:
 
 Bei einem Fehler wird der gesamte Import gesperrt. Quelldaten werden nur über DOM- und SVG-Methoden als Text und Grafik dargestellt; sie werden nicht als HTML ausgeführt.
 
+Nach Auswahl einer Kurve zeigt BLC26 ergänzende Referenzinformationen als Text. Der Status verwendet ausschließlich den zeitlich letzten gültigen Beobachtungspunkt; historische Rekonstruktionen und Szenarien werden dafür nicht ausgewertet. Eine fehlende oder nicht vergleichbare Referenz wird ausdrücklich als solche bezeichnet und niemals als Unterschreitung gewertet.
+
 ## Aktualisierung
 
 1. Im GWL-Panel Kurven redaktionell freigeben.

@@ -8,7 +8,7 @@ const importPath = path.join(projectRoot, "data", "gwl", "blc-curve-export-v1.js
 const payload = JSON.parse(await fs.readFile(importPath, "utf8"));
 const fail = message => { throw new Error(message); };
 
-if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.0" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
+if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.4" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
 if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsblock fehlt.");
 const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
 const hash = crypto.createHash("sha256").update(JSON.stringify(signedPayload), "utf8").digest("hex");
@@ -18,8 +18,17 @@ const seen = new Set();
 for (const curve of payload.curves) {
   if (!curve?.curveId || seen.has(curve.curveId)) fail("Fehlende oder doppelte Kurven-ID.");
   seen.add(curve.curveId);
+  if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
+  if (!["core", "deep_dive"].includes(curve.curveRole)) fail(`${curve.curveId}: ungültige Kurvenrolle.`);
   if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
   if (!Array.isArray(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: Beobachtungsreihe fehlt.`);
+  if (curve.reference != null) {
+    const reference = curve.reference;
+    if (reference.role !== "boundary" || reference.qualifier !== "approximate" || reference.exceedanceOperator !== ">") fail(`${curve.curveId}: ungültige Referenzmetadaten.`);
+    if (!Number.isFinite(Number(reference.value)) || reference.unit !== curve.unit) fail(`${curve.curveId}: ungültiger oder inkompatibler Referenzwert.`);
+    const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
+    if (!Array.isArray(reference.sourceRefs) || !reference.sourceRefs.length || reference.sourceRefs.some(id => !sourceIds.has(id))) fail(`${curve.curveId}: unbekannte Referenzquelle.`);
+  }
   for (const projection of curve.projections || []) {
     if (!["robust_scenario_projection", "qualified_scenario_projection"].includes(projection.grade)) fail(`${curve.curveId}: nicht qualifizierte Projektion.`);
   }
