@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=0.5.3">
+  <link rel="stylesheet" href="style.css?v=0.5.4">
 </head>
 <body>
   <main class="app-shell">
@@ -15,14 +15,19 @@
       <div>
         <h1><span class="brand-name">BRUCHLAST</span><span class="brand-chart">chart</span></h1>
       </div>
-      <span class="version">Prototyp 0.5.3</span>
+      <span class="version">Prototyp 0.5.4</span>
     </header>
 
     <section class="chart-shell" aria-labelledby="chartTitle">
       <div class="chart-heading">
         <div>
-          <h2 id="chartTitle">Zeitachse 1700–2100</h2>
-          <p>Alle freigegebenen ökologischen Zeitreihen in einer gemeinsamen Zeichenfläche. Die vertikale Position zeigt den Verlauf innerhalb der jeweiligen Datenspanne.</p>
+          <div class="chart-title-row">
+            <h2 id="chartTitle">Zeitachse 1700–2100</h2>
+            <details class="info-popover">
+              <summary aria-label="Informationen zum Diagramm"><span aria-hidden="true">i</span></summary>
+              <p>Alle freigegebenen ökologischen Zeitreihen in einer gemeinsamen Zeichenfläche. Die vertikale Position zeigt den Verlauf innerhalb der jeweiligen Datenspanne.</p>
+            </details>
+          </div>
         </div>
         <output id="seriesCount" class="status" aria-live="polite">Import wird geprüft …</output>
       </div>
@@ -32,9 +37,9 @@
     </section>
   </main>
 
-  <script src="data.js?v=0.5.3"></script>
-  <script src="events.js?v=0.5.3"></script>
-  <script src="reference.js?v=0.5.3"></script>
-  <script src="app.js?v=0.5.3"></script>
+  <script src="data.js?v=0.5.4"></script>
+  <script src="events.js?v=0.5.4"></script>
+  <script src="reference.js?v=0.5.4"></script>
+  <script src="app.js?v=0.5.4"></script>
 </body>
 </html>

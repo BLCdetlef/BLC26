@@ -156,8 +156,15 @@
     legend.appendChild(types);
     return legend;
   }
+  function visibleReconstructions(curve) {
+    const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
+    return (curve.historicalReconstruction || []).map(segment => ({
+      ...segment,
+      points: segment.points.filter(point => Number(point.year) < firstObservedYear)
+    })).filter(segment => segment.points.length);
+  }
   function extent(curve) {
-    const points = [...curve.observations, ...(curve.historicalReconstruction || []).flatMap(segment => segment.points), ...(curve.projections || []).flatMap(series => series.points)];
+    const points = [...curve.observations, ...visibleReconstructions(curve).flatMap(segment => segment.points), ...(curve.projections || []).flatMap(series => series.points)];
     const values = points.map(point => Number(point.value));
     const minimum = Math.min(...values);
     const maximum = Math.max(...values);
@@ -195,7 +202,7 @@
         y2: plotBottom
       }));
       const labelX = centerX + (Number(event.labelOffset) || 0);
-      const labelY = 106;
+      const labelY = 40;
       appendText(group, "text", event.label, {
         class: "historical-event-label",
         x: labelX,
@@ -213,7 +220,7 @@
     figure.className = "combined-chart";
     const width = 1400;
     const plotHeight = 460;
-    const eventBandHeight = 112;
+    const eventBandHeight = 26;
     const height = plotHeight + eventBandHeight;
     const plot = { left: 42, right: 28, top: eventBandHeight + 48, bottom: 64 };
     const plotBottom = height - plot.bottom;
@@ -243,7 +250,20 @@
       curveGroup.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") { event.preventDefault(); selectCurve(); }
       });
-      (curve.historicalReconstruction || []).forEach(segment => curveGroup.appendChild(svgElement("path", { class: "curve-historical", stroke: color, d: makePath(segment.points, x, y) })));
+      const reconstructions = visibleReconstructions(curve);
+      reconstructions.forEach(segment => curveGroup.appendChild(svgElement("path", { class: "curve-historical", stroke: color, d: makePath(segment.points, x, y) })));
+      const historicalPoints = reconstructions.flatMap(segment => segment.points);
+      if (historicalPoints.length && curve.observations.length) {
+        const lastHistoricalPoint = historicalPoints.reduce((latest, point) => Number(point.year) > Number(latest.year) ? point : latest);
+        const firstObservedPoint = curve.observations.reduce((earliest, point) => Number(point.year) < Number(earliest.year) ? point : earliest);
+        if (Number(lastHistoricalPoint.year) < Number(firstObservedPoint.year)) {
+          curveGroup.appendChild(svgElement("path", {
+            class: "curve-historical curve-transition",
+            stroke: color,
+            d: makePath([lastHistoricalPoint, firstObservedPoint], x, y)
+          }));
+        }
+      }
       curveGroup.appendChild(svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) }));
       (curve.projections || []).forEach(projection => curveGroup.appendChild(svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) })));
       curve.observations.forEach(point => {
