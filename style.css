@@ -53,6 +53,13 @@ h2 { margin-bottom: .35rem; }
 .curve-observed { stroke-width: 3; }
 .curve-historical { stroke-width: 2.4; stroke-dasharray: 8 6; opacity: .8; }
 .curve-projection { stroke-width: 2.5; stroke-dasharray: 2 6; opacity: .9; }
+.curve-role-core .curve-observed { stroke-width: 3.4; }
+.curve-role-core .curve-historical { stroke-width: 2.7; }
+.curve-role-core .curve-projection { stroke-width: 2.8; }
+.curve-role-deep_dive { opacity: .72; }
+.curve-role-deep_dive .curve-observed { stroke-width: 2.2; }
+.curve-role-deep_dive .curve-historical,
+.curve-role-deep_dive .curve-projection { stroke-width: 1.8; }
 .projection-1 { stroke: #45697e; }
 .projection-2 { stroke: #8b6a43; }
 .projection-3 { stroke: #3f7565; }

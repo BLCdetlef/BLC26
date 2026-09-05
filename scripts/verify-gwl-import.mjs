@@ -8,24 +8,38 @@ const importPath = path.join(projectRoot, "data", "gwl", "blc-curve-export-v1.js
 const payload = JSON.parse(await fs.readFile(importPath, "utf8"));
 const fail = message => { throw new Error(message); };
 
-if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.4" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
+const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "blue_water_streamflow"]);
+if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.5" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
+if (payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau drei Kurven enthalten.");
 if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsblock fehlt.");
 const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
 const hash = crypto.createHash("sha256").update(JSON.stringify(signedPayload), "utf8").digest("hex");
 if (hash !== payload.integrity.hash) fail("SHA-256-Prüfung fehlgeschlagen.");
 
 const seen = new Set();
+const seenSeries = new Set();
 for (const curve of payload.curves) {
   if (!curve?.curveId || seen.has(curve.curveId)) fail("Fehlende oder doppelte Kurven-ID.");
   seen.add(curve.curveId);
   if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
-  if (!["core", "deep_dive"].includes(curve.curveRole)) fail(`${curve.curveId}: ungültige Kurvenrolle.`);
+  if (curve.curveRole !== "core") fail(`${curve.curveId}: für dieses Kernpaket wird curveRole core erwartet.`);
+  if (!requiredSeries.has(curve.seriesId) || seenSeries.has(curve.seriesId)) fail(`${curve.curveId}: unerwartete oder doppelte Kurve.`);
+  seenSeries.add(curve.seriesId);
   if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
-  if (!Array.isArray(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: Beobachtungsreihe fehlt.`);
+  if (!Array.isArray(curve.observations) || curve.observations.length < 5) fail(`${curve.curveId}: Beobachtungsreihe fehlt.`);
+  const observationYears = curve.observations.map(point => Number(point?.year));
+  if (observationYears.some(year => !Number.isFinite(year))) fail(`${curve.curveId}: ungültiges Beobachtungsjahr.`);
+  const firstObservationYear = Math.min(...observationYears);
+  const historicalPoints = (curve.historicalReconstruction || []).flatMap(segment => segment.points || []);
+  if (historicalPoints.some(point => Number(point?.year) >= firstObservationYear)) fail(`${curve.curveId}: Rekonstruktion überlappt die Beobachtungsreihe.`);
   if (curve.reference != null) {
     const reference = curve.reference;
-    if (reference.role !== "boundary" || reference.qualifier !== "approximate" || reference.exceedanceOperator !== ">") fail(`${curve.curveId}: ungültige Referenzmetadaten.`);
     if (!Number.isFinite(Number(reference.value)) || reference.unit !== curve.unit) fail(`${curve.curveId}: ungültiger oder inkompatibler Referenzwert.`);
+    if (reference.type === "planetary_boundaries_model" && reference.modelName !== "Planetare Grenzen") fail(`${curve.curveId}: Modellreferenz ist unvollständig.`);
+    const statusFields = ["role", "qualifier", "exceedanceOperator"];
+    const hasStatusField = statusFields.some(field => field in reference);
+    if (hasStatusField && !statusFields.every(field => field in reference)) fail(`${curve.curveId}: unvollständige Statusmetadaten.`);
+    if (hasStatusField && (reference.role !== "boundary" || !["exact", "approximate"].includes(reference.qualifier) || ![">", "<"].includes(reference.exceedanceOperator))) fail(`${curve.curveId}: ungültige Statusmetadaten.`);
     const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
     if (!Array.isArray(reference.sourceRefs) || !reference.sourceRefs.length || reference.sourceRefs.some(id => !sourceIds.has(id))) fail(`${curve.curveId}: unbekannte Referenzquelle.`);
   }
@@ -33,5 +47,12 @@ for (const curve of payload.curves) {
     if (!["robust_scenario_projection", "qualified_scenario_projection"].includes(projection.grade)) fail(`${curve.curveId}: nicht qualifizierte Projektion.`);
   }
 }
+
+if (seenSeries.size !== requiredSeries.size) fail("Das Übergabepaket enthält nicht die drei erwarteten Kernkurven.");
+const co2 = payload.curves.find(curve => curve.seriesId === "global_co2_noaa_annual");
+const co2Historical = (co2.historicalReconstruction || []).flatMap(segment => segment.points || []);
+if (co2Historical.length !== 279 || co2Historical[0]?.year !== 1700 || co2Historical.at(-1)?.year !== 1978) fail("CO₂: Law-Dome-Rekonstruktion muss 1700–1978 mit 279 Punkten umfassen.");
+if (co2.observations.length !== 47 || co2.observations[0]?.year !== 1979 || co2.observations.at(-1)?.year !== 2025) fail("CO₂: NOAA-Beobachtungsreihe muss 1979–2025 mit 47 Punkten umfassen.");
+if (co2.projections?.length !== 5) fail("CO₂: genau fünf qualifizierte Projektionen erforderlich.");
 
 console.log(`GWL-Import gültig: ${payload.curves.length} Kurve(n), SHA-256 ${hash}`);

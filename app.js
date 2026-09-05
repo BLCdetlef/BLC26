@@ -8,6 +8,7 @@
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const svgNamespace = "http://www.w3.org/2000/svg";
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
+  const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "blue_water_streamflow"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   const presentation = Object.freeze({
     biosphere_hanpp_1910_2020: {
@@ -60,17 +61,21 @@
     if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
     for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(`Unbekanntes Exportfeld: ${field}`);
     if (payload.format !== config.import.format || payload.version !== config.import.version) fail("Unbekanntes Exportformat.");
-    if (!Array.isArray(payload.curves)) fail("Kurvenliste fehlt.");
+    if (!Array.isArray(payload.curves) || payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau drei Kurven enthalten.");
     if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsangabe fehlt.");
     const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
     const actualHash = await sha256(JSON.stringify(signedPayload));
     if (actualHash !== payload.integrity.hash) fail("Integritätsprüfung fehlgeschlagen. Das Paket wurde verändert oder beschädigt.");
     const seen = new Set();
+    const seenSeries = new Set();
     for (const curve of payload.curves) {
       if (!curve?.curveId || seen.has(curve.curveId)) fail("Kurven-ID fehlt oder ist doppelt.");
       seen.add(curve.curveId);
       if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
-      if (!["core", "deep_dive"].includes(curve.curveRole)) fail(`${curve.curveId}: ungültige Kurvenrolle.`);
+      if (curve.curveRole !== "core") fail(`${curve.curveId}: für dieses Kernpaket wird curveRole core erwartet.`);
+      if (!requiredSeries.has(curve.seriesId)) fail(`${curve.curveId}: unerwartete Kurve.`);
+      if (seenSeries.has(curve.seriesId)) fail(`${curve.seriesId}: Kurve ist doppelt enthalten.`);
+      seenSeries.add(curve.seriesId);
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
       referenceApi.validateReference(curve);
@@ -79,6 +84,7 @@
         if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
     }
+    if (seenSeries.size !== requiredSeries.size) fail("Das Übergabepaket enthält nicht die drei erwarteten Kernkurven.");
     return actualHash;
   }
   function makePath(points, x, y) {
@@ -110,14 +116,25 @@
     kind.textContent = "Modellreferenz nach dem Modell der Planetaren Grenzen";
     const reference = document.createElement("p");
     reference.textContent = status.reference.display || `Referenzwert: ${status.reference.qualifier === "approximate" ? "etwa " : ""}${status.reference.value} ${status.reference.unit}`;
+    if (status.state === "reference-only") {
+      const assessment = document.createElement("p");
+      assessment.className = "curve-reference-status";
+      assessment.textContent = status.label;
+      panel.append(kind, reference, assessment);
+      appendReferenceSources(panel, curve, status.reference);
+      return;
+    }
     const current = document.createElement("p");
     current.textContent = `Letzter Beobachtungswert (${status.observation.year}): ${status.observation.display || `${formatNumber(status.observation.value)} ${curve.unit}`}`;
     const assessment = document.createElement("p");
     assessment.className = "curve-reference-status";
     assessment.textContent = status.label;
     panel.append(kind, reference, current, assessment);
+    appendReferenceSources(panel, curve, status.reference);
+  }
+  function appendReferenceSources(panel, curve, reference) {
     const sourceMap = new Map((curve.sources || []).map(source => [source.id, source]));
-    const sourceLabels = status.reference.sourceRefs.map(id => sourceMap.get(id)?.title || id);
+    const sourceLabels = reference.sourceRefs.map(id => sourceMap.get(id)?.title || id);
     if (sourceLabels.length) {
       const sources = document.createElement("p");
       sources.className = "curve-reference-sources";
@@ -244,7 +261,7 @@
       const limits = extent(curve);
       const span = limits.maximum - limits.minimum;
       const y = value => plotBottom - ((value - limits.minimum) / span) * (plotBottom - plot.top);
-      const curveGroup = svgElement("g", { class: "curve-series", tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
+      const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}`, tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
       const selectCurve = () => showReference(referencePanel, curve);
       curveGroup.addEventListener("click", selectCurve);
       curveGroup.addEventListener("keydown", event => {
