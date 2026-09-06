@@ -1,6 +1,6 @@
 {
   "format": "gwl-blc-curve-export-v1",
-  "version": "1.6",
+  "version": "1.7",
   "manifestVersion": "1.1",
   "curves": [
     {
@@ -103,6 +103,128 @@
         }
       },
       "observations": [
+        {
+          "year": 1910,
+          "value": 13,
+          "display": "≈ 13,0 % HANPP",
+          "finding": "Für 1910 liegt HANPP näherungsweise bei 13,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1920,
+          "value": 13.8,
+          "display": "≈ 13,8 % HANPP",
+          "finding": "Für 1920 liegt HANPP näherungsweise bei 13,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1930,
+          "value": 14.8,
+          "display": "≈ 14,8 % HANPP",
+          "finding": "Für 1930 liegt HANPP näherungsweise bei 14,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1940,
+          "value": 15.8,
+          "display": "≈ 15,8 % HANPP",
+          "finding": "Für 1940 liegt HANPP näherungsweise bei 15,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1950,
+          "value": 17,
+          "display": "≈ 17,0 % HANPP",
+          "finding": "Für 1950 liegt HANPP näherungsweise bei 17,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 18.5,
+          "display": "≈ 18,5 % HANPP",
+          "finding": "Für 1960 liegt HANPP näherungsweise bei 18,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 20.5,
+          "display": "≈ 20,5 % HANPP",
+          "finding": "Für 1970 liegt HANPP näherungsweise bei 20,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 22.8,
+          "display": "≈ 22,8 % HANPP",
+          "finding": "Für 1980 liegt HANPP näherungsweise bei 22,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 24.8,
+          "display": "≈ 24,8 % HANPP",
+          "finding": "Für 1990 liegt HANPP näherungsweise bei 24,8 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 26.5,
+          "display": "≈ 26,5 % HANPP",
+          "finding": "Für 2000 liegt HANPP näherungsweise bei 26,5 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 28,
+          "display": "≈ 28,0 % HANPP",
+          "finding": "Für 2010 liegt HANPP näherungsweise bei 28,0 % der Referenz-NPP.",
+          "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 30,
+          "display": "≈ 30,0 % HANPP",
+          "finding": "Für 2020 liegt HANPP bei etwa 30,0 % der Referenz-NPP.",
+          "uncertainty": "Separate 2020-Abschätzung; methodisch unterschiedliche Datensätze ergeben unterschiedliche absolute Werte.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        }
+      ],
+      "displayObservations": [
         {
           "year": 1910,
           "value": 13,
@@ -746,6 +868,89 @@
           "value": 422.79,
           "display": "2024: 422,79 ppm CO₂",
           "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,10 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 425.62,
+          "display": "2025: 425,62 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1979,
+          "value": 336.85,
+          "display": "1979: 336,85 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,10 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 351.16,
+          "display": "1988: 351,16 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 356.83,
+          "display": "1993: 356,83 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,07 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 365.7,
+          "display": "1998: 365,70 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,05 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 375.14,
+          "display": "2003: 375,14 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 385.02,
+          "display": "2008: 385,02 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,04 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 395.4,
+          "display": "2013: 395,40 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+          "sourceRefs": [
+            "src_noaa_global_co2_2026"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 407.61,
+          "display": "2018: 407,61 ppm CO₂",
+          "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,08 ppm,",
           "sourceRefs": [
             "src_noaa_global_co2_2026"
           ]
@@ -2370,6 +2575,100 @@
           "value": 22.84
         }
       ],
+      "displayObservations": [
+        {
+          "year": 1905,
+          "value": 14.33
+        },
+        {
+          "year": 1910,
+          "value": 11.87
+        },
+        {
+          "year": 1915,
+          "value": 14.45
+        },
+        {
+          "year": 1920,
+          "value": 13.78
+        },
+        {
+          "year": 1925,
+          "value": 11.53
+        },
+        {
+          "year": 1930,
+          "value": 10.34
+        },
+        {
+          "year": 1935,
+          "value": 10.81
+        },
+        {
+          "year": 1940,
+          "value": 13.77
+        },
+        {
+          "year": 1945,
+          "value": 16.01
+        },
+        {
+          "year": 1950,
+          "value": 14.19
+        },
+        {
+          "year": 1955,
+          "value": 13.62
+        },
+        {
+          "year": 1960,
+          "value": 13.35
+        },
+        {
+          "year": 1965,
+          "value": 14.76
+        },
+        {
+          "year": 1970,
+          "value": 16.43
+        },
+        {
+          "year": 1975,
+          "value": 17.11
+        },
+        {
+          "year": 1980,
+          "value": 15.94
+        },
+        {
+          "year": 1985,
+          "value": 19.07
+        },
+        {
+          "year": 1990,
+          "value": 19.25
+        },
+        {
+          "year": 1995,
+          "value": 18.31
+        },
+        {
+          "year": 2000,
+          "value": 21.11
+        },
+        {
+          "year": 2005,
+          "value": 20.31
+        },
+        {
+          "year": 2010,
+          "value": 22.56
+        },
+        {
+          "year": 2019,
+          "value": 22.84
+        }
+      ],
       "historicalReconstruction": [
         {
           "id": "porkka_2024_historical_reconstruction",
@@ -2601,6 +2900,100 @@
         {
           "year": 2015,
           "value": 22.75
+        },
+        {
+          "year": 2019,
+          "value": 23.56
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1905,
+          "value": 13.68
+        },
+        {
+          "year": 1910,
+          "value": 11.09
+        },
+        {
+          "year": 1915,
+          "value": 13.47
+        },
+        {
+          "year": 1920,
+          "value": 12.78
+        },
+        {
+          "year": 1925,
+          "value": 11.15
+        },
+        {
+          "year": 1930,
+          "value": 10.13
+        },
+        {
+          "year": 1935,
+          "value": 9.72
+        },
+        {
+          "year": 1940,
+          "value": 12.06
+        },
+        {
+          "year": 1945,
+          "value": 15.01
+        },
+        {
+          "year": 1950,
+          "value": 13.08
+        },
+        {
+          "year": 1955,
+          "value": 12.95
+        },
+        {
+          "year": 1960,
+          "value": 11.1
+        },
+        {
+          "year": 1965,
+          "value": 13.3
+        },
+        {
+          "year": 1970,
+          "value": 13.5
+        },
+        {
+          "year": 1975,
+          "value": 16.68
+        },
+        {
+          "year": 1980,
+          "value": 15.1
+        },
+        {
+          "year": 1985,
+          "value": 16.52
+        },
+        {
+          "year": 1990,
+          "value": 17.51
+        },
+        {
+          "year": 1995,
+          "value": 17.07
+        },
+        {
+          "year": 2000,
+          "value": 19.46
+        },
+        {
+          "year": 2005,
+          "value": 19.68
+        },
+        {
+          "year": 2010,
+          "value": 21.66
         },
         {
           "year": 2019,
@@ -2842,6 +3235,74 @@
           "value": 58.9,
           "display": "≈ 58,9 %",
           "finding": "Für 2020 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 58,9 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 59,
+          "display": "≈ 59,0 %",
+          "finding": "Für 2022 liegt der globale Waldanteil bei rund 59 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Gerundeter aktueller Zustandswert des Planetary Health Check; die vollständige numerische Jahresreihe liegt hier nicht tabellarisch vor.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1992,
+          "value": 60.2,
+          "display": "≈ 60,2 %",
+          "finding": "Für 1992 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,2 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 59.6,
+          "display": "≈ 59,6 %",
+          "finding": "Für 2000 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,6 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 59.5,
+          "display": "≈ 59,5 %",
+          "finding": "Für 2005 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,5 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 59.4,
+          "display": "≈ 59,4 %",
+          "finding": "Für 2010 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,4 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 59.1,
+          "display": "≈ 59,1 %",
+          "finding": "Für 2015 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,1 % der potenziellen natürlichen Waldfläche.",
           "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
           "sourceRefs": [
             "src_phc_2025_report",
@@ -3191,6 +3652,128 @@
           ]
         }
       ],
+      "displayObservations": [
+        {
+          "year": 1961,
+          "value": 45,
+          "display": "≈ 45 Tg N/Jahr",
+          "finding": "Für 1961 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 45 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 63,
+          "display": "≈ 63 Tg N/Jahr",
+          "finding": "Für 1970 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 63 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 76,
+          "display": "≈ 76 Tg N/Jahr",
+          "finding": "Für 1975 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 76 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 89,
+          "display": "≈ 89 Tg N/Jahr",
+          "finding": "Für 1980 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 89 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 96,
+          "display": "≈ 96 Tg N/Jahr",
+          "finding": "Für 1985 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 96 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 102,
+          "display": "≈ 102 Tg N/Jahr",
+          "finding": "Für 1990 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 102 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 109,
+          "display": "≈ 109 Tg N/Jahr",
+          "finding": "Für 1995 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 109 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 119,
+          "display": "≈ 119 Tg N/Jahr",
+          "finding": "Für 2000 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 119 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 130,
+          "display": "≈ 130 Tg N/Jahr",
+          "finding": "Für 2005 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 130 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 143,
+          "display": "≈ 143 Tg N/Jahr",
+          "finding": "Für 2010 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 143 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 153,
+          "display": "≈ 153 Tg N/Jahr",
+          "finding": "Für 2015 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 153 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 165,
+          "display": "≈ 165 Tg N/Jahr",
+          "finding": "Für 2022 liegt die anthropogene Stickstofffixierung für die Landwirtschaft nach näherungsweisem Ablesen von Fig. 37 bei rund 165 Tg N/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 37; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        }
+      ],
       "historicalReconstruction": [],
       "projections": [],
       "methodBreaks": [],
@@ -3441,6 +4024,128 @@
           "value": 17.8,
           "display": "≈ 17,8 Tg P/Jahr",
           "finding": "Für 2020 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 17,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 18.2,
+          "display": "≈ 18,2 Tg P/Jahr",
+          "finding": "Für 2022 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 18,2 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1961,
+          "value": 4.8,
+          "display": "≈ 4,8 Tg P/Jahr",
+          "finding": "Für 1961 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 4,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 7.8,
+          "display": "≈ 7,8 Tg P/Jahr",
+          "finding": "Für 1970 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 7,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 10.2,
+          "display": "≈ 10,2 Tg P/Jahr",
+          "finding": "Für 1975 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 10,2 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 12.8,
+          "display": "≈ 12,8 Tg P/Jahr",
+          "finding": "Für 1980 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 12,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 12.4,
+          "display": "≈ 12,4 Tg P/Jahr",
+          "finding": "Für 1985 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 12,4 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 10.8,
+          "display": "≈ 10,8 Tg P/Jahr",
+          "finding": "Für 1990 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 10,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 10.9,
+          "display": "≈ 10,9 Tg P/Jahr",
+          "finding": "Für 1995 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 10,9 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 11.8,
+          "display": "≈ 11,8 Tg P/Jahr",
+          "finding": "Für 2000 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 11,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 13.7,
+          "display": "≈ 13,7 Tg P/Jahr",
+          "finding": "Für 2005 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 13,7 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 15.8,
+          "display": "≈ 15,8 Tg P/Jahr",
+          "finding": "Für 2010 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 15,8 Tg P/Jahr.",
+          "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
+          "sourceRefs": [
+            "src_phc_2025"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 17.4,
+          "display": "≈ 17,4 Tg P/Jahr",
+          "finding": "Für 2015 liegt die Anwendung von mineralischem Phosphor auf globalen Ackerflächen nach näherungsweisem Ablesen von Fig. 35 bei rund 17,4 Tg P/Jahr.",
           "uncertainty": "Näherungswert aus PHC 2025, Fig. 35; für die Trenddarstellung, nicht als exakter Tabellenwert.",
           "sourceRefs": [
             "src_phc_2025"
@@ -3728,6 +4433,40 @@
           "value": 2.951915
         }
       ],
+      "displayObservations": [
+        {
+          "year": 1982,
+          "value": 3.257606
+        },
+        {
+          "year": 1987,
+          "value": 3.221226
+        },
+        {
+          "year": 1992,
+          "value": 3.177271
+        },
+        {
+          "year": 1997,
+          "value": 3.155545
+        },
+        {
+          "year": 2002,
+          "value": 3.119418
+        },
+        {
+          "year": 2007,
+          "value": 3.07239
+        },
+        {
+          "year": 2012,
+          "value": 3.032974
+        },
+        {
+          "year": 2021,
+          "value": 2.951915
+        }
+      ],
       "historicalReconstruction": [
         {
           "id": "noaa_jiang_cmip6_omega_arag_1750_1980",
@@ -3930,6 +4669,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "4516444bb11042cd54653612cc06a7e5d15fe83fa1fabe007d308c38128f33cb"
+    "hash": "afbca7bb475bebc3104773b4a9e271f22faea0f3abc9ab5a2425ae1b614fe652"
   }
 }

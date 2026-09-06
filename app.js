@@ -99,6 +99,9 @@
       seenSeries.add(curve.seriesId);
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
+      if (!validPoints(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: gültige Darstellungsreihe fehlt.`);
+      const observationYears = new Set(curve.observations.map(point => Number(point.year)));
+      if (curve.displayObservations.some(point => !observationYears.has(Number(point.year)))) fail(`${curve.curveId}: Darstellungsreihe enthält keinen Originalpunkt.`);
       referenceApi.validateReference(curve);
       for (const kind of ["boundary", "highRisk"]) {
         const assessment = curve.thresholdAssessments?.[kind];
@@ -308,7 +311,7 @@
       }
       curveGroup.appendChild(svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) }));
       (curve.projections || []).forEach(projection => curveGroup.appendChild(svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) })));
-      curve.observations.forEach(point => {
+      curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
         const tooltip = svgElement("title");
         tooltip.textContent = `${meta.label} · ${point.year}: ${point.display || `${point.value} ${meta.unit}`}`;

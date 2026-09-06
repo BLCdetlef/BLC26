@@ -10,7 +10,7 @@ const fail = message => { throw new Error(message); };
 
 const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "blue_water_streamflow", "green_water_rootzone_soil_moisture", "global_forest_cover_1992_2022", "nitrogen_fixation_1961_2022", "phosphorus_cropland_1961_2022", "global_surface_omega_arag_oceansoda_1982_2021"]);
 const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
-if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.6" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
+if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.7" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
 if (payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau acht Kurven enthalten.");
 if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsblock fehlt.");
 const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
@@ -28,11 +28,15 @@ for (const curve of payload.curves) {
   seenSeries.add(curve.seriesId);
   if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
   if (!Array.isArray(curve.observations) || curve.observations.length < 5) fail(`${curve.curveId}: Beobachtungsreihe fehlt.`);
+  if (!Array.isArray(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: Darstellungsreihe fehlt.`);
   for (const kind of ["boundary", "highRisk"]) {
     const assessment = curve.thresholdAssessments?.[kind];
     if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(`${curve.curveId}: ungültiger Grenzstatus für ${kind}.`);
   }
   const observationYears = curve.observations.map(point => Number(point?.year));
+  const observationYearSet = new Set(observationYears);
+  const displayYears = curve.displayObservations.map(point => Number(point?.year));
+  if (displayYears.some(year => !observationYearSet.has(year))) fail(`${curve.curveId}: Darstellungsreihe enthält keinen Originalpunkt.`);
   if (observationYears.some(year => !Number.isFinite(year))) fail(`${curve.curveId}: ungültiges Beobachtungsjahr.`);
   const firstObservationYear = Math.min(...observationYears);
   const historicalPoints = (curve.historicalReconstruction || []).flatMap(segment => segment.points || []);

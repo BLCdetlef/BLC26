@@ -4,6 +4,6 @@ window.BRUCHLAST_DATA = Object.freeze({
   import: Object.freeze({
     source: "data/gwl/blc-curve-export-v1.json",
     format: "gwl-blc-curve-export-v1",
-    version: "1.6"
+    version: "1.7"
   })
 });

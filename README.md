@@ -35,6 +35,8 @@ Nach Auswahl einer Kurve zeigt BLC26 ergänzende Referenzinformationen als Text.
 
 Seit GWL-Exportversion 1.6 werden zusätzlich die abgeleiteten Grenzstatus für planetare Grenze und hohen Risikobereich übernommen. Die Status unterscheiden eine Überschreitung innerhalb der Reihe, eine bereits am Reihenanfang bestehende Überschreitung, keine Überschreitung, ein Reihenende vor einer separat belegten Überschreitung und einen nicht beurteilbaren Fall.
 
+Seit Exportversion 1.7 bleibt die vollständige Beobachtungsreihe Grundlage des Linienverlaufs, während BLC26 sichtbare Datenpunkte ausschließlich aus `displayObservations` zeichnet. Diese vom GWL-Exporter erzeugte Reihe hält grundsätzlich mindestens fünf Jahre Abstand und bewahrt ersten, letzten sowie fachlich notwendige Überschreitungspunkte.
+
 ## Aktualisierung
 
 1. Im GWL-Panel Kurven redaktionell freigeben.
