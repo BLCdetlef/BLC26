@@ -9,6 +9,7 @@
   const allowedRoles = new Set(["boundary"]);
   const allowedQualifiers = new Set(["exact", "approximate"]);
   const allowedOperators = new Set([">", "<"]);
+  const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
 
   function fail(message) { throw new Error(message); }
 
@@ -48,6 +49,14 @@
     }
     const observation = latestObservation(curve.observations);
     if (!observation) return { state: "unknown", label: "Für diese Kurve ist keine aktuelle Bewertung möglich." };
+    const assessment = curve.thresholdAssessments?.boundary;
+    if (assessment && allowedThresholdStatuses.has(assessment.status)) {
+      if (assessment.status === "already_crossed_at_start") return { state: "exceeded", label: `Beim ersten Messpunkt ${assessment.firstCrossingPoint.year} bereits überschritten`, observation, reference };
+      if (assessment.status === "crossed") return { state: "exceeded", label: `Erstmals im Datensatz ${assessment.firstCrossingPoint.year} überschritten`, observation, reference };
+      if (assessment.status === "not_crossed") return { state: "not-exceeded", label: `In der geprüften Reihe bis ${assessment.lastCheckedPoint.year} nicht überschritten`, observation, reference };
+      if (assessment.status === "series_ends_before_known_crossing") return { state: "external-crossing", label: `Reihe endet ${assessment.lastCheckedPoint.year} vor der separat belegten Überschreitung ${assessment.knownCrossingPoint.year}`, observation, reference };
+      return { state: "unknown", label: "Mit dieser Reihe nicht beurteilbar", observation, reference };
+    }
     const value = Number(observation.value);
     const threshold = Number(reference.value);
     const exceeded = reference.exceedanceOperator === ">" ? value > threshold : value < threshold;

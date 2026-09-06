@@ -8,7 +8,8 @@
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const svgNamespace = "http://www.w3.org/2000/svg";
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
-  const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "blue_water_streamflow"]);
+  const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "green_water_rootzone_soil_moisture", "global_forest_cover_1992_2022", "global_surface_omega_arag_oceansoda_1982_2021"]);
+  const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   const presentation = Object.freeze({
     biosphere_hanpp_1910_2020: {
@@ -21,15 +22,20 @@
       detail: "Globales Jahresmittel der CO₂-Konzentration",
       unit: "ppm"
     },
-    blue_water_streamflow: {
-      label: "Landfläche mit ungewöhnlichem Flussabfluss",
-      detail: "Anteil mit ungewöhnlich hohem oder niedrigem Abfluss · höher = mehr gestörte Fläche",
+    green_water_rootzone_soil_moisture: {
+      label: "Landfläche mit ungewöhnlicher Bodenfeuchte",
+      detail: "Anteil mit ungewöhnlich trockener oder nasser Bodenfeuchte · höher = mehr gestörte Fläche",
       unit: "% der eisfreien Landfläche"
     },
     global_forest_cover_1992_2022: {
       label: "Verbleibende globale Waldfläche",
       detail: "Anteil an der potenziellen natürlichen Waldfläche · niedriger = weniger Wald",
       unit: "% der potenziellen Waldfläche"
+    },
+    global_surface_omega_arag_oceansoda_1982_2021: {
+      label: "Aragonit-Sättigung des Oberflächenozeans",
+      detail: "Globales flächengewichtetes Jahresmittel · niedriger = stärkere Ozeanversauerung",
+      unit: "Ωarag"
     }
   });
 
@@ -61,7 +67,7 @@
     if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
     for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(`Unbekanntes Exportfeld: ${field}`);
     if (payload.format !== config.import.format || payload.version !== config.import.version) fail("Unbekanntes Exportformat.");
-    if (!Array.isArray(payload.curves) || payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau drei Kurven enthalten.");
+    if (!Array.isArray(payload.curves) || payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau fünf Kurven enthalten.");
     if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsangabe fehlt.");
     const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
     const actualHash = await sha256(JSON.stringify(signedPayload));
@@ -79,12 +85,16 @@
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
       referenceApi.validateReference(curve);
+      for (const kind of ["boundary", "highRisk"]) {
+        const assessment = curve.thresholdAssessments?.[kind];
+        if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(`${curve.curveId}: ungültiger Grenzstatus für ${kind}.`);
+      }
       for (const segment of curve.historicalReconstruction || []) if (!validPoints(segment.points) || !segment.points.length) fail(`${curve.curveId}: ungültige Rekonstruktion.`);
       for (const projection of curve.projections || []) {
         if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
     }
-    if (seenSeries.size !== requiredSeries.size) fail("Das Übergabepaket enthält nicht die drei erwarteten Kernkurven.");
+    if (seenSeries.size !== requiredSeries.size) fail("Das Übergabepaket enthält nicht die fünf erwarteten Kernkurven.");
     return actualHash;
   }
   function makePath(points, x, y) {
@@ -282,6 +292,25 @@
         }
       }
       curveGroup.appendChild(svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) }));
+      [["boundary", "Planetare Grenze"], ["highRisk", "Hoher Risikobereich"]].forEach(([kind, label]) => {
+        const assessment = curve.thresholdAssessments?.[kind];
+        const point = assessment?.firstCrossingPoint;
+        if (curve.curveRole !== "core" || !point) return;
+        const marker = svgElement("line", {
+          class: `curve-threshold-crossing is-${kind}`,
+          stroke: color,
+          x1: x(Number(point.year)),
+          y1: y(Number(point.value)) - 6,
+          x2: x(Number(point.year)),
+          y2: y(Number(point.value)) + 6,
+          role: "img",
+          "aria-label": `${label}: ${assessment.status === "already_crossed_at_start" ? "beim ersten Messpunkt bereits überschritten" : "erstmals im Datensatz überschritten"}, ${point.year}`
+        });
+        const title = svgElement("title");
+        title.textContent = marker.getAttribute("aria-label");
+        marker.appendChild(title);
+        curveGroup.appendChild(marker);
+      });
       (curve.projections || []).forEach(projection => curveGroup.appendChild(svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) })));
       curve.observations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });

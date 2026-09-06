@@ -33,6 +33,8 @@ Bei einem Fehler wird der gesamte Import gesperrt. Quelldaten werden nur über D
 
 Nach Auswahl einer Kurve zeigt BLC26 ergänzende Referenzinformationen als Text. Der Status verwendet ausschließlich den zeitlich letzten gültigen Beobachtungspunkt; historische Rekonstruktionen und Szenarien werden dafür nicht ausgewertet. Eine fehlende oder nicht vergleichbare Referenz wird ausdrücklich als solche bezeichnet und niemals als Unterschreitung gewertet.
 
+Seit GWL-Exportversion 1.6 werden zusätzlich die abgeleiteten Grenzstatus für planetare Grenze und hohen Risikobereich übernommen. Die Status unterscheiden eine Überschreitung innerhalb der Reihe, eine bereits am Reihenanfang bestehende Überschreitung, keine Überschreitung, ein Reihenende vor einer separat belegten Überschreitung und einen nicht beurteilbaren Fall.
+
 ## Aktualisierung
 
 1. Im GWL-Panel Kurven redaktionell freigeben.

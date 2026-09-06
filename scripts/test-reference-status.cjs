@@ -12,6 +12,8 @@ const base = {
 };
 
 assert.equal(referenceStatus(base).state, "exceeded");
+assert.equal(referenceStatus({ ...base, thresholdAssessments: { boundary: { status: "crossed", firstCrossingPoint: { year: 2010, value: 10.5 } } } }).label, "Erstmals im Datensatz 2010 überschritten");
+assert.equal(referenceStatus({ ...base, thresholdAssessments: { boundary: { status: "series_ends_before_known_crossing", lastCheckedPoint: { year: 2021, value: 2.95 }, knownCrossingPoint: { year: 2025, value: 2.84 } } } }).state, "external-crossing");
 assert.equal(referenceStatus({ ...base, observations: [{ year: 2020, value: 10 }] }).state, "reached");
 assert.equal(referenceStatus({ ...base, observations: [{ year: 2020, value: 9 }] }).state, "not-exceeded");
 assert.equal(referenceStatus({ ...base, reference: undefined }).state, "missing");

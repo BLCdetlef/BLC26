@@ -65,6 +65,8 @@ h2 { margin-bottom: .35rem; }
 .projection-3 { stroke: #3f7565; }
 .projection-4 { stroke: #8c5252; }
 .curve-point { stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.curve-threshold-crossing { stroke-width: 4; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+.curve-threshold-crossing.is-highRisk { stroke-width: 5; }
 .chart-grid-horizontal { stroke-dasharray: 3 5; }
 .historical-event { outline: none; }
 .historical-event-band { fill: #5c5c58; opacity: .055; transition: opacity .16s ease; }

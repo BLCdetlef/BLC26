@@ -1,6 +1,6 @@
 {
   "format": "gwl-blc-curve-export-v1",
-  "version": "1.5",
+  "version": "1.6",
   "manifestVersion": "1.1",
   "curves": [
     {
@@ -18,6 +18,8 @@
       "unit": "%",
       "geography": "Global",
       "worseningDirection": "increase",
+      "uncertainty": "Näherungswerte aus einer publizierten Abbildung; keine jährliche Messgenauigkeit. HANPP ist ein Proxy, und methodisch unterschiedliche Datensätze ergeben unterschiedliche absolute Werte.",
+      "methodNote": "Planetary Health Check 2025 beschreibt die historische HANPP-Reihe als 10–20-Jahres-Mittel; 2020 ist eine separate Abschätzung. Die Stützwerte sind näherungsweise aus der publizierten Abbildung abgelesen; es wird kein künstliches 5-Jahres-Raster erzeugt.",
       "observationCoverage": {
         "startYear": 1910,
         "endYear": 2020,
@@ -40,6 +42,65 @@
         "role": "boundary",
         "qualifier": "approximate",
         "exceedanceOperator": ">"
+      },
+      "highRisk": {
+        "value": 20,
+        "unit": "%",
+        "exceedanceOperator": ">"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": 10,
+          "thresholdUnit": "%",
+          "exceedanceOperator": ">",
+          "status": "already_crossed_at_start",
+          "firstCrossingPoint": {
+            "year": 1910,
+            "value": 13,
+            "display": "≈ 13,0 % HANPP",
+            "finding": "Für 1910 liegt HANPP näherungsweise bei 13,0 % der Referenz-NPP.",
+            "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+            "sourceRefs": [
+              "src_phc_2025"
+            ]
+          },
+          "lastCheckedPoint": {
+            "year": 2020,
+            "value": 30,
+            "display": "≈ 30,0 % HANPP",
+            "finding": "Für 2020 liegt HANPP bei etwa 30,0 % der Referenz-NPP.",
+            "uncertainty": "Separate 2020-Abschätzung; methodisch unterschiedliche Datensätze ergeben unterschiedliche absolute Werte.",
+            "sourceRefs": [
+              "src_phc_2025"
+            ]
+          }
+        },
+        "highRisk": {
+          "thresholdValue": 20,
+          "thresholdUnit": "%",
+          "exceedanceOperator": ">",
+          "status": "crossed",
+          "firstCrossingPoint": {
+            "year": 1970,
+            "value": 20.5,
+            "display": "≈ 20,5 % HANPP",
+            "finding": "Für 1970 liegt HANPP näherungsweise bei 20,5 % der Referenz-NPP.",
+            "uncertainty": "Näherungswert aus der PHC-Abbildung; historische Reihe als 10–20-Jahres-Mittel.",
+            "sourceRefs": [
+              "src_phc_2025"
+            ]
+          },
+          "lastCheckedPoint": {
+            "year": 2020,
+            "value": 30,
+            "display": "≈ 30,0 % HANPP",
+            "finding": "Für 2020 liegt HANPP bei etwa 30,0 % der Referenz-NPP.",
+            "uncertainty": "Separate 2020-Abschätzung; methodisch unterschiedliche Datensätze ergeben unterschiedliche absolute Werte.",
+            "sourceRefs": [
+              "src_phc_2025"
+            ]
+          }
+        }
       },
       "observations": [
         {
@@ -201,6 +262,8 @@
       "unit": "ppm",
       "geography": "Global",
       "worseningDirection": "increase",
+      "finding": "Die planetare Grenze von 350 ppm wurde in dieser NOAA-Jahresreihe Ende der 1980er Jahre überschritten; 2025 lag der globale Jahresmittelwert bei 425,62 ppm.",
+      "uncertainty": "Die NOAA-Reihe ist ein globales Jahresmittel aus marinen Hintergrundstationen. Die jüngsten Werte können durch Qualitätskontrollen geringfügig revidiert werden.",
       "observationCoverage": {
         "startYear": 1979,
         "endYear": 2025,
@@ -218,7 +281,59 @@
         "display": "Grenzwert nach dem Modell der Planetaren Grenzen: 350 ppm CO₂",
         "sourceRefs": [
           "src_richardson_pb_2023"
+        ],
+        "role": "boundary",
+        "qualifier": "exact",
+        "exceedanceOperator": ">"
+      },
+      "highRisk": {
+        "value": 450,
+        "unit": "ppm",
+        "exceedanceOperator": ">",
+        "sourceRefs": [
+          "src_richardson_pb_2023"
         ]
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": 350,
+          "thresholdUnit": "ppm",
+          "exceedanceOperator": ">",
+          "status": "crossed",
+          "firstCrossingPoint": {
+            "year": 1988,
+            "value": 351.16,
+            "display": "1988: 351,16 ppm CO₂",
+            "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,06 ppm,",
+            "sourceRefs": [
+              "src_noaa_global_co2_2026"
+            ]
+          },
+          "lastCheckedPoint": {
+            "year": 2025,
+            "value": 425.62,
+            "display": "2025: 425,62 ppm CO₂",
+            "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+            "sourceRefs": [
+              "src_noaa_global_co2_2026"
+            ]
+          }
+        },
+        "highRisk": {
+          "thresholdValue": 450,
+          "thresholdUnit": "ppm",
+          "exceedanceOperator": ">",
+          "status": "not_crossed",
+          "lastCheckedPoint": {
+            "year": 2025,
+            "value": 425.62,
+            "display": "2025: 425,62 ppm CO₂",
+            "uncertainty": "NOAA global marine-surface annual mean; uncertainty ±0,09 ppm,",
+            "sourceRefs": [
+              "src_noaa_global_co2_2026"
+            ]
+          }
+        }
       },
       "observations": [
         {
@@ -2086,20 +2201,21 @@
       ]
     },
     {
-      "curveId": "knowledge:data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json#blue_water_streamflow",
+      "curveId": "knowledge:data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json#green_water_rootzone_soil_moisture",
       "boundaryId": "freshwater",
-      "itemId": "blue-water-streamflow",
-      "seriesId": "blue_water_streamflow",
+      "itemId": "green-water-rootzone-soil-moisture",
+      "seriesId": "green_water_rootzone_soil_moisture",
       "source": "data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json",
       "domainType": "planetary_boundary",
       "domainId": "freshwater_change",
       "domainLabel": "Süßwasser",
       "curveRole": "core",
-      "label": "Blaues Wasser – ungewöhnlicher Abfluss",
-      "metric": "Anteil der globalen eisfreien Landfläche mit ungewöhnlich hohem oder niedrigem Abfluss gegenüber dem früher üblichen Bereich. Höher bedeutet mehr gestörte Fläche, nicht mehr Wasser.",
+      "label": "Grünes Wasser – ungewöhnliche Bodenfeuchte für Pflanzen",
+      "metric": "Anteil der globalen eisfreien Landfläche mit für Pflanzen ungewöhnlich trockener oder nasser Bodenfeuchte gegenüber dem früher üblichen Bereich. Höher bedeutet mehr gestörte Fläche, nicht mehr Wasser.",
       "unit": "%",
       "geography": "Global",
       "worseningDirection": "increase",
+      "uncertainty": "Interquartilsbereich des Modellensembles (IQR)",
       "observationCoverage": {
         "startYear": 1905,
         "endYear": 2019,
@@ -2112,157 +2228,192 @@
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
+        "value": 12.38,
+        "unit": "%",
+        "display": "Obere Modellreferenz: etwa 12,38 % der eisfreien Landfläche",
+        "sourceRefs": [
+          "dataset-source"
+        ],
         "role": "boundary",
         "qualifier": "approximate",
-        "exceedanceOperator": ">",
-        "value": 12.94,
+        "exceedanceOperator": ">"
+      },
+      "highRisk": {
+        "value": 50,
         "unit": "%",
-        "display": "Obere Modellreferenz: etwa 12,94 % der eisfreien Landfläche",
+        "exceedanceOperator": ">",
         "sourceRefs": [
           "dataset-source"
         ]
       },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": 12.38,
+          "thresholdUnit": "%",
+          "exceedanceOperator": ">",
+          "status": "already_crossed_at_start",
+          "firstCrossingPoint": {
+            "year": 1905,
+            "value": 13.68
+          },
+          "lastCheckedPoint": {
+            "year": 2019,
+            "value": 23.56
+          }
+        },
+        "highRisk": {
+          "thresholdValue": 50,
+          "thresholdUnit": "%",
+          "exceedanceOperator": ">",
+          "status": "not_crossed",
+          "lastCheckedPoint": {
+            "year": 2019,
+            "value": 23.56
+          }
+        }
+      },
       "observations": [
         {
           "year": 1905,
-          "value": 14.33
+          "value": 13.68
         },
         {
           "year": 1910,
-          "value": 11.87
+          "value": 11.09
         },
         {
           "year": 1915,
-          "value": 14.45
+          "value": 13.47
         },
         {
           "year": 1920,
-          "value": 13.78
+          "value": 12.78
         },
         {
           "year": 1925,
-          "value": 11.53
+          "value": 11.15
         },
         {
           "year": 1930,
-          "value": 10.34
+          "value": 10.13
         },
         {
           "year": 1935,
-          "value": 10.81
+          "value": 9.72
         },
         {
           "year": 1940,
-          "value": 13.77
+          "value": 12.06
         },
         {
           "year": 1945,
-          "value": 16.01
+          "value": 15.01
         },
         {
           "year": 1950,
-          "value": 14.19
+          "value": 13.08
         },
         {
           "year": 1955,
-          "value": 13.62
+          "value": 12.95
         },
         {
           "year": 1960,
-          "value": 13.35
+          "value": 11.1
         },
         {
           "year": 1965,
-          "value": 14.76
+          "value": 13.3
         },
         {
           "year": 1970,
-          "value": 16.43
+          "value": 13.5
         },
         {
           "year": 1975,
-          "value": 17.11
+          "value": 16.68
         },
         {
           "year": 1980,
-          "value": 15.94
+          "value": 15.1
         },
         {
           "year": 1985,
-          "value": 19.07
+          "value": 16.52
         },
         {
           "year": 1990,
-          "value": 19.25
+          "value": 17.51
         },
         {
           "year": 1995,
-          "value": 18.31
+          "value": 17.07
         },
         {
           "year": 2000,
-          "value": 21.11
+          "value": 19.46
         },
         {
           "year": 2005,
-          "value": 20.31
+          "value": 19.68
         },
         {
           "year": 2010,
-          "value": 22.56
+          "value": 21.66
         },
         {
           "year": 2015,
-          "value": 23.22
+          "value": 22.75
         },
         {
           "year": 2019,
-          "value": 22.84
+          "value": 23.56
         }
       ],
       "historicalReconstruction": [
         {
           "id": "porkka_2024_historical_reconstruction",
           "label": "Historische Vorgängerrekonstruktion",
+          "period": "1861–1900",
           "sourceRefs": [
             "src_freshwater_porkka_2024"
           ],
           "points": [
             {
               "year": 1861,
-              "value": 12.27
+              "value": 10.63
             },
             {
               "year": 1865,
-              "value": 12.26
+              "value": 12.74
             },
             {
               "year": 1870,
-              "value": 10.07
+              "value": 10.81
             },
             {
               "year": 1875,
-              "value": 11.21
+              "value": 9.83
             },
             {
               "year": 1880,
-              "value": 9.58
+              "value": 9.19
             },
             {
               "year": 1885,
-              "value": 9.61
+              "value": 9.01
             },
             {
               "year": 1890,
-              "value": 10.18
+              "value": 9.54
             },
             {
               "year": 1895,
-              "value": 10.4
+              "value": 9.82
             },
             {
               "year": 1900,
-              "value": 10.02
+              "value": 9.6
             }
           ]
         }
@@ -2285,11 +2436,731 @@
           "doi": "10.1038/s44221-024-00208-7"
         }
       ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_land_system_change_pilot_v0.1.json#global_forest_cover_1992_2022",
+      "boundaryId": "land",
+      "itemId": "global-forest-status",
+      "seriesId": "global_forest_cover_1992_2022",
+      "source": "data/knowledge/gwl_land_system_change_pilot_v0.1.json",
+      "domainType": "planetary_boundary",
+      "domainId": "land_system_change",
+      "domainLabel": "Land-System-Wandel",
+      "curveRole": "core",
+      "label": "Globaler Waldanteil relativ zur potenziellen natürlichen Waldfläche",
+      "metric": "",
+      "unit": "%",
+      "geography": "Global",
+      "worseningDirection": "decrease",
+      "finding": "Figure 28 zeigt einen langfristig leicht rückläufigen globalen Waldanteil zwischen 1992 und 2022. Das GWL-Panel verwendet ausgewählte Stützjahre statt aller Jahreswerte.",
+      "uncertainty": "Die Stützwerte 1992–2020 wurden näherungsweise aus Figure 28 des Planetary Health Check 2025 abgelesen. Sie dienen der Trenddarstellung und sind keine veröffentlichten tabellarischen Originalwerte. 2022 ist auf den berichteten aktuellen Wert von rund 59 % gerundet.",
+      "methodNote": "Die gestrichelte Rekonstruktion beruht auf Pongratz et al. (2008), die durchgezogene Hauptreihe auf Copernicus/ESA-CCI-Daten in der Auswertung des Planetary Health Check 2025. Das ◇ bei 1992 markiert den Methodenwechsel. Die beiden Werte für 1992 werden nicht verbunden: 71,1 % rekonstruiert und etwa 60,2 % satellitenbasiert. Unterschiedliche Walddefinitionen, räumliche Auflösungen und erfasste Landnutzungsprozesse verhindern eine unmittelbare Vergleichbarkeit.",
+      "observationCoverage": {
+        "startYear": 1992,
+        "endYear": 2022,
+        "spanYears": 30,
+        "pointCount": 8
+      },
+      "observationSourceRefs": [
+        "src_phc_2025_report",
+        "src_phc_land_2025"
+      ],
+      "reference": {
+        "type": "planetary_boundaries_model",
+        "modelName": "Planetare Grenzen",
+        "value": 75,
+        "unit": "%",
+        "display": "Grenzwert nach dem Modell der Planetaren Grenzen: 75 %",
+        "sourceRefs": [
+          "src_richardson_2023"
+        ],
+        "role": "boundary",
+        "qualifier": "exact",
+        "exceedanceOperator": "<"
+      },
+      "highRisk": {
+        "value": 54,
+        "unit": "%",
+        "exceedanceOperator": "<",
+        "sourceRefs": [
+          "src_richardson_2023"
+        ]
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": 75,
+          "thresholdUnit": "%",
+          "exceedanceOperator": "<",
+          "status": "already_crossed_at_start",
+          "firstCrossingPoint": {
+            "year": 1992,
+            "value": 60.2,
+            "display": "≈ 60,2 %",
+            "finding": "Für 1992 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,2 % der potenziellen natürlichen Waldfläche.",
+            "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+            "sourceRefs": [
+              "src_phc_2025_report",
+              "src_phc_land_2025"
+            ]
+          },
+          "lastCheckedPoint": {
+            "year": 2022,
+            "value": 59,
+            "display": "≈ 59,0 %",
+            "finding": "Für 2022 liegt der globale Waldanteil bei rund 59 % der potenziellen natürlichen Waldfläche.",
+            "uncertainty": "Gerundeter aktueller Zustandswert des Planetary Health Check; die vollständige numerische Jahresreihe liegt hier nicht tabellarisch vor.",
+            "sourceRefs": [
+              "src_phc_2025_report",
+              "src_phc_land_2025"
+            ]
+          }
+        },
+        "highRisk": {
+          "thresholdValue": 54,
+          "thresholdUnit": "%",
+          "exceedanceOperator": "<",
+          "status": "not_crossed",
+          "lastCheckedPoint": {
+            "year": 2022,
+            "value": 59,
+            "display": "≈ 59,0 %",
+            "finding": "Für 2022 liegt der globale Waldanteil bei rund 59 % der potenziellen natürlichen Waldfläche.",
+            "uncertainty": "Gerundeter aktueller Zustandswert des Planetary Health Check; die vollständige numerische Jahresreihe liegt hier nicht tabellarisch vor.",
+            "sourceRefs": [
+              "src_phc_2025_report",
+              "src_phc_land_2025"
+            ]
+          }
+        }
+      },
+      "observations": [
+        {
+          "year": 1992,
+          "value": 60.2,
+          "display": "≈ 60,2 %",
+          "finding": "Für 1992 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,2 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 60,
+          "display": "≈ 60,0 %",
+          "finding": "Für 1995 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 60,0 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 59.6,
+          "display": "≈ 59,6 %",
+          "finding": "Für 2000 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,6 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 59.5,
+          "display": "≈ 59,5 %",
+          "finding": "Für 2005 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,5 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 59.4,
+          "display": "≈ 59,4 %",
+          "finding": "Für 2010 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,4 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 59.1,
+          "display": "≈ 59,1 %",
+          "finding": "Für 2015 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,1 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 58.9,
+          "display": "≈ 58,9 %",
+          "finding": "Für 2020 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 58,9 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 59,
+          "display": "≈ 59,0 %",
+          "finding": "Für 2022 liegt der globale Waldanteil bei rund 59 % der potenziellen natürlichen Waldfläche.",
+          "uncertainty": "Gerundeter aktueller Zustandswert des Planetary Health Check; die vollständige numerische Jahresreihe liegt hier nicht tabellarisch vor.",
+          "sourceRefs": [
+            "src_phc_2025_report",
+            "src_phc_land_2025"
+          ]
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "pongratz_2008_historical_forest_reconstruction",
+          "label": "Historische Landbedeckungsrekonstruktion",
+          "period": "1700–1992 im BLC-Zeitfenster; Gesamtdatensatz 800–1992",
+          "sourceRefs": [
+            "src_pongratz_2008",
+            "src_pongratz_wdcc_dataset"
+          ],
+          "points": [
+            {
+              "year": 1700,
+              "value": 93.78,
+              "display": "≈ 93,8 %",
+              "finding": "Pongratz et al. berichten für 1700 45,65 Mio. km² Wald bei 48,68 Mio. km² potenzieller Waldfläche; daraus ergeben sich rund 93,8 %.",
+              "uncertainty": "Quotient aus den publizierten globalen Summen. Modellbasierte Rekonstruktion landwirtschaftlich verursachter Landbedeckungsänderung; Holzeinschlag und langfristige Brache sind nicht vollständig enthalten.",
+              "sourceRefs": [
+                "src_pongratz_2008"
+              ]
+            },
+            {
+              "year": 1992,
+              "value": 71.08,
+              "display": "≈ 71,1 %",
+              "finding": "Pongratz et al. berichten für 1992 34,60 Mio. km² Wald bei 48,68 Mio. km² potenzieller Waldfläche; daraus ergeben sich rund 71,1 %.",
+              "uncertainty": "Quotient aus den publizierten globalen Summen. Nicht direkt mit dem Copernicus-/PHC-Wert von etwa 60,2 % vergleichbar; der Abstand beträgt rund 10,9 Prozentpunkte.",
+              "sourceRefs": [
+                "src_pongratz_2008"
+              ]
+            }
+          ]
+        }
+      ],
+      "projections": [],
+      "methodBreaks": [
+        {
+          "year": 1992,
+          "label": "Wechsel der Datengrundlage",
+          "showValues": true
+        }
+      ],
+      "sources": [
+        {
+          "id": "src_phc_2025_report",
+          "title": "Planetary Health Check 2025",
+          "publisher": "Potsdam Institute for Climate Impact Research (PIK)",
+          "year": 2025,
+          "url": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_phc_land_2025",
+          "title": "Land System Change",
+          "publisher": "Planetary Health Check",
+          "year": 2025,
+          "url": "https://www.planetaryhealthcheck.org/boundary/land-system-change/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_richardson_2023",
+          "title": "Earth beyond six of nine planetary boundaries",
+          "publisher": "Science Advances",
+          "year": 2023,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499318/",
+          "doi": "10.1126/sciadv.adh2458",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_pongratz_2008",
+          "title": "A reconstruction of global agricultural areas and land cover for the last millennium",
+          "publisher": "Global Biogeochemical Cycles",
+          "year": 2008,
+          "url": "https://doi.org/10.1029/2007GB003153",
+          "doi": "10.1029/2007GB003153",
+          "access": "open_manuscript_and_dataset"
+        },
+        {
+          "id": "src_pongratz_wdcc_dataset",
+          "title": "Reconstruction of global land use and land cover AD 800 to 1992",
+          "publisher": "World Data Center for Climate",
+          "year": 2007,
+          "url": "https://doi.org/10.1594/WDCC/RECON_LAND_COVER_800-1992",
+          "doi": "10.1594/WDCC/RECON_LAND_COVER_800-1992",
+          "access": "open_dataset"
+        }
+      ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_ocean_acidification_v0.1.json#global_surface_omega_arag_oceansoda_1982_2021",
+      "boundaryId": "ocean",
+      "itemId": "global-surface-aragonite-saturation",
+      "seriesId": "global_surface_omega_arag_oceansoda_1982_2021",
+      "source": "data/knowledge/gwl_ocean_acidification_v0.1.json",
+      "domainType": "planetary_boundary",
+      "domainId": "ocean_acidification",
+      "domainLabel": "Ozeanversauerung",
+      "curveRole": "core",
+      "label": "Globaler mittlerer Aragonit-Sättigungszustand des Oberflächenozeans",
+      "metric": "Globales flächengewichtetes Jahresmittel des Aragonit-Sättigungszustands im eisfreien Oberflächenozean",
+      "unit": "Ωarag",
+      "geography": "Globaler eisfreier Oberflächenozean",
+      "worseningDirection": "decrease",
+      "finding": "OceanSODA zeigt 1982–2021 einen nahezu linearen globalen Rückgang von Ωarag. Die publizierte Trendrate beträgt −0,071 ± 0,006 pro Jahrzehnt.",
+      "uncertainty": "OceanSODA ist eine beobachtungsbasierte Rasterrekonstruktion und keine direkte flächendeckende Messung. Die publizierte Unsicherheit der jährlichen globalen Mittelwerte beträgt ±0,014 Ωarag. Die hier dargestellten absoluten Jahreswerte verbinden die publizierten jährlichen Änderungen mit dem auf zwei Dezimalstellen publizierten Periodenmittel 3,11; daraus folgt zusätzlich eine Rundungsunsicherheit des absoluten Niveaus von mindestens ±0,005. Der Niveauanschluss an NOAA 1980 ist nicht abschließend validiert.",
+      "methodNote": "Gestrichelt: NOAA/Jiang-Median von 14 bias-korrigierten CMIP6-Rekonstruktionen. Durchgezogen: OceanSODA-Beobachtungsrekonstruktion. Das ◇ bei 1982 markiert den Methodenwechsel. NOAA 1980 (3,196) und OceanSODA 1982 (3,258) werden nicht verbunden oder gegeneinander verschoben; der Abstand ist nicht als reale Zweijahresänderung zu lesen.",
+      "observationCoverage": {
+        "startYear": 1982,
+        "endYear": 2021,
+        "spanYears": 39,
+        "pointCount": 40
+      },
+      "observationSourceRefs": [
+        "src_ma_2023_oceansoda_trends",
+        "src_ma_2023_oceansoda_data"
+      ],
+      "reference": {
+        "type": "planetary_boundaries_model",
+        "modelName": "Planetare Grenzen",
+        "value": 2.86,
+        "unit": "Ωarag",
+        "display": "Grenzwert nach dem Modell der Planetaren Grenzen: Ωarag 2,86",
+        "sourceRefs": [
+          "src_phc_2025_ocean"
+        ],
+        "role": "boundary",
+        "qualifier": "exact",
+        "exceedanceOperator": "<"
+      },
+      "highRisk": {
+        "value": 2.5,
+        "unit": "Ωarag",
+        "exceedanceOperator": "<",
+        "sourceRefs": [
+          "src_phc_2025_ocean"
+        ]
+      },
+      "knownBoundaryCrossing": {
+        "year": 2025,
+        "value": 2.84,
+        "unit": "Ωarag",
+        "sourceRefs": [
+          "src_phc_2025_ocean"
+        ]
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": 2.86,
+          "thresholdUnit": "Ωarag",
+          "exceedanceOperator": "<",
+          "status": "series_ends_before_known_crossing",
+          "lastCheckedPoint": {
+            "year": 2021,
+            "value": 2.951915
+          },
+          "knownCrossingPoint": {
+            "year": 2025,
+            "value": 2.84,
+            "unit": "Ωarag",
+            "sourceRefs": [
+              "src_phc_2025_ocean"
+            ]
+          }
+        },
+        "highRisk": {
+          "thresholdValue": 2.5,
+          "thresholdUnit": "Ωarag",
+          "exceedanceOperator": "<",
+          "status": "not_crossed",
+          "lastCheckedPoint": {
+            "year": 2021,
+            "value": 2.951915
+          }
+        }
+      },
+      "observations": [
+        {
+          "year": 1982,
+          "value": 3.257606
+        },
+        {
+          "year": 1983,
+          "value": 3.256538
+        },
+        {
+          "year": 1984,
+          "value": 3.232326
+        },
+        {
+          "year": 1985,
+          "value": 3.210462
+        },
+        {
+          "year": 1986,
+          "value": 3.210496
+        },
+        {
+          "year": 1987,
+          "value": 3.221226
+        },
+        {
+          "year": 1988,
+          "value": 3.197043
+        },
+        {
+          "year": 1989,
+          "value": 3.180766
+        },
+        {
+          "year": 1990,
+          "value": 3.185304
+        },
+        {
+          "year": 1991,
+          "value": 3.18365
+        },
+        {
+          "year": 1992,
+          "value": 3.177271
+        },
+        {
+          "year": 1993,
+          "value": 3.174021
+        },
+        {
+          "year": 1994,
+          "value": 3.161987
+        },
+        {
+          "year": 1995,
+          "value": 3.157139
+        },
+        {
+          "year": 1996,
+          "value": 3.141853
+        },
+        {
+          "year": 1997,
+          "value": 3.155545
+        },
+        {
+          "year": 1998,
+          "value": 3.146525
+        },
+        {
+          "year": 1999,
+          "value": 3.110038
+        },
+        {
+          "year": 2000,
+          "value": 3.109262
+        },
+        {
+          "year": 2001,
+          "value": 3.117999
+        },
+        {
+          "year": 2002,
+          "value": 3.119418
+        },
+        {
+          "year": 2003,
+          "value": 3.114923
+        },
+        {
+          "year": 2004,
+          "value": 3.102416
+        },
+        {
+          "year": 2005,
+          "value": 3.099664
+        },
+        {
+          "year": 2006,
+          "value": 3.086686
+        },
+        {
+          "year": 2007,
+          "value": 3.07239
+        },
+        {
+          "year": 2008,
+          "value": 3.059142
+        },
+        {
+          "year": 2009,
+          "value": 3.07091
+        },
+        {
+          "year": 2010,
+          "value": 3.051363
+        },
+        {
+          "year": 2011,
+          "value": 3.033716
+        },
+        {
+          "year": 2012,
+          "value": 3.032974
+        },
+        {
+          "year": 2013,
+          "value": 3.024542
+        },
+        {
+          "year": 2014,
+          "value": 3.027917
+        },
+        {
+          "year": 2015,
+          "value": 3.028104
+        },
+        {
+          "year": 2016,
+          "value": 3.014803
+        },
+        {
+          "year": 2017,
+          "value": 2.99703
+        },
+        {
+          "year": 2018,
+          "value": 2.979123
+        },
+        {
+          "year": 2019,
+          "value": 2.97814
+        },
+        {
+          "year": 2020,
+          "value": 2.967765
+        },
+        {
+          "year": 2021,
+          "value": 2.951915
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "noaa_jiang_cmip6_omega_arag_1750_1980",
+          "label": "Historische NOAA/Jiang-Rekonstruktion",
+          "period": "1750 und Dekadenwerte 1850–1980",
+          "method": "Flächengewichtete globale Mittel aus dem Median von 14 bias-korrigierten CMIP6-Erdsystemmodellen",
+          "uncertainty": "Modellrekonstruktion mit anderer Datengrundlage als OceanSODA. Der absolute Niveauanschluss am Methodenwechsel wurde nicht durch eine gemeinsame Kalibrierung validiert.",
+          "sourceRefs": [
+            "src_jiang_2023_oa_indicators"
+          ],
+          "points": [
+            {
+              "year": 1750,
+              "value": 3.57146,
+              "display": "Ωarag 3,571",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1850,
+              "value": 3.47739,
+              "display": "Ωarag 3,477",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1860,
+              "value": 3.463133,
+              "display": "Ωarag 3,463",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1870,
+              "value": 3.457741,
+              "display": "Ωarag 3,458",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1880,
+              "value": 3.44463,
+              "display": "Ωarag 3,445",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1890,
+              "value": 3.42224,
+              "display": "Ωarag 3,422",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1900,
+              "value": 3.408192,
+              "display": "Ωarag 3,408",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1910,
+              "value": 3.388622,
+              "display": "Ωarag 3,389",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1920,
+              "value": 3.36507,
+              "display": "Ωarag 3,365",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1930,
+              "value": 3.349717,
+              "display": "Ωarag 3,350",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1940,
+              "value": 3.331795,
+              "display": "Ωarag 3,332",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1950,
+              "value": 3.314904,
+              "display": "Ωarag 3,315",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1960,
+              "value": 3.296974,
+              "display": "Ωarag 3,297",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1970,
+              "value": 3.2522,
+              "display": "Ωarag 3,252",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            },
+            {
+              "year": 1980,
+              "value": 3.195571,
+              "display": "Ωarag 3,196",
+              "uncertainty": "Letzter NOAA-Rekonstruktionspunkt. Nicht direkt mit OceanSODA 1982 verbinden; der sichtbare Abstand kann einen methodischen Niveauversatz enthalten.",
+              "sourceRefs": [
+                "src_jiang_2023_oa_indicators"
+              ]
+            }
+          ]
+        }
+      ],
+      "projections": [],
+      "methodBreaks": [
+        {
+          "year": 1982,
+          "label": "Wechsel von NOAA-Modellrekonstruktion zu OceanSODA-Beobachtungsrekonstruktion"
+        }
+      ],
+      "sources": [
+        {
+          "id": "src_jiang_2023_oa_indicators",
+          "title": "Global Surface Ocean Acidification Indicators From 1750 to 2100",
+          "publisher": "Journal of Advances in Modeling Earth Systems / NOAA NCEI",
+          "year": 2023,
+          "url": "https://doi.org/10.25921/9ker-bc48",
+          "doi": "10.25921/9ker-bc48",
+          "access": "open_data"
+        },
+        {
+          "id": "src_ma_2023_oceansoda_trends",
+          "title": "Four Decades of Trends and Drivers of Global Surface Ocean Acidification",
+          "publisher": "Global Biogeochemical Cycles",
+          "year": 2023,
+          "url": "https://doi.org/10.1029/2023GB007765",
+          "doi": "10.1029/2023GB007765",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_ma_2023_oceansoda_data",
+          "title": "Data of trends and drivers of global surface ocean acidification over the past four decades",
+          "publisher": "ETH Zurich Research Collection",
+          "year": 2023,
+          "url": "https://doi.org/10.3929/ethz-b-000613669",
+          "doi": "10.3929/ethz-b-000613669",
+          "access": "open_data_noncommercial"
+        },
+        {
+          "id": "src_phc_2025_ocean",
+          "title": "Planetary Health Check 2025 – Ocean Acidification",
+          "publisher": "Planetary Health Check",
+          "year": 2025,
+          "url": "https://www.planetaryhealthcheck.org/boundary/ocean-acidification/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_findlay_2025",
+          "title": "Ocean Acidification: Another Planetary Boundary Crossed",
+          "publisher": "Global Change Biology",
+          "year": 2025,
+          "url": "https://doi.org/10.1111/gcb.70238",
+          "doi": "10.1111/gcb.70238",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_richardson_2023",
+          "title": "Earth beyond six of nine planetary boundaries",
+          "publisher": "Science Advances",
+          "year": 2023,
+          "url": "https://doi.org/10.1126/sciadv.adh2458",
+          "doi": "10.1126/sciadv.adh2458",
+          "access": "open_full_text"
+        }
+      ]
     }
   ],
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "3d6c01ccb682ab89d72a7f7c8e700467b54b3ff355ff95e5f10b89148eac922e"
+    "hash": "8b49243f9468d01094d7c2e824b74b22b13a633025eb6569238f889c8e94c298"
   }
 }
