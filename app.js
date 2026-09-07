@@ -449,7 +449,7 @@
     const plotHeight = 460;
     const eventBandHeight = 26;
     const height = plotHeight + eventBandHeight;
-    const plot = { left: 76, right: 76, top: eventBandHeight + 48, bottom: 70 };
+    const plot = { left: 116, right: 76, top: eventBandHeight + 48, bottom: 70 };
     const plotBottom = height - plot.bottom;
     const x = year => plot.left + ((year - config.range.start) / (config.range.end - config.range.start)) * (width - plot.left - plot.right);
     const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": `${curves.length} überlagerte Zeitreihen auf einer gemeinsamen Zeitachse von 1700 bis 2100` });
@@ -466,7 +466,8 @@
     svg.appendChild(svgElement("line", { class: "chart-axis", x1: plot.left, y1: plotBottom, x2: width - plot.right, y2: plotBottom }));
     svg.appendChild(svgElement("line", { class: "chart-axis", x1: plot.left, y1: plot.top, x2: plot.left, y2: plotBottom }));
     appendText(svg, "text", "Jahr", { class: "axis-title", x: (plot.left + width - plot.right) / 2, y: height - 8 });
-    appendText(svg, "text", "Relativer Verlauf je Kurve", { class: "axis-title", x: 48, y: (plot.top + plotBottom) / 2, transform: `rotate(-90 48 ${(plot.top + plotBottom) / 2})` });
+    const yAxisTitleX = 90;
+    appendText(svg, "text", "Relativer Verlauf je Kurve", { class: "axis-title", x: yAxisTitleX, y: (plot.top + plotBottom) / 2, transform: `rotate(-90 ${yAxisTitleX} ${(plot.top + plotBottom) / 2})` });
     curves.forEach(curve => {
       const color = curveColor(curve);
       const meta = presentation[curve.seriesId] || { label: curve.label, detail: curve.metric, unit: curve.unit };
