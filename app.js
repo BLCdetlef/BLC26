@@ -8,7 +8,17 @@
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const svgNamespace = "http://www.w3.org/2000/svg";
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
-  const requiredSeries = new Set(["biosphere_hanpp_1910_2020", "global_co2_noaa_annual", "blue_water_streamflow", "green_water_rootzone_soil_moisture", "global_forest_cover_1992_2022", "nitrogen_fixation_1961_2022", "phosphorus_cropland_1961_2022", "global_surface_omega_arag_oceansoda_1982_2021"]);
+  const expectedCurveRoles = new Map([
+    ["biosphere_hanpp_1910_2020", "core"],
+    ["global_co2_noaa_annual", "core"],
+    ["blue_water_streamflow", "core"],
+    ["green_water_rootzone_soil_moisture", "core"],
+    ["global_forest_cover_1992_2022", "core"],
+    ["nitrogen_fixation_1961_2022", "core"],
+    ["phosphorus_cropland_1961_2022", "core"],
+    ["global_surface_omega_arag_oceansoda_1982_2021", "core"],
+    ["global_plastics_production_1950_2019", "deep_dive"]
+  ]);
   const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   const presentation = Object.freeze({
@@ -51,6 +61,11 @@
       label: "Mineralischer Phosphoreinsatz",
       detail: "Global aggregierte Anwendung auf Ackerflächen · höher = stärkere Belastung",
       unit: "Tg P/Jahr"
+    },
+    global_plastics_production_1950_2019: {
+      label: "Globale Kunststoffproduktion",
+      detail: "Jährlich produzierte primäre Kunststoffe · höher = mehr neue Substanzen in der Umwelt",
+      unit: "Mio. t/Jahr"
     }
   });
 
@@ -82,7 +97,7 @@
     if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
     for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(`Unbekanntes Exportfeld: ${field}`);
     if (payload.format !== config.import.format || payload.version !== config.import.version) fail("Unbekanntes Exportformat.");
-    if (!Array.isArray(payload.curves) || payload.curves.length !== requiredSeries.size) fail("Das Übergabepaket muss genau acht Kurven enthalten.");
+    if (!Array.isArray(payload.curves) || payload.curves.length !== expectedCurveRoles.size) fail("Das Übergabepaket muss genau neun erwartete Kurven enthalten.");
     if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsangabe fehlt.");
     const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
     const actualHash = await sha256(JSON.stringify(signedPayload));
@@ -93,9 +108,10 @@
       if (!curve?.curveId || seen.has(curve.curveId)) fail("Kurven-ID fehlt oder ist doppelt.");
       seen.add(curve.curveId);
       if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
-      if (curve.curveRole !== "core") fail(`${curve.curveId}: für dieses Kernpaket wird curveRole core erwartet.`);
-      if (!requiredSeries.has(curve.seriesId)) fail(`${curve.curveId}: unerwartete Kurve.`);
+      const expectedRole = expectedCurveRoles.get(curve.seriesId);
+      if (!expectedRole) fail(`${curve.curveId}: unerwartete Kurve.`);
       if (seenSeries.has(curve.seriesId)) fail(`${curve.seriesId}: Kurve ist doppelt enthalten.`);
+      if (curve.curveRole !== expectedRole) fail(`${curve.curveId}: curveRole ${expectedRole} erwartet.`);
       seenSeries.add(curve.seriesId);
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
@@ -112,7 +128,7 @@
         if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
     }
-    if (seenSeries.size !== requiredSeries.size) fail("Das Übergabepaket enthält nicht die acht erwarteten Kernkurven.");
+    if (seenSeries.size !== expectedCurveRoles.size) fail("Das Übergabepaket enthält nicht alle erwarteten Kurven.");
     return actualHash;
   }
   function makePath(points, x, y) {

@@ -17,6 +17,10 @@
     const reference = curve?.reference;
     if (reference == null) return null;
     if (!reference || typeof reference !== "object" || Array.isArray(reference)) fail(`${curve.curveId}: ungültige Referenz.`);
+    if (reference.type === "no_global_quantity_boundary") {
+      if (typeof reference.display !== "string" || !reference.display.trim()) fail(`${curve.curveId}: fehlende Erläuterung zur nicht quantifizierbaren Grenze.`);
+      return reference;
+    }
     if (!Number.isFinite(Number(reference.value))) fail(`${curve.curveId}: ungültiger Referenzwert.`);
     if (reference.unit !== curve.unit) fail(`${curve.curveId}: Referenz- und Kurveneinheit stimmen nicht überein.`);
     if (reference.type === "planetary_boundaries_model" && reference.modelName !== "Planetare Grenzen") fail(`${curve.curveId}: Modellreferenz ist unvollständig.`);
@@ -44,6 +48,7 @@
   function referenceStatus(curve) {
     const reference = validateReference(curve);
     if (!reference) return { state: "missing", label: "Für diese Kurve ist noch kein vergleichbarer Grenzwert hinterlegt." };
+    if (reference.type === "no_global_quantity_boundary") return { state: "missing", label: reference.display };
     if (!("role" in reference) || !("qualifier" in reference) || !("exceedanceOperator" in reference)) {
       return { state: "reference-only", label: "Für diese Modellreferenz ist keine Statusbewertung freigegeben.", reference };
     }

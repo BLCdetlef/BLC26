@@ -4664,11 +4664,902 @@
           "access": "open_full_text"
         }
       ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_plastics_petrochemicals_global_v0.1.json#global_plastics_production_1950_2019",
+      "boundaryId": "novel",
+      "itemId": "plastics-petrochemicals-global",
+      "seriesId": "global_plastics_production_1950_2019",
+      "source": "data/knowledge/gwl_plastics_petrochemicals_global_v0.1.json",
+      "domainType": "planetary_boundary",
+      "domainId": "novel_entities",
+      "domainLabel": "Neue Substanzen",
+      "curveRole": "deep_dive",
+      "label": "Globale Kunststoffproduktion · historische Reihe",
+      "metric": "Globale jährliche Produktion von Polymerharzen und -fasern beziehungsweise harmonisierte globale Kunststoffproduktion",
+      "unit": "million_tonnes_per_year",
+      "geography": "Global",
+      "worseningDirection": "increase",
+      "finding": "Seit Beginn der industriellen Massenproduktion stieg die jährliche globale Kunststoffproduktion in weniger als sieben Jahrzehnten ungefähr auf das 230-Fache.",
+      "uncertainty": "Historische Werte sind globale Rekonstruktionen und harmonisierte Schätzungen. Für 1974 fehlt ein publizierter Jahrespunkt; er wird nicht interpoliert. Die Reihe endet 2019 und enthält keine Zukunftsprojektion.",
+      "observationCoverage": {
+        "startYear": 1950,
+        "endYear": 2019,
+        "spanYears": 69,
+        "pointCount": 69
+      },
+      "observationSourceRefs": [
+        "src_owid_plastics_series",
+        "src_geyer_2017",
+        "src_oecd_gpo_2022"
+      ],
+      "reference": {
+        "type": "no_global_quantity_boundary",
+        "display": "Kein globaler Mengengrenzwert"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1950,
+          "value": 2,
+          "display": "1950: 2 Mio. t/Jahr"
+        },
+        {
+          "year": 1951,
+          "value": 2,
+          "display": "1951: 2 Mio. t/Jahr"
+        },
+        {
+          "year": 1952,
+          "value": 2,
+          "display": "1952: 2 Mio. t/Jahr"
+        },
+        {
+          "year": 1953,
+          "value": 3,
+          "display": "1953: 3 Mio. t/Jahr"
+        },
+        {
+          "year": 1954,
+          "value": 3,
+          "display": "1954: 3 Mio. t/Jahr"
+        },
+        {
+          "year": 1955,
+          "value": 4,
+          "display": "1955: 4 Mio. t/Jahr"
+        },
+        {
+          "year": 1956,
+          "value": 5,
+          "display": "1956: 5 Mio. t/Jahr"
+        },
+        {
+          "year": 1957,
+          "value": 5,
+          "display": "1957: 5 Mio. t/Jahr"
+        },
+        {
+          "year": 1958,
+          "value": 6,
+          "display": "1958: 6 Mio. t/Jahr"
+        },
+        {
+          "year": 1959,
+          "value": 7,
+          "display": "1959: 7 Mio. t/Jahr"
+        },
+        {
+          "year": 1960,
+          "value": 8,
+          "display": "1960: 8 Mio. t/Jahr"
+        },
+        {
+          "year": 1961,
+          "value": 9,
+          "display": "1961: 9 Mio. t/Jahr"
+        },
+        {
+          "year": 1962,
+          "value": 11,
+          "display": "1962: 11 Mio. t/Jahr"
+        },
+        {
+          "year": 1963,
+          "value": 13,
+          "display": "1963: 13 Mio. t/Jahr"
+        },
+        {
+          "year": 1964,
+          "value": 15,
+          "display": "1964: 15 Mio. t/Jahr"
+        },
+        {
+          "year": 1965,
+          "value": 17,
+          "display": "1965: 17 Mio. t/Jahr"
+        },
+        {
+          "year": 1966,
+          "value": 20,
+          "display": "1966: 20 Mio. t/Jahr"
+        },
+        {
+          "year": 1967,
+          "value": 23,
+          "display": "1967: 23 Mio. t/Jahr"
+        },
+        {
+          "year": 1968,
+          "value": 27,
+          "display": "1968: 27 Mio. t/Jahr"
+        },
+        {
+          "year": 1969,
+          "value": 32,
+          "display": "1969: 32 Mio. t/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 35,
+          "display": "1970: 35 Mio. t/Jahr"
+        },
+        {
+          "year": 1971,
+          "value": 38,
+          "display": "1971: 38 Mio. t/Jahr"
+        },
+        {
+          "year": 1972,
+          "value": 44,
+          "display": "1972: 44 Mio. t/Jahr"
+        },
+        {
+          "year": 1973,
+          "value": 51,
+          "display": "1973: 51 Mio. t/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 46,
+          "display": "1975: 46 Mio. t/Jahr"
+        },
+        {
+          "year": 1976,
+          "value": 54,
+          "display": "1976: 54 Mio. t/Jahr"
+        },
+        {
+          "year": 1977,
+          "value": 59,
+          "display": "1977: 59 Mio. t/Jahr"
+        },
+        {
+          "year": 1978,
+          "value": 64,
+          "display": "1978: 64 Mio. t/Jahr"
+        },
+        {
+          "year": 1979,
+          "value": 71,
+          "display": "1979: 71 Mio. t/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 70,
+          "display": "1980: 70 Mio. t/Jahr"
+        },
+        {
+          "year": 1981,
+          "value": 72,
+          "display": "1981: 72 Mio. t/Jahr"
+        },
+        {
+          "year": 1982,
+          "value": 73,
+          "display": "1982: 73 Mio. t/Jahr"
+        },
+        {
+          "year": 1983,
+          "value": 80,
+          "display": "1983: 80 Mio. t/Jahr"
+        },
+        {
+          "year": 1984,
+          "value": 86,
+          "display": "1984: 86 Mio. t/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 90,
+          "display": "1985: 90 Mio. t/Jahr"
+        },
+        {
+          "year": 1986,
+          "value": 96,
+          "display": "1986: 96 Mio. t/Jahr"
+        },
+        {
+          "year": 1987,
+          "value": 104,
+          "display": "1987: 104 Mio. t/Jahr"
+        },
+        {
+          "year": 1988,
+          "value": 110,
+          "display": "1988: 110 Mio. t/Jahr"
+        },
+        {
+          "year": 1989,
+          "value": 114,
+          "display": "1989: 114 Mio. t/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 120,
+          "display": "1990: 120 Mio. t/Jahr"
+        },
+        {
+          "year": 1991,
+          "value": 124,
+          "display": "1991: 124 Mio. t/Jahr"
+        },
+        {
+          "year": 1992,
+          "value": 132,
+          "display": "1992: 132 Mio. t/Jahr"
+        },
+        {
+          "year": 1993,
+          "value": 137,
+          "display": "1993: 137 Mio. t/Jahr"
+        },
+        {
+          "year": 1994,
+          "value": 151,
+          "display": "1994: 151 Mio. t/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 156,
+          "display": "1995: 156 Mio. t/Jahr"
+        },
+        {
+          "year": 1996,
+          "value": 168,
+          "display": "1996: 168 Mio. t/Jahr"
+        },
+        {
+          "year": 1997,
+          "value": 180,
+          "display": "1997: 180 Mio. t/Jahr"
+        },
+        {
+          "year": 1998,
+          "value": 188,
+          "display": "1998: 188 Mio. t/Jahr"
+        },
+        {
+          "year": 1999,
+          "value": 202,
+          "display": "1999: 202 Mio. t/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 213,
+          "display": "2000: 213 Mio. t/Jahr"
+        },
+        {
+          "year": 2001,
+          "value": 218,
+          "display": "2001: 218 Mio. t/Jahr"
+        },
+        {
+          "year": 2002,
+          "value": 231,
+          "display": "2002: 231 Mio. t/Jahr"
+        },
+        {
+          "year": 2003,
+          "value": 241,
+          "display": "2003: 241 Mio. t/Jahr"
+        },
+        {
+          "year": 2004,
+          "value": 256,
+          "display": "2004: 256 Mio. t/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 263,
+          "display": "2005: 263 Mio. t/Jahr"
+        },
+        {
+          "year": 2006,
+          "value": 280,
+          "display": "2006: 280 Mio. t/Jahr"
+        },
+        {
+          "year": 2007,
+          "value": 295,
+          "display": "2007: 295 Mio. t/Jahr"
+        },
+        {
+          "year": 2008,
+          "value": 281,
+          "display": "2008: 281 Mio. t/Jahr"
+        },
+        {
+          "year": 2009,
+          "value": 288,
+          "display": "2009: 288 Mio. t/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 313,
+          "display": "2010: 313 Mio. t/Jahr"
+        },
+        {
+          "year": 2011,
+          "value": 325,
+          "display": "2011: 325 Mio. t/Jahr"
+        },
+        {
+          "year": 2012,
+          "value": 338,
+          "display": "2012: 338 Mio. t/Jahr"
+        },
+        {
+          "year": 2013,
+          "value": 352,
+          "display": "2013: 352 Mio. t/Jahr"
+        },
+        {
+          "year": 2014,
+          "value": 367,
+          "display": "2014: 367 Mio. t/Jahr"
+        },
+        {
+          "year": 2015,
+          "value": 381,
+          "display": "2015: 381 Mio. t/Jahr"
+        },
+        {
+          "year": 2016,
+          "value": 400.05,
+          "display": "2016: 400,05 Mio. t/Jahr"
+        },
+        {
+          "year": 2017,
+          "value": 420.052,
+          "display": "2017: 420,052 Mio. t/Jahr"
+        },
+        {
+          "year": 2018,
+          "value": 441.055,
+          "display": "2018: 441,055 Mio. t/Jahr"
+        },
+        {
+          "year": 2019,
+          "value": 459.746,
+          "display": "2019: 459,746 Mio. t/Jahr"
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1950,
+          "value": 2,
+          "display": "1950: 2 Mio. t/Jahr"
+        },
+        {
+          "year": 1955,
+          "value": 4,
+          "display": "1955: 4 Mio. t/Jahr"
+        },
+        {
+          "year": 1960,
+          "value": 8,
+          "display": "1960: 8 Mio. t/Jahr"
+        },
+        {
+          "year": 1965,
+          "value": 17,
+          "display": "1965: 17 Mio. t/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 35,
+          "display": "1970: 35 Mio. t/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 46,
+          "display": "1975: 46 Mio. t/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 70,
+          "display": "1980: 70 Mio. t/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 90,
+          "display": "1985: 90 Mio. t/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 120,
+          "display": "1990: 120 Mio. t/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 156,
+          "display": "1995: 156 Mio. t/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 213,
+          "display": "2000: 213 Mio. t/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 263,
+          "display": "2005: 263 Mio. t/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 313,
+          "display": "2010: 313 Mio. t/Jahr"
+        },
+        {
+          "year": 2019,
+          "value": 459.746,
+          "display": "2019: 459,746 Mio. t/Jahr"
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [
+        {
+          "id": "oecd_plastics_use_baseline_2019_2060",
+          "scenario": "OECD_BASELINE",
+          "scenarioLabel": "OECD Baseline · heutige Politik",
+          "uncertainty": "Ergebnis des OECD-ENV-Linkages-Modells unter Baseline-Annahmen; keine Eintrittsprognose. Nutzung ist nicht identisch mit Produktion.",
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2019,
+              "value": 459.746
+            },
+            {
+              "year": 2020,
+              "value": 449.531
+            },
+            {
+              "year": 2021,
+              "value": 461.094
+            },
+            {
+              "year": 2022,
+              "value": 475.387
+            },
+            {
+              "year": 2023,
+              "value": 489.137
+            },
+            {
+              "year": 2024,
+              "value": 502.504
+            },
+            {
+              "year": 2025,
+              "value": 516.021
+            },
+            {
+              "year": 2026,
+              "value": 529.853
+            },
+            {
+              "year": 2027,
+              "value": 543.706
+            },
+            {
+              "year": 2028,
+              "value": 558.319
+            },
+            {
+              "year": 2029,
+              "value": 573.418
+            },
+            {
+              "year": 2030,
+              "value": 589.063
+            },
+            {
+              "year": 2031,
+              "value": 605.118
+            },
+            {
+              "year": 2032,
+              "value": 621.587
+            },
+            {
+              "year": 2033,
+              "value": 638.383
+            },
+            {
+              "year": 2034,
+              "value": 655.58
+            },
+            {
+              "year": 2035,
+              "value": 673.012
+            },
+            {
+              "year": 2036,
+              "value": 690.637
+            },
+            {
+              "year": 2037,
+              "value": 708.871
+            },
+            {
+              "year": 2038,
+              "value": 727.434
+            },
+            {
+              "year": 2039,
+              "value": 746.369
+            },
+            {
+              "year": 2040,
+              "value": 765.653
+            },
+            {
+              "year": 2041,
+              "value": 785.107
+            },
+            {
+              "year": 2042,
+              "value": 804.786
+            },
+            {
+              "year": 2043,
+              "value": 824.846
+            },
+            {
+              "year": 2044,
+              "value": 845.301
+            },
+            {
+              "year": 2045,
+              "value": 866.099
+            },
+            {
+              "year": 2046,
+              "value": 887.245
+            },
+            {
+              "year": 2047,
+              "value": 908.608
+            },
+            {
+              "year": 2048,
+              "value": 930.508
+            },
+            {
+              "year": 2049,
+              "value": 952.802
+            },
+            {
+              "year": 2050,
+              "value": 975.63
+            },
+            {
+              "year": 2051,
+              "value": 998.801
+            },
+            {
+              "year": 2052,
+              "value": 1022.427
+            },
+            {
+              "year": 2053,
+              "value": 1046.618
+            },
+            {
+              "year": 2054,
+              "value": 1071.278
+            },
+            {
+              "year": 2055,
+              "value": 1096.502
+            },
+            {
+              "year": 2056,
+              "value": 1122.099
+            },
+            {
+              "year": 2057,
+              "value": 1148.338
+            },
+            {
+              "year": 2058,
+              "value": 1175.081
+            },
+            {
+              "year": 2059,
+              "value": 1202.569
+            },
+            {
+              "year": 2060,
+              "value": 1230.627,
+              "display": "2060: 1.230,627 Mio. t/Jahr · OECD Baseline"
+            }
+          ]
+        },
+        {
+          "id": "oecd_plastics_use_global_ambition_2019_2060",
+          "scenario": "OECD_GLOBAL_AMBITION",
+          "scenarioLabel": "OECD · globale Ambition",
+          "uncertainty": "Ergebnis des OECD-ENV-Linkages-Modells unter einem weltweit koordinierten, sehr ambitionierten Politikpaket; keine Eintrittsprognose. Nutzung ist nicht identisch mit Produktion.",
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2019,
+              "value": 459.746
+            },
+            {
+              "year": 2020,
+              "value": 449.531
+            },
+            {
+              "year": 2021,
+              "value": 461.094
+            },
+            {
+              "year": 2022,
+              "value": 467.061
+            },
+            {
+              "year": 2023,
+              "value": 463.093
+            },
+            {
+              "year": 2024,
+              "value": 459.117
+            },
+            {
+              "year": 2025,
+              "value": 455.545
+            },
+            {
+              "year": 2026,
+              "value": 452.446
+            },
+            {
+              "year": 2027,
+              "value": 449.374
+            },
+            {
+              "year": 2028,
+              "value": 446.983
+            },
+            {
+              "year": 2029,
+              "value": 444.929
+            },
+            {
+              "year": 2030,
+              "value": 443.179
+            },
+            {
+              "year": 2031,
+              "value": 452.923
+            },
+            {
+              "year": 2032,
+              "value": 462.879
+            },
+            {
+              "year": 2033,
+              "value": 472.981
+            },
+            {
+              "year": 2034,
+              "value": 483.298
+            },
+            {
+              "year": 2035,
+              "value": 493.695
+            },
+            {
+              "year": 2036,
+              "value": 504.168
+            },
+            {
+              "year": 2037,
+              "value": 515.017
+            },
+            {
+              "year": 2038,
+              "value": 526.044
+            },
+            {
+              "year": 2039,
+              "value": 537.268
+            },
+            {
+              "year": 2040,
+              "value": 548.682
+            },
+            {
+              "year": 2041,
+              "value": 560.277
+            },
+            {
+              "year": 2042,
+              "value": 571.983
+            },
+            {
+              "year": 2043,
+              "value": 583.928
+            },
+            {
+              "year": 2044,
+              "value": 596.109
+            },
+            {
+              "year": 2045,
+              "value": 608.489
+            },
+            {
+              "year": 2046,
+              "value": 621.093
+            },
+            {
+              "year": 2047,
+              "value": 633.814
+            },
+            {
+              "year": 2048,
+              "value": 646.88
+            },
+            {
+              "year": 2049,
+              "value": 660.228
+            },
+            {
+              "year": 2050,
+              "value": 673.989
+            },
+            {
+              "year": 2051,
+              "value": 687.898
+            },
+            {
+              "year": 2052,
+              "value": 702.143
+            },
+            {
+              "year": 2053,
+              "value": 716.694
+            },
+            {
+              "year": 2054,
+              "value": 731.565
+            },
+            {
+              "year": 2055,
+              "value": 746.824
+            },
+            {
+              "year": 2056,
+              "value": 762.31
+            },
+            {
+              "year": 2057,
+              "value": 778.237
+            },
+            {
+              "year": 2058,
+              "value": 794.3
+            },
+            {
+              "year": 2059,
+              "value": 810.614
+            },
+            {
+              "year": 2060,
+              "value": 827.145,
+              "display": "2060: 827,145 Mio. t/Jahr · globale Ambition"
+            }
+          ]
+        }
+      ],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_geyer_2017",
+          "title": "Production, use, and fate of all plastics ever made",
+          "publisher": "Science Advances",
+          "year": 2017,
+          "url": "https://doi.org/10.1126/sciadv.1700782",
+          "doi": "10.1126/sciadv.1700782",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_oecd_gpo_2022",
+          "title": "Global Plastics Outlook: Economic Drivers, Environmental Impacts and Policy Options",
+          "publisher": "OECD",
+          "year": 2022,
+          "url": "https://doi.org/10.1787/de747aef-en",
+          "doi": "10.1787/de747aef-en",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_owid_plastics_series",
+          "title": "Global plastics production",
+          "publisher": "Our World in Data",
+          "year": 2026,
+          "url": "https://ourworldindata.org/grapher/global-plastics-production",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_camp_enenkel_2025_brain",
+          "title": "Bioaccumulation of microplastics in decedent human brains",
+          "publisher": "Nature Medicine",
+          "year": 2025,
+          "url": "https://doi.org/10.1038/s41591-024-03453-1",
+          "doi": "10.1038/s41591-024-03453-1",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_marfella_2024_atheroma",
+          "title": "Microplastics and Nanoplastics in Atheromas and Cardiovascular Events",
+          "publisher": "New England Journal of Medicine",
+          "year": 2024,
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2309822",
+          "doi": "10.1056/NEJMoa2309822",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_nejm_2024_method_comment",
+          "title": "Microplastics and Nanoplastics in Atheromas",
+          "publisher": "New England Journal of Medicine",
+          "year": 2024,
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMc2404154",
+          "doi": "10.1056/NEJMc2404154",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_oecd_scenarios_2060",
+          "title": "Global Plastics Outlook: Policy Scenarios to 2060",
+          "publisher": "OECD",
+          "year": 2022,
+          "url": "https://doi.org/10.1787/aa1edf33-en",
+          "access": "open_data"
+        }
+      ]
     }
   ],
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "afbca7bb475bebc3104773b4a9e271f22faea0f3abc9ab5a2425ae1b614fe652"
+    "hash": "ac38f4a77a780f4caf9a4b51fe45e460ee5af4fce31aa15eaad88fb38053c49c"
   }
 }
