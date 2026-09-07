@@ -19,6 +19,8 @@ Die Anwendung startet als ruhige Vollbild-Zeichenfläche. Ein seitlicher Griff
 links öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargestelltem
 Segment; der Griff rechts öffnet die Legende. Auf Smartphones ist die Diagrammansicht
 für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
+Zwei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage und
+das GWL-Panel; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
 
 ## Sichere GWL-Übergabe
 

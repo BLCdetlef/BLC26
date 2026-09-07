@@ -16,6 +16,13 @@ button { color: inherit; }
 .brand-watermark { position: fixed; z-index: 2; top: clamp(.7rem, 2vw, 1.4rem); left: clamp(2.8rem, 5vw, 4.2rem); margin: 0; opacity: .26; pointer-events: none; font-size: clamp(1.1rem, 2.4vw, 2rem); line-height: .9; letter-spacing: -.055em; }
 .brand-name { color: #3f403e; }
 .brand-chart { color: var(--accent); font-style: italic; font-weight: 600; letter-spacing: -.035em; }
+.primary-links { position: fixed; z-index: 4; top: .75rem; left: 50%; display: flex; gap: .55rem; transform: translateX(-50%); }
+.primary-link { position: relative; display: grid; width: 2.8rem; height: 2.8rem; place-items: center; border: 1px solid #77766f; border-radius: 50%; background: rgb(248 247 242 / 88%); color: #3f403e; text-decoration: none; box-shadow: 0 .15rem .55rem rgb(23 23 23 / 10%); transition: border-color .16s ease, background .16s ease, color .16s ease, transform .16s ease; }
+.primary-link:hover, .primary-link:focus-visible { border-color: var(--ink); background: #e6e4dc; color: var(--accent); outline: none; transform: translateY(-1px); }
+.primary-link:focus-visible { box-shadow: 0 0 0 3px rgb(138 106 22 / 25%); }
+.primary-link svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.primary-link::after { position: absolute; top: calc(100% + .5rem); left: 50%; width: max-content; max-width: 15rem; padding: .36rem .52rem; border: 1px solid #9d9c96; background: var(--paper); box-shadow: 0 .2rem .6rem rgb(23 23 23 / 12%); color: var(--ink); content: attr(data-tooltip); font-size: .68rem; font-weight: 700; letter-spacing: .025em; opacity: 0; pointer-events: none; transform: translate(-50%, -.2rem); transition: opacity .14s ease, transform .14s ease; white-space: nowrap; }
+.primary-link:hover::after, .primary-link:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
 .status { position: fixed; z-index: 2; right: 3.2rem; bottom: .7rem; color: #5e5d58; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .import-status { position: fixed; z-index: 2; left: 3.2rem; bottom: .7rem; color: #696863; font-size: .65rem; }
 .import-status.is-invalid { color: #812020; }
@@ -99,6 +106,9 @@ button { color: inherit; }
 .orientation-notice { display: none; }
 @media (max-width: 760px) and (orientation: landscape) {
   .brand-watermark { top: .45rem; left: 2.75rem; font-size: 1rem; }
+  .primary-links { top: .35rem; gap: .4rem; }
+  .primary-link { width: 2.2rem; height: 2.2rem; }
+  .primary-link svg { width: 1.05rem; height: 1.05rem; }
   .status, .import-status { bottom: .3rem; font-size: .55rem; }
   .status { right: 2.7rem; }
   .import-status { left: 2.7rem; max-width: 45vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
