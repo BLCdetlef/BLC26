@@ -15,6 +15,11 @@ Flächen; bei Maus- oder Tastaturfokus werden Hilfslinie und Langtext zugänglic
 Die Ereignisse dienen nur der zeitlichen Orientierung und behaupten keine
 Kausalität zwischen Ereignis und Kurvenverlauf.
 
+Die Anwendung startet als ruhige Vollbild-Zeichenfläche. Ein seitlicher Griff
+links öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargestelltem
+Segment; der Griff rechts öffnet die Legende. Auf Smartphones ist die Diagrammansicht
+für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
+
 ## Sichere GWL-Übergabe
 
 BLC26 ruft keine Kurvendaten von einer öffentlichen Laufzeit-API ab. Es liest ausschließlich die gemeinsam mit BLC26 versionierte Datei `data/gwl/blc-curve-export-v1.json`.
