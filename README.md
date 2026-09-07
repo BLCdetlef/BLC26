@@ -21,6 +21,9 @@ Segment; der Griff rechts öffnet die Legende. Auf Smartphones ist die Diagramma
 für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
 Zwei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage und
 das GWL-Panel; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
+Der Grundlagenfilter folgt der Reihenfolge des GWL-Panels und zeigt sowohl alle
+neun Planetaren Grenzen als auch dessen ergänzende Einflussbereiche. Grundlagen
+ohne verfügbare BLC26-Kurve bleiben mit dem Zähler 0 sichtbar.
 
 ## Sichere GWL-Übergabe
 

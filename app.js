@@ -28,6 +28,19 @@
   const selectedDomains = new Set();
   const selectedRoles = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
+  const foundationCatalog = Object.freeze([
+    { domainId: "climate_change", label: "Klimawandel", group: "Planetare Grenzen" },
+    { domainId: "biosphere_integrity", label: "Biosphärenintegrität", group: "Planetare Grenzen" },
+    { domainId: "land_system_change", label: "Landnutzung", group: "Planetare Grenzen" },
+    { domainId: "freshwater_change", label: "Süßwasser", group: "Planetare Grenzen" },
+    { domainId: "nutrient_cycles", label: "Nährstoffkreisläufe", group: "Planetare Grenzen" },
+    { domainId: "ocean_acidification", label: "Ozeanversauerung", group: "Planetare Grenzen" },
+    { domainId: "atmospheric_aerosol_loading", label: "Aerosole", group: "Planetare Grenzen" },
+    { domainId: "stratospheric_ozone_depletion", label: "Stratosphärisches Ozon", group: "Planetare Grenzen" },
+    { domainId: "novel_entities", label: "Neue Substanzen", group: "Planetare Grenzen" },
+    { domainId: "materials_energy", label: "Stoff- und Energieströme", group: "Ergänzende Einflussbereiche" },
+    { domainId: "technological_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
+  ]);
   const presentation = Object.freeze({
     biosphere_hanpp_1910_2020: {
       label: "Menschliche Beanspruchung der Ökosystemproduktion",
@@ -265,13 +278,22 @@
     summary.textContent = title;
     const list = document.createElement("div");
     list.className = "filter-options";
+    let currentGroup = "";
     options.forEach(option => {
+      if (option.group && option.group !== currentGroup) {
+        currentGroup = option.group;
+        const groupLabel = document.createElement("div");
+        groupLabel.className = "filter-group-label";
+        groupLabel.textContent = currentGroup;
+        list.appendChild(groupLabel);
+      }
       const label = document.createElement("label");
-      label.className = "filter-option";
+      label.className = `filter-option${option.disabled ? " is-empty" : ""}`;
       label.dataset.filterText = option.label.toLocaleLowerCase("de-DE");
       const input = document.createElement("input");
       input.type = "checkbox";
       input.checked = option.checked;
+      input.disabled = Boolean(option.disabled);
       input.addEventListener("change", () => onChange(option.value, input.checked));
       const text = document.createElement("span");
       text.textContent = option.label;
@@ -303,10 +325,14 @@
     search.type = "search";
     search.placeholder = "Grundlage suchen";
     search.setAttribute("aria-label", "Grundlage suchen");
-    const domains = [...new Map(curves.map(curve => [curve.domainId, curve.domainLabel])).entries()];
-    const domainSection = makeFilterSection("Grundlage", domains.map(([value, label]) => ({
-      value, label, checked: true, count: curves.filter(curve => curve.domainId === value).length
-    })), (domainId, checked) => {
+    const knownDomainIds = new Set(foundationCatalog.map(item => item.domainId));
+    const additionalDomains = [...new Map(curves.filter(curve => !knownDomainIds.has(curve.domainId)).map(curve => [curve.domainId, curve.domainLabel])).entries()]
+      .map(([domainId, label]) => ({ domainId, label, group: "Weitere Grundlagen" }));
+    const domains = [...foundationCatalog, ...additionalDomains];
+    const domainSection = makeFilterSection("Grundlage", domains.map(domain => {
+      const count = curves.filter(curve => curve.domainId === domain.domainId).length;
+      return { value: domain.domainId, label: domain.label, group: domain.group, checked: count > 0, disabled: count === 0, count };
+    }), (domainId, checked) => {
       if (checked) selectedDomains.add(domainId); else selectedDomains.delete(domainId);
       renderCurrent();
     }, true);
@@ -331,10 +357,10 @@
     noneButton.type = "button";
     noneButton.textContent = "Keine";
     const syncChecks = checked => {
-      [domainSection, roleSection].forEach(section => section.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = checked; }));
+      [domainSection, roleSection].forEach(section => section.querySelectorAll('input[type="checkbox"]').forEach(input => { if (!input.disabled) input.checked = checked; }));
       selectedDomains.clear(); selectedRoles.clear();
       if (checked) {
-        domains.forEach(([domainId]) => selectedDomains.add(domainId));
+        domains.filter(domain => curves.some(curve => curve.domainId === domain.domainId)).forEach(domain => selectedDomains.add(domain.domainId));
         ["core", "deep_dive"].forEach(role => selectedRoles.add(role));
       }
       renderCurrent();
