@@ -7,8 +7,10 @@
   const legendContent = document.getElementById("legendContent");
   const filterContent = document.getElementById("filterContent");
   const panelBackdrop = document.getElementById("panelBackdrop");
+  const curveLinkStatus = document.getElementById("curveLinkStatus");
   const historicalEvents = Array.isArray(window.BRUCHLAST_EVENTS) ? window.BRUCHLAST_EVENTS : [];
   const referenceApi = window.BRUCHLAST_REFERENCE;
+  const curveLinkApi = window.BRUCHLAST_CURVE_LINK;
   const svgNamespace = "http://www.w3.org/2000/svg";
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
   const expectedCurveRoles = new Map([
@@ -25,6 +27,7 @@
   const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   let allCurves = [];
+  let selectedCurveId = null;
   const selectedDomains = new Set();
   const selectedRoles = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
@@ -200,6 +203,15 @@
     const index = Math.max(0, allCurves.findIndex(item => item.curveId === curve.curveId));
     return seriesColors[index % seriesColors.length];
   }
+  function openPanel(panelId) {
+    const panel = document.getElementById(panelId);
+    const handle = document.querySelector(`[aria-controls="${panelId}"]`);
+    closePanels();
+    panel.setAttribute("aria-hidden", "false");
+    panel.inert = false;
+    handle.setAttribute("aria-expanded", "true");
+    panelBackdrop.hidden = false;
+  }
   function closePanels() {
     document.querySelectorAll(".side-panel").forEach(panel => { panel.setAttribute("aria-hidden", "true"); panel.inert = true; });
     document.querySelectorAll(".panel-handle").forEach(handle => handle.setAttribute("aria-expanded", "false"));
@@ -207,16 +219,11 @@
   }
   function togglePanel(panelId) {
     const panel = document.getElementById(panelId);
-    const handle = document.querySelector(`[aria-controls="${panelId}"]`);
     const shouldOpen = panel.getAttribute("aria-hidden") === "true";
-    closePanels();
     if (shouldOpen) {
-      panel.setAttribute("aria-hidden", "false");
-      panel.inert = false;
-      handle.setAttribute("aria-expanded", "true");
-      panelBackdrop.hidden = false;
+      openPanel(panelId);
       panel.querySelector("button, input")?.focus();
-    }
+    } else closePanels();
   }
   function setupPanels() {
     document.querySelectorAll(".panel-handle").forEach(handle => handle.addEventListener("click", () => togglePanel(handle.getAttribute("aria-controls"))));
@@ -248,7 +255,8 @@
       const meta = presentation[curve.seriesId] || { label: curve.label, detail: curve.metric, unit: curve.unit };
       const item = document.createElement("button");
       item.type = "button";
-      item.className = "legend-series";
+      item.className = `legend-series${curve.curveId === selectedCurveId ? " is-selected" : ""}`;
+      if (curve.curveId === selectedCurveId) item.setAttribute("aria-current", "true");
       item.addEventListener("click", () => onSelect(curve));
       item.style.setProperty("--series-color", curveColor(curve));
       const label = document.createElement("strong");
@@ -309,11 +317,13 @@
     const visibleCurves = allCurves.filter(curve => selectedDomains.has(curve.domainId) && selectedRoles.has(curve.curveRole));
     chart.replaceChildren(renderChart(visibleCurves));
     legendContent.replaceChildren(createLegend(visibleCurves, curve => {
-      const referencePanel = legendContent.querySelector(".curve-reference");
-      showReference(referencePanel, curve);
+      selectedCurveId = curve.curveId;
+      renderCurrent();
     }));
     const referencePanel = createReferencePanel();
     legendContent.appendChild(referencePanel);
+    const selectedCurve = visibleCurves.find(curve => curve.curveId === selectedCurveId);
+    if (selectedCurve) showReference(referencePanel, selectedCurve);
     seriesCount.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven`;
     const result = filterContent.querySelector(".filter-result");
     if (result) result.textContent = `${visibleCurves.length} Kurven werden angezeigt`;
@@ -331,14 +341,14 @@
     const domains = [...foundationCatalog, ...additionalDomains];
     const domainSection = makeFilterSection("Grundlage", domains.map(domain => {
       const count = curves.filter(curve => curve.domainId === domain.domainId).length;
-      return { value: domain.domainId, label: domain.label, group: domain.group, checked: count > 0, disabled: count === 0, count };
+      return { value: domain.domainId, label: domain.label, group: domain.group, checked: selectedDomains.has(domain.domainId), disabled: count === 0, count };
     }), (domainId, checked) => {
       if (checked) selectedDomains.add(domainId); else selectedDomains.delete(domainId);
       renderCurrent();
     }, true);
     const roleSection = makeFilterSection("Kurventyp", [
-      { value: "core", label: "Kernkurven", checked: true, count: curves.filter(curve => curve.curveRole === "core").length },
-      { value: "deep_dive", label: "Vertiefung", checked: true, count: curves.filter(curve => curve.curveRole === "deep_dive").length }
+      { value: "core", label: "Kernkurven", checked: selectedRoles.has("core"), count: curves.filter(curve => curve.curveRole === "core").length },
+      { value: "deep_dive", label: "Vertiefung", checked: selectedRoles.has("deep_dive"), count: curves.filter(curve => curve.curveRole === "deep_dive").length }
     ], (role, checked) => {
       if (checked) selectedRoles.add(role); else selectedRoles.delete(role);
       renderCurrent();
@@ -474,10 +484,11 @@
       const limits = extent(curve);
       const span = limits.maximum - limits.minimum;
       const y = value => plotBottom - ((value - limits.minimum) / span) * (plotBottom - plot.top);
-      const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}`, tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
+      const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}${curve.curveId === selectedCurveId ? " is-selected" : ""}`, tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
       const selectCurve = () => {
-        if (document.getElementById("legendPanel").getAttribute("aria-hidden") === "true") togglePanel("legendPanel");
-        requestAnimationFrame(() => showReference(legendContent.querySelector(".curve-reference"), curve));
+        selectedCurveId = curve.curveId;
+        renderCurrent();
+        if (document.getElementById("legendPanel").getAttribute("aria-hidden") === "true") openPanel("legendPanel");
       };
       curveGroup.addEventListener("click", selectCurve);
       curveGroup.addEventListener("keydown", event => {
@@ -535,7 +546,7 @@
     return figure;
   }
   async function init() {
-    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !filterContent || !panelBackdrop) return;
+    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !filterContent || !panelBackdrop || !curveLinkStatus || !curveLinkApi) return;
     try {
       const sourceUrl = new URL(config.import.source, window.location.href);
       if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
@@ -545,8 +556,21 @@
       const hash = await verifyExport(payload);
       allCurves = payload.curves;
       payload.curves.forEach(curve => { selectedDomains.add(curve.domainId); selectedRoles.add(curve.curveRole); });
+      const requestedCurveId = curveLinkApi.requestedCurveId(window.location.href);
+      const linkedCurve = curveLinkApi.findCurve(payload.curves, requestedCurveId);
+      if (requestedCurveId !== null && !linkedCurve) {
+        curveLinkStatus.hidden = false;
+        curveLinkStatus.textContent = "Die verlinkte Kurve ist nicht verfügbar. Sie wurde möglicherweise entfernt oder die Direktlink-ID ist unbekannt.";
+      } else if (linkedCurve) {
+        selectedCurveId = linkedCurve.curveId;
+        selectedDomains.clear();
+        selectedRoles.clear();
+        selectedDomains.add(linkedCurve.domainId);
+        selectedRoles.add(linkedCurve.curveRole);
+      }
       createFilters(payload.curves);
       renderCurrent();
+      if (linkedCurve) openPanel("legendPanel");
       importStatus.className = "import-status is-valid";
       importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
     } catch (error) {

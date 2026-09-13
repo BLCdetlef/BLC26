@@ -25,6 +25,13 @@ Der Grundlagenfilter folgt der Reihenfolge des GWL-Panels und zeigt sowohl alle
 neun Planetaren Grenzen als auch dessen ergänzende Einflussbereiche. Grundlagen
 ohne verfügbare BLC26-Kurve bleiben mit dem Zähler 0 sichtbar.
 
+Ein Direktlink mit `?curve=<curveId>` öffnet die im GWL-Export unverändert
+enthaltene Kurven-ID, aktiviert ihre Grundlage und ihren Kurventyp und zeigt die
+Kurveninformationen in der Legende. Die ID muss URL-kodiert übergeben werden;
+bei unbekannten oder entfernten IDs bleibt die Standardansicht erhalten und es
+erscheint eine verständliche Meldung. Weitere Kurvennamen oder interne
+Metadaten werden nicht in die URL geschrieben.
+
 ## Sichere GWL-Übergabe
 
 BLC26 ruft keine Kurvendaten von einer öffentlichen Laufzeit-API ab. Es liest ausschließlich die gemeinsam mit BLC26 versionierte Datei `data/gwl/blc-curve-export-v1.json`.

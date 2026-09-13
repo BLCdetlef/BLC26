@@ -26,6 +26,7 @@ button { color: inherit; }
 .status { position: fixed; z-index: 2; right: 3.2rem; bottom: .7rem; color: #5e5d58; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .import-status { position: fixed; z-index: 2; left: 3.2rem; bottom: .7rem; color: #696863; font-size: .65rem; }
 .import-status.is-invalid { color: #812020; }
+.curve-link-status { position: fixed; z-index: 30; top: 4.25rem; left: 50%; width: min(34rem, calc(100vw - 5rem)); padding: .75rem 1rem; border: 1px solid #812020; background: #fff8f5; box-shadow: 0 .2rem .8rem rgb(23 23 23 / 14%); color: #681919; font-size: .8rem; line-height: 1.4; text-align: center; transform: translateX(-50%); }
 .empty-state { display: grid; height: 100%; margin: 0; place-items: center; color: #5b5b57; }
 .empty-state.is-error { color: #812020; }
 .chart-axis { stroke: var(--ink); stroke-width: 1.6; }
@@ -48,6 +49,7 @@ button { color: inherit; }
 .curve-threshold-crossing.is-highRisk { stroke-width: 5; }
 .curve-series { cursor: pointer; outline: none; transition: opacity .16s ease; }
 .curve-series:hover, .curve-series:focus-visible { opacity: 1; }
+.curve-series.is-selected .curve-observed { filter: drop-shadow(0 0 2px rgb(23 23 23 / 45%)); stroke-width: 5; }
 .historical-event { outline: none; }
 .historical-event-band { fill: #5c5c58; opacity: .045; transition: opacity .16s ease; }
 .historical-event.is-point .historical-event-band { opacity: .13; }
@@ -97,6 +99,7 @@ button { color: inherit; }
 .legend-series { position: relative; display: grid; width: 100%; gap: .16rem; padding: .2rem 0 .2rem 2.1rem; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 .legend-series::before { position: absolute; top: .7rem; left: 0; width: 1.55rem; border-top: 4px solid var(--series-color); content: ""; }
 .legend-series strong { color: #292927; font-size: .8rem; line-height: 1.25; }
+.legend-series.is-selected { padding: .55rem .5rem .55rem 2.1rem; background: #e8e5da; }
 .legend-series span { font-size: .68rem; line-height: 1.35; text-transform: uppercase; letter-spacing: .05em; }
 .legend-types { display: grid; gap: .65rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #d2d1cb; }
 .legend-types span::before { content: ""; display: inline-block; width: 1.5rem; margin-right: .5rem; border-top: 3px solid var(--ink); vertical-align: middle; }
@@ -117,6 +120,7 @@ button { color: inherit; }
   .status, .import-status { bottom: .3rem; font-size: .55rem; }
   .status { right: 2.7rem; }
   .import-status { left: 2.7rem; max-width: 45vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .curve-link-status { top: .35rem; width: min(28rem, calc(100vw - 8rem)); padding: .55rem .75rem; font-size: .7rem; }
   .chart-caption { display: none; }
   .panel-handle { width: 1.8rem; height: 5.5rem; }
   .panel-handle span { font-size: .58rem; }

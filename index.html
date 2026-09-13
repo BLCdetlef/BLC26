@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=0.6.2">
+  <link rel="stylesheet" href="style.css?v=0.7.0">
 </head>
 <body>
   <main class="app-shell" id="appShell">
@@ -24,6 +24,7 @@
       <div id="chart" class="chart" aria-label="Zeitreihen des BRUCHLASTcharts"></div>
       <output id="seriesCount" class="status" aria-live="polite">Import wird geprüft …</output>
       <div id="importStatus" class="import-status" role="status" aria-live="polite">Lokales Übergabepaket wird geladen und verifiziert.</div>
+      <div id="curveLinkStatus" class="curve-link-status" role="alert" hidden></div>
     </section>
     <aside id="legendPanel" class="side-panel side-panel-right" aria-labelledby="legendTitle" aria-hidden="true" inert>
       <div class="panel-heading"><div><span class="panel-kicker">Diagramm</span><h2 id="legendTitle">Legende</h2></div><button class="panel-close" type="button" data-close-panel="legendPanel" aria-label="Legende schließen">×</button></div>
@@ -42,6 +43,7 @@
   <script src="data.js?v=0.6.2"></script>
   <script src="events.js?v=0.6.2"></script>
   <script src="reference.js?v=0.6.2"></script>
-  <script src="app.js?v=0.6.3"></script>
+  <script src="curve-link.js?v=0.7.0"></script>
+  <script src="app.js?v=0.7.0"></script>
 </body>
 </html>
