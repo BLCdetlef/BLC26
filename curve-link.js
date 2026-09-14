@@ -15,5 +15,16 @@
     return curves.find(curve => curve.curveId === curveId) || undefined;
   }
 
-  return { requestedCurveId, findCurve };
+  function gwlContributionUrl(curve) {
+    if (!curve?.boundaryId || !curve?.itemId) return null;
+    const url = new URL("https://blcdetlef.github.io/gwl-panel/");
+    url.search = new URLSearchParams({ boundary: curve.boundaryId, item: curve.itemId }).toString();
+    return url.href;
+  }
+
+  function selectedGwlContributionUrl(curves, curveId) {
+    return gwlContributionUrl(findCurve(curves, curveId));
+  }
+
+  return { requestedCurveId, findCurve, gwlContributionUrl, selectedGwlContributionUrl };
 });

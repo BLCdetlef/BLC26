@@ -64,6 +64,10 @@ button { color: inherit; }
 .side-panel[aria-hidden="false"] { transform: translateX(0); }
 .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: .35rem solid var(--ink); }
 .panel-heading h2 { margin: .1rem 0 0; font-size: 1.65rem; line-height: 1; }
+.panel-title-row { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem .7rem; }
+.panel-context-link { margin-top: .1rem; padding: .42rem .55rem; border: 1px solid #77766f; background: transparent; color: var(--ink); font-size: .68rem; font-weight: 700; line-height: 1.15; text-decoration: none; }
+.panel-context-link:hover, .panel-context-link:focus-visible { border-color: var(--ink); background: #e6e4dc; color: var(--accent); outline: none; }
+.panel-context-link:focus-visible { box-shadow: 0 0 0 3px rgb(138 106 22 / 25%); }
 .panel-heading .panel-title-wide { font-size: 1.25rem; line-height: 1.15; white-space: nowrap; }
 .panel-kicker { color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .panel-close { width: 2rem; height: 2rem; padding: 0; border: 0; background: transparent; font-size: 1.7rem; line-height: 1; cursor: pointer; }
@@ -124,6 +128,10 @@ button { color: inherit; }
   .chart-caption { display: none; }
   .panel-handle { width: 1.8rem; height: 5.5rem; }
   .panel-handle span { font-size: .58rem; }
+  .side-panel { padding: .85rem; }
+  .panel-heading { gap: .6rem; padding-bottom: .7rem; }
+  .panel-heading h2 { font-size: 1.35rem; }
+  .panel-context-link { min-height: 2rem; padding: .42rem .5rem; }
 }
 @media (max-width: 760px) and (orientation: portrait) {
   .app-shell { visibility: hidden; }

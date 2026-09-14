@@ -5,6 +5,7 @@
   const seriesCount = document.getElementById("seriesCount");
   const importStatus = document.getElementById("importStatus");
   const legendContent = document.getElementById("legendContent");
+  const gwlContributionLink = document.getElementById("gwlContributionLink");
   const filterContent = document.getElementById("filterContent");
   const panelBackdrop = document.getElementById("panelBackdrop");
   const curveLinkStatus = document.getElementById("curveLinkStatus");
@@ -323,6 +324,14 @@
     const referencePanel = createReferencePanel();
     legendContent.appendChild(referencePanel);
     const selectedCurve = visibleCurves.find(curve => curve.curveId === selectedCurveId);
+    const contributionUrl = curveLinkApi.selectedGwlContributionUrl(visibleCurves, selectedCurveId);
+    if (contributionUrl) {
+      gwlContributionLink.href = contributionUrl;
+      gwlContributionLink.hidden = false;
+    } else {
+      gwlContributionLink.hidden = true;
+      gwlContributionLink.removeAttribute("href");
+    }
     if (selectedCurve) showReference(referencePanel, selectedCurve);
     seriesCount.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven`;
     const result = filterContent.querySelector(".filter-result");
@@ -546,7 +555,7 @@
     return figure;
   }
   async function init() {
-    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !filterContent || !panelBackdrop || !curveLinkStatus || !curveLinkApi) return;
+    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !filterContent || !panelBackdrop || !curveLinkStatus || !curveLinkApi) return;
     try {
       const sourceUrl = new URL(config.import.source, window.location.href);
       if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
