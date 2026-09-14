@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("node:assert/strict");
-const { requestedCurveId, findCurve, gwlContributionUrl, selectedGwlContributionUrl } = require("../curve-link.js");
+const { requestedCurveId, findCurve, visibleCurves, gwlContributionUrl, selectedGwlContributionUrl } = require("../curve-link.js");
 
 const curveId = "knowledge:data/knowledge/example.json#stable_series";
 const curves = [{ curveId, domainId: "example", curveRole: "core" }];
@@ -32,5 +32,31 @@ assert.equal(selectedGwlContributionUrl(selectableCurves, "removed"), null);
 assert.equal(selectedGwlContributionUrl([firstCurve], "second"), null);
 assert.equal(gwlContributionUrl(secondCurve).includes("intern"), false);
 assert.equal(gwlContributionUrl(firstCurve).includes("Darf"), false);
+
+const nitrogenId = "knowledge:data/knowledge/gwl_nutrient_cycles_nitrogen_v0.2.json#nitrogen_fixation_1961_2022";
+const phosphorusId = "knowledge:data/knowledge/gwl_nutrient_cycles_phosphorus_v0.2.json#phosphorus_cropland_1961_2022";
+const nutrientCurves = [
+  { curveId: nitrogenId, domainId: "nutrient_cycles", curveRole: "core", boundaryId: "nutrients", itemId: "nitrogen" },
+  { curveId: phosphorusId, domainId: "nutrient_cycles", curveRole: "core", boundaryId: "nutrients", itemId: "phosphorus" },
+  { curveId: "another-curve", domainId: "climate_change", curveRole: "core", boundaryId: "climate", itemId: "global-warming" }
+];
+const allDomains = new Set(["nutrient_cycles", "climate_change"]);
+const coreRoles = new Set(["core"]);
+const visibleForLink = href => {
+  const linked = findCurve(nutrientCurves, requestedCurveId(href));
+  return linked
+    ? visibleCurves(nutrientCurves, new Set([linked.domainId]), new Set([linked.curveRole]), linked.curveId)
+    : [];
+};
+const nitrogenLink = `https://example.test/?curve=${encodeURIComponent(nitrogenId)}`;
+const phosphorusLink = `https://example.test/?curve=${encodeURIComponent(phosphorusId)}`;
+assert.deepEqual(visibleForLink(nitrogenLink).map(curve => curve.curveId), [nitrogenId]);
+assert.equal(gwlContributionUrl(visibleForLink(nitrogenLink)[0]), "https://blcdetlef.github.io/gwl-panel/?boundary=nutrients&item=nitrogen");
+assert.deepEqual(visibleForLink(phosphorusLink).map(curve => curve.curveId), [phosphorusId]);
+assert.equal(gwlContributionUrl(visibleForLink(phosphorusLink)[0]), "https://blcdetlef.github.io/gwl-panel/?boundary=nutrients&item=phosphorus");
+assert.deepEqual(visibleForLink("https://example.test/?curve=another-curve").map(curve => curve.curveId), ["another-curve"]);
+assert.deepEqual(visibleForLink("https://example.test/?curve=unknown"), []);
+assert.deepEqual(visibleCurves(nutrientCurves, allDomains, coreRoles).map(curve => curve.curveId), [nitrogenId, phosphorusId, "another-curve"]);
+assert.deepEqual(visibleForLink(nitrogenLink).map(curve => curve.curveId), [nitrogenId]);
 
 console.log("Kurvenlinks gültig: Direktlinks, sichere GWL-Ziele, fehlende IDs und Auswahlwechsel geprüft.");

@@ -15,6 +15,14 @@
     return curves.find(curve => curve.curveId === curveId) || undefined;
   }
 
+  function visibleCurves(curves, selectedDomains, selectedRoles, exactCurveId = null) {
+    return curves.filter(curve =>
+      selectedDomains.has(curve.domainId) &&
+      selectedRoles.has(curve.curveRole) &&
+      (exactCurveId === null || curve.curveId === exactCurveId)
+    );
+  }
+
   function gwlContributionUrl(curve) {
     if (!curve?.boundaryId || !curve?.itemId) return null;
     const url = new URL("https://blcdetlef.github.io/gwl-panel/");
@@ -26,5 +34,5 @@
     return gwlContributionUrl(findCurve(curves, curveId));
   }
 
-  return { requestedCurveId, findCurve, gwlContributionUrl, selectedGwlContributionUrl };
+  return { requestedCurveId, findCurve, visibleCurves, gwlContributionUrl, selectedGwlContributionUrl };
 });

@@ -29,6 +29,7 @@
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   let allCurves = [];
   let selectedCurveId = null;
+  let exactLinkedCurveId = null;
   const selectedDomains = new Set();
   const selectedRoles = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
@@ -315,7 +316,7 @@
     return section;
   }
   function renderCurrent() {
-    const visibleCurves = allCurves.filter(curve => selectedDomains.has(curve.domainId) && selectedRoles.has(curve.curveRole));
+    const visibleCurves = curveLinkApi.visibleCurves(allCurves, selectedDomains, selectedRoles, exactLinkedCurveId);
     chart.replaceChildren(renderChart(visibleCurves));
     legendContent.replaceChildren(createLegend(visibleCurves, curve => {
       selectedCurveId = curve.curveId;
@@ -352,6 +353,7 @@
       const count = curves.filter(curve => curve.domainId === domain.domainId).length;
       return { value: domain.domainId, label: domain.label, group: domain.group, checked: selectedDomains.has(domain.domainId), disabled: count === 0, count };
     }), (domainId, checked) => {
+      exactLinkedCurveId = null;
       if (checked) selectedDomains.add(domainId); else selectedDomains.delete(domainId);
       renderCurrent();
     }, true);
@@ -359,6 +361,7 @@
       { value: "core", label: "Kernkurven", checked: selectedRoles.has("core"), count: curves.filter(curve => curve.curveRole === "core").length },
       { value: "deep_dive", label: "Vertiefung", checked: selectedRoles.has("deep_dive"), count: curves.filter(curve => curve.curveRole === "deep_dive").length }
     ], (role, checked) => {
+      exactLinkedCurveId = null;
       if (checked) selectedRoles.add(role); else selectedRoles.delete(role);
       renderCurrent();
     });
@@ -376,6 +379,7 @@
     noneButton.type = "button";
     noneButton.textContent = "Keine";
     const syncChecks = checked => {
+      exactLinkedCurveId = null;
       [domainSection, roleSection].forEach(section => section.querySelectorAll('input[type="checkbox"]').forEach(input => { if (!input.disabled) input.checked = checked; }));
       selectedDomains.clear(); selectedRoles.clear();
       if (checked) {
@@ -572,6 +576,7 @@
         curveLinkStatus.textContent = "Die verlinkte Kurve ist nicht verfügbar. Sie wurde möglicherweise entfernt oder die Direktlink-ID ist unbekannt.";
       } else if (linkedCurve) {
         selectedCurveId = linkedCurve.curveId;
+        exactLinkedCurveId = linkedCurve.curveId;
         selectedDomains.clear();
         selectedRoles.clear();
         selectedDomains.add(linkedCurve.domainId);
