@@ -6643,11 +6643,563 @@
           "access": "open_data"
         }
       ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/gwl_wind_energy_pilot_v0.1.json#global_wind_tes_1965_2025",
+      "boundaryId": "materials-energy",
+      "itemId": "wind",
+      "seriesId": "global_wind_tes_1965_2025",
+      "source": "data/knowledge/gwl_wind_energy_pilot_v0.1.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globale Energieversorgung aus Wind · Energy Institute 2026",
+      "metric": "Globale Energieversorgung aus Wind",
+      "unit": "TWh_per_year",
+      "geography": "Global",
+      "worseningDirection": "decrease",
+      "finding": "Die globale Energieversorgung aus Wind war 1965 noch mit 0 TWh ausgewiesen und erreichte 2025 rund 2.714 TWh.",
+      "uncertainty": "Jährliche globale Total Energy Supply. Datenfassung: Energy Institute Statistical Review 2026; Aufbereitung durch Our World in Data, Stand 30. Juni 2026. Frühere Jahre können bei künftigen Ausgaben revidiert werden.",
+      "observationCoverage": {
+        "startYear": 1965,
+        "endYear": 2025,
+        "spanYears": 60,
+        "pointCount": 61
+      },
+      "observationSourceRefs": [
+        "src_ei_2026_energy_by_source",
+        "src_owid_2026_energy_by_source"
+      ],
+      "reference": {
+        "type": "no_planetary_threshold",
+        "display": "Kein planetarer Grenzwert · globale Energieversorgung"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1965,
+          "value": 0,
+          "display": "1965: 0 TWh/Jahr"
+        },
+        {
+          "year": 1966,
+          "value": 0,
+          "display": "1966: 0 TWh/Jahr"
+        },
+        {
+          "year": 1967,
+          "value": 0,
+          "display": "1967: 0 TWh/Jahr"
+        },
+        {
+          "year": 1968,
+          "value": 0,
+          "display": "1968: 0 TWh/Jahr"
+        },
+        {
+          "year": 1969,
+          "value": 0,
+          "display": "1969: 0 TWh/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 0,
+          "display": "1970: 0 TWh/Jahr"
+        },
+        {
+          "year": 1971,
+          "value": 0,
+          "display": "1971: 0 TWh/Jahr"
+        },
+        {
+          "year": 1972,
+          "value": 0,
+          "display": "1972: 0 TWh/Jahr"
+        },
+        {
+          "year": 1973,
+          "value": 0,
+          "display": "1973: 0 TWh/Jahr"
+        },
+        {
+          "year": 1974,
+          "value": 0,
+          "display": "1974: 0 TWh/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 0,
+          "display": "1975: 0 TWh/Jahr"
+        },
+        {
+          "year": 1976,
+          "value": 0,
+          "display": "1976: 0 TWh/Jahr"
+        },
+        {
+          "year": 1977,
+          "value": 0,
+          "display": "1977: 0 TWh/Jahr"
+        },
+        {
+          "year": 1978,
+          "value": 0.003,
+          "display": "1978: 0,003 TWh/Jahr"
+        },
+        {
+          "year": 1979,
+          "value": 0.006,
+          "display": "1979: 0,006 TWh/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 0.011,
+          "display": "1980: 0,011 TWh/Jahr"
+        },
+        {
+          "year": 1981,
+          "value": 0.011,
+          "display": "1981: 0,011 TWh/Jahr"
+        },
+        {
+          "year": 1982,
+          "value": 0.019,
+          "display": "1982: 0,019 TWh/Jahr"
+        },
+        {
+          "year": 1983,
+          "value": 0.033,
+          "display": "1983: 0,033 TWh/Jahr"
+        },
+        {
+          "year": 1984,
+          "value": 0.045,
+          "display": "1984: 0,045 TWh/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 0.064,
+          "display": "1985: 0,064 TWh/Jahr"
+        },
+        {
+          "year": 1986,
+          "value": 0.139,
+          "display": "1986: 0,139 TWh/Jahr"
+        },
+        {
+          "year": 1987,
+          "value": 0.195,
+          "display": "1987: 0,195 TWh/Jahr"
+        },
+        {
+          "year": 1988,
+          "value": 0.332,
+          "display": "1988: 0,332 TWh/Jahr"
+        },
+        {
+          "year": 1989,
+          "value": 2.65,
+          "display": "1989: 2,7 TWh/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 3.632,
+          "display": "1990: 3,6 TWh/Jahr"
+        },
+        {
+          "year": 1991,
+          "value": 4.086,
+          "display": "1991: 4,1 TWh/Jahr"
+        },
+        {
+          "year": 1992,
+          "value": 4.733,
+          "display": "1992: 4,7 TWh/Jahr"
+        },
+        {
+          "year": 1993,
+          "value": 5.704,
+          "display": "1993: 5,7 TWh/Jahr"
+        },
+        {
+          "year": 1994,
+          "value": 7.132,
+          "display": "1994: 7,1 TWh/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 8.272,
+          "display": "1995: 8,3 TWh/Jahr"
+        },
+        {
+          "year": 1996,
+          "value": 9.216,
+          "display": "1996: 9,2 TWh/Jahr"
+        },
+        {
+          "year": 1997,
+          "value": 12.028,
+          "display": "1997: 12 TWh/Jahr"
+        },
+        {
+          "year": 1998,
+          "value": 15.929,
+          "display": "1998: 16 TWh/Jahr"
+        },
+        {
+          "year": 1999,
+          "value": 21.227,
+          "display": "1999: 21 TWh/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 31.41,
+          "display": "2000: 31 TWh/Jahr"
+        },
+        {
+          "year": 2001,
+          "value": 38.38,
+          "display": "2001: 38 TWh/Jahr"
+        },
+        {
+          "year": 2002,
+          "value": 52.382,
+          "display": "2002: 52 TWh/Jahr"
+        },
+        {
+          "year": 2003,
+          "value": 63.285,
+          "display": "2003: 63 TWh/Jahr"
+        },
+        {
+          "year": 2004,
+          "value": 85.618,
+          "display": "2004: 86 TWh/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 104.627,
+          "display": "2005: 105 TWh/Jahr"
+        },
+        {
+          "year": 2006,
+          "value": 133.503,
+          "display": "2006: 134 TWh/Jahr"
+        },
+        {
+          "year": 2007,
+          "value": 171.537,
+          "display": "2007: 172 TWh/Jahr"
+        },
+        {
+          "year": 2008,
+          "value": 221.452,
+          "display": "2008: 221 TWh/Jahr"
+        },
+        {
+          "year": 2009,
+          "value": 276.846,
+          "display": "2009: 277 TWh/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 346.527,
+          "display": "2010: 347 TWh/Jahr"
+        },
+        {
+          "year": 2011,
+          "value": 441.045,
+          "display": "2011: 441 TWh/Jahr"
+        },
+        {
+          "year": 2012,
+          "value": 530.984,
+          "display": "2012: 531 TWh/Jahr"
+        },
+        {
+          "year": 2013,
+          "value": 636.031,
+          "display": "2013: 636 TWh/Jahr"
+        },
+        {
+          "year": 2014,
+          "value": 706.479,
+          "display": "2014: 706 TWh/Jahr"
+        },
+        {
+          "year": 2015,
+          "value": 832.066,
+          "display": "2015: 832 TWh/Jahr"
+        },
+        {
+          "year": 2016,
+          "value": 962.944,
+          "display": "2016: 963 TWh/Jahr"
+        },
+        {
+          "year": 2017,
+          "value": 1142.459,
+          "display": "2017: 1.142 TWh/Jahr"
+        },
+        {
+          "year": 2018,
+          "value": 1271.378,
+          "display": "2018: 1.271 TWh/Jahr"
+        },
+        {
+          "year": 2019,
+          "value": 1422.374,
+          "display": "2019: 1.422 TWh/Jahr"
+        },
+        {
+          "year": 2020,
+          "value": 1596.235,
+          "display": "2020: 1.596 TWh/Jahr"
+        },
+        {
+          "year": 2021,
+          "value": 1862.479,
+          "display": "2021: 1.862 TWh/Jahr"
+        },
+        {
+          "year": 2022,
+          "value": 2109.334,
+          "display": "2022: 2.109 TWh/Jahr"
+        },
+        {
+          "year": 2023,
+          "value": 2322.362,
+          "display": "2023: 2.322 TWh/Jahr"
+        },
+        {
+          "year": 2024,
+          "value": 2514.966,
+          "display": "2024: 2.515 TWh/Jahr"
+        },
+        {
+          "year": 2025,
+          "value": 2714.067,
+          "display": "2025: 2.714 TWh/Jahr"
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1965,
+          "value": 0,
+          "display": "1965: 0 TWh/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 0,
+          "display": "1970: 0 TWh/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 0,
+          "display": "1975: 0 TWh/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 0.011,
+          "display": "1980: 0,011 TWh/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 0.064,
+          "display": "1985: 0,064 TWh/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 3.632,
+          "display": "1990: 3,6 TWh/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 8.272,
+          "display": "1995: 8,3 TWh/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 31.41,
+          "display": "2000: 31 TWh/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 104.627,
+          "display": "2005: 105 TWh/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 346.527,
+          "display": "2010: 347 TWh/Jahr"
+        },
+        {
+          "year": 2015,
+          "value": 832.066,
+          "display": "2015: 832 TWh/Jahr"
+        },
+        {
+          "year": 2020,
+          "value": 1596.235,
+          "display": "2020: 1.596 TWh/Jahr"
+        },
+        {
+          "year": 2025,
+          "value": 2714.067,
+          "display": "2025: 2.714 TWh/Jahr"
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_wind_tes_weo2025_cps",
+          "scenario": "CPS",
+          "scenarioLabel": "CPS · geltende Maßnahmen",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 6389,
+              "display": "2035: ≈ 6.389 TWh/Jahr · CPS"
+            },
+            {
+              "year": 2040,
+              "value": 7778,
+              "display": "2040: ≈ 7.778 TWh/Jahr · CPS"
+            },
+            {
+              "year": 2050,
+              "value": 9722,
+              "display": "2050: ≈ 9.722 TWh/Jahr · CPS"
+            }
+          ]
+        },
+        {
+          "id": "global_wind_tes_weo2025_steps",
+          "scenario": "STEPS",
+          "scenarioLabel": "STEPS · angekündigte Maßnahmen",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 6944,
+              "display": "2035: ≈ 6.944 TWh/Jahr · STEPS"
+            },
+            {
+              "year": 2040,
+              "value": 8611,
+              "display": "2040: ≈ 8.611 TWh/Jahr · STEPS"
+            },
+            {
+              "year": 2050,
+              "value": 11111,
+              "display": "2050: ≈ 11.111 TWh/Jahr · STEPS"
+            }
+          ]
+        },
+        {
+          "id": "global_wind_tes_weo2025_nze",
+          "scenario": "NZE",
+          "scenarioLabel": "NZE · Netto-Null 2050",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 11944,
+              "display": "2035: ≈ 11.944 TWh/Jahr · NZE"
+            },
+            {
+              "year": 2040,
+              "value": 16667,
+              "display": "2040: ≈ 16.667 TWh/Jahr · NZE"
+            },
+            {
+              "year": 2050,
+              "value": 23333,
+              "display": "2050: ≈ 23.333 TWh/Jahr · NZE"
+            }
+          ]
+        }
+      ],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_iea_weo_2025_annex_a",
+          "title": "World Energy Outlook 2025 · Annex A: Tables for scenario projections",
+          "publisher": "International Energy Agency",
+          "year": 2025,
+          "url": "https://www.iea.org/reports/world-energy-outlook-2025",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_ei_2026_energy_by_source",
+          "title": "Statistical Review of World Energy 2026 – Consolidated Dataset",
+          "publisher": "Energy Institute",
+          "year": 2026,
+          "url": "https://www.energyinst.org/statistical-review/resources-and-data-downloads",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_owid_2026_energy_by_source",
+          "title": "Primary energy use by source",
+          "publisher": "Our World in Data",
+          "year": 2026,
+          "url": "https://ourworldindata.org/grapher/global-energy-consumption-source",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_irena_capacity_highlights_2025",
+          "title": "Renewable Capacity Highlights 2025",
+          "publisher": "International Renewable Energy Agency",
+          "year": 2025,
+          "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2025/Mar/IRENA_DAT_RE_Capacity_Highlights_2025.pdf"
+        },
+        {
+          "id": "src_iea_global_energy_review_2025",
+          "title": "Electricity – Global Energy Review 2025",
+          "publisher": "International Energy Agency",
+          "year": 2025,
+          "url": "https://www.iea.org/reports/global-energy-review-2025/electricity"
+        },
+        {
+          "id": "src_ember_global_electricity_review_2025",
+          "title": "Global Electricity Review 2025",
+          "publisher": "Ember",
+          "year": 2025,
+          "url": "https://ember-energy.org/latest-insights/global-electricity-review-2025/"
+        },
+        {
+          "id": "src_iea_critical_minerals_wind",
+          "title": "Mineral requirements for clean energy transitions",
+          "publisher": "International Energy Agency",
+          "year": 2021,
+          "url": "https://www.iea.org/reports/the-role-of-critical-minerals-in-clean-energy-transitions/mineral-requirements-for-clean-energy-transitions"
+        }
+      ]
     }
   ],
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "1dfd70cbc150375021ccadff80c14aee5ca10a0ed86d706bc9eef656bdb2000e"
+    "hash": "31916e1ff0ab88d78570afd487c47db8c98f4afd6e2fd3c5aae2953356d03f74"
   }
 }
