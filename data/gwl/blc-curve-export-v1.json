@@ -2406,6 +2406,544 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/gwl_coal_energy_pilot_v0.1.json#global_coal_tes_1965_2025",
+      "boundaryId": "materials-energy",
+      "itemId": "coal",
+      "seriesId": "global_coal_tes_1965_2025",
+      "source": "data/knowledge/gwl_coal_energy_pilot_v0.1.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globale Energieversorgung aus Kohle · Energy Institute 2026",
+      "metric": "Globale Energieversorgung aus Kohle",
+      "unit": "TWh_per_year",
+      "geography": "Global",
+      "worseningDirection": "increase",
+      "finding": "Die globale Energieversorgung aus Kohle stieg von rund 16.178 TWh im Jahr 1965 auf rund 46.120 TWh im Jahr 2025.",
+      "uncertainty": "Jährliche globale Total Energy Supply. Datenfassung: Energy Institute Statistical Review 2026; Aufbereitung durch Our World in Data, Stand 30. Juni 2026. Frühere Jahre können bei künftigen Ausgaben revidiert werden.",
+      "observationCoverage": {
+        "startYear": 1965,
+        "endYear": 2025,
+        "spanYears": 60,
+        "pointCount": 61
+      },
+      "observationSourceRefs": [
+        "src_ei_2026_energy_by_source",
+        "src_owid_2026_energy_by_source"
+      ],
+      "reference": {
+        "type": "no_planetary_threshold",
+        "display": "Kein planetarer Grenzwert · globale Energieversorgung"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1965,
+          "value": 16177.694,
+          "display": "1965: 16.178 TWh/Jahr"
+        },
+        {
+          "year": 1966,
+          "value": 16359.431,
+          "display": "1966: 16.359 TWh/Jahr"
+        },
+        {
+          "year": 1967,
+          "value": 16095.518,
+          "display": "1967: 16.096 TWh/Jahr"
+        },
+        {
+          "year": 1968,
+          "value": 16333.144,
+          "display": "1968: 16.333 TWh/Jahr"
+        },
+        {
+          "year": 1969,
+          "value": 16847,
+          "display": "1969: 16.847 TWh/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 17087.006,
+          "display": "1970: 17.087 TWh/Jahr"
+        },
+        {
+          "year": 1971,
+          "value": 16987.656,
+          "display": "1971: 16.988 TWh/Jahr"
+        },
+        {
+          "year": 1972,
+          "value": 17168.227,
+          "display": "1972: 17.168 TWh/Jahr"
+        },
+        {
+          "year": 1973,
+          "value": 17683.57,
+          "display": "1973: 17.684 TWh/Jahr"
+        },
+        {
+          "year": 1974,
+          "value": 17696.432,
+          "display": "1974: 17.696 TWh/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 18045.436,
+          "display": "1975: 18.045 TWh/Jahr"
+        },
+        {
+          "year": 1976,
+          "value": 18699.785,
+          "display": "1976: 18.700 TWh/Jahr"
+        },
+        {
+          "year": 1977,
+          "value": 19267.412,
+          "display": "1977: 19.267 TWh/Jahr"
+        },
+        {
+          "year": 1978,
+          "value": 19467.492,
+          "display": "1978: 19.467 TWh/Jahr"
+        },
+        {
+          "year": 1979,
+          "value": 20370.578,
+          "display": "1979: 20.371 TWh/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 20877.783,
+          "display": "1980: 20.878 TWh/Jahr"
+        },
+        {
+          "year": 1981,
+          "value": 21158.002,
+          "display": "1981: 21.158 TWh/Jahr"
+        },
+        {
+          "year": 1982,
+          "value": 21395.428,
+          "display": "1982: 21.395 TWh/Jahr"
+        },
+        {
+          "year": 1983,
+          "value": 22050.973,
+          "display": "1983: 22.051 TWh/Jahr"
+        },
+        {
+          "year": 1984,
+          "value": 23008.44,
+          "display": "1984: 23.008 TWh/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 23996.738,
+          "display": "1985: 23.997 TWh/Jahr"
+        },
+        {
+          "year": 1986,
+          "value": 24263.818,
+          "display": "1986: 24.264 TWh/Jahr"
+        },
+        {
+          "year": 1987,
+          "value": 25228.488,
+          "display": "1987: 25.228 TWh/Jahr"
+        },
+        {
+          "year": 1988,
+          "value": 25983.08,
+          "display": "1988: 25.983 TWh/Jahr"
+        },
+        {
+          "year": 1989,
+          "value": 26231.049,
+          "display": "1989: 26.231 TWh/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 25925.975,
+          "display": "1990: 25.926 TWh/Jahr"
+        },
+        {
+          "year": 1991,
+          "value": 25683.658,
+          "display": "1991: 25.684 TWh/Jahr"
+        },
+        {
+          "year": 1992,
+          "value": 25581.1,
+          "display": "1992: 25.581 TWh/Jahr"
+        },
+        {
+          "year": 1993,
+          "value": 25705.527,
+          "display": "1993: 25.706 TWh/Jahr"
+        },
+        {
+          "year": 1994,
+          "value": 25811.787,
+          "display": "1994: 25.812 TWh/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 25995.75,
+          "display": "1995: 25.996 TWh/Jahr"
+        },
+        {
+          "year": 1996,
+          "value": 26613.953,
+          "display": "1996: 26.614 TWh/Jahr"
+        },
+        {
+          "year": 1997,
+          "value": 26559.66,
+          "display": "1997: 26.560 TWh/Jahr"
+        },
+        {
+          "year": 1998,
+          "value": 26392.303,
+          "display": "1998: 26.392 TWh/Jahr"
+        },
+        {
+          "year": 1999,
+          "value": 26505.096,
+          "display": "1999: 26.505 TWh/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 27452.621,
+          "display": "2000: 27.453 TWh/Jahr"
+        },
+        {
+          "year": 2001,
+          "value": 27876.27,
+          "display": "2001: 27.876 TWh/Jahr"
+        },
+        {
+          "year": 2002,
+          "value": 28978.352,
+          "display": "2002: 28.978 TWh/Jahr"
+        },
+        {
+          "year": 2003,
+          "value": 31459.395,
+          "display": "2003: 31.459 TWh/Jahr"
+        },
+        {
+          "year": 2004,
+          "value": 33610.812,
+          "display": "2004: 33.611 TWh/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 36222.54,
+          "display": "2005: 36.223 TWh/Jahr"
+        },
+        {
+          "year": 2006,
+          "value": 38155.227,
+          "display": "2006: 38.155 TWh/Jahr"
+        },
+        {
+          "year": 2007,
+          "value": 40315.055,
+          "display": "2007: 40.315 TWh/Jahr"
+        },
+        {
+          "year": 2008,
+          "value": 40798.688,
+          "display": "2008: 40.799 TWh/Jahr"
+        },
+        {
+          "year": 2009,
+          "value": 40148.613,
+          "display": "2009: 40.149 TWh/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 41980.543,
+          "display": "2010: 41.981 TWh/Jahr"
+        },
+        {
+          "year": 2011,
+          "value": 43922.582,
+          "display": "2011: 43.923 TWh/Jahr"
+        },
+        {
+          "year": 2012,
+          "value": 44111.99,
+          "display": "2012: 44.112 TWh/Jahr"
+        },
+        {
+          "year": 2013,
+          "value": 44754.055,
+          "display": "2013: 44.754 TWh/Jahr"
+        },
+        {
+          "year": 2014,
+          "value": 44868.477,
+          "display": "2014: 44.868 TWh/Jahr"
+        },
+        {
+          "year": 2015,
+          "value": 43691.934,
+          "display": "2015: 43.692 TWh/Jahr"
+        },
+        {
+          "year": 2016,
+          "value": 42718.574,
+          "display": "2016: 42.719 TWh/Jahr"
+        },
+        {
+          "year": 2017,
+          "value": 43126.863,
+          "display": "2017: 43.127 TWh/Jahr"
+        },
+        {
+          "year": 2018,
+          "value": 43898.14,
+          "display": "2018: 43.898 TWh/Jahr"
+        },
+        {
+          "year": 2019,
+          "value": 43411.945,
+          "display": "2019: 43.412 TWh/Jahr"
+        },
+        {
+          "year": 2020,
+          "value": 41866.8,
+          "display": "2020: 41.867 TWh/Jahr"
+        },
+        {
+          "year": 2021,
+          "value": 44228.82,
+          "display": "2021: 44.229 TWh/Jahr"
+        },
+        {
+          "year": 2022,
+          "value": 44745.14,
+          "display": "2022: 44.745 TWh/Jahr"
+        },
+        {
+          "year": 2023,
+          "value": 45500.543,
+          "display": "2023: 45.501 TWh/Jahr"
+        },
+        {
+          "year": 2024,
+          "value": 45930.863,
+          "display": "2024: 45.931 TWh/Jahr"
+        },
+        {
+          "year": 2025,
+          "value": 46119.5,
+          "display": "2025: 46.120 TWh/Jahr"
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1965,
+          "value": 16177.694,
+          "display": "1965: 16.178 TWh/Jahr"
+        },
+        {
+          "year": 1970,
+          "value": 17087.006,
+          "display": "1970: 17.087 TWh/Jahr"
+        },
+        {
+          "year": 1975,
+          "value": 18045.436,
+          "display": "1975: 18.045 TWh/Jahr"
+        },
+        {
+          "year": 1980,
+          "value": 20877.783,
+          "display": "1980: 20.878 TWh/Jahr"
+        },
+        {
+          "year": 1985,
+          "value": 23996.738,
+          "display": "1985: 23.997 TWh/Jahr"
+        },
+        {
+          "year": 1990,
+          "value": 25925.975,
+          "display": "1990: 25.926 TWh/Jahr"
+        },
+        {
+          "year": 1995,
+          "value": 25995.75,
+          "display": "1995: 25.996 TWh/Jahr"
+        },
+        {
+          "year": 2000,
+          "value": 27452.621,
+          "display": "2000: 27.453 TWh/Jahr"
+        },
+        {
+          "year": 2005,
+          "value": 36222.54,
+          "display": "2005: 36.223 TWh/Jahr"
+        },
+        {
+          "year": 2010,
+          "value": 41980.543,
+          "display": "2010: 41.981 TWh/Jahr"
+        },
+        {
+          "year": 2015,
+          "value": 43691.934,
+          "display": "2015: 43.692 TWh/Jahr"
+        },
+        {
+          "year": 2020,
+          "value": 41866.8,
+          "display": "2020: 41.867 TWh/Jahr"
+        },
+        {
+          "year": 2025,
+          "value": 46119.5,
+          "display": "2025: 46.120 TWh/Jahr"
+        }
+      ],
+      "historicalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_coal_tes_weo2025_cps",
+          "scenario": "CPS",
+          "scenarioLabel": "CPS · geltende Maßnahmen",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 45833,
+              "display": "2035: ≈ 45.833 TWh/Jahr · CPS"
+            },
+            {
+              "year": 2040,
+              "value": 43056,
+              "display": "2040: ≈ 43.056 TWh/Jahr · CPS"
+            },
+            {
+              "year": 2050,
+              "value": 38333,
+              "display": "2050: ≈ 38.333 TWh/Jahr · CPS"
+            }
+          ]
+        },
+        {
+          "id": "global_coal_tes_weo2025_steps",
+          "scenario": "STEPS",
+          "scenarioLabel": "STEPS · angekündigte Maßnahmen",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 39722,
+              "display": "2035: ≈ 39.722 TWh/Jahr · STEPS"
+            },
+            {
+              "year": 2040,
+              "value": 33611,
+              "display": "2040: ≈ 33.611 TWh/Jahr · STEPS"
+            },
+            {
+              "year": 2050,
+              "value": 26389,
+              "display": "2050: ≈ 26.389 TWh/Jahr · STEPS"
+            }
+          ]
+        },
+        {
+          "id": "global_coal_tes_weo2025_nze",
+          "scenario": "NZE",
+          "scenarioLabel": "NZE · Netto-Null 2050",
+          "uncertainty": "Modellierte WEO-2025-Stützjahre. Die veröffentlichte Annex-Tabelle rundet auf ganze EJ; die TWh-Werte sind deshalb als Näherungen gekennzeichnet. Zwischenwerte werden nicht interpoliert.",
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2035,
+              "value": 19444,
+              "display": "2035: ≈ 19.444 TWh/Jahr · NZE"
+            },
+            {
+              "year": 2040,
+              "value": 8056,
+              "display": "2040: ≈ 8.056 TWh/Jahr · NZE"
+            },
+            {
+              "year": 2050,
+              "value": 4167,
+              "display": "2050: ≈ 4.167 TWh/Jahr · NZE"
+            }
+          ]
+        }
+      ],
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_iea_weo_2025_annex_a",
+          "title": "World Energy Outlook 2025 · Annex A: Tables for scenario projections",
+          "publisher": "International Energy Agency",
+          "year": 2025,
+          "url": "https://www.iea.org/reports/world-energy-outlook-2025",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_ei_2026_energy_by_source",
+          "title": "Statistical Review of World Energy 2026 – Consolidated Dataset",
+          "publisher": "Energy Institute",
+          "year": 2026,
+          "url": "https://www.energyinst.org/statistical-review/resources-and-data-downloads",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_owid_2026_energy_by_source",
+          "title": "Primary energy use by source",
+          "publisher": "Our World in Data",
+          "year": 2026,
+          "url": "https://ourworldindata.org/grapher/global-energy-consumption-source",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_iea_coal_midyear_2025",
+          "title": "Coal Mid-Year Update 2025 – Overview",
+          "publisher": "International Energy Agency",
+          "year": 2025,
+          "url": "https://www.iea.org/reports/coal-mid-year-update-2025/overview"
+        },
+        {
+          "id": "src_gcb_2024",
+          "title": "Global Carbon Budget 2024",
+          "publisher": "Global Carbon Project",
+          "year": 2024,
+          "url": "https://globalcarbonbudget.org/fossil-fuel-co2-emissions-increase-again-in-2024/"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json#blue_water_streamflow",
       "boundaryId": "freshwater",
       "itemId": "blue-water-streamflow",
@@ -6110,6 +6648,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "f750909117d273b6e8880cd8dc9a24c05946df2610f78a4fd811f891e9ca6a1b"
+    "hash": "1dfd70cbc150375021ccadff80c14aee5ca10a0ed86d706bc9eef656bdb2000e"
   }
 }
