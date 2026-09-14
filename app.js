@@ -14,17 +14,7 @@
   const curveLinkApi = window.BRUCHLAST_CURVE_LINK;
   const svgNamespace = "http://www.w3.org/2000/svg";
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
-  const expectedCurveRoles = new Map([
-    ["biosphere_hanpp_1910_2020", "core"],
-    ["global_co2_noaa_annual", "core"],
-    ["blue_water_streamflow", "core"],
-    ["green_water_rootzone_soil_moisture", "core"],
-    ["global_forest_cover_1992_2022", "core"],
-    ["nitrogen_fixation_1961_2022", "core"],
-    ["phosphorus_cropland_1961_2022", "core"],
-    ["global_surface_omega_arag_oceansoda_1982_2021", "core"],
-    ["global_plastics_production_1950_2019", "deep_dive"]
-  ]);
+  const allowedCurveRoles = new Set(["core", "deep_dive"]);
   const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   let allCurves = [];
@@ -43,8 +33,8 @@
     { domainId: "atmospheric_aerosol_loading", label: "Aerosole", group: "Planetare Grenzen" },
     { domainId: "stratospheric_ozone_depletion", label: "Stratosphärisches Ozon", group: "Planetare Grenzen" },
     { domainId: "novel_entities", label: "Neue Substanzen", group: "Planetare Grenzen" },
-    { domainId: "materials_energy", label: "Stoff- und Energieströme", group: "Ergänzende Einflussbereiche" },
-    { domainId: "technological_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
+    { domainId: "eah_material_energy_flows", label: "Stoff- und Energieströme", group: "Ergänzende Einflussbereiche" },
+    { domainId: "eah_tech_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
   ]);
   const presentation = Object.freeze({
     biosphere_hanpp_1910_2020: {
@@ -91,6 +81,11 @@
       label: "Globale Kunststoffproduktion",
       detail: "Jährlich produzierte primäre Kunststoffe · höher = mehr neue Substanzen in der Umwelt",
       unit: "Mio. t/Jahr"
+    },
+    global_oil_tes_1965_2025: {
+      label: "Globale Energieversorgung aus Erdöl",
+      detail: "Jährliche globale Total Energy Supply aus Erdöl · höher = größerer fossiler Energiestrom",
+      unit: "TWh/Jahr"
     }
   });
 
@@ -122,7 +117,7 @@
     if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
     for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(`Unbekanntes Exportfeld: ${field}`);
     if (payload.format !== config.import.format || payload.version !== config.import.version) fail("Unbekanntes Exportformat.");
-    if (!Array.isArray(payload.curves) || payload.curves.length !== expectedCurveRoles.size) fail("Das Übergabepaket muss genau neun erwartete Kurven enthalten.");
+    if (!Array.isArray(payload.curves) || !payload.curves.length) fail("Das Übergabepaket enthält keine Kurven.");
     if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsangabe fehlt.");
     const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
     const actualHash = await sha256(JSON.stringify(signedPayload));
@@ -133,10 +128,8 @@
       if (!curve?.curveId || seen.has(curve.curveId)) fail("Kurven-ID fehlt oder ist doppelt.");
       seen.add(curve.curveId);
       if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
-      const expectedRole = expectedCurveRoles.get(curve.seriesId);
-      if (!expectedRole) fail(`${curve.curveId}: unerwartete Kurve.`);
       if (seenSeries.has(curve.seriesId)) fail(`${curve.seriesId}: Kurve ist doppelt enthalten.`);
-      if (curve.curveRole !== expectedRole) fail(`${curve.curveId}: curveRole ${expectedRole} erwartet.`);
+      if (!allowedCurveRoles.has(curve.curveRole)) fail(`${curve.curveId}: ungültige curveRole.`);
       seenSeries.add(curve.seriesId);
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
