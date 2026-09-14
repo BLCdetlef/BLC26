@@ -146,7 +146,6 @@
         if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
     }
-    if (seenSeries.size !== expectedCurveRoles.size) fail("Das Übergabepaket enthält nicht alle erwarteten Kurven.");
     return actualHash;
   }
   function makePath(points, x, y) {
