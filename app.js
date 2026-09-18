@@ -104,6 +104,19 @@
   function validPoints(points) {
     return Array.isArray(points) && points.every(point => Number.isFinite(Number(point?.year)) && Number.isFinite(Number(point?.value)));
   }
+  function pointKey(point) {
+    return `${Number(point?.year)}:${Number(point?.value)}`;
+  }
+  function validateDisplaySegments(curve, fullSegments, displaySegments, label) {
+    if (!Array.isArray(displaySegments) || displaySegments.length !== fullSegments.length) fail(`${curve.curveId}: Darstellungssegmente für ${label} fehlen.`);
+    const fullById = new Map(fullSegments.map(segment => [segment.id, segment]));
+    for (const displaySegment of displaySegments) {
+      const fullSegment = fullById.get(displaySegment.id);
+      if (!fullSegment || !validPoints(displaySegment.points) || !displaySegment.points.length) fail(`${curve.curveId}: ungültiges Darstellungssegment für ${label}.`);
+      const originals = new Set(fullSegment.points.map(pointKey));
+      if (displaySegment.points.some(point => !originals.has(pointKey(point)))) fail(`${curve.curveId}: ${label} enthält einen nicht belegten Zwischenwert.`);
+    }
+  }
   function formatNumber(value) {
     return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 6 }).format(Number(value));
   }
@@ -132,6 +145,7 @@
       if (!allowedCurveRoles.has(curve.curveRole)) fail(`${curve.curveId}: ungültige curveRole.`);
       seenSeries.add(curve.seriesId);
       if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
+      if (!["observed", "assessed_model_estimate"].includes(curve.dataNature)) fail(`${curve.curveId}: Art der Hauptreihe fehlt oder ist ungültig.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
       if (!validPoints(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: gültige Darstellungsreihe fehlt.`);
       const observationYears = new Set(curve.observations.map(point => Number(point.year)));
@@ -145,6 +159,9 @@
       for (const projection of curve.projections || []) {
         if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
+      validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, "Rekonstruktionen");
+      validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, "Projektionen");
+      if (curve.displayDerivation?.interpolation !== false || !Array.isArray(curve.displayDerivation?.transformations) || curve.displayDerivation.transformations.length) fail(`${curve.curveId}: transparente Darstellungsherleitung fehlt.`);
     }
     return actualHash;
   }
@@ -171,6 +188,7 @@
       const message = document.createElement("p");
       message.textContent = status.label;
       panel.appendChild(message);
+      appendDataDocumentation(panel, curve);
       return;
     }
     const kind = document.createElement("p");
@@ -183,15 +201,17 @@
       assessment.textContent = status.label;
       panel.append(kind, reference, assessment);
       appendReferenceSources(panel, curve, status.reference);
+      appendDataDocumentation(panel, curve);
       return;
     }
     const current = document.createElement("p");
-    current.textContent = `Letzter Beobachtungswert (${status.observation.year}): ${status.observation.display || `${formatNumber(status.observation.value)} ${curve.unit}`}`;
+    current.textContent = `${curve.dataNature === "assessed_model_estimate" ? "Letzter Schätzwert" : "Letzter Beobachtungswert"} (${status.observation.year}): ${status.observation.display || `${formatNumber(status.observation.value)} ${curve.unit}`}`;
     const assessment = document.createElement("p");
     assessment.className = "curve-reference-status";
     assessment.textContent = status.label;
     panel.append(kind, reference, current, assessment);
     appendReferenceSources(panel, curve, status.reference);
+    appendDataDocumentation(panel, curve);
   }
   function curveColor(curve) {
     const index = Math.max(0, allCurves.findIndex(item => item.curveId === curve.curveId));
@@ -232,13 +252,90 @@
   }
   function appendReferenceSources(panel, curve, reference) {
     const sourceMap = new Map((curve.sources || []).map(source => [source.id, source]));
-    const sourceLabels = reference.sourceRefs.map(id => sourceMap.get(id)?.title || id);
-    if (sourceLabels.length) {
+    const sourceItems = reference.sourceRefs.map(id => sourceMap.get(id) || { id, title: id });
+    if (sourceItems.length) {
       const sources = document.createElement("p");
       sources.className = "curve-reference-sources";
-      sources.textContent = `Quelle: ${sourceLabels.join("; ")}`;
+      sources.append("Quelle der Modellreferenz: ");
+      sourceItems.forEach((source, index) => {
+        if (index) sources.append("; ");
+        const href = source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
+        if (!href) {
+          sources.append(source.title || source.id);
+          return;
+        }
+        const link = document.createElement("a");
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = source.title || source.id;
+        sources.appendChild(link);
+      });
       panel.appendChild(sources);
     }
+  }
+  function appendLabeledText(parent, label, text) {
+    const paragraph = document.createElement("p");
+    const strong = document.createElement("strong");
+    strong.textContent = `${label}: `;
+    paragraph.append(strong, text);
+    parent.appendChild(paragraph);
+  }
+  function appendDataDocumentation(panel, curve) {
+    const details = document.createElement("details");
+    details.className = "curve-data-documentation";
+    details.open = true;
+    const summary = document.createElement("summary");
+    summary.textContent = "Datenherkunft und Darstellungsherleitung";
+    details.appendChild(summary);
+    if (curve.methodNote) appendLabeledText(details, "Methode", curve.methodNote);
+    if (curve.uncertainty) appendLabeledText(details, "Einordnung", curve.uncertainty);
+    const derivationLabels = {
+      observations: curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
+      historicalReconstruction: "Rekonstruktion",
+      projections: "Modellierung"
+    };
+    Object.entries(derivationLabels).forEach(([key, label]) => {
+      const rule = curve.displayDerivation?.[key];
+      if (!rule) return;
+      appendLabeledText(details, label, `${rule.inputPointCount} belegte Werte → ${rule.outputPointCount} sichtbare Punkte. ${rule.rule}`);
+    });
+    const noInterpolation = document.createElement("p");
+    noInterpolation.className = "curve-derivation-note";
+    noInterpolation.textContent = "Keine Interpolation und keine Werttransformation für die Darstellung.";
+    details.appendChild(noInterpolation);
+    const sourceMap = new Map((curve.sources || []).map(source => [source.id, source]));
+    const groups = [
+      [curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messreihe", curve.observationSourceRefs || []],
+      ["Rekonstruktion", (curve.historicalReconstruction || []).flatMap(segment => segment.sourceRefs || [])],
+      ["Modellierung", (curve.projections || []).flatMap(series => series.sourceRefs || [])]
+    ];
+    groups.forEach(([label, refs]) => {
+      const uniqueRefs = [...new Set(refs)];
+      if (!uniqueRefs.length) return;
+      const heading = document.createElement("strong");
+      heading.className = "curve-source-heading";
+      heading.textContent = `${label} – Quellen`;
+      const list = document.createElement("ul");
+      list.className = "curve-source-list";
+      uniqueRefs.forEach(id => {
+        const source = sourceMap.get(id) || { id, title: id };
+        const item = document.createElement("li");
+        const labelText = [source.title || source.id, source.publisher, source.year].filter(Boolean).join(" · ");
+        const href = source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
+        if (href) {
+          const link = document.createElement("a");
+          link.href = href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = labelText;
+          item.appendChild(link);
+        } else item.textContent = labelText;
+        list.appendChild(item);
+      });
+      details.append(heading, list);
+    });
+    panel.appendChild(details);
   }
   function createLegend(curves, onSelect) {
     const legend = document.createElement("div");
@@ -263,7 +360,7 @@
     legend.appendChild(series);
     const types = document.createElement("div");
     types.className = "legend-types";
-    [["observed", "Beobachtung"], ["historical", "Rekonstruktion"], ["projection", "Szenario"]].forEach(([type, label]) => {
+    [["observed", "Hauptreihe"], ["historical", "Rekonstruktion"], ["projection", "Szenario"]].forEach(([type, label]) => {
       const item = document.createElement("span");
       item.className = `legend-${type}`;
       item.textContent = label;
@@ -398,6 +495,13 @@
       points: segment.points.filter(point => Number(point.year) < firstObservedYear)
     })).filter(segment => segment.points.length);
   }
+  function visibleDisplayReconstructions(curve) {
+    const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
+    return (curve.displayHistoricalReconstruction || []).map(segment => ({
+      ...segment,
+      points: segment.points.filter(point => Number(point.year) < firstObservedYear)
+    })).filter(segment => segment.points.length);
+  }
   function extent(curve) {
     const points = [...curve.observations, ...visibleReconstructions(curve).flatMap(segment => segment.points), ...(curve.projections || []).flatMap(series => series.points)];
     const values = points.map(point => Number(point.value));
@@ -501,6 +605,13 @@
       });
       const reconstructions = visibleSegments.historical ? visibleReconstructions(curve) : [];
       reconstructions.forEach(segment => curveGroup.appendChild(svgElement("path", { class: "curve-historical", stroke: color, d: makePath(segment.points, x, y) })));
+      if (visibleSegments.historical) visibleDisplayReconstructions(curve).flatMap(segment => segment.points).forEach(point => {
+        const circle = svgElement("circle", { class: "curve-point is-historical", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+        const tooltip = svgElement("title");
+        tooltip.textContent = `${meta.label} · Rekonstruktion · ${point.year}: ${point.display || `${point.value} ${meta.unit}`}`;
+        circle.appendChild(tooltip);
+        curveGroup.appendChild(circle);
+      });
       const historicalPoints = reconstructions.flatMap(segment => segment.points);
       if (historicalPoints.length && curve.observations.length) {
         const lastHistoricalPoint = historicalPoints.reduce((latest, point) => Number(point.year) > Number(latest.year) ? point : latest);
@@ -515,6 +626,15 @@
       }
       if (visibleSegments.observed) curveGroup.appendChild(svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) }));
       if (visibleSegments.projection) (curve.projections || []).forEach(projection => curveGroup.appendChild(svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) })));
+      if (visibleSegments.projection) (curve.displayProjections || []).forEach(projection => projection.points.forEach(point => {
+        const circle = svgElement("circle", { class: "curve-point is-projection", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+        const tooltip = svgElement("title");
+        tooltip.textContent = point.display
+          ? `${meta.label} · ${point.display}`
+          : `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"} · ${point.year}: ${point.value} ${meta.unit}`;
+        circle.appendChild(tooltip);
+        curveGroup.appendChild(circle);
+      }));
       if (visibleSegments.observed) curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
         const tooltip = svgElement("title");

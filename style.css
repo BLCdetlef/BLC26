@@ -45,6 +45,8 @@ button { color: inherit; }
 .curve-role-deep_dive .curve-observed { stroke-width: 2.2; }
 .curve-role-deep_dive .curve-historical, .curve-role-deep_dive .curve-projection { stroke-width: 1.8; }
 .curve-point { stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.curve-point.is-historical { stroke-width: 2; }
+.curve-point.is-projection { stroke-width: 1.8; stroke-dasharray: 1 1; }
 .curve-threshold-crossing { stroke-width: 4; stroke-linecap: square; vector-effect: non-scaling-stroke; }
 .curve-threshold-crossing.is-highRisk { stroke-width: 5; }
 .curve-series { cursor: pointer; outline: none; transition: opacity .16s ease; }
@@ -114,6 +116,14 @@ button { color: inherit; }
 .curve-reference p { margin: .16rem 0; }
 .curve-reference-status { font-weight: 700; }
 .curve-reference-sources { color: #62615d; font-size: .7rem; }
+.curve-reference a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .12em; }
+.curve-data-documentation { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid #cac8bf; }
+.curve-data-documentation summary { font-weight: 800; cursor: pointer; }
+.curve-data-documentation p { margin-top: .45rem; }
+.curve-derivation-note { font-weight: 700; }
+.curve-source-heading { display: block; margin-top: .65rem; font-size: .72rem; }
+.curve-source-list { margin: .25rem 0 .5rem; padding-left: 1.1rem; font-size: .7rem; }
+.curve-source-list li { margin: .22rem 0; }
 .chart-caption { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; white-space: nowrap; }
 .orientation-notice { display: none; }
 @media (max-width: 760px) and (orientation: landscape) {

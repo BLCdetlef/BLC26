@@ -55,6 +55,10 @@ Seit GWL-Exportversion 1.6 werden zusätzlich die abgeleiteten Grenzstatus für 
 
 Seit Exportversion 1.7 bleibt die vollständige Beobachtungsreihe Grundlage des Linienverlaufs, während BLC26 sichtbare Datenpunkte ausschließlich aus `displayObservations` zeichnet. Diese vom GWL-Exporter erzeugte Reihe hält grundsätzlich mindestens fünf Jahre Abstand und bewahrt ersten, letzten sowie fachlich notwendige Überschreitungspunkte.
 
+Exportversion 1.8 ergänzt entsprechende Darstellungsreihen für Rekonstruktionen und Projektionen. Deren sichtbare Punkte stammen ausschließlich aus vorhandenen Werten und halten je Segment grundsätzlich mindestens 20 Jahre Abstand. Die Legende weist Eingangs- und Ausgangspunktzahlen, Auswahlregeln, den Verzicht auf Interpolation und Transformation sowie verlinkte Quellen für Messung, Rekonstruktion und Modellierung aus.
+
+`dataNature` unterscheidet direkte Beobachtungen von veröffentlichten wissenschaftlichen Schätzreihen. Direkte Beobachtungsreihen erhalten grundsätzlich sichtbare Punkte im Abstand von mindestens fünf Jahren; Schätzreihen wie der anthropogene effektive Strahlungsantrieb im Abstand von mindestens 20 Jahren. In der Legende und Datendokumentation werden beide als unterschiedliche Arten der Hauptreihe bezeichnet.
+
 ## Aktualisierung
 
 1. Im GWL-Panel Kurven redaktionell freigeben.

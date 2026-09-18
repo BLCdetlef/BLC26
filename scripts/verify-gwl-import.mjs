@@ -10,7 +10,7 @@ const fail = message => { throw new Error(message); };
 
 const allowedCurveRoles = new Set(["core", "deep_dive"]);
 const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
-if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.7" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
+if (payload.format !== "gwl-blc-curve-export-v1" || payload.version !== "1.8" || !Array.isArray(payload.curves)) fail("Unbekanntes GWL-Exportformat.");
 if (!payload.curves.length) fail("Das Übergabepaket enthält keine Kurven.");
 if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsblock fehlt.");
 const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
@@ -27,8 +27,12 @@ for (const curve of payload.curves) {
   if (!allowedCurveRoles.has(curve.curveRole)) fail(`${curve.curveId}: ungültige curveRole.`);
   seenSeries.add(curve.seriesId);
   if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
+  if (!["observed", "assessed_model_estimate"].includes(curve.dataNature)) fail(`${curve.curveId}: Art der Hauptreihe fehlt oder ist ungültig.`);
   if (!Array.isArray(curve.observations) || curve.observations.length < 5) fail(`${curve.curveId}: Beobachtungsreihe fehlt.`);
   if (!Array.isArray(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: Darstellungsreihe fehlt.`);
+  if (!Array.isArray(curve.displayHistoricalReconstruction) || curve.displayHistoricalReconstruction.length !== (curve.historicalReconstruction || []).length) fail(`${curve.curveId}: Rekonstruktionsdarstellung fehlt.`);
+  if (!Array.isArray(curve.displayProjections) || curve.displayProjections.length !== (curve.projections || []).length) fail(`${curve.curveId}: Projektionsdarstellung fehlt.`);
+  if (curve.displayDerivation?.interpolation !== false || curve.displayDerivation?.transformations?.length) fail(`${curve.curveId}: Darstellungsherleitung fehlt.`);
   for (const kind of ["boundary", "highRisk"]) {
     const assessment = curve.thresholdAssessments?.[kind];
     if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(`${curve.curveId}: ungültiger Grenzstatus für ${kind}.`);
@@ -64,7 +68,9 @@ for (const curve of payload.curves) {
 
 const co2 = payload.curves.find(curve => curve.seriesId === "global_co2_noaa_annual");
 const co2Historical = (co2.historicalReconstruction || []).flatMap(segment => segment.points || []);
+const co2DisplayHistorical = (co2.displayHistoricalReconstruction || []).flatMap(segment => segment.points || []);
 if (co2Historical.length !== 279 || co2Historical[0]?.year !== 1700 || co2Historical.at(-1)?.year !== 1978) fail("CO₂: Law-Dome-Rekonstruktion muss 1700–1978 mit 279 Punkten umfassen.");
+if (co2DisplayHistorical.length !== 14 || co2DisplayHistorical[0]?.year !== 1700 || co2DisplayHistorical.at(-1)?.year !== 1978) fail("CO₂: sichtbare Law-Dome-Punkte müssen aus der belegten 20-Jahres-Auswahl stammen.");
 if (co2.observations.length !== 47 || co2.observations[0]?.year !== 1979 || co2.observations.at(-1)?.year !== 2025) fail("CO₂: NOAA-Beobachtungsreihe muss 1979–2025 mit 47 Punkten umfassen.");
 if (co2.projections?.length !== 5) fail("CO₂: genau fünf qualifizierte Projektionen erforderlich.");
 const plastics = payload.curves.find(curve => curve.seriesId === "global_plastics_production_1950_2019");
