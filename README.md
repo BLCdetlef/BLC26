@@ -5,7 +5,7 @@ Digitale, interaktive Fassung des BRUCHLASTcharts.
 Alle freigegebenen Langzeitkurven werden in einer gemeinsamen Zeichenfläche auf
 der Zeitachse 1700–2100 überlagert. Die vertikale Position jeder Kurve zeigt den
 Verlauf innerhalb ihrer eigenen Datenspanne; eine gemeinsame Y-Skala wird nicht
-angezeigt. Originalwerte und Einheiten bleiben in Legende und Tooltips erhalten.
+angezeigt. Originalwerte und Einheiten bleiben in Tooltips und technischen Kurvendetails erhalten.
 Je 20 Prozent vertikaler Darstellungsraum ober- und unterhalb der Daten beruhigen
 das Kurvenbild, ohne die Messwerte zu verändern.
 
@@ -16,8 +16,10 @@ Die Ereignisse dienen nur der zeitlichen Orientierung und behaupten keine
 Kausalität zwischen Ereignis und Kurvenverlauf.
 
 Die Anwendung startet als ruhige Vollbild-Zeichenfläche. Ein seitlicher Griff
-links öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargestelltem
-Segment; der Griff rechts öffnet die Legende. Auf Smartphones ist die Diagrammansicht
+links öffnet bei Bedarf die Legende für Farben, Linienarten und Punktformen;
+der Griff rechts öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargestelltem
+Segment. Ein Klick auf eine Kurve öffnet automatisch am unteren Bildrand ein eigenes
+technisches Detailfenster mit Grenzwert, Datenherkunft und Aufbereitung. Auf Smartphones ist die Diagrammansicht
 für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
 Zwei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage und
 das GWL-Panel; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
@@ -27,7 +29,7 @@ ohne verfügbare BLC26-Kurve bleiben mit dem Zähler 0 sichtbar.
 
 Ein Direktlink mit `?curve=<curveId>` öffnet ausschließlich die im GWL-Export
 unverändert enthaltene Kurven-ID, aktiviert ihre Grundlage und ihren Kurventyp
-und zeigt die Kurveninformationen in der Legende. Die ID muss URL-kodiert
+und zeigt die Kurveninformationen im technischen Detailfenster. Die ID muss URL-kodiert
 übergeben werden;
 bei unbekannten oder entfernten IDs bleibt die Standardansicht erhalten und es
 erscheint eine verständliche Meldung. Weitere Kurvennamen oder interne
@@ -55,7 +57,9 @@ Seit GWL-Exportversion 1.6 werden zusätzlich die abgeleiteten Grenzstatus für 
 
 Seit Exportversion 1.7 bleibt die vollständige Beobachtungsreihe Grundlage des Linienverlaufs, während BLC26 sichtbare Datenpunkte ausschließlich aus `displayObservations` zeichnet. Diese vom GWL-Exporter erzeugte Reihe hält grundsätzlich mindestens fünf Jahre Abstand und bewahrt ersten, letzten sowie fachlich notwendige Überschreitungspunkte.
 
-Exportversion 1.8 ergänzt entsprechende Darstellungsreihen für Rekonstruktionen und Projektionen. Deren sichtbare Punkte stammen ausschließlich aus vorhandenen Werten und halten je Segment grundsätzlich mindestens 20 Jahre Abstand. Die Legende weist Eingangs- und Ausgangspunktzahlen, Auswahlregeln, den Verzicht auf Interpolation und Transformation sowie verlinkte Quellen für Messung, Rekonstruktion und Modellierung aus.
+Exportversion 1.8 ergänzt entsprechende Darstellungsreihen für Rekonstruktionen und Projektionen. Deren sichtbare Punkte stammen ausschließlich aus vorhandenen Werten und halten je Segment grundsätzlich mindestens 20 Jahre Abstand. Eingangs- und Ausgangspunktzahlen, Auswahlregeln sowie der Verzicht auf Interpolation und Transformation werden getrennt mitgeführt. Tooltips nennen Jahr und Wert jeweils einmal sowie Herkunft, Datenart und den unveränderten Quellenstatus des Punkts.
+
+Exportversion 1.9 überträgt zusätzlich die genaue Fundstelle innerhalb der Ursprungsquelle. Messung, Rekonstruktion und jedes einzelne Szenario sind getrennt anklickbar. Das technische Detailfenster zeigt danach ausschließlich das gewählte Segment mit Quelldatei, Tabelle oder Zeilenbereich, verwendeten Spalten, übernommenem Datenbereich und Verarbeitung. Alle Kernkurven müssen diese Provenienz vollständig mitführen; der Import verweigert unvollständige Kernsegmente. Die seitliche Legende bleibt eine reine Lesehilfe für Farben, Linienarten und Punktformen.
 
 `dataNature` unterscheidet direkte Beobachtungen von veröffentlichten wissenschaftlichen Schätzreihen. Direkte Beobachtungsreihen erhalten grundsätzlich sichtbare Punkte im Abstand von mindestens fünf Jahren; Schätzreihen wie der anthropogene effektive Strahlungsantrieb im Abstand von mindestens 20 Jahren. In der Legende und Datendokumentation werden beide als unterschiedliche Arten der Hauptreihe bezeichnet.
 

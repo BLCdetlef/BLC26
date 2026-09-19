@@ -51,7 +51,8 @@ button { color: inherit; }
 .curve-threshold-crossing.is-highRisk { stroke-width: 5; }
 .curve-series { cursor: pointer; outline: none; transition: opacity .16s ease; }
 .curve-series:hover, .curve-series:focus-visible { opacity: 1; }
-.curve-series.is-selected .curve-observed { filter: drop-shadow(0 0 2px rgb(23 23 23 / 45%)); stroke-width: 5; }
+.curve-observed.is-segment-selected, .curve-historical.is-segment-selected, .curve-projection.is-segment-selected { filter: drop-shadow(0 0 2px rgb(23 23 23 / 45%)); stroke-width: 5; opacity: 1; }
+.curve-point.is-segment-selected { filter: drop-shadow(0 0 2px rgb(23 23 23 / 55%)); stroke-width: 3; }
 .historical-event { outline: none; }
 .historical-event-band { fill: #5c5c58; opacity: .045; transition: opacity .16s ease; }
 .historical-event.is-point .historical-event-band { opacity: .13; }
@@ -106,24 +107,39 @@ button { color: inherit; }
 .legend-series::before { position: absolute; top: .7rem; left: 0; width: 1.55rem; border-top: 4px solid var(--series-color); content: ""; }
 .legend-series strong { color: #292927; font-size: .8rem; line-height: 1.25; }
 .legend-series.is-selected { padding: .55rem .5rem .55rem 2.1rem; background: #e8e5da; }
-.legend-series span { font-size: .68rem; line-height: 1.35; text-transform: uppercase; letter-spacing: .05em; }
 .legend-types { display: grid; gap: .65rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #d2d1cb; }
-.legend-types span::before { content: ""; display: inline-block; width: 1.5rem; margin-right: .5rem; border-top: 3px solid var(--ink); vertical-align: middle; }
+.legend-types span { position: relative; min-height: .8rem; padding-left: 2.1rem; }
+.legend-types span::before { position: absolute; top: .38rem; left: 0; width: 1.5rem; border-top: 3px solid var(--ink); content: ""; }
+.legend-types span::after { position: absolute; top: .14rem; left: .62rem; width: .48rem; height: .48rem; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper); content: ""; }
+.legend-types .legend-observed::after { background: var(--ink); }
 .legend-types .legend-historical::before { border-top-style: dashed; }
 .legend-types .legend-projection::before { border-top-style: dotted; }
+.legend-types .legend-threshold::before { top: .05rem; left: .72rem; width: 0; height: .9rem; border-top: 0; border-left: 4px solid var(--ink); }
+.legend-types .legend-threshold::after { display: none; }
+.curve-detail-panel { position: fixed; z-index: 18; right: clamp(3rem, 8vw, 8rem); bottom: 0; left: clamp(3rem, 8vw, 8rem); max-height: min(68dvh, 42rem); padding: 1rem 1.2rem 1.2rem; overflow: hidden; border: 1px solid var(--ink); border-bottom: 0; background: rgb(248 247 242 / 98%); box-shadow: 0 -.5rem 1.8rem rgb(23 23 23 / 18%); transform: translateY(102%); transition: transform .24s ease; }
+.curve-detail-panel[aria-hidden="false"] { transform: translateY(0); }
+.curve-detail-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: .65rem; border-bottom: .28rem solid var(--ink); }
+.curve-detail-heading h2 { margin: .08rem 0 0; font-size: 1.15rem; line-height: 1.1; }
+.curve-detail-content { max-height: calc(min(68dvh, 42rem) - 5rem); padding-top: .75rem; overflow-y: auto; }
+.curve-detail-content .curve-reference { display: grid; grid-template-columns: minmax(11rem, .55fr) minmax(0, 1.45fr); gap: .7rem 1.2rem; margin: 0; padding: 0; border: 0; background: transparent; }
+.curve-reference-overview { grid-column: 1; grid-row: 1 / span 2; padding-right: 1.2rem; border-right: 1px solid #cac8bf; }
+.curve-detail-content .curve-provenance { grid-column: 2; grid-row: 1; min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.curve-detail-content .curve-data-documentation { grid-column: 2; grid-row: 2; min-width: 0; margin-top: 0; overflow-wrap: anywhere; }
 .curve-reference { margin-top: 1rem; padding: .85rem; border-left: .28rem solid #77766f; background: #efeee8; color: #343432; font-size: .78rem; line-height: 1.4; }
 .curve-reference-title { display: block; margin-bottom: .35rem; font-size: .88rem; }
 .curve-reference p { margin: .16rem 0; }
 .curve-reference-status { font-weight: 700; }
 .curve-reference-sources { color: #62615d; font-size: .7rem; }
 .curve-reference a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .12em; }
+.curve-provenance { margin-top: .75rem; padding: .7rem; border: 1px solid #cac8bf; background: #f8f7f2; }
+.curve-provenance-title { display: block; margin-bottom: .4rem; font-size: .82rem; }
+.curve-provenance p { margin: .28rem 0; }
+.curve-provenance-actions { display: grid; gap: .28rem; margin-top: .55rem; padding-top: .45rem; border-top: 1px solid #dedcd4; }
+.curve-provenance-actions a { width: fit-content; font-size: .7rem; font-weight: 700; }
 .curve-data-documentation { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid #cac8bf; }
-.curve-data-documentation summary { font-weight: 800; cursor: pointer; }
+.curve-data-documentation summary { width: fit-content; font-size: .7rem; font-weight: 800; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .12em; cursor: pointer; }
 .curve-data-documentation p { margin-top: .45rem; }
 .curve-derivation-note { font-weight: 700; }
-.curve-source-heading { display: block; margin-top: .65rem; font-size: .72rem; }
-.curve-source-list { margin: .25rem 0 .5rem; padding-left: 1.1rem; font-size: .7rem; }
-.curve-source-list li { margin: .22rem 0; }
 .chart-caption { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; white-space: nowrap; }
 .orientation-notice { display: none; }
 @media (max-width: 760px) and (orientation: landscape) {
@@ -142,6 +158,10 @@ button { color: inherit; }
   .panel-heading { gap: .6rem; padding-bottom: .7rem; }
   .panel-heading h2 { font-size: 1.35rem; }
   .panel-context-link { min-height: 2rem; padding: .42rem .5rem; }
+  .curve-detail-panel { right: 2.3rem; left: 2.3rem; max-height: 74dvh; padding: .75rem; }
+  .curve-detail-content { max-height: calc(74dvh - 4.5rem); }
+  .curve-detail-content .curve-reference { grid-template-columns: 1fr; }
+  .curve-reference-overview, .curve-detail-content .curve-provenance, .curve-detail-content .curve-data-documentation { grid-column: 1; grid-row: auto; padding-right: 0; border-right: 0; }
 }
 @media (max-width: 760px) and (orientation: portrait) {
   .app-shell { visibility: hidden; }
@@ -150,4 +170,4 @@ button { color: inherit; }
   .orientation-notice span:last-child { max-width: 18rem; color: var(--muted); font-size: .82rem; line-height: 1.4; }
   .orientation-icon { font-size: 2.5rem; }
 }
-@media (prefers-reduced-motion: reduce) { .side-panel, .panel-handle { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .side-panel, .panel-handle, .curve-detail-panel { transition: none; } }

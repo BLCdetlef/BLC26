@@ -1,6 +1,6 @@
 {
   "format": "gwl-blc-curve-export-v1",
-  "version": "1.8",
+  "version": "1.9",
   "manifestVersion": "1.1",
   "curves": [
     {
@@ -31,6 +31,18 @@
         "src_phc_2025",
         "src_richardson_2023"
       ],
+      "observationProvenance": {
+        "sourceFile": "PlanetaryHealthCheck2025.pdf",
+        "sourceUrl": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+        "locator": "Figure 24, Abschnitt Change in Biosphere Integrity: HANPP-Zeitreihe 1910–2010 und separater 2020-Schätzwert.",
+        "fields": [
+          "x-Achse → Jahr",
+          "y-Achse HANPP [%] → Anteil der potenziellen NPP von 1910",
+          "2020 estimate → separater Schätzwert von 30 %"
+        ],
+        "extraction": "Aus der veröffentlichten Kurve wurden die zwölf dargestellten Stützwerte 1910, 1920, …, 2010 und 2020 näherungsweise abgelesen.",
+        "transformation": "Grafisch abgelesene Näherungswerte, auf eine Dezimalstelle dokumentiert; keine Interpolation und keine Umrechnung. Die 10–20-Jahres-Mittel und der separate 2020-Wert bleiben als unterschiedliche Quellgrundlagen kenntlich."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -421,6 +433,18 @@
       "observationSourceRefs": [
         "src_noaa_global_co2_2026"
       ],
+      "observationProvenance": {
+        "sourceFile": "co2_annmean_gl.txt",
+        "sourceUrl": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.txt",
+        "locator": "Datentabelle ab Zeile 39; Spaltenüberschrift in Zeile 38.",
+        "fields": [
+          "year → Jahr",
+          "mean → CO₂-Jahresmittel in ppm",
+          "unc → publizierte Unsicherheit in ppm"
+        ],
+        "extraction": "Alle publizierten Jahreszeilen 1979–2025 wurden übernommen.",
+        "transformation": "Keine Umrechnung und keine Interpolation; der Dezimalpunkt wird nur für die deutsche Anzeige als Komma formatiert."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -1002,6 +1026,17 @@
             "src_noaa_law_dome_2018",
             "src_rubino_2019"
           ],
+          "provenance": {
+            "sourceFile": "law2018splines-noaa.txt",
+            "sourceUrl": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018splines-noaa.txt",
+            "locator": "Tabulatorgetrennte Datentabelle ab Zeile 120; Spalte 1 age_gas und Spalte 2 CO2spl.",
+            "fields": [
+              "age_gas → Kalenderjahr CE",
+              "CO2spl → publizierter 20-Jahres-Spline in ppm"
+            ],
+            "extraction": "Ausgelesen wurden die vorhandenen Jahreswerte 1700–1996; für den Anschluss an die NOAA-Messreihe exportiert BLC die Werte bis 1978.",
+            "transformation": "Keine Umrechnung und keine Interpolation; CO2spl ist bereits der von der Quelle publizierte geglättete 20-Jahres-Spline."
+          },
           "points": [
             {
               "year": 1700,
@@ -2133,6 +2168,17 @@
             "src_noaa_law_dome_2018",
             "src_rubino_2019"
           ],
+          "provenance": {
+            "sourceFile": "law2018splines-noaa.txt",
+            "sourceUrl": "https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/law/law2018splines-noaa.txt",
+            "locator": "Tabulatorgetrennte Datentabelle ab Zeile 120; Spalte 1 age_gas und Spalte 2 CO2spl.",
+            "fields": [
+              "age_gas → Kalenderjahr CE",
+              "CO2spl → publizierter 20-Jahres-Spline in ppm"
+            ],
+            "extraction": "Ausgelesen wurden die vorhandenen Jahreswerte 1700–1996; für den Anschluss an die NOAA-Messreihe exportiert BLC die Werte bis 1978.",
+            "transformation": "Keine Umrechnung und keine Interpolation; CO2spl ist bereits der von der Quelle publizierte geglättete 20-Jahres-Spline."
+          },
           "points": [
             {
               "year": 1700,
@@ -2203,6 +2249,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP1-1.9, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP1-1.9 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2251,6 +2308,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP1-2.6, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP1-2.6 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2299,6 +2367,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP2-4.5, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP2-4.5 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2347,6 +2426,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP3-7.0, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP3-7.0 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2395,6 +2485,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP5-8.5, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP5-8.5 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2445,6 +2546,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP1-1.9, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP1-1.9 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2478,6 +2590,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP1-2.6, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP1-2.6 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2511,6 +2634,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP2-4.5, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP2-4.5 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2544,6 +2678,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP3-7.0, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP3-7.0 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2577,6 +2722,17 @@
           "sourceRefs": [
             "src_ipcc_ar6_wgi_annex_iii"
           ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_AnnexIII.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf",
+            "locator": "Tabelle AIII.2, Block CO₂ (ppm), Spalte SSP5-8.5, Zeilen 2030–2090.",
+            "fields": [
+              "Year → Jahr",
+              "SSP5-8.5 im CO₂-Block → Konzentration in ppm"
+            ],
+            "extraction": "Übernommen wurden die sieben publizierten Dekadenwerte 2030, 2040, 2050, 2060, 2070, 2080 und 2090.",
+            "transformation": "Keine Umrechnung und keine Interpolation."
+          },
           "grade": "robust_scenario_projection",
           "points": [
             {
@@ -2740,6 +2896,18 @@
         "src_igcc_2025_data",
         "src_igcc_2025_paper"
       ],
+      "observationProvenance": {
+        "sourceFile": "data/effective_radiative_forcing/ERF_best_aggregates.csv; ERF_p05_aggregates.csv; ERF_p95_aggregates.csv (ClimateIndicator/data-v2026.06.15.zip)",
+        "sourceUrl": "https://github.com/ClimateIndicator/data/tree/v2026.06.15/data/effective_radiative_forcing",
+        "locator": "Alle drei CSV-Dateien: Kopfzeile mit timebound_lower und anthro; Jahreszeilen 1750–2025.",
+        "fields": [
+          "timebound_lower → Jahr",
+          "anthro in ERF_best_aggregates.csv → bester Schätzwert in W/m²",
+          "anthro in ERF_p05_aggregates.csv und ERF_p95_aggregates.csv → 5–95-%-Bereich"
+        ],
+        "extraction": "Ausgelesen wurden die 276 gemeinsamen Jahreszeilen 1750–2025 für die Gesamtkategorie anthro.",
+        "transformation": "Keine Interpolation und keine Einheitenumrechnung; Rechenwerte werden auf sechs Dezimalstellen gespeichert, die Anzeige auf zwei Dezimalstellen formatiert."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -6153,6 +6321,19 @@
       "observationSourceRefs": [
         "dataset-source"
       ],
+      "observationProvenance": {
+        "sourceFile": "PHC_dis_global_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+        "sourceUrl": "https://zenodo.org/records/19663531/files/PHC_dis_global_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv?download=1",
+        "locator": "Zeilen variable=dis, area=global, scenario=obsclim_histsoc_default und class=summed_deviations; Jahresfeld 1901–2019.",
+        "fields": [
+          "year → Jahr",
+          "ensemble_median → Anteil der eisfreien Landfläche",
+          "IQR_min und IQR_max → Interquartilsbereich",
+          "boundary_baseline und boundary_upper_end → Referenzbereich"
+        ],
+        "extraction": "Aus der jährlichen Quellreihe wurden die vorhandenen Werte für 1905, 1910, …, 2015 und das letzte Jahr 2019 übernommen.",
+        "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation und kein Ablesen aus einer Abbildung."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -6400,6 +6581,18 @@
           "sourceRefs": [
             "src_freshwater_porkka_2024"
           ],
+          "provenance": {
+            "sourceFile": "Porkka_et_al_NatWater_2024_data.zip → Fig2_Fig4_Fig5_EDFig1_EDFig2ab/global/streamflow/regionid_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+            "sourceUrl": "https://zenodo.org/records/10531807",
+            "locator": "Globaler streamflow-Ordner; summed deviations; Jahreswerte 1861–1900.",
+            "fields": [
+              "year → Jahr",
+              "ensemble median → Anteil der Landfläche",
+              "IQR minimum und maximum → Interquartilsbereich"
+            ],
+            "extraction": "Übernommen wurden die vorhandenen Quellwerte 1861, 1865, 1870, …, 1900.",
+            "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation."
+          },
           "points": [
             {
               "year": 1861,
@@ -6448,6 +6641,18 @@
           "sourceRefs": [
             "src_freshwater_porkka_2024"
           ],
+          "provenance": {
+            "sourceFile": "Porkka_et_al_NatWater_2024_data.zip → Fig2_Fig4_Fig5_EDFig1_EDFig2ab/global/streamflow/regionid_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+            "sourceUrl": "https://zenodo.org/records/10531807",
+            "locator": "Globaler streamflow-Ordner; summed deviations; Jahreswerte 1861–1900.",
+            "fields": [
+              "year → Jahr",
+              "ensemble median → Anteil der Landfläche",
+              "IQR minimum und maximum → Interquartilsbereich"
+            ],
+            "extraction": "Übernommen wurden die vorhandenen Quellwerte 1861, 1865, 1870, …, 1900.",
+            "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation."
+          },
           "points": [
             {
               "year": 1861,
@@ -6528,6 +6733,19 @@
       "observationSourceRefs": [
         "dataset-source"
       ],
+      "observationProvenance": {
+        "sourceFile": "PHC_rootmoist_global_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+        "sourceUrl": "https://zenodo.org/records/19663531/files/PHC_rootmoist_global_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv?download=1",
+        "locator": "Zeilen variable=rootmoist, area=global, scenario=obsclim_histsoc_default und class=summed_deviations; Jahresfeld 1901–2019.",
+        "fields": [
+          "year → Jahr",
+          "ensemble_median → Anteil der eisfreien Landfläche",
+          "IQR_min und IQR_max → Interquartilsbereich",
+          "boundary_baseline und boundary_upper_end → Referenzbereich"
+        ],
+        "extraction": "Aus der jährlichen Quellreihe wurden die vorhandenen Werte für 1905, 1910, …, 2015 und das letzte Jahr 2019 übernommen.",
+        "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation und kein Ablesen aus einer Abbildung."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -6775,6 +6993,18 @@
           "sourceRefs": [
             "src_freshwater_porkka_2024"
           ],
+          "provenance": {
+            "sourceFile": "Porkka_et_al_NatWater_2024_data.zip → Fig2_Fig4_Fig5_EDFig1_EDFig2ab/global/soilmoisture/regionid_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+            "sourceUrl": "https://zenodo.org/records/10531807",
+            "locator": "Globaler soilmoisture-Ordner; summed deviations; Jahreswerte 1861–1900.",
+            "fields": [
+              "year → Jahr",
+              "ensemble median → Anteil der Landfläche",
+              "IQR minimum und maximum → Interquartilsbereich"
+            ],
+            "extraction": "Übernommen wurden die vorhandenen Quellwerte 1861, 1865, 1870, …, 1900.",
+            "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation."
+          },
           "points": [
             {
               "year": 1861,
@@ -6823,6 +7053,18 @@
           "sourceRefs": [
             "src_freshwater_porkka_2024"
           ],
+          "provenance": {
+            "sourceFile": "Porkka_et_al_NatWater_2024_data.zip → Fig2_Fig4_Fig5_EDFig1_EDFig2ab/global/soilmoisture/regionid_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv",
+            "sourceUrl": "https://zenodo.org/records/10531807",
+            "locator": "Globaler soilmoisture-Ordner; summed deviations; Jahreswerte 1861–1900.",
+            "fields": [
+              "year → Jahr",
+              "ensemble median → Anteil der Landfläche",
+              "IQR minimum und maximum → Interquartilsbereich"
+            ],
+            "extraction": "Übernommen wurden die vorhandenen Quellwerte 1861, 1865, 1870, …, 1900.",
+            "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation."
+          },
           "points": [
             {
               "year": 1861,
@@ -6906,6 +7148,18 @@
         "src_phc_2025_report",
         "src_phc_land_2025"
       ],
+      "observationProvenance": {
+        "sourceFile": "PlanetaryHealthCheck2025.pdf",
+        "sourceUrl": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+        "locator": "Figure 28, globale Kurve der verbleibenden Waldfläche relativ zur potenziellen natürlichen Waldfläche, 1992–2022.",
+        "fields": [
+          "x-Achse → Jahr",
+          "globale Kurve → verbleibende Waldfläche in % der potenziellen natürlichen Waldfläche",
+          "2022 assessment value → gerundeter aktueller Wert"
+        ],
+        "extraction": "Näherungsweise abgelesen wurden die acht Stützjahre 1992, 1995, 2000, 2005, 2010, 2015, 2020 und 2022.",
+        "transformation": "1992–2020 sind grafisch abgelesene Näherungswerte; 2022 ist der berichtete Wert von rund 59 %. Keine Interpolation oder rechnerische Harmonisierung mit der historischen Rekonstruktion."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -7141,6 +7395,18 @@
             "src_pongratz_2008",
             "src_pongratz_wdcc_dataset"
           ],
+          "provenance": {
+            "sourceFile": "BZE_51.pdf – Pongratz et al. (2008), A reconstruction of global agricultural areas and land cover for the last millennium",
+            "sourceUrl": "https://pure.mpg.de/pubman/item/item_994226_9/component/file_994225/BZE_51.pdf",
+            "locator": "Tabelle 2, Zeile Total forest; Spalten Potential vegetation, 1700 und 1992.",
+            "fields": [
+              "Total forest 1700 → 45,65 Mio. km²",
+              "Total forest 1992 → 34,60 Mio. km²",
+              "Potential vegetation / Total forest → 48,68 Mio. km²"
+            ],
+            "extraction": "Übernommen wurden die zwei publizierten globalen Summen für 1700 und 1992 sowie der gemeinsame Potenzialwald-Nenner.",
+            "transformation": "Berechnung Waldanteil = Total forest / 48,68 × 100; Ergebnis auf zwei Dezimalstellen gespeichert. Keine Interpolation und keine Anpassung an die Copernicus-/PHC-Reihe."
+          },
           "points": [
             {
               "year": 1700,
@@ -7174,6 +7440,18 @@
             "src_pongratz_2008",
             "src_pongratz_wdcc_dataset"
           ],
+          "provenance": {
+            "sourceFile": "BZE_51.pdf – Pongratz et al. (2008), A reconstruction of global agricultural areas and land cover for the last millennium",
+            "sourceUrl": "https://pure.mpg.de/pubman/item/item_994226_9/component/file_994225/BZE_51.pdf",
+            "locator": "Tabelle 2, Zeile Total forest; Spalten Potential vegetation, 1700 und 1992.",
+            "fields": [
+              "Total forest 1700 → 45,65 Mio. km²",
+              "Total forest 1992 → 34,60 Mio. km²",
+              "Potential vegetation / Total forest → 48,68 Mio. km²"
+            ],
+            "extraction": "Übernommen wurden die zwei publizierten globalen Summen für 1700 und 1992 sowie der gemeinsame Potenzialwald-Nenner.",
+            "transformation": "Berechnung Waldanteil = Total forest / 48,68 × 100; Ergebnis auf zwei Dezimalstellen gespeichert. Keine Interpolation und keine Anpassung an die Copernicus-/PHC-Reihe."
+          },
           "points": [
             {
               "year": 1700,
@@ -7934,6 +8212,17 @@
         "src_phc_2025",
         "src_phc_web_2025"
       ],
+      "observationProvenance": {
+        "sourceFile": "PlanetaryHealthCheck2025.pdf",
+        "sourceUrl": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+        "locator": "Figure 37 – Nitrogen inputs to agriculture; globale Zeitreihe 1961–2022.",
+        "fields": [
+          "x-Achse → Jahr",
+          "y-Achse → anthropogene Stickstofffixierung für die Landwirtschaft in Tg N/Jahr"
+        ],
+        "extraction": "Näherungsweise abgelesen wurden die Randjahre 1961 und 2022 sowie die vorhandenen 5-Jahres-Stützjahre 1965–2020.",
+        "transformation": "Grafisch abgelesene Näherungswerte, ohne Interpolation oder Einheitenumrechnung; die Anzeige kennzeichnet sie mit ≈."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -8347,6 +8636,17 @@
         "src_phc_2025",
         "src_phc_web_2025"
       ],
+      "observationProvenance": {
+        "sourceFile": "PlanetaryHealthCheck2025.pdf",
+        "sourceUrl": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf",
+        "locator": "Figure 35 – Phosphorus inputs to global cropland; globale Zeitreihe 1961–2022.",
+        "fields": [
+          "x-Achse → Jahr",
+          "y-Achse → mineralischer Phosphoreinsatz auf globalen Ackerflächen in Tg P/Jahr"
+        ],
+        "extraction": "Näherungsweise abgelesen wurden die Randjahre 1961 und 2022 sowie die vorhandenen 5-Jahres-Stützjahre 1965–2020.",
+        "transformation": "Grafisch abgelesene Näherungswerte, ohne Interpolation oder Einheitenumrechnung; die Anzeige kennzeichnet sie mit ≈."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -8761,6 +9061,18 @@
         "src_ma_2023_oceansoda_trends",
         "src_ma_2023_oceansoda_data"
       ],
+      "observationProvenance": {
+        "sourceFile": "OceanSODA-ETHZ_GRaCER_v2022b_annual_decomp_1982-2021.nc",
+        "sourceUrl": "https://www.research-collection.ethz.ch/bitstreams/a6050c2a-f05c-49eb-b0ec-b325e917621d/download",
+        "locator": "NetCDF-Jahresreihe 1982–2021 für den globalen eisfreien Oberflächenozean; Ωarag-Dekomposition der OceanSODA-ETHZ-Auswertung.",
+        "fields": [
+          "time coordinate → Jahr",
+          "jährliche Ωarag-Änderung/Dekomposition → zeitlicher Verlauf",
+          "publiziertes Periodenmittel Ωarag 3,11 → absolutes Niveau"
+        ],
+        "extraction": "Ausgelesen wurden alle 40 Jahreswerte 1982–2021 der globalen Ωarag-Reihe.",
+        "transformation": "Die publizierten jährlichen relativen Änderungen wurden auf das publizierte Periodenmittel 3,11 zentriert, um absolute Jahreswerte darzustellen. Keine zeitliche Interpolation; zusätzliche Niveauunsicherheit mindestens ±0,005 wegen des auf zwei Dezimalstellen publizierten Mittels."
+      },
       "reference": {
         "type": "planetary_boundaries_model",
         "modelName": "Planetare Grenzen",
@@ -9026,6 +9338,17 @@
           "sourceRefs": [
             "src_jiang_2023_oa_indicators"
           ],
+          "provenance": {
+            "sourceFile": "NCEI Accession 0259391 → Median_Std_surface, Excel-Tabelle für Aragonite saturation state",
+            "sourceUrl": "https://www.ncei.noaa.gov/archive/accession/download/259391",
+            "locator": "Ordner Median_Std_surface; flächengewichtete globale Medianwerte für Aragonite saturation state, historischer Abschnitt 1750–1980.",
+            "fields": [
+              "year → Dekadenjahr",
+              "median Aragonite saturation state → globales Ωarag"
+            ],
+            "extraction": "Übernommen wurden der vorindustrielle Wert 1750 und die publizierten Dekadenwerte 1850–1980.",
+            "transformation": "Keine Umrechnung, Interpolation oder Anpassung an OceanSODA; die publizierten globalen Medianwerte werden unverändert übernommen."
+          },
           "points": [
             {
               "year": 1750,
@@ -9161,6 +9484,17 @@
           "sourceRefs": [
             "src_jiang_2023_oa_indicators"
           ],
+          "provenance": {
+            "sourceFile": "NCEI Accession 0259391 → Median_Std_surface, Excel-Tabelle für Aragonite saturation state",
+            "sourceUrl": "https://www.ncei.noaa.gov/archive/accession/download/259391",
+            "locator": "Ordner Median_Std_surface; flächengewichtete globale Medianwerte für Aragonite saturation state, historischer Abschnitt 1750–1980.",
+            "fields": [
+              "year → Dekadenjahr",
+              "median Aragonite saturation state → globales Ωarag"
+            ],
+            "extraction": "Übernommen wurden der vorindustrielle Wert 1750 und die publizierten Dekadenwerte 1850–1980.",
+            "transformation": "Keine Umrechnung, Interpolation oder Anpassung an OceanSODA; die publizierten globalen Medianwerte werden unverändert übernommen."
+          },
           "points": [
             {
               "year": 1750,
@@ -12258,6 +12592,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "a50035906562e1a423a72224774d47f9bb72ba63e81857f1c7a3f9e8b13d1c4f"
+    "hash": "00dd5e272417ed632f25851db93a9d64291331c354474f87115958758acd8311"
   }
 }

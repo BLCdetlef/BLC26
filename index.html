@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=0.7.1">
+  <link rel="stylesheet" href="style.css?v=0.9.6">
 </head>
 <body>
   <main class="app-shell" id="appShell">
@@ -26,24 +26,31 @@
       <div id="importStatus" class="import-status" role="status" aria-live="polite">Lokales Übergabepaket wird geladen und verifiziert.</div>
       <div id="curveLinkStatus" class="curve-link-status" role="alert" hidden></div>
     </section>
-    <aside id="legendPanel" class="side-panel side-panel-right" aria-labelledby="legendTitle" aria-hidden="true" inert>
-      <div class="panel-heading"><div><span class="panel-kicker">Diagramm</span><div class="panel-title-row"><h2 id="legendTitle">Legende</h2><a id="gwlContributionLink" class="panel-context-link" target="_blank" rel="noopener noreferrer" hidden>Zum Beitrag in GWL</a></div></div><button class="panel-close" type="button" data-close-panel="legendPanel" aria-label="Legende schließen">×</button></div>
+    <aside id="legendPanel" class="side-panel side-panel-left" aria-labelledby="legendTitle" aria-hidden="true" inert>
+      <div class="panel-heading"><div><span class="panel-kicker">Diagramm</span><h2 id="legendTitle">Legende</h2></div><button class="panel-close" type="button" data-close-panel="legendPanel" aria-label="Legende schließen">×</button></div>
       <div id="legendContent" class="panel-content"></div>
     </aside>
-    <button id="legendHandle" class="panel-handle panel-handle-right" type="button" aria-controls="legendPanel" aria-expanded="false"><span>Legende</span></button>
-    <aside id="filterPanel" class="side-panel side-panel-left" aria-labelledby="filterTitle" aria-hidden="true" inert>
+    <button id="legendHandle" class="panel-handle panel-handle-left" type="button" aria-controls="legendPanel" aria-expanded="false"><span>Legende</span></button>
+    <aside id="filterPanel" class="side-panel side-panel-right" aria-labelledby="filterTitle" aria-hidden="true" inert>
       <div class="panel-heading"><div><span class="panel-kicker">Diagramm</span><h2 id="filterTitle" class="panel-title-wide">Filter zur Kurvenauswahl</h2></div><button class="panel-close" type="button" data-close-panel="filterPanel" aria-label="Filter schließen">×</button></div>
       <div id="filterContent" class="panel-content"></div>
     </aside>
-    <button id="filterHandle" class="panel-handle panel-handle-left" type="button" aria-controls="filterPanel" aria-expanded="false"><span>Filter</span></button>
+    <button id="filterHandle" class="panel-handle panel-handle-right" type="button" aria-controls="filterPanel" aria-expanded="false"><span>Filter</span></button>
+    <section id="curveDetailPanel" class="curve-detail-panel" aria-labelledby="curveDetailTitle" aria-hidden="true" inert>
+      <div class="curve-detail-heading">
+        <div><span class="panel-kicker">Technische Details der ausgewählten Kurve</span><div class="panel-title-row"><h2 id="curveDetailTitle">Kurvendetails</h2><a id="gwlContributionLink" class="panel-context-link" target="_blank" rel="noopener noreferrer" hidden>Zum Beitrag in GWL</a></div></div>
+        <button class="panel-close" type="button" data-close-detail aria-label="Kurvendetails schließen">×</button>
+      </div>
+      <div id="curveDetailContent" class="curve-detail-content"></div>
+    </section>
     <button id="panelBackdrop" class="panel-backdrop" type="button" aria-label="Geöffneten Bereich schließen" hidden></button>
   </main>
   <div class="orientation-notice" role="status"><span class="orientation-icon" aria-hidden="true">↻</span><strong>Bitte ins Querformat drehen</strong><span>Das BRUCHLASTchart nutzt die gesamte Breite des Displays.</span></div>
 
-  <script src="data.js?v=0.6.2"></script>
+  <script src="data.js?v=0.9.6"></script>
   <script src="events.js?v=0.6.2"></script>
   <script src="reference.js?v=0.6.2"></script>
   <script src="curve-link.js?v=0.7.1"></script>
-  <script src="app.js?v=0.7.1"></script>
+  <script src="app.js?v=0.9.6"></script>
 </body>
 </html>

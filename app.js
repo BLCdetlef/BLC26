@@ -6,6 +6,9 @@
   const importStatus = document.getElementById("importStatus");
   const legendContent = document.getElementById("legendContent");
   const gwlContributionLink = document.getElementById("gwlContributionLink");
+  const curveDetailPanel = document.getElementById("curveDetailPanel");
+  const curveDetailTitle = document.getElementById("curveDetailTitle");
+  const curveDetailContent = document.getElementById("curveDetailContent");
   const filterContent = document.getElementById("filterContent");
   const panelBackdrop = document.getElementById("panelBackdrop");
   const curveLinkStatus = document.getElementById("curveLinkStatus");
@@ -19,6 +22,7 @@
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   let allCurves = [];
   let selectedCurveId = null;
+  let selectedSegment = null;
   let exactLinkedCurveId = null;
   const selectedDomains = new Set();
   const selectedRoles = new Set();
@@ -104,6 +108,12 @@
   function validPoints(points) {
     return Array.isArray(points) && points.every(point => Number.isFinite(Number(point?.year)) && Number.isFinite(Number(point?.value)));
   }
+  function validProvenance(provenance) {
+    return provenance && typeof provenance === "object" && !Array.isArray(provenance)
+      && typeof provenance.sourceFile === "string" && /^https:\/\//i.test(provenance.sourceUrl || "")
+      && typeof provenance.locator === "string" && Array.isArray(provenance.fields) && provenance.fields.length
+      && typeof provenance.extraction === "string" && typeof provenance.transformation === "string";
+  }
   function pointKey(point) {
     return `${Number(point?.year)}:${Number(point?.value)}`;
   }
@@ -148,6 +158,7 @@
       if (!["observed", "assessed_model_estimate"].includes(curve.dataNature)) fail(`${curve.curveId}: Art der Hauptreihe fehlt oder ist ungültig.`);
       if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
       if (!validPoints(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: gültige Darstellungsreihe fehlt.`);
+      if (curve.observationProvenance && !validProvenance(curve.observationProvenance)) fail(`${curve.curveId}: ungültige Herkunft der Hauptreihe.`);
       const observationYears = new Set(curve.observations.map(point => Number(point.year)));
       if (curve.displayObservations.some(point => !observationYears.has(Number(point.year)))) fail(`${curve.curveId}: Darstellungsreihe enthält keinen Originalpunkt.`);
       referenceApi.validateReference(curve);
@@ -155,9 +166,9 @@
         const assessment = curve.thresholdAssessments?.[kind];
         if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(`${curve.curveId}: ungültiger Grenzstatus für ${kind}.`);
       }
-      for (const segment of curve.historicalReconstruction || []) if (!validPoints(segment.points) || !segment.points.length) fail(`${curve.curveId}: ungültige Rekonstruktion.`);
+      for (const segment of curve.historicalReconstruction || []) if (!validPoints(segment.points) || !segment.points.length || (segment.provenance && !validProvenance(segment.provenance))) fail(`${curve.curveId}: ungültige Rekonstruktion.`);
       for (const projection of curve.projections || []) {
-        if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
+        if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length || (projection.provenance && !validProvenance(projection.provenance))) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
       }
       validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, "Rekonstruktionen");
       validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, "Projektionen");
@@ -175,20 +186,28 @@
     panel.setAttribute("aria-live", "polite");
     return panel;
   }
-  function showReference(panel, curve) {
-    const meta = presentation[curve.seriesId] || { label: curve.label, detail: curve.metric, unit: curve.unit };
-    const status = referenceApi.referenceStatus(curve);
+  function showSegmentDetails(panel, curve, segment) {
     panel.replaceChildren();
     panel.hidden = false;
-    const heading = document.createElement("strong");
-    heading.className = "curve-reference-title";
-    heading.textContent = meta.label;
-    panel.appendChild(heading);
+    const overview = document.createElement("div");
+    overview.className = "curve-reference-overview";
+    panel.appendChild(overview);
+    appendLabeledText(overview, "Segment", segment.label);
+    if (segment.period) appendLabeledText(overview, "Zeitraum", segment.period);
+    if (segment.type !== "observed") {
+      if (segment.method) appendLabeledText(overview, "Methode", segment.method);
+      if (segment.uncertainty) appendLabeledText(overview, "Einordnung", segment.uncertainty);
+      appendSegmentProvenance(panel, curve, segment);
+      appendSegmentDataDocumentation(panel, curve, segment);
+      return;
+    }
+    const status = referenceApi.referenceStatus(curve);
     if (status.state === "missing" || status.state === "unknown") {
       const message = document.createElement("p");
       message.textContent = status.label;
-      panel.appendChild(message);
-      appendDataDocumentation(panel, curve);
+      overview.appendChild(message);
+      appendSegmentProvenance(panel, curve, segment);
+      appendSegmentDataDocumentation(panel, curve, segment);
       return;
     }
     const kind = document.createElement("p");
@@ -199,9 +218,10 @@
       const assessment = document.createElement("p");
       assessment.className = "curve-reference-status";
       assessment.textContent = status.label;
-      panel.append(kind, reference, assessment);
-      appendReferenceSources(panel, curve, status.reference);
-      appendDataDocumentation(panel, curve);
+      overview.append(kind, reference, assessment);
+      appendReferenceSources(overview, curve, status.reference);
+      appendSegmentProvenance(panel, curve, segment);
+      appendSegmentDataDocumentation(panel, curve, segment);
       return;
     }
     const current = document.createElement("p");
@@ -209,9 +229,10 @@
     const assessment = document.createElement("p");
     assessment.className = "curve-reference-status";
     assessment.textContent = status.label;
-    panel.append(kind, reference, current, assessment);
-    appendReferenceSources(panel, curve, status.reference);
-    appendDataDocumentation(panel, curve);
+    overview.append(kind, reference, current, assessment);
+    appendReferenceSources(overview, curve, status.reference);
+    appendSegmentProvenance(panel, curve, segment);
+    appendSegmentDataDocumentation(panel, curve, segment);
   }
   function curveColor(curve) {
     const index = Math.max(0, allCurves.findIndex(item => item.curveId === curve.curveId));
@@ -231,6 +252,14 @@
     document.querySelectorAll(".panel-handle").forEach(handle => handle.setAttribute("aria-expanded", "false"));
     panelBackdrop.hidden = true;
   }
+  function openCurveDetails() {
+    curveDetailPanel.setAttribute("aria-hidden", "false");
+    curveDetailPanel.inert = false;
+  }
+  function closeCurveDetails() {
+    curveDetailPanel.setAttribute("aria-hidden", "true");
+    curveDetailPanel.inert = true;
+  }
   function togglePanel(panelId) {
     const panel = document.getElementById(panelId);
     const shouldOpen = panel.getAttribute("aria-hidden") === "true";
@@ -242,8 +271,9 @@
   function setupPanels() {
     document.querySelectorAll(".panel-handle").forEach(handle => handle.addEventListener("click", () => togglePanel(handle.getAttribute("aria-controls"))));
     document.querySelectorAll("[data-close-panel]").forEach(button => button.addEventListener("click", closePanels));
+    document.querySelector("[data-close-detail]").addEventListener("click", closeCurveDetails);
     panelBackdrop.addEventListener("click", closePanels);
-    document.addEventListener("keydown", event => { if (event.key === "Escape") closePanels(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape") { closePanels(); closeCurveDetails(); } });
   }
   function tryLandscapeLock() {
     if (matchMedia("(max-width: 760px)").matches && screen.orientation?.lock) {
@@ -256,7 +286,7 @@
     if (sourceItems.length) {
       const sources = document.createElement("p");
       sources.className = "curve-reference-sources";
-      sources.append("Quelle der Modellreferenz: ");
+      sources.append("Quelle des Grenzwerts: ");
       sourceItems.forEach((source, index) => {
         if (index) sources.append("; ");
         const href = source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
@@ -281,61 +311,119 @@
     paragraph.append(strong, text);
     parent.appendChild(paragraph);
   }
-  function appendDataDocumentation(panel, curve) {
+  function sourceForRef(curve, ref) {
+    return (curve.sources || []).find(source => source.id === ref) || { id: ref, title: ref };
+  }
+  function compactSourceName(source) {
+    const text = `${source.id || ""} ${source.publisher || ""} ${source.title || ""}`;
+    if (/law dome/i.test(text)) return "Law Dome";
+    if (/intergovernmental panel|\bipcc\b/i.test(text)) return "IPCC AR6";
+    if (/\bnoaa\b|national oceanic and atmospheric/i.test(text)) return "NOAA";
+    if (/copernicus/i.test(text)) return "Copernicus";
+    if (/world meteorological|\bwmo\b/i.test(text)) return "WMO";
+    if (/indicators of global climate change|integrated global carbon component|\bigcc\b/i.test(text)) return "IGCC";
+    if (/world health organization|\bwho\b/i.test(text)) return "WHO";
+    if (/planetary health check/i.test(text)) return `Planetary Health Check${source.year ? ` ${source.year}` : ""}`;
+    if (/virkki/i.test(text)) return `Virkki et al.${source.year ? ` ${source.year}` : ""}`;
+    if (/porkka/i.test(text)) return `Porkka et al.${source.year ? ` ${source.year}` : ""}`;
+    if (/pongratz/i.test(text)) return `Pongratz et al.${source.year ? ` ${source.year}` : ""}`;
+    if (/oceansoda|four decades of trends|ma, d\.|ma et al/i.test(text)) return `OceanSODA / Ma et al.${source.year ? ` ${source.year}` : ""}`;
+    if (/global surface ocean acidification indicators/i.test(text)) return `NOAA/Jiang${source.year ? ` ${source.year}` : ""}`;
+    return source.publisher || source.title || source.id;
+  }
+  function sourceHref(source) {
+    return source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
+  }
+  function uniqueSources(curve, refs) {
+    return [...new Set(refs)].map(ref => sourceForRef(curve, ref));
+  }
+  function shortSourceName(curve, refs) {
+    const source = refs?.length ? sourceForRef(curve, refs[0]) : null;
+    return source ? compactSourceName(source) : "Quelle siehe Legende";
+  }
+  function seriesOriginLabel(curve, refs, kind) {
+    const source = shortSourceName(curve, refs);
+    if (kind === "observed") return `${source}-${curve.dataNature === "assessed_model_estimate" ? "Schätzreihe" : "Messreihe"}`;
+    if (kind === "historical") return `${source}-Rekonstruktion`;
+    return `${source}-Szenario`;
+  }
+  function resolveSegment(curve, selection = selectedSegment) {
+    if (selection?.curveId === curve.curveId && selection.type === "historical") {
+      const data = (curve.historicalReconstruction || []).find(item => item.id === selection.id);
+      const display = (curve.displayHistoricalReconstruction || []).find(item => item.id === selection.id);
+      if (data) return { ...data, type: "historical", label: data.label || "Rekonstruktion", displayPointCount: display?.points?.length || 0, derivationKey: "historicalReconstruction" };
+    }
+    if (selection?.curveId === curve.curveId && selection.type === "projection") {
+      const data = (curve.projections || []).find(item => item.id === selection.id);
+      const display = (curve.displayProjections || []).find(item => item.id === selection.id);
+      if (data) return { ...data, type: "projection", label: data.scenarioLabel || data.scenario || "Modellierung", displayPointCount: display?.points?.length || 0, derivationKey: "projections" };
+    }
+    return {
+      type: "observed",
+      id: "observations",
+      label: curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
+      period: `${curve.observationCoverage.startYear}–${curve.observationCoverage.endYear}`,
+      method: curve.methodNote,
+      uncertainty: curve.uncertainty,
+      sourceRefs: curve.observationSourceRefs || [],
+      provenance: curve.observationProvenance,
+      points: curve.observations,
+      displayPointCount: curve.displayObservations.length,
+      derivationKey: "observations"
+    };
+  }
+  function appendSegmentProvenance(panel, curve, segment) {
+    const section = document.createElement("section");
+    section.className = "curve-provenance";
+    const heading = document.createElement("strong");
+    heading.className = "curve-provenance-title";
+    heading.textContent = "Datenherkunft dieses Segments";
+    section.appendChild(heading);
+    const sources = uniqueSources(curve, segment.sourceRefs || []);
+    appendLabeledText(section, "Quelle", [...new Set(sources.map(compactSourceName))].join(" · ") || "nicht dokumentiert");
+    const provenance = segment.provenance;
+    if (provenance?.sourceFile) appendLabeledText(section, "Quelldatei", provenance.sourceFile);
+    if (provenance?.locator) appendLabeledText(section, "Fundstelle", provenance.locator);
+    if (provenance?.fields?.length) appendLabeledText(section, "Ausgelesene Felder", provenance.fields.join("; "));
+    if (provenance?.extraction) appendLabeledText(section, "Übernommener Bereich", provenance.extraction);
+    if (provenance?.transformation) appendLabeledText(section, "Verarbeitung", provenance.transformation);
+    if (!provenance) appendLabeledText(section, "Fundstelle", "Für dieses Segment ist die genaue Fundstelle im Export noch nicht dokumentiert.");
+    const actions = document.createElement("div");
+    actions.className = "curve-provenance-actions";
+    const primaryHref = provenance?.sourceUrl || (sources[0] ? sourceHref(sources[0]) : "");
+    if (primaryHref) {
+      const originalDataLink = document.createElement("a");
+      originalDataLink.href = primaryHref;
+      originalDataLink.target = "_blank";
+      originalDataLink.rel = "noopener noreferrer";
+      originalDataLink.textContent = "Originaldatensatz öffnen";
+      actions.appendChild(originalDataLink);
+    }
+    const importedDataLink = document.createElement("a");
+    importedDataLink.href = config.import.source;
+    importedDataLink.target = "_blank";
+    importedDataLink.rel = "noopener noreferrer";
+    importedDataLink.textContent = "Importierte Daten anzeigen";
+    actions.appendChild(importedDataLink);
+    section.appendChild(actions);
+    panel.appendChild(section);
+  }
+  function appendSegmentDataDocumentation(panel, curve, segment) {
     const details = document.createElement("details");
     details.className = "curve-data-documentation";
-    details.open = true;
+    details.open = false;
     const summary = document.createElement("summary");
-    summary.textContent = "Datenherkunft und Darstellungsherleitung";
+    summary.textContent = "Aufbereitung und Auswahlregeln anzeigen";
     details.appendChild(summary);
-    if (curve.methodNote) appendLabeledText(details, "Methode", curve.methodNote);
-    if (curve.uncertainty) appendLabeledText(details, "Einordnung", curve.uncertainty);
-    const derivationLabels = {
-      observations: curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
-      historicalReconstruction: "Rekonstruktion",
-      projections: "Modellierung"
-    };
-    Object.entries(derivationLabels).forEach(([key, label]) => {
-      const rule = curve.displayDerivation?.[key];
-      if (!rule) return;
-      appendLabeledText(details, label, `${rule.inputPointCount} belegte Werte → ${rule.outputPointCount} sichtbare Punkte. ${rule.rule}`);
-    });
-    const noInterpolation = document.createElement("p");
-    noInterpolation.className = "curve-derivation-note";
-    noInterpolation.textContent = "Keine Interpolation und keine Werttransformation für die Darstellung.";
-    details.appendChild(noInterpolation);
-    const sourceMap = new Map((curve.sources || []).map(source => [source.id, source]));
-    const groups = [
-      [curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messreihe", curve.observationSourceRefs || []],
-      ["Rekonstruktion", (curve.historicalReconstruction || []).flatMap(segment => segment.sourceRefs || [])],
-      ["Modellierung", (curve.projections || []).flatMap(series => series.sourceRefs || [])]
-    ];
-    groups.forEach(([label, refs]) => {
-      const uniqueRefs = [...new Set(refs)];
-      if (!uniqueRefs.length) return;
-      const heading = document.createElement("strong");
-      heading.className = "curve-source-heading";
-      heading.textContent = `${label} – Quellen`;
-      const list = document.createElement("ul");
-      list.className = "curve-source-list";
-      uniqueRefs.forEach(id => {
-        const source = sourceMap.get(id) || { id, title: id };
-        const item = document.createElement("li");
-        const labelText = [source.title || source.id, source.publisher, source.year].filter(Boolean).join(" · ");
-        const href = source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
-        if (href) {
-          const link = document.createElement("a");
-          link.href = href;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = labelText;
-          item.appendChild(link);
-        } else item.textContent = labelText;
-        list.appendChild(item);
-      });
-      details.append(heading, list);
-    });
+    const rule = curve.displayDerivation?.[segment.derivationKey];
+    if (rule) appendLabeledText(details, "Punktauswahl", `${segment.points?.length || 0} belegte Werte → ${segment.displayPointCount || 0} sichtbare Punkte. ${rule.rule}`);
+    appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
     panel.appendChild(details);
+  }
+  function pointDisplay(point, unit) {
+    const display = point.display || `${point.value} ${unit}`;
+    const valueOnly = display.replace(new RegExp(`^${point.year}:\\s*`), "");
+    return `${point.year} · ${valueOnly}`;
   }
   function createLegend(curves, onSelect) {
     const legend = document.createElement("div");
@@ -352,15 +440,13 @@
       item.style.setProperty("--series-color", curveColor(curve));
       const label = document.createElement("strong");
       label.textContent = meta.label;
-      const detail = document.createElement("span");
-      detail.textContent = `${meta.detail} · ${meta.unit}`;
-      item.append(label, detail);
+      item.appendChild(label);
       series.appendChild(item);
     });
     legend.appendChild(series);
     const types = document.createElement("div");
     types.className = "legend-types";
-    [["observed", "Hauptreihe"], ["historical", "Rekonstruktion"], ["projection", "Szenario"]].forEach(([type, label]) => {
+    [["observed", "Hauptreihe · ausgefüllter Punkt"], ["historical", "Rekonstruktion · offener Punkt"], ["projection", "Szenario · gepunktete Linie"], ["threshold", "Erstes Überschreiten eines Grenzwerts"]].forEach(([type, label]) => {
       const item = document.createElement("span");
       item.className = `legend-${type}`;
       item.textContent = label;
@@ -404,16 +490,21 @@
     section.append(summary, list);
     return section;
   }
+  function chooseSegment(curve, type = "observed", id = "observations") {
+    selectedCurveId = curve.curveId;
+    selectedSegment = { curveId: curve.curveId, type, id };
+    renderCurrent();
+    openCurveDetails();
+  }
   function renderCurrent() {
     const visibleCurves = curveLinkApi.visibleCurves(allCurves, selectedDomains, selectedRoles, exactLinkedCurveId);
     chart.replaceChildren(renderChart(visibleCurves));
     legendContent.replaceChildren(createLegend(visibleCurves, curve => {
-      selectedCurveId = curve.curveId;
-      renderCurrent();
+      chooseSegment(curve);
     }));
-    const referencePanel = createReferencePanel();
-    legendContent.appendChild(referencePanel);
     const selectedCurve = visibleCurves.find(curve => curve.curveId === selectedCurveId);
+    curveDetailContent.replaceChildren();
+    curveDetailContent.scrollTop = 0;
     const contributionUrl = curveLinkApi.selectedGwlContributionUrl(visibleCurves, selectedCurveId);
     if (contributionUrl) {
       gwlContributionLink.href = contributionUrl;
@@ -422,7 +513,18 @@
       gwlContributionLink.hidden = true;
       gwlContributionLink.removeAttribute("href");
     }
-    if (selectedCurve) showReference(referencePanel, selectedCurve);
+    if (selectedCurve) {
+      const meta = presentation[selectedCurve.seriesId] || { label: selectedCurve.label };
+      const segment = resolveSegment(selectedCurve);
+      selectedSegment = { curveId: selectedCurve.curveId, type: segment.type, id: segment.id };
+      curveDetailTitle.textContent = `${meta.label} · ${segment.label}`;
+      const referencePanel = createReferencePanel();
+      curveDetailContent.appendChild(referencePanel);
+      showSegmentDetails(referencePanel, selectedCurve, segment);
+    } else {
+      curveDetailTitle.textContent = "Kurvendetails";
+      closeCurveDetails();
+    }
     seriesCount.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven`;
     const result = filterContent.querySelector(".filter-result");
     if (result) result.textContent = `${visibleCurves.length} Kurven werden angezeigt`;
@@ -490,17 +592,37 @@
   }
   function visibleReconstructions(curve) {
     const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
+    const visibleBreakYears = new Set((curve.methodBreaks || []).filter(marker => marker.showValues === true).map(marker => Number(marker.year)));
     return (curve.historicalReconstruction || []).map(segment => ({
       ...segment,
-      points: segment.points.filter(point => Number(point.year) < firstObservedYear)
+      points: segment.points.filter(point => Number(point.year) < firstObservedYear || (Number(point.year) === firstObservedYear && visibleBreakYears.has(firstObservedYear)))
     })).filter(segment => segment.points.length);
   }
   function visibleDisplayReconstructions(curve) {
     const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
+    const visibleBreakYears = new Set((curve.methodBreaks || []).filter(marker => marker.showValues === true).map(marker => Number(marker.year)));
     return (curve.displayHistoricalReconstruction || []).map(segment => ({
       ...segment,
-      points: segment.points.filter(point => Number(point.year) < firstObservedYear)
+      points: segment.points.filter(point => Number(point.year) < firstObservedYear || (Number(point.year) === firstObservedYear && visibleBreakYears.has(firstObservedYear)))
     })).filter(segment => segment.points.length);
+  }
+  function isSelectedSegment(curve, type, id) {
+    return selectedSegment?.curveId === curve.curveId && selectedSegment.type === type && selectedSegment.id === id;
+  }
+  function bindSegmentInteraction(element, curve, type, id, label) {
+    element.setAttribute("role", "button");
+    element.setAttribute("tabindex", "0");
+    element.setAttribute("aria-label", `${label}: technische Details anzeigen`);
+    if (isSelectedSegment(curve, type, id)) element.classList.add("is-segment-selected");
+    const select = event => {
+      event.stopPropagation();
+      chooseSegment(curve, type, id);
+    };
+    element.addEventListener("click", select);
+    element.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); select(event); }
+    });
+    return element;
   }
   function extent(curve) {
     const points = [...curve.observations, ...visibleReconstructions(curve).flatMap(segment => segment.points), ...(curve.projections || []).flatMap(series => series.points)];
@@ -560,7 +682,7 @@
     if (!curves.length) {
       const empty = document.createElement("p");
       empty.className = "empty-state";
-      empty.textContent = "Keine Kurve ausgewählt. Filter links öffnen und mindestens eine Grundlage aktivieren.";
+      empty.textContent = "Keine Kurve ausgewählt. Filter rechts öffnen und mindestens eine Grundlage aktivieren.";
       figure.appendChild(empty);
       return figure;
     }
@@ -594,23 +716,29 @@
       const span = limits.maximum - limits.minimum;
       const y = value => plotBottom - ((value - limits.minimum) / span) * (plotBottom - plot.top);
       const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}${curve.curveId === selectedCurveId ? " is-selected" : ""}`, tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
-      const selectCurve = () => {
-        selectedCurveId = curve.curveId;
-        renderCurrent();
-        if (document.getElementById("legendPanel").getAttribute("aria-hidden") === "true") openPanel("legendPanel");
+      const selectCurve = event => {
+        if (event && event.target !== curveGroup) return;
+        chooseSegment(curve);
       };
       curveGroup.addEventListener("click", selectCurve);
       curveGroup.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); selectCurve(); }
+        if (event.target === curveGroup && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectCurve(); }
       });
       const reconstructions = visibleSegments.historical ? visibleReconstructions(curve) : [];
-      reconstructions.forEach(segment => curveGroup.appendChild(svgElement("path", { class: "curve-historical", stroke: color, d: makePath(segment.points, x, y) })));
-      if (visibleSegments.historical) visibleDisplayReconstructions(curve).flatMap(segment => segment.points).forEach(point => {
-        const circle = svgElement("circle", { class: "curve-point is-historical", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-        const tooltip = svgElement("title");
-        tooltip.textContent = `${meta.label} · Rekonstruktion · ${point.year}: ${point.display || `${point.value} ${meta.unit}`}`;
-        circle.appendChild(tooltip);
-        curveGroup.appendChild(circle);
+      const displayReconstructions = visibleSegments.historical ? visibleDisplayReconstructions(curve) : [];
+      reconstructions.forEach(segment => {
+        const path = svgElement("path", { class: "curve-historical", stroke: color, d: makePath(segment.points, x, y) });
+        bindSegmentInteraction(path, curve, "historical", segment.id, `${meta.label} · ${segment.label || "Rekonstruktion"}`);
+        curveGroup.appendChild(path);
+        const displaySegment = displayReconstructions.find(item => item.id === segment.id);
+        (displaySegment?.points || []).forEach(point => {
+          const circle = svgElement("circle", { class: "curve-point is-historical", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+          bindSegmentInteraction(circle, curve, "historical", segment.id, `${meta.label} · ${segment.label || "Rekonstruktion"}`);
+          const tooltip = svgElement("title");
+          tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, segment.sourceRefs, "historical")} · rekonstruiert · unveränderter Quellenwert`;
+          circle.appendChild(tooltip);
+          curveGroup.appendChild(circle);
+        });
       });
       const historicalPoints = reconstructions.flatMap(segment => segment.points);
       if (historicalPoints.length && curve.observations.length) {
@@ -624,21 +752,31 @@
           }));
         }
       }
-      if (visibleSegments.observed) curveGroup.appendChild(svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) }));
-      if (visibleSegments.projection) (curve.projections || []).forEach(projection => curveGroup.appendChild(svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) })));
-      if (visibleSegments.projection) (curve.displayProjections || []).forEach(projection => projection.points.forEach(point => {
-        const circle = svgElement("circle", { class: "curve-point is-projection", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-        const tooltip = svgElement("title");
-        tooltip.textContent = point.display
-          ? `${meta.label} · ${point.display}`
-          : `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"} · ${point.year}: ${point.value} ${meta.unit}`;
-        circle.appendChild(tooltip);
-        curveGroup.appendChild(circle);
-      }));
+      if (visibleSegments.observed) {
+        const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: makePath(curve.observations, x, y) });
+        bindSegmentInteraction(observedPath, curve, "observed", "observations", `${meta.label} · Messwerte`);
+        curveGroup.appendChild(observedPath);
+      }
+      if (visibleSegments.projection) (curve.projections || []).forEach(projection => {
+        const path = svgElement("path", { class: "curve-projection", stroke: color, d: makePath(projection.points, x, y) });
+        bindSegmentInteraction(path, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"}`);
+        curveGroup.appendChild(path);
+        const displayProjection = (curve.displayProjections || []).find(item => item.id === projection.id);
+        (displayProjection?.points || []).forEach(point => {
+          const circle = svgElement("circle", { class: "curve-point is-projection", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+          bindSegmentInteraction(circle, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"}`);
+          const tooltip = svgElement("title");
+          tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, projection.sourceRefs, "projection")} · modelliert · unveränderter Quellenwert`;
+          circle.appendChild(tooltip);
+          curveGroup.appendChild(circle);
+        });
+      });
       if (visibleSegments.observed) curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+        bindSegmentInteraction(circle, curve, "observed", "observations", `${meta.label} · Messwerte`);
         const tooltip = svgElement("title");
-        tooltip.textContent = `${meta.label} · ${point.year}: ${point.display || `${point.value} ${meta.unit}`}`;
+        const dataType = curve.dataNature === "assessed_model_estimate" ? "wissenschaftlich geschätzt" : "beobachtet";
+        tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed")} · ${dataType} · unveränderter Quellenwert`;
         circle.appendChild(tooltip);
         curveGroup.appendChild(circle);
       });
@@ -656,6 +794,7 @@
           role: "img",
           "aria-label": `${label}: ${assessment.status === "already_crossed_at_start" ? "beim ersten Messpunkt bereits überschritten" : "erstmals im Datensatz überschritten"}, ${point.year}`
         });
+        bindSegmentInteraction(marker, curve, "observed", "observations", `${meta.label} · Messwerte`);
         const title = svgElement("title");
         title.textContent = marker.getAttribute("aria-label");
         marker.appendChild(title);
@@ -666,12 +805,12 @@
     figure.appendChild(svg);
     const caption = document.createElement("figcaption");
     caption.className = "chart-caption";
-    caption.textContent = "Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips und in der Legende. Ober- und unterhalb jeder Kurve bleiben jeweils 20 % Darstellungsraum frei. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.";
+    caption.textContent = "Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips; Herkunft und Aufbereitung öffnen sich nach Auswahl einer Kurve im technischen Detailfenster. Ober- und unterhalb jeder Kurve bleiben jeweils 20 % Darstellungsraum frei. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.";
     figure.appendChild(caption);
     return figure;
   }
   async function init() {
-    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !filterContent || !panelBackdrop || !curveLinkStatus || !curveLinkApi) return;
+    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !curveDetailPanel || !curveDetailTitle || !curveDetailContent || !filterContent || !panelBackdrop || !curveLinkStatus || !curveLinkApi) return;
     try {
       const sourceUrl = new URL(config.import.source, window.location.href);
       if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
@@ -696,7 +835,7 @@
       }
       createFilters(payload.curves);
       renderCurrent();
-      if (linkedCurve) openPanel("legendPanel");
+      if (linkedCurve) openCurveDetails();
       importStatus.className = "import-status is-valid";
       importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
     } catch (error) {
