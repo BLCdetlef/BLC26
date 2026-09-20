@@ -10329,6 +10329,453 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/gwl_pesticides_global_v0.1.json#global_pesticide_use_fao_annual",
+      "boundaryId": "novel",
+      "itemId": "pesticides-global",
+      "seriesId": "global_pesticide_use_fao_annual",
+      "source": "data/knowledge/gwl_pesticides_global_v0.1.json",
+      "domainType": "planetary_boundary",
+      "domainId": "novel_entities",
+      "domainLabel": "Neue Substanzen",
+      "curveRole": "deep_dive",
+      "label": "Globaler Pestizideinsatz · FAOSTAT",
+      "metric": "Landwirtschaftlicher Pestizideinsatz als Masse aktiver Wirkstoffe",
+      "unit": "Mio. t Wirkstoff/Jahr",
+      "geography": "Global",
+      "dataNature": "observed",
+      "worseningDirection": "increase",
+      "coverageExceptionRuleId": "blc_documented_single_year_coverage_exception",
+      "finding": "Die globale Wirkstoffmenge hat sich seit 1990 mehr als verdoppelt.",
+      "uncertainty": "Die FAOSTAT-Weltaggregation ist als Schätzwert gekennzeichnet. Nationale Meldungen, Ersatzgrößen, Imputationen und spätere Datenrevisionen können einzelne Werte verändern. Die UNIDO-Rekonstruktion erfasst den Verbrauch von Wirkstoff-Feinchemikalien durch die Formulierungsindustrie und ist deshalb nicht vollständig definitionsgleich mit dem landwirtschaftlichen FAOSTAT-Einsatz.",
+      "methodNote": "Gestrichelt: globale UNIDO-Rekonstruktion für 1975, 1980 und 1985. Durchgezogen: FAOSTAT-Weltaggregation des landwirtschaftlichen Pestizideinsatzes 1990–2024. Zwischen 1985 und 1990 bleibt eine sichtbare Lücke; die Segmente werden nicht verbunden, interpoliert oder aufeinander kalibriert. Die gemeinsame Abdeckung beträgt 49 Jahre und ist als ausdrücklich dokumentierte Ein-Jahres-Ausnahme von der sonst geltenden 50-Jahres-Regel freigegeben.",
+      "observationCoverage": {
+        "startYear": 1990,
+        "endYear": 2024,
+        "spanYears": 34,
+        "pointCount": 35
+      },
+      "observationSourceRefs": [
+        "src_fao_pesticides_2026",
+        "src_faostat_pesticides_use"
+      ],
+      "observationProvenance": {
+        "sourceFile": "Inputs_Pesticides_Use_E_All_Data_(Normalized).csv",
+        "sourceUrl": "https://bulks-faostat.fao.org/production/Inputs_Pesticides_Use_E_All_Data_(Normalized).zip",
+        "locator": "Area = World; Item = Pesticides (total); Element = Agricultural Use; Unit = t; Jahreszeilen 1990–2024.",
+        "fields": [
+          "Year → Jahr",
+          "Value → globale landwirtschaftliche Einsatzmenge aktiver Wirkstoffe in Tonnen",
+          "Flag → Kennzeichnung der FAOSTAT-Weltaggregation"
+        ],
+        "extraction": "Ausgelesen wurden 35 vorhandene Jahreswerte 1990–2024. Alle Weltwerte sind im Bulkdatensatz mit E = Estimated value gekennzeichnet.",
+        "transformation": "Die publizierten Tonnenwerte wurden durch 1.000.000 in Mio. t Wirkstoff/Jahr umgerechnet. Keine Interpolation oder Glättung; die Anzeige wird auf zwei Dezimalstellen gerundet."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1990,
+          "value": 1.807464,
+          "display": "1,81 Mio. t"
+        },
+        {
+          "year": 1991,
+          "value": 1.794431,
+          "display": "1,79 Mio. t"
+        },
+        {
+          "year": 1992,
+          "value": 1.821131,
+          "display": "1,82 Mio. t"
+        },
+        {
+          "year": 1993,
+          "value": 1.836758,
+          "display": "1,84 Mio. t"
+        },
+        {
+          "year": 1994,
+          "value": 1.894281,
+          "display": "1,89 Mio. t"
+        },
+        {
+          "year": 1995,
+          "value": 1.959089,
+          "display": "1,96 Mio. t"
+        },
+        {
+          "year": 1996,
+          "value": 2.025747,
+          "display": "2,03 Mio. t"
+        },
+        {
+          "year": 1997,
+          "value": 2.094012,
+          "display": "2,09 Mio. t"
+        },
+        {
+          "year": 1998,
+          "value": 2.127201,
+          "display": "2,13 Mio. t"
+        },
+        {
+          "year": 1999,
+          "value": 2.165534,
+          "display": "2,17 Mio. t"
+        },
+        {
+          "year": 2000,
+          "value": 2.176167,
+          "display": "2,18 Mio. t"
+        },
+        {
+          "year": 2001,
+          "value": 2.18087,
+          "display": "2,18 Mio. t"
+        },
+        {
+          "year": 2002,
+          "value": 2.205942,
+          "display": "2,21 Mio. t"
+        },
+        {
+          "year": 2003,
+          "value": 2.311958,
+          "display": "2,31 Mio. t"
+        },
+        {
+          "year": 2004,
+          "value": 2.450614,
+          "display": "2,45 Mio. t"
+        },
+        {
+          "year": 2005,
+          "value": 2.535237,
+          "display": "2,54 Mio. t"
+        },
+        {
+          "year": 2006,
+          "value": 2.513514,
+          "display": "2,51 Mio. t"
+        },
+        {
+          "year": 2007,
+          "value": 2.771814,
+          "display": "2,77 Mio. t"
+        },
+        {
+          "year": 2008,
+          "value": 2.827848,
+          "display": "2,83 Mio. t"
+        },
+        {
+          "year": 2009,
+          "value": 2.729819,
+          "display": "2,73 Mio. t"
+        },
+        {
+          "year": 2010,
+          "value": 3.032859,
+          "display": "3,03 Mio. t"
+        },
+        {
+          "year": 2011,
+          "value": 3.078709,
+          "display": "3,08 Mio. t"
+        },
+        {
+          "year": 2012,
+          "value": 3.208361,
+          "display": "3,21 Mio. t"
+        },
+        {
+          "year": 2013,
+          "value": 3.267624,
+          "display": "3,27 Mio. t"
+        },
+        {
+          "year": 2014,
+          "value": 3.281572,
+          "display": "3,28 Mio. t"
+        },
+        {
+          "year": 2015,
+          "value": 3.321011,
+          "display": "3,32 Mio. t"
+        },
+        {
+          "year": 2016,
+          "value": 3.441183,
+          "display": "3,44 Mio. t"
+        },
+        {
+          "year": 2017,
+          "value": 3.356535,
+          "display": "3,36 Mio. t"
+        },
+        {
+          "year": 2018,
+          "value": 3.421829,
+          "display": "3,42 Mio. t"
+        },
+        {
+          "year": 2019,
+          "value": 3.501888,
+          "display": "3,50 Mio. t"
+        },
+        {
+          "year": 2020,
+          "value": 3.533434,
+          "display": "3,53 Mio. t"
+        },
+        {
+          "year": 2021,
+          "value": 3.800607,
+          "display": "3,80 Mio. t"
+        },
+        {
+          "year": 2022,
+          "value": 3.822598,
+          "display": "3,82 Mio. t"
+        },
+        {
+          "year": 2023,
+          "value": 3.725946,
+          "display": "3,73 Mio. t"
+        },
+        {
+          "year": 2024,
+          "value": 3.918094,
+          "display": "3,92 Mio. t"
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1990,
+          "value": 1.807464,
+          "display": "1,81 Mio. t"
+        },
+        {
+          "year": 1995,
+          "value": 1.959089,
+          "display": "1,96 Mio. t"
+        },
+        {
+          "year": 2000,
+          "value": 2.176167,
+          "display": "2,18 Mio. t"
+        },
+        {
+          "year": 2005,
+          "value": 2.535237,
+          "display": "2,54 Mio. t"
+        },
+        {
+          "year": 2010,
+          "value": 3.032859,
+          "display": "3,03 Mio. t"
+        },
+        {
+          "year": 2015,
+          "value": 3.321011,
+          "display": "3,32 Mio. t"
+        },
+        {
+          "year": 2024,
+          "value": 3.918094,
+          "display": "3,92 Mio. t"
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "unido_global_pesticide_consumption_1975_1985",
+          "label": "Historische globale UNIDO-Rekonstruktion",
+          "period": "1975, 1980 und 1985",
+          "method": "UNIDO kombinierte damalige FAO-Länderdaten mit Inter- und Extrapolationen sowie einem dokumentierten Bedarfsmodell für fehlende Länder und Jahre.",
+          "uncertainty": "Die Werte beschreiben den weltweiten Verbrauch von Pestizid-Wirkstoff-Feinchemikalien durch die verarbeitende Formulierungsindustrie. Sie sind keine direkten globalen Feldmessungen und wegen abweichender Systemgrenze nicht vollständig definitionsgleich mit der FAOSTAT-Reihe zum landwirtschaftlichen Einsatz.",
+          "sourceRefs": [
+            "src_unido_pesticides_1988"
+          ],
+          "provenance": {
+            "sourceFile": "PPD.98 · Global Overview of the Pesticide Industry Sub-Sector.pdf",
+            "sourceUrl": "https://downloads.unido.org/ot/49/89/4989853/15001-20000_17246.pdf",
+            "locator": "Methodik S. 15–18, insbesondere Tabellen 1–4; Tabelle 8 auf S. 21–22: Zeile World für 1975, 1980 und 1985.",
+            "fields": [
+              "World / 1975 Amount → 2.073,2 Tausend Tonnen Wirkstoff",
+              "World / 1980 Amount → 2.367,8 Tausend Tonnen Wirkstoff",
+              "World / 1985 Amount → 2.446,4 Tausend Tonnen Wirkstoff",
+              "NR → separat ausgewiesener Modellanteil für nicht meldende Länder"
+            ],
+            "extraction": "Übernommen wurden ausschließlich die drei in Tabelle 8 ausgewiesenen globalen Gesamtwerte 1975, 1980 und 1985. Projektionen für 1990 und 2000 aus Tabelle 20 wurden nicht übernommen.",
+            "transformation": "Die publizierten Tausend Tonnen wurden durch 1.000 in Mio. t Wirkstoff/Jahr umgerechnet. Keine Interpolation, Glättung, Niveauverschiebung oder Verbindung mit FAOSTAT."
+          },
+          "points": [
+            {
+              "year": 1975,
+              "value": 2.0732,
+              "display": "2,07 Mio. t",
+              "sourceRefs": [
+                "src_unido_pesticides_1988"
+              ]
+            },
+            {
+              "year": 1980,
+              "value": 2.3678,
+              "display": "2,37 Mio. t",
+              "sourceRefs": [
+                "src_unido_pesticides_1988"
+              ]
+            },
+            {
+              "year": 1985,
+              "value": 2.4464,
+              "display": "2,45 Mio. t",
+              "sourceRefs": [
+                "src_unido_pesticides_1988"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayHistoricalReconstruction": [
+        {
+          "id": "unido_global_pesticide_consumption_1975_1985",
+          "label": "Historische globale UNIDO-Rekonstruktion",
+          "period": "1975, 1980 und 1985",
+          "method": "UNIDO kombinierte damalige FAO-Länderdaten mit Inter- und Extrapolationen sowie einem dokumentierten Bedarfsmodell für fehlende Länder und Jahre.",
+          "uncertainty": "Die Werte beschreiben den weltweiten Verbrauch von Pestizid-Wirkstoff-Feinchemikalien durch die verarbeitende Formulierungsindustrie. Sie sind keine direkten globalen Feldmessungen und wegen abweichender Systemgrenze nicht vollständig definitionsgleich mit der FAOSTAT-Reihe zum landwirtschaftlichen Einsatz.",
+          "sourceRefs": [
+            "src_unido_pesticides_1988"
+          ],
+          "provenance": {
+            "sourceFile": "PPD.98 · Global Overview of the Pesticide Industry Sub-Sector.pdf",
+            "sourceUrl": "https://downloads.unido.org/ot/49/89/4989853/15001-20000_17246.pdf",
+            "locator": "Methodik S. 15–18, insbesondere Tabellen 1–4; Tabelle 8 auf S. 21–22: Zeile World für 1975, 1980 und 1985.",
+            "fields": [
+              "World / 1975 Amount → 2.073,2 Tausend Tonnen Wirkstoff",
+              "World / 1980 Amount → 2.367,8 Tausend Tonnen Wirkstoff",
+              "World / 1985 Amount → 2.446,4 Tausend Tonnen Wirkstoff",
+              "NR → separat ausgewiesener Modellanteil für nicht meldende Länder"
+            ],
+            "extraction": "Übernommen wurden ausschließlich die drei in Tabelle 8 ausgewiesenen globalen Gesamtwerte 1975, 1980 und 1985. Projektionen für 1990 und 2000 aus Tabelle 20 wurden nicht übernommen.",
+            "transformation": "Die publizierten Tausend Tonnen wurden durch 1.000 in Mio. t Wirkstoff/Jahr umgerechnet. Keine Interpolation, Glättung, Niveauverschiebung oder Verbindung mit FAOSTAT."
+          },
+          "points": [
+            {
+              "year": 1975,
+              "value": 2.0732,
+              "display": "2,07 Mio. t",
+              "sourceRefs": [
+                "src_unido_pesticides_1988"
+              ]
+            },
+            {
+              "year": 1985,
+              "value": 2.4464,
+              "display": "2,45 Mio. t",
+              "sourceRefs": [
+                "src_unido_pesticides_1988"
+              ]
+            }
+          ]
+        }
+      ],
+      "projections": [],
+      "displayProjections": [],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 35,
+          "outputPointCount": 7,
+          "intervalYears": 5,
+          "rule": "Nur vorhandene Originalmesswerte; mindestens fünf Jahre Abstand. Erster und letzter Messpunkt sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 3,
+          "outputPointCount": 2,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [
+        {
+          "year": 1990,
+          "label": "Wechsel von der UNIDO-Rekonstruktion zur FAOSTAT-Weltaggregation"
+        }
+      ],
+      "sources": [
+        {
+          "id": "src_fao_pesticides_2026",
+          "title": "Pesticides use and trade. 1990–2024",
+          "publisher": "FAO",
+          "year": 2026,
+          "url": "https://www.fao.org/statistics/highlights-archive/highlights-detail/pesticides-use-and-trade.-1990-2024/en",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_faostat_pesticides_use",
+          "title": "FAOSTAT Pesticides Use",
+          "publisher": "FAO",
+          "year": 2026,
+          "url": "https://data.fao.org/catalog/dataset/cf6432f8-c3b8-404e-897f-5b2c45709ca7",
+          "access": "open_data"
+        },
+        {
+          "id": "src_unido_pesticides_1988",
+          "title": "Global Overview of the Pesticide Industry Sub-Sector · Sectoral Working Paper",
+          "publisher": "UNIDO",
+          "year": 1988,
+          "url": "https://downloads.unido.org/ot/49/89/4989853/15001-20000_17246.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_who_pesticides",
+          "title": "Pesticide residues in food",
+          "publisher": "WHO",
+          "year": 2022,
+          "url": "https://www.who.int/news-room/fact-sheets/detail/pesticide-residues-in-food",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_bmas_bk1322",
+          "title": "Siebte Verordnung zur Änderung der Berufskrankheiten-Verordnung",
+          "publisher": "BMAS",
+          "year": 2026,
+          "url": "https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/siebte-verordnung-zur-aenderung-der-berufskrankheiten-verordnung.html",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_baua_parkinson_pesticides",
+          "title": "Wissenschaftliche Empfehlung: Parkinson-Syndrom durch langjährig, häufig und selbst angewendete Pestizide",
+          "publisher": "BAuA / BMAS",
+          "year": 2025,
+          "url": "https://www.baua.de/DE/Themen/Praevention/Koerperliche-Gesundheit/Berufskrankheiten/pdf/Empfehlung-Parkinson-Pestizide.pdf?__blob=publicationFile&v=5",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_pfas_pope_global_v0.1.json#global_pfoa_air_emissions_pope_1951_2020",
       "boundaryId": "novel",
       "itemId": "pfas-pope-global-emissions",
@@ -11043,7 +11490,7 @@
     {
       "curveId": "knowledge:data/knowledge/gwl_plastics_petrochemicals_global_v0.1.json#global_plastics_production_1950_2019",
       "boundaryId": "novel",
-      "itemId": "plastics-petrochemicals-global",
+      "itemId": "plastics-microplastics",
       "seriesId": "global_plastics_production_1950_2019",
       "source": "data/knowledge/gwl_plastics_petrochemicals_global_v0.1.json",
       "domainType": "planetary_boundary",
@@ -13325,6 +13772,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "90e84d7f1323962e209d609b993e3f344303ba538c9995a67b0ae3a74cf1cbd2"
+    "hash": "6599a3bfc198c335dea87d2eed8559459487333c8b2ab17554ac5d87679165b4"
   }
 }
