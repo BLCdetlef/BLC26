@@ -75,6 +75,17 @@ for (const curve of payload.curves) {
     for (const segment of curve.historicalReconstruction || []) verifyProvenance(segment.provenance, `${curve.curveId} / ${segment.id}`);
     for (const segment of curve.projections || []) verifyProvenance(segment.provenance, `${curve.curveId} / ${segment.id}`);
   }
+  const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
+  for (const note of curve.contextNotes || []) {
+    if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(`${curve.curveId}: unvollständiger ergänzender Kontext.`);
+    for (const sourceRef of note.sourceRefs) if (!sourceIds.has(sourceRef)) fail(`${curve.curveId}: unbekannte Kontextquelle ${sourceRef}.`);
+  }
+}
+
+const landForest = payload.curves.find(curve => curve.seriesId === "global_forest_cover_1992_2022");
+const landContextIds = new Set((landForest?.contextNotes || []).map(note => note.id));
+if (!landContextIds.has("biome_forest_boundaries") || !landContextIds.has("forest_cover_trend_1992_2022")) {
+  fail("Waldzustand: biomspezifische Grenzwerte oder Trendeinordnung fehlen im GWL-Import.");
 }
 
 const co2 = payload.curves.find(curve => curve.seriesId === "global_co2_noaa_annual");

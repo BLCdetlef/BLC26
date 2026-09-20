@@ -173,6 +173,11 @@
       validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, "Rekonstruktionen");
       validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, "Projektionen");
       if (curve.displayDerivation?.interpolation !== false || !Array.isArray(curve.displayDerivation?.transformations) || curve.displayDerivation.transformations.length) fail(`${curve.curveId}: transparente Darstellungsherleitung fehlt.`);
+      for (const note of curve.contextNotes || []) {
+        if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(`${curve.curveId}: unvollständiger ergänzender Kontext.`);
+        const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
+        if (note.sourceRefs.some(sourceRef => !sourceIds.has(sourceRef))) fail(`${curve.curveId}: unbekannte Quelle im ergänzenden Kontext.`);
+      }
     }
     return actualHash;
   }
@@ -418,6 +423,23 @@
     const rule = curve.displayDerivation?.[segment.derivationKey];
     if (rule) appendLabeledText(details, "Punktauswahl", `${segment.points?.length || 0} belegte Werte → ${segment.displayPointCount || 0} sichtbare Punkte. ${rule.rule}`);
     appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
+    if (segment.type === "observed" && curve.contextNotes?.length) {
+      const contextHeading = document.createElement("strong");
+      contextHeading.className = "curve-context-heading";
+      contextHeading.textContent = "Ergänzender fachlicher Kontext";
+      details.appendChild(contextHeading);
+      curve.contextNotes.forEach(note => {
+        const context = document.createElement("div");
+        context.className = "curve-context-note";
+        appendLabeledText(context, note.label, note.value);
+        const explanation = document.createElement("p");
+        explanation.textContent = note.detail;
+        context.appendChild(explanation);
+        const sources = uniqueSources(curve, note.sourceRefs || []);
+        appendLabeledText(context, "Quellen", [...new Set(sources.map(compactSourceName))].join(" · ") || "nicht dokumentiert");
+        details.appendChild(context);
+      });
+    }
     panel.appendChild(details);
   }
   function pointDisplay(point, unit) {

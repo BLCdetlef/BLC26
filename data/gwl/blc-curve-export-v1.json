@@ -7138,6 +7138,27 @@
       "finding": "Figure 28 zeigt einen langfristig leicht rückläufigen globalen Waldanteil zwischen 1992 und 2022. Das GWL-Panel verwendet ausgewählte Stützjahre statt aller Jahreswerte.",
       "uncertainty": "Die Stützwerte 1992–2020 wurden näherungsweise aus Figure 28 des Planetary Health Check 2025 abgelesen. Sie dienen der Trenddarstellung und sind keine veröffentlichten tabellarischen Originalwerte. 2022 ist auf den berichteten aktuellen Wert von rund 59 % gerundet.",
       "methodNote": "Die gestrichelte Rekonstruktion beruht auf Pongratz et al. (2008), die durchgezogene Hauptreihe auf Copernicus/ESA-CCI-Daten in der Auswertung des Planetary Health Check 2025. Das ◇ bei 1992 markiert den Methodenwechsel. Die beiden Werte für 1992 werden nicht verbunden: 71,1 % rekonstruiert und etwa 60,2 % satellitenbasiert. Unterschiedliche Walddefinitionen, räumliche Auflösungen und erfasste Landnutzungsprozesse verhindern eine unmittelbare Vergleichbarkeit.",
+      "contextNotes": [
+        {
+          "id": "biome_forest_boundaries",
+          "label": "Biomspezifische Grenzwerte",
+          "value": "Tropisch 85 % · boreal 85 % · temperiert 50 %",
+          "detail": "Die biomspezifischen Werte ergänzen die globale Kernkurve als fachlicher Kontext. Sie werden nicht als zusätzliche Kurven dargestellt, weil hier keine getrennten numerischen Zeitreihen hinterlegt sind.",
+          "sourceRefs": [
+            "src_phc_land_2025",
+            "src_richardson_2023"
+          ]
+        },
+        {
+          "id": "forest_cover_trend_1992_2022",
+          "label": "Trendeinordnung der großen Wald-Biome",
+          "value": "1992–2022: insgesamt rückläufig",
+          "detail": "Der Planetary Health Check beschreibt für die großen tropischen, borealen und temperierten Wald-Biome insgesamt rückläufige relative Waldflächen. Die BLC-Kernkurve zeigt den global aggregierten Verlauf; getrennte Biom-Reihen sind nicht hinterlegt.",
+          "sourceRefs": [
+            "src_phc_land_2025"
+          ]
+        }
+      ],
       "observationCoverage": {
         "startYear": 1992,
         "endYear": 2022,
@@ -12592,6 +12613,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "00dd5e272417ed632f25851db93a9d64291331c354474f87115958758acd8311"
+    "hash": "08a42831c9a00d50adccfef219ddbe7758100e12a03190cd8eee6f5951ce7b8b"
   }
 }

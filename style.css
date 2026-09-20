@@ -139,6 +139,9 @@ button { color: inherit; }
 .curve-data-documentation { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid #cac8bf; }
 .curve-data-documentation summary { width: fit-content; font-size: .7rem; font-weight: 800; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .12em; cursor: pointer; }
 .curve-data-documentation p { margin-top: .45rem; }
+.curve-context-heading { display: block; margin-top: .8rem; padding-top: .65rem; border-top: 1px solid #dedcd4; font-size: .78rem; }
+.curve-context-note { margin-top: .55rem; padding: .55rem .65rem; border: 1px solid #dedcd4; background: #f3f2ec; }
+.curve-context-note p { margin: .22rem 0; }
 .curve-derivation-note { font-weight: 700; }
 .chart-caption { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; white-space: nowrap; }
 .orientation-notice { display: none; }
