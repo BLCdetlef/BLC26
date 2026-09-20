@@ -10329,6 +10329,718 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/gwl_pfas_pope_global_v0.1.json#global_pfoa_air_emissions_pope_1951_2020",
+      "boundaryId": "novel",
+      "itemId": "pfas-pope-global-emissions",
+      "seriesId": "global_pfoa_air_emissions_pope_1951_2020",
+      "source": "data/knowledge/gwl_pfas_pope_global_v0.1.json",
+      "domainType": "planetary_boundary",
+      "domainId": "novel_entities",
+      "domainLabel": "Neue Substanzen",
+      "curveRole": "deep_dive",
+      "label": "Modellierte globale PFOA-Emissionen in die Luft · POPE",
+      "metric": "Jährliche modellierte PFOA-Emissionen aus industrieller Produktion, Produktnutzung und -entsorgung sowie Flughäfen in die Luft",
+      "unit": "t/Jahr",
+      "geography": "Global",
+      "dataNature": "assessed_model_estimate",
+      "worseningDirection": "increase",
+      "finding": "POPE modelliert für PFOA zunächst einen starken Anstieg der jährlichen globalen Luftemissionen; nach einem Rückgang steigen die Schätzwerte bis 2020 erneut.",
+      "uncertainty": "Best-Guess-Modellreihe für eine einzelne PFAS-Substanz. Sie ist keine Messreihe, umfasst nicht alle PFAS und bildet weder Umweltkonzentrationen noch Gesundheitsrisiken ab.",
+      "methodNote": "Für jedes Jahr wurden die POPE-Spalten total_kg_per_year aus den drei Best-Guess-Dateien für Produktion, Produktnutzung und Flughäfen addiert und von Kilogramm in Tonnen umgerechnet.",
+      "observationCoverage": {
+        "startYear": 1951,
+        "endYear": 2020,
+        "spanYears": 69,
+        "pointCount": 70
+      },
+      "observationSourceRefs": [
+        "src_pope_zenodo_v31_pfoa_annual",
+        "src_pope_2026"
+      ],
+      "observationProvenance": {
+        "sourceFile": "PFOA_BG_production.txt; PFOA_BG_product_use.txt; PFOA_BG_airports.txt",
+        "sourceUrl": "https://zenodo.org/records/19705810",
+        "locator": "In allen drei Textdateien: Kopfzeile time, west_kg_per_year, east_kg_per_year, total_kg_per_year; Jahreszeilen 1951–2020.",
+        "fields": [
+          "time → Jahr",
+          "total_kg_per_year in PFOA_BG_production.txt → globale PFOA-Luftemissionen aus Produktion",
+          "total_kg_per_year in PFOA_BG_product_use.txt → globale PFOA-Luftemissionen aus Produktnutzung und Entsorgung",
+          "total_kg_per_year in PFOA_BG_airports.txt → globale PFOA-Luftemissionen aus Flughäfen / Feuerlöschschäumen"
+        ],
+        "extraction": "Ausgelesen wurden je Datei 70 vorhandene Jahreswerte 1951–2020. Die drei Jahressummen ergeben kumuliert 3957,096 t und reproduzieren damit die veröffentlichte POPE-Best-Guess-Luftsumme für PFOA (Rundungsdifferenz < 0,001 t).",
+        "transformation": "Die drei vorhandenen Sektorwerte wurden je Jahr addiert und durch 1000 von kg/Jahr in t/Jahr umgerechnet; keine Interpolation und keine zeitliche Glättung."
+      },
+      "reference": {
+        "type": "no_global_quantity_boundary",
+        "display": "Kein globaler PFAS-Mengengrenzwert"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1951,
+          "value": 1.601,
+          "display": "1951: 1,60 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1952,
+          "value": 1.964,
+          "display": "1952: 1,96 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1953,
+          "value": 2.103,
+          "display": "1953: 2,10 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1954,
+          "value": 2.918,
+          "display": "1954: 2,92 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 3.492,
+          "display": "1955: 3,49 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1956,
+          "value": 4.291,
+          "display": "1956: 4,29 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1957,
+          "value": 5.498,
+          "display": "1957: 5,50 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1958,
+          "value": 5.031,
+          "display": "1958: 5,03 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1959,
+          "value": 6.362,
+          "display": "1959: 6,36 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 7.385,
+          "display": "1960: 7,39 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1961,
+          "value": 8.834,
+          "display": "1961: 8,83 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1962,
+          "value": 7.467,
+          "display": "1962: 7,47 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1963,
+          "value": 7.095,
+          "display": "1963: 7,10 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1964,
+          "value": 9.706,
+          "display": "1964: 9,71 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 12.289,
+          "display": "1965: 12,29 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1966,
+          "value": 13.762,
+          "display": "1966: 13,76 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1967,
+          "value": 15.336,
+          "display": "1967: 15,34 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 17.352,
+          "display": "1968: 17,35 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1969,
+          "value": 18.994,
+          "display": "1969: 18,99 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 19.364,
+          "display": "1970: 19,36 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 26.283,
+          "display": "1971: 26,28 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 29.54,
+          "display": "1972: 29,54 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 32.868,
+          "display": "1973: 32,87 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 36.251,
+          "display": "1974: 36,25 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 38.469,
+          "display": "1975: 38,47 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 40.479,
+          "display": "1976: 40,48 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 43.197,
+          "display": "1977: 43,20 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 46.016,
+          "display": "1978: 46,02 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 48.453,
+          "display": "1979: 48,45 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 51.243,
+          "display": "1980: 51,24 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 53.548,
+          "display": "1981: 53,55 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 55.841,
+          "display": "1982: 55,84 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 63.141,
+          "display": "1983: 63,14 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 66.528,
+          "display": "1984: 66,53 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 67.747,
+          "display": "1985: 67,75 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 71.088,
+          "display": "1986: 71,09 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 74.011,
+          "display": "1987: 74,01 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 75.092,
+          "display": "1988: 75,09 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 76.157,
+          "display": "1989: 76,16 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 74.831,
+          "display": "1990: 74,83 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 75.133,
+          "display": "1991: 75,13 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 77.463,
+          "display": "1992: 77,46 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 82.276,
+          "display": "1993: 82,28 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 85.725,
+          "display": "1994: 85,73 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 93.975,
+          "display": "1995: 93,98 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 92.26,
+          "display": "1996: 92,26 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 95.433,
+          "display": "1997: 95,43 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 97.138,
+          "display": "1998: 97,14 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 95.651,
+          "display": "1999: 95,65 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 93.328,
+          "display": "2000: 93,33 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 93.72,
+          "display": "2001: 93,72 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 87.355,
+          "display": "2002: 87,36 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 81.053,
+          "display": "2003: 81,05 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 72.156,
+          "display": "2004: 72,16 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 64.376,
+          "display": "2005: 64,38 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 59.986,
+          "display": "2006: 59,99 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 59.943,
+          "display": "2007: 59,94 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 63.524,
+          "display": "2008: 63,52 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 68.869,
+          "display": "2009: 68,87 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 71.901,
+          "display": "2010: 71,90 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 76.99,
+          "display": "2011: 76,99 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 74.061,
+          "display": "2012: 74,06 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 81.676,
+          "display": "2013: 81,68 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 88.862,
+          "display": "2014: 88,86 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 98.331,
+          "display": "2015: 98,33 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 112.94,
+          "display": "2016: 112,94 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 122.967,
+          "display": "2017: 122,97 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 127.944,
+          "display": "2018: 127,94 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 146.917,
+          "display": "2019: 146,92 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 173.516,
+          "display": "2020: 173,52 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1951,
+          "value": 1.601,
+          "display": "1951: 1,60 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 26.283,
+          "display": "1971: 26,28 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 75.133,
+          "display": "1991: 75,13 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 173.516,
+          "display": "2020: 173,52 t/Jahr",
+          "sourceRefs": [
+            "src_pope_zenodo_v31_pfoa_annual"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [],
+      "displayProjections": [],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 70,
+          "outputPointCount": 4,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_pope_2026",
+          "title": "POPE: an annual global half degree emission inventory for PFAS 1950–2020",
+          "year": 2026,
+          "url": "https://doi.org/10.5194/essd-18-5713-2026",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_pope_zenodo_v312",
+          "title": "POPE PFAS emission inventory v3.1.2 – summary_table_tons.csv",
+          "publisher": "Zenodo",
+          "year": 2026,
+          "url": "https://zenodo.org/records/20308182",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_pope_zenodo_v31_pfoa_annual",
+          "title": "POPE PFAS emission inventory v3.1 – PFOA Best-Guess-Jahresdateien",
+          "publisher": "Zenodo",
+          "year": 2026,
+          "url": "https://zenodo.org/records/19705810",
+          "doi": "10.5281/zenodo.19705810",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_plastics_petrochemicals_global_v0.1.json#global_plastics_production_1950_2019",
       "boundaryId": "novel",
       "itemId": "plastics-petrochemicals-global",
@@ -12613,6 +13325,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "08a42831c9a00d50adccfef219ddbe7758100e12a03190cd8eee6f5951ce7b8b"
+    "hash": "90e84d7f1323962e209d609b993e3f344303ba538c9995a67b0ae3a74cf1cbd2"
   }
 }
