@@ -5673,7 +5673,7 @@
         {
           "id": "absolute_orientation",
           "label": "Absolute Orientierung",
-          "value": "rund 15 °C heute",
+          "value": "ungefähr 14 bis 15 °C",
           "detail": "Die absolute globale Mitteltemperatur liegt grob im Bereich 14–15 °C. NASA weist dafür eine Unsicherheit von ungefähr 0,5 °C aus; deshalb zeigt die Kurve die genauer bestimmbare Änderung.",
           "sourceRefs": [
             "src_nasa_absolute_temperature"
@@ -18007,6 +18007,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "00d1aca6bac4fd8739f817a056b1118986950c81de37f816ac7bc660ed48f21a"
+    "hash": "06d1e55689ad8975c456c3faa4e75a16d0808aef93916af3bc9b6cda46ca2acc"
   }
 }
