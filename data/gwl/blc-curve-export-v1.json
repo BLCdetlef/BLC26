@@ -5651,6 +5651,4241 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/gwl_climate_temperature_global_v0.2.json#global_temperature_hadcrut5_1850_2025",
+      "boundaryId": "climate",
+      "itemId": "global-temperature",
+      "seriesId": "global_temperature_hadcrut5_1850_2025",
+      "source": "data/knowledge/gwl_climate_temperature_global_v0.2.json",
+      "domainType": "planetary_boundary",
+      "domainId": "climate_change",
+      "domainLabel": "Klimawandel",
+      "curveRole": "deep_dive",
+      "label": "Globale Temperaturänderung · Beobachtung",
+      "metric": "Änderung der globalen bodennahen Oberflächentemperatur gegenüber 1850–1900",
+      "unit": "°C",
+      "geography": "Global",
+      "dataNature": "observed",
+      "worseningDirection": "increase",
+      "finding": "Das Mittel 2023–2025 beträgt +1,47 °C gegenüber 1850–1900; 2025 allein +1,41 °C.",
+      "uncertainty": "95-%-Bereiche stammen aus HadCRUT5 und wurden um denselben konstanten Bezugswert verschoben. Die absolute Globaltemperatur wird nicht als präzise Kurvenachse ausgegeben.",
+      "methodNote": "HadCRUT5 verbindet Landluft- und Meeresoberflächentemperaturen. Die veröffentlichte Reihe wurde durch Abzug ihres Mittelwerts 1850–1900 auf die vorindustrielle Vergleichsperiode bezogen; keine Interpolation.",
+      "contextNotes": [
+        {
+          "id": "absolute_orientation",
+          "label": "Absolute Orientierung",
+          "value": "rund 15 °C heute",
+          "detail": "Die absolute globale Mitteltemperatur liegt grob im Bereich 14–15 °C. NASA weist dafür eine Unsicherheit von ungefähr 0,5 °C aus; deshalb zeigt die Kurve die genauer bestimmbare Änderung.",
+          "sourceRefs": [
+            "src_nasa_absolute_temperature"
+          ]
+        },
+        {
+          "id": "current_warming",
+          "label": "Aktuelle Größenordnung",
+          "value": "2023–2025: +1,47 °C",
+          "detail": "Dreijahresmittel gegenüber 1850–1900. Der Jahreswert 2025 beträgt +1,41 °C; beides ist nicht mit dem langfristigen Paris-Erwärmungsniveau gleichzusetzen.",
+          "sourceRefs": [
+            "src_hadcrut5_5100",
+            "src_metoffice_2025_temperature"
+          ]
+        }
+      ],
+      "observationCoverage": {
+        "startYear": 1850,
+        "endYear": 2025,
+        "spanYears": 175,
+        "pointCount": 176
+      },
+      "observationSourceRefs": [
+        "src_hadcrut5_5100",
+        "src_metoffice_2025_temperature"
+      ],
+      "observationProvenance": {
+        "sourceFile": "HadCRUT.5.1.0.0.analysis.summary_series.global.annual.csv",
+        "sourceUrl": "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.1.0.0/analysis/diagnostics/HadCRUT.5.1.0.0.analysis.summary_series.global.annual.csv",
+        "locator": "CSV-Kopfzeile und vollständige Jahreszeilen 1850–2025.",
+        "fields": [
+          "Time → Jahr",
+          "Anomaly (deg C) → Temperaturänderung",
+          "Lower/Upper confidence limit → 95-%-Bereich"
+        ],
+        "extraction": "Alle 176 vollständigen Jahreswerte 1850–2025 wurden übernommen; das unvollständige Jahr 2026 bleibt ausgeschlossen.",
+        "transformation": "Von jedem Wert und seinen Grenzen wurde ausschließlich das arithmetische HadCRUT5-Mittel 1850–1900 (-0.357361 °C in der ursprünglichen 1961–1990-Anomalieskala) abgezogen. Keine Interpolation."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1850,
+          "value": -0.0691,
+          "display": "-0,07 °C gegenüber 1850–1900",
+          "finding": "1850: -0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,24 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1851,
+          "value": 0.0938,
+          "display": "+0,09 °C gegenüber 1850–1900",
+          "finding": "1851: +0,09 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,27 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1852,
+          "value": 0.1333,
+          "display": "+0,13 °C gegenüber 1850–1900",
+          "finding": "1852: +0,13 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,03 bis +0,30 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1853,
+          "value": 0.095,
+          "display": "+0,10 °C gegenüber 1850–1900",
+          "finding": "1853: +0,10 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,06 bis +0,25 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1854,
+          "value": 0.0638,
+          "display": "+0,06 °C gegenüber 1850–1900",
+          "finding": "1854: +0,06 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1855,
+          "value": 0.066,
+          "display": "+0,07 °C gegenüber 1850–1900",
+          "finding": "1855: +0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1856,
+          "value": 0.0293,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1856: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,11 bis +0,17 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1857,
+          "value": -0.1085,
+          "display": "-0,11 °C gegenüber 1850–1900",
+          "finding": "1857: -0,11 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,26 bis +0,04 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1858,
+          "value": -0.0394,
+          "display": "-0,04 °C gegenüber 1850–1900",
+          "finding": "1858: -0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,19 bis +0,11 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1859,
+          "value": 0.0654,
+          "display": "+0,07 °C gegenüber 1850–1900",
+          "finding": "1859: +0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1860,
+          "value": -0.0498,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1860: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,20 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1861,
+          "value": -0.1063,
+          "display": "-0,11 °C gegenüber 1850–1900",
+          "finding": "1861: -0,11 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,28 bis +0,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1862,
+          "value": -0.1975,
+          "display": "-0,20 °C gegenüber 1850–1900",
+          "finding": "1862: -0,20 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,37 bis -0,03 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1863,
+          "value": -0.0255,
+          "display": "-0,03 °C gegenüber 1850–1900",
+          "finding": "1863: -0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,22 bis +0,17 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1864,
+          "value": -0.1368,
+          "display": "-0,14 °C gegenüber 1850–1900",
+          "finding": "1864: -0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,32 bis +0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1865,
+          "value": -0.0349,
+          "display": "-0,03 °C gegenüber 1850–1900",
+          "finding": "1865: -0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,23 bis +0,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1866,
+          "value": -0.0428,
+          "display": "-0,04 °C gegenüber 1850–1900",
+          "finding": "1866: -0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,24 bis +0,15 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1867,
+          "value": -0.0421,
+          "display": "-0,04 °C gegenüber 1850–1900",
+          "finding": "1867: -0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,24 bis +0,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1868,
+          "value": -0.0058,
+          "display": "-0,01 °C gegenüber 1850–1900",
+          "finding": "1868: -0,01 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,19 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1869,
+          "value": 0.0388,
+          "display": "+0,04 °C gegenüber 1850–1900",
+          "finding": "1869: +0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,12 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1870,
+          "value": 0.0296,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1870: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,12 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1871,
+          "value": -0.0161,
+          "display": "-0,02 °C gegenüber 1850–1900",
+          "finding": "1871: -0,02 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,17 bis +0,13 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1872,
+          "value": 0.0479,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1872: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,09 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1873,
+          "value": 0.0362,
+          "display": "+0,04 °C gegenüber 1850–1900",
+          "finding": "1873: +0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,09 bis +0,17 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1874,
+          "value": -0.0081,
+          "display": "-0,01 °C gegenüber 1850–1900",
+          "finding": "1874: -0,01 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,14 bis +0,12 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1875,
+          "value": -0.0094,
+          "display": "-0,01 °C gegenüber 1850–1900",
+          "finding": "1875: -0,01 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,15 bis +0,13 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1876,
+          "value": -0.0535,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1876: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,19 bis +0,09 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1877,
+          "value": 0.2749,
+          "display": "+0,27 °C gegenüber 1850–1900",
+          "finding": "1877: +0,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,40 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1878,
+          "value": 0.3677,
+          "display": "+0,37 °C gegenüber 1850–1900",
+          "finding": "1878: +0,37 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,24 bis +0,49 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1879,
+          "value": 0.0686,
+          "display": "+0,07 °C gegenüber 1850–1900",
+          "finding": "1879: +0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,06 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1880,
+          "value": 0.0542,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1880: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1881,
+          "value": 0.1443,
+          "display": "+0,14 °C gegenüber 1850–1900",
+          "finding": "1881: +0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,02 bis +0,27 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1882,
+          "value": 0.0853,
+          "display": "+0,09 °C gegenüber 1850–1900",
+          "finding": "1882: +0,09 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,04 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1883,
+          "value": 0.0298,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1883: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,14 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1884,
+          "value": -0.1171,
+          "display": "-0,12 °C gegenüber 1850–1900",
+          "finding": "1884: -0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,23 bis -0,01 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1885,
+          "value": -0.1008,
+          "display": "-0,10 °C gegenüber 1850–1900",
+          "finding": "1885: -0,10 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,21 bis +0,01 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1886,
+          "value": -0.0508,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1886: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,16 bis +0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1887,
+          "value": -0.131,
+          "display": "-0,13 °C gegenüber 1850–1900",
+          "finding": "1887: -0,13 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,25 bis -0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1888,
+          "value": -0.0152,
+          "display": "-0,02 °C gegenüber 1850–1900",
+          "finding": "1888: -0,02 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,13 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1889,
+          "value": 0.107,
+          "display": "+0,11 °C gegenüber 1850–1900",
+          "finding": "1889: +0,11 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,02 bis +0,23 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1890,
+          "value": -0.1429,
+          "display": "-0,14 °C gegenüber 1850–1900",
+          "finding": "1890: -0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,27 bis -0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1891,
+          "value": -0.0402,
+          "display": "-0,04 °C gegenüber 1850–1900",
+          "finding": "1891: -0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,18 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1892,
+          "value": -0.1492,
+          "display": "-0,15 °C gegenüber 1850–1900",
+          "finding": "1892: -0,15 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,29 bis -0,01 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1893,
+          "value": -0.1376,
+          "display": "-0,14 °C gegenüber 1850–1900",
+          "finding": "1893: -0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,27 bis -0,00 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1894,
+          "value": -0.1214,
+          "display": "-0,12 °C gegenüber 1850–1900",
+          "finding": "1894: -0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,26 bis +0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1895,
+          "value": -0.0845,
+          "display": "-0,08 °C gegenüber 1850–1900",
+          "finding": "1895: -0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,22 bis +0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1896,
+          "value": 0.0788,
+          "display": "+0,08 °C gegenüber 1850–1900",
+          "finding": "1896: +0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,05 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1897,
+          "value": 0.1027,
+          "display": "+0,10 °C gegenüber 1850–1900",
+          "finding": "1897: +0,10 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,04 bis +0,24 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1898,
+          "value": -0.1167,
+          "display": "-0,12 °C gegenüber 1850–1900",
+          "finding": "1898: -0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,25 bis +0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1899,
+          "value": 0.0131,
+          "display": "+0,01 °C gegenüber 1850–1900",
+          "finding": "1899: +0,01 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,12 bis +0,14 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1900,
+          "value": 0.1272,
+          "display": "+0,13 °C gegenüber 1850–1900",
+          "finding": "1900: +0,13 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,01 bis +0,26 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1901,
+          "value": 0.0702,
+          "display": "+0,07 °C gegenüber 1850–1900",
+          "finding": "1901: +0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,06 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1902,
+          "value": -0.08,
+          "display": "-0,08 °C gegenüber 1850–1900",
+          "finding": "1902: -0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,21 bis +0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1903,
+          "value": -0.1779,
+          "display": "-0,18 °C gegenüber 1850–1900",
+          "finding": "1903: -0,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,30 bis -0,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1904,
+          "value": -0.2397,
+          "display": "-0,24 °C gegenüber 1850–1900",
+          "finding": "1904: -0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,37 bis -0,11 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1905,
+          "value": -0.0486,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1905: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,17 bis +0,07 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1906,
+          "value": 0.042,
+          "display": "+0,04 °C gegenüber 1850–1900",
+          "finding": "1906: +0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1907,
+          "value": -0.1421,
+          "display": "-0,14 °C gegenüber 1850–1900",
+          "finding": "1907: -0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,26 bis -0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1908,
+          "value": -0.1492,
+          "display": "-0,15 °C gegenüber 1850–1900",
+          "finding": "1908: -0,15 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,27 bis -0,03 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1909,
+          "value": -0.1755,
+          "display": "-0,18 °C gegenüber 1850–1900",
+          "finding": "1909: -0,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,29 bis -0,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1910,
+          "value": -0.1647,
+          "display": "-0,16 °C gegenüber 1850–1900",
+          "finding": "1910: -0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,28 bis -0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1911,
+          "value": -0.1824,
+          "display": "-0,18 °C gegenüber 1850–1900",
+          "finding": "1911: -0,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,29 bis -0,07 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1912,
+          "value": -0.1188,
+          "display": "-0,12 °C gegenüber 1850–1900",
+          "finding": "1912: -0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,22 bis -0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1913,
+          "value": -0.1062,
+          "display": "-0,11 °C gegenüber 1850–1900",
+          "finding": "1913: -0,11 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,22 bis +0,00 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1914,
+          "value": 0.0979,
+          "display": "+0,10 °C gegenüber 1850–1900",
+          "finding": "1914: +0,10 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,01 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1915,
+          "value": 0.1668,
+          "display": "+0,17 °C gegenüber 1850–1900",
+          "finding": "1915: +0,17 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,05 bis +0,28 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1916,
+          "value": -0.0629,
+          "display": "-0,06 °C gegenüber 1850–1900",
+          "finding": "1916: -0,06 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,18 bis +0,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1917,
+          "value": -0.1865,
+          "display": "-0,19 °C gegenüber 1850–1900",
+          "finding": "1917: -0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,32 bis -0,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1918,
+          "value": -0.0687,
+          "display": "-0,07 °C gegenüber 1850–1900",
+          "finding": "1918: -0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,21 bis +0,07 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1919,
+          "value": 0.025,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1919: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,11 bis +0,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1920,
+          "value": 0.053,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1920: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1921,
+          "value": 0.116,
+          "display": "+0,12 °C gegenüber 1850–1900",
+          "finding": "1921: +0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,00 bis +0,23 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1922,
+          "value": 0.0192,
+          "display": "+0,02 °C gegenüber 1850–1900",
+          "finding": "1922: +0,02 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,09 bis +0,13 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1923,
+          "value": 0.0428,
+          "display": "+0,04 °C gegenüber 1850–1900",
+          "finding": "1923: +0,04 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,06 bis +0,15 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1924,
+          "value": 0.0489,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1924: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,06 bis +0,15 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1925,
+          "value": 0.0778,
+          "display": "+0,08 °C gegenüber 1850–1900",
+          "finding": "1925: +0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,03 bis +0,19 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1926,
+          "value": 0.2352,
+          "display": "+0,24 °C gegenüber 1850–1900",
+          "finding": "1926: +0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,13 bis +0,34 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1927,
+          "value": 0.1315,
+          "display": "+0,13 °C gegenüber 1850–1900",
+          "finding": "1927: +0,13 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,03 bis +0,23 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1928,
+          "value": 0.1489,
+          "display": "+0,15 °C gegenüber 1850–1900",
+          "finding": "1928: +0,15 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,04 bis +0,26 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1929,
+          "value": -0.033,
+          "display": "-0,03 °C gegenüber 1850–1900",
+          "finding": "1929: -0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,14 bis +0,07 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1930,
+          "value": 0.1875,
+          "display": "+0,19 °C gegenüber 1850–1900",
+          "finding": "1930: +0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,08 bis +0,29 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1931,
+          "value": 0.2515,
+          "display": "+0,25 °C gegenüber 1850–1900",
+          "finding": "1931: +0,25 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,36 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1932,
+          "value": 0.2074,
+          "display": "+0,21 °C gegenüber 1850–1900",
+          "finding": "1932: +0,21 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,11 bis +0,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1933,
+          "value": 0.0291,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1933: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,12 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1934,
+          "value": 0.1803,
+          "display": "+0,18 °C gegenüber 1850–1900",
+          "finding": "1934: +0,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,08 bis +0,28 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1935,
+          "value": 0.1445,
+          "display": "+0,14 °C gegenüber 1850–1900",
+          "finding": "1935: +0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,05 bis +0,24 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1936,
+          "value": 0.1864,
+          "display": "+0,19 °C gegenüber 1850–1900",
+          "finding": "1936: +0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,09 bis +0,28 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1937,
+          "value": 0.3413,
+          "display": "+0,34 °C gegenüber 1850–1900",
+          "finding": "1937: +0,34 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,25 bis +0,43 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1938,
+          "value": 0.3445,
+          "display": "+0,34 °C gegenüber 1850–1900",
+          "finding": "1938: +0,34 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,25 bis +0,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1939,
+          "value": 0.3156,
+          "display": "+0,32 °C gegenüber 1850–1900",
+          "finding": "1939: +0,32 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,22 bis +0,41 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1940,
+          "value": 0.4312,
+          "display": "+0,43 °C gegenüber 1850–1900",
+          "finding": "1940: +0,43 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,31 bis +0,55 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1941,
+          "value": 0.3917,
+          "display": "+0,39 °C gegenüber 1850–1900",
+          "finding": "1941: +0,39 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,19 bis +0,60 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1942,
+          "value": 0.3568,
+          "display": "+0,36 °C gegenüber 1850–1900",
+          "finding": "1942: +0,36 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,57 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1943,
+          "value": 0.3637,
+          "display": "+0,36 °C gegenüber 1850–1900",
+          "finding": "1943: +0,36 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,16 bis +0,57 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1944,
+          "value": 0.502,
+          "display": "+0,50 °C gegenüber 1850–1900",
+          "finding": "1944: +0,50 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,30 bis +0,71 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1945,
+          "value": 0.4003,
+          "display": "+0,40 °C gegenüber 1850–1900",
+          "finding": "1945: +0,40 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,20 bis +0,60 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1946,
+          "value": 0.2346,
+          "display": "+0,23 °C gegenüber 1850–1900",
+          "finding": "1946: +0,23 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,09 bis +0,38 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1947,
+          "value": 0.2614,
+          "display": "+0,26 °C gegenüber 1850–1900",
+          "finding": "1947: +0,26 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,13 bis +0,40 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1948,
+          "value": 0.2282,
+          "display": "+0,23 °C gegenüber 1850–1900",
+          "finding": "1948: +0,23 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,10 bis +0,35 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1949,
+          "value": 0.2035,
+          "display": "+0,20 °C gegenüber 1850–1900",
+          "finding": "1949: +0,20 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,09 bis +0,32 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1950,
+          "value": 0.1177,
+          "display": "+0,12 °C gegenüber 1850–1900",
+          "finding": "1950: +0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,02 bis +0,22 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1951,
+          "value": 0.2855,
+          "display": "+0,29 °C gegenüber 1850–1900",
+          "finding": "1951: +0,29 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,19 bis +0,38 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1952,
+          "value": 0.3682,
+          "display": "+0,37 °C gegenüber 1850–1900",
+          "finding": "1952: +0,37 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,27 bis +0,47 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1953,
+          "value": 0.4343,
+          "display": "+0,43 °C gegenüber 1850–1900",
+          "finding": "1953: +0,43 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,34 bis +0,53 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1954,
+          "value": 0.2398,
+          "display": "+0,24 °C gegenüber 1850–1900",
+          "finding": "1954: +0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,33 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 0.1587,
+          "display": "+0,16 °C gegenüber 1850–1900",
+          "finding": "1955: +0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,07 bis +0,25 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1956,
+          "value": 0.0924,
+          "display": "+0,09 °C gegenüber 1850–1900",
+          "finding": "1956: +0,09 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,02 bis +0,17 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1957,
+          "value": 0.3224,
+          "display": "+0,32 °C gegenüber 1850–1900",
+          "finding": "1957: +0,32 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,26 bis +0,39 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1958,
+          "value": 0.3409,
+          "display": "+0,34 °C gegenüber 1850–1900",
+          "finding": "1958: +0,34 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,28 bis +0,41 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1959,
+          "value": 0.3108,
+          "display": "+0,31 °C gegenüber 1850–1900",
+          "finding": "1959: +0,31 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,25 bis +0,38 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 0.244,
+          "display": "+0,24 °C gegenüber 1850–1900",
+          "finding": "1960: +0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,19 bis +0,30 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1961,
+          "value": 0.343,
+          "display": "+0,34 °C gegenüber 1850–1900",
+          "finding": "1961: +0,34 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,29 bis +0,39 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1962,
+          "value": 0.2985,
+          "display": "+0,30 °C gegenüber 1850–1900",
+          "finding": "1962: +0,30 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,24 bis +0,35 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1963,
+          "value": 0.326,
+          "display": "+0,33 °C gegenüber 1850–1900",
+          "finding": "1963: +0,33 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,27 bis +0,38 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1964,
+          "value": 0.0552,
+          "display": "+0,06 °C gegenüber 1850–1900",
+          "finding": "1964: +0,06 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,01 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 0.1551,
+          "display": "+0,16 °C gegenüber 1850–1900",
+          "finding": "1965: +0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,10 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1966,
+          "value": 0.212,
+          "display": "+0,21 °C gegenüber 1850–1900",
+          "finding": "1966: +0,21 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,16 bis +0,26 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1967,
+          "value": 0.2417,
+          "display": "+0,24 °C gegenüber 1850–1900",
+          "finding": "1967: +0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,20 bis +0,29 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 0.1934,
+          "display": "+0,19 °C gegenüber 1850–1900",
+          "finding": "1968: +0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,24 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1969,
+          "value": 0.3296,
+          "display": "+0,33 °C gegenüber 1850–1900",
+          "finding": "1969: +0,33 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,29 bis +0,37 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 0.2733,
+          "display": "+0,27 °C gegenüber 1850–1900",
+          "finding": "1970: +0,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,24 bis +0,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 0.1533,
+          "display": "+0,15 °C gegenüber 1850–1900",
+          "finding": "1971: +0,15 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,12 bis +0,19 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 0.2672,
+          "display": "+0,27 °C gegenüber 1850–1900",
+          "finding": "1972: +0,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,23 bis +0,30 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 0.4098,
+          "display": "+0,41 °C gegenüber 1850–1900",
+          "finding": "1973: +0,41 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,37 bis +0,45 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 0.1887,
+          "display": "+0,19 °C gegenüber 1850–1900",
+          "finding": "1974: +0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,15 bis +0,23 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 0.2514,
+          "display": "+0,25 °C gegenüber 1850–1900",
+          "finding": "1975: +0,25 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,21 bis +0,29 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 0.1466,
+          "display": "+0,15 °C gegenüber 1850–1900",
+          "finding": "1976: +0,15 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,11 bis +0,19 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 0.4625,
+          "display": "+0,46 °C gegenüber 1850–1900",
+          "finding": "1977: +0,46 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,42 bis +0,50 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 0.3629,
+          "display": "+0,36 °C gegenüber 1850–1900",
+          "finding": "1978: +0,36 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,32 bis +0,40 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 0.4455,
+          "display": "+0,45 °C gegenüber 1850–1900",
+          "finding": "1979: +0,45 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,42 bis +0,47 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 0.5489,
+          "display": "+0,55 °C gegenüber 1850–1900",
+          "finding": "1980: +0,55 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,52 bis +0,58 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 0.6043,
+          "display": "+0,60 °C gegenüber 1850–1900",
+          "finding": "1981: +0,60 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,57 bis +0,64 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 0.3883,
+          "display": "+0,39 °C gegenüber 1850–1900",
+          "finding": "1982: +0,39 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,35 bis +0,43 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 0.5782,
+          "display": "+0,58 °C gegenüber 1850–1900",
+          "finding": "1983: +0,58 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,54 bis +0,61 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 0.4034,
+          "display": "+0,40 °C gegenüber 1850–1900",
+          "finding": "1984: +0,40 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,37 bis +0,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 0.4033,
+          "display": "+0,40 °C gegenüber 1850–1900",
+          "finding": "1985: +0,40 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,37 bis +0,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 0.4497,
+          "display": "+0,45 °C gegenüber 1850–1900",
+          "finding": "1986: +0,45 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,42 bis +0,48 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 0.5956,
+          "display": "+0,60 °C gegenüber 1850–1900",
+          "finding": "1987: +0,60 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,56 bis +0,63 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 0.635,
+          "display": "+0,64 °C gegenüber 1850–1900",
+          "finding": "1988: +0,64 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,60 bis +0,67 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 0.5323,
+          "display": "+0,53 °C gegenüber 1850–1900",
+          "finding": "1989: +0,53 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,50 bis +0,57 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 0.7124,
+          "display": "+0,71 °C gegenüber 1850–1900",
+          "finding": "1990: +0,71 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,68 bis +0,75 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 0.6912,
+          "display": "+0,69 °C gegenüber 1850–1900",
+          "finding": "1991: +0,69 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,66 bis +0,73 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 0.4774,
+          "display": "+0,48 °C gegenüber 1850–1900",
+          "finding": "1992: +0,48 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,44 bis +0,51 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 0.5185,
+          "display": "+0,52 °C gegenüber 1850–1900",
+          "finding": "1993: +0,52 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,48 bis +0,56 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 0.5848,
+          "display": "+0,58 °C gegenüber 1850–1900",
+          "finding": "1994: +0,58 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,55 bis +0,62 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 0.7285,
+          "display": "+0,73 °C gegenüber 1850–1900",
+          "finding": "1995: +0,73 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,70 bis +0,76 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 0.6282,
+          "display": "+0,63 °C gegenüber 1850–1900",
+          "finding": "1996: +0,63 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,60 bis +0,66 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 0.7724,
+          "display": "+0,77 °C gegenüber 1850–1900",
+          "finding": "1997: +0,77 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,74 bis +0,80 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 0.9293,
+          "display": "+0,93 °C gegenüber 1850–1900",
+          "finding": "1998: +0,93 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,90 bis +0,96 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 0.6754,
+          "display": "+0,68 °C gegenüber 1850–1900",
+          "finding": "1999: +0,68 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,64 bis +0,71 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 0.6829,
+          "display": "+0,68 °C gegenüber 1850–1900",
+          "finding": "2000: +0,68 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,65 bis +0,72 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 0.8408,
+          "display": "+0,84 °C gegenüber 1850–1900",
+          "finding": "2001: +0,84 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,81 bis +0,87 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 0.8945,
+          "display": "+0,89 °C gegenüber 1850–1900",
+          "finding": "2002: +0,89 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,86 bis +0,92 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 0.8956,
+          "display": "+0,90 °C gegenüber 1850–1900",
+          "finding": "2003: +0,90 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,86 bis +0,93 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 0.8198,
+          "display": "+0,82 °C gegenüber 1850–1900",
+          "finding": "2004: +0,82 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,79 bis +0,85 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 0.9597,
+          "display": "+0,96 °C gegenüber 1850–1900",
+          "finding": "2005: +0,96 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,93 bis +0,99 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 0.9237,
+          "display": "+0,92 °C gegenüber 1850–1900",
+          "finding": "2006: +0,92 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,89 bis +0,95 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 0.9429,
+          "display": "+0,94 °C gegenüber 1850–1900",
+          "finding": "2007: +0,94 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,91 bis +0,97 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 0.8166,
+          "display": "+0,82 °C gegenüber 1850–1900",
+          "finding": "2008: +0,82 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,78 bis +0,85 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 0.9474,
+          "display": "+0,95 °C gegenüber 1850–1900",
+          "finding": "2009: +0,95 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,92 bis +0,98 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 1.031,
+          "display": "+1,03 °C gegenüber 1850–1900",
+          "finding": "2010: +1,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,00 bis +1,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 0.89,
+          "display": "+0,89 °C gegenüber 1850–1900",
+          "finding": "2011: +0,89 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,86 bis +0,92 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 0.9289,
+          "display": "+0,93 °C gegenüber 1850–1900",
+          "finding": "2012: +0,93 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,90 bis +0,96 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 0.976,
+          "display": "+0,98 °C gegenüber 1850–1900",
+          "finding": "2013: +0,98 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,94 bis +1,01 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 1.0252,
+          "display": "+1,03 °C gegenüber 1850–1900",
+          "finding": "2014: +1,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,99 bis +1,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 1.1753,
+          "display": "+1,18 °C gegenüber 1850–1900",
+          "finding": "2015: +1,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,14 bis +1,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 1.2822,
+          "display": "+1,28 °C gegenüber 1850–1900",
+          "finding": "2016: +1,28 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,25 bis +1,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 1.1938,
+          "display": "+1,19 °C gegenüber 1850–1900",
+          "finding": "2017: +1,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,16 bis +1,23 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 1.1106,
+          "display": "+1,11 °C gegenüber 1850–1900",
+          "finding": "2018: +1,11 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,08 bis +1,14 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 1.2447,
+          "display": "+1,24 °C gegenüber 1850–1900",
+          "finding": "2019: +1,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,21 bis +1,28 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 1.2736,
+          "display": "+1,27 °C gegenüber 1850–1900",
+          "finding": "2020: +1,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,24 bis +1,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 1.1247,
+          "display": "+1,12 °C gegenüber 1850–1900",
+          "finding": "2021: +1,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,09 bis +1,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 1.1592,
+          "display": "+1,16 °C gegenüber 1850–1900",
+          "finding": "2022: +1,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,12 bis +1,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 1.4672,
+          "display": "+1,47 °C gegenüber 1850–1900",
+          "finding": "2023: +1,47 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,43 bis +1,50 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 1.5264,
+          "display": "+1,53 °C gegenüber 1850–1900",
+          "finding": "2024: +1,53 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,49 bis +1,57 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 1.4054,
+          "display": "+1,41 °C gegenüber 1850–1900",
+          "finding": "2025: +1,41 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,37 bis +1,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1850,
+          "value": -0.0691,
+          "display": "-0,07 °C gegenüber 1850–1900",
+          "finding": "1850: -0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,24 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1855,
+          "value": 0.066,
+          "display": "+0,07 °C gegenüber 1850–1900",
+          "finding": "1855: +0,07 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,20 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1860,
+          "value": -0.0498,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1860: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,20 bis +0,10 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1865,
+          "value": -0.0349,
+          "display": "-0,03 °C gegenüber 1850–1900",
+          "finding": "1865: -0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,23 bis +0,16 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1870,
+          "value": 0.0296,
+          "display": "+0,03 °C gegenüber 1850–1900",
+          "finding": "1870: +0,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,12 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1875,
+          "value": -0.0094,
+          "display": "-0,01 °C gegenüber 1850–1900",
+          "finding": "1875: -0,01 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,15 bis +0,13 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1880,
+          "value": 0.0542,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1880: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,07 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1885,
+          "value": -0.1008,
+          "display": "-0,10 °C gegenüber 1850–1900",
+          "finding": "1885: -0,10 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,21 bis +0,01 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1890,
+          "value": -0.1429,
+          "display": "-0,14 °C gegenüber 1850–1900",
+          "finding": "1890: -0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,27 bis -0,02 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1895,
+          "value": -0.0845,
+          "display": "-0,08 °C gegenüber 1850–1900",
+          "finding": "1895: -0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,22 bis +0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1900,
+          "value": 0.1272,
+          "display": "+0,13 °C gegenüber 1850–1900",
+          "finding": "1900: +0,13 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,01 bis +0,26 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1905,
+          "value": -0.0486,
+          "display": "-0,05 °C gegenüber 1850–1900",
+          "finding": "1905: -0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,17 bis +0,07 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1910,
+          "value": -0.1647,
+          "display": "-0,16 °C gegenüber 1850–1900",
+          "finding": "1910: -0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,28 bis -0,05 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1915,
+          "value": 0.1668,
+          "display": "+0,17 °C gegenüber 1850–1900",
+          "finding": "1915: +0,17 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,05 bis +0,28 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1920,
+          "value": 0.053,
+          "display": "+0,05 °C gegenüber 1850–1900",
+          "finding": "1920: +0,05 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,08 bis +0,18 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1925,
+          "value": 0.0778,
+          "display": "+0,08 °C gegenüber 1850–1900",
+          "finding": "1925: +0,08 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich -0,03 bis +0,19 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1930,
+          "value": 0.1875,
+          "display": "+0,19 °C gegenüber 1850–1900",
+          "finding": "1930: +0,19 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,08 bis +0,29 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1935,
+          "value": 0.1445,
+          "display": "+0,14 °C gegenüber 1850–1900",
+          "finding": "1935: +0,14 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,05 bis +0,24 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1940,
+          "value": 0.4312,
+          "display": "+0,43 °C gegenüber 1850–1900",
+          "finding": "1940: +0,43 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,31 bis +0,55 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1945,
+          "value": 0.4003,
+          "display": "+0,40 °C gegenüber 1850–1900",
+          "finding": "1945: +0,40 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,20 bis +0,60 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1950,
+          "value": 0.1177,
+          "display": "+0,12 °C gegenüber 1850–1900",
+          "finding": "1950: +0,12 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,02 bis +0,22 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 0.1587,
+          "display": "+0,16 °C gegenüber 1850–1900",
+          "finding": "1955: +0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,07 bis +0,25 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 0.244,
+          "display": "+0,24 °C gegenüber 1850–1900",
+          "finding": "1960: +0,24 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,19 bis +0,30 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 0.1551,
+          "display": "+0,16 °C gegenüber 1850–1900",
+          "finding": "1965: +0,16 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,10 bis +0,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 0.2733,
+          "display": "+0,27 °C gegenüber 1850–1900",
+          "finding": "1970: +0,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,24 bis +0,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 0.2514,
+          "display": "+0,25 °C gegenüber 1850–1900",
+          "finding": "1975: +0,25 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,21 bis +0,29 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 0.5489,
+          "display": "+0,55 °C gegenüber 1850–1900",
+          "finding": "1980: +0,55 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,52 bis +0,58 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 0.4033,
+          "display": "+0,40 °C gegenüber 1850–1900",
+          "finding": "1985: +0,40 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,37 bis +0,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 0.7124,
+          "display": "+0,71 °C gegenüber 1850–1900",
+          "finding": "1990: +0,71 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,68 bis +0,75 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 0.7285,
+          "display": "+0,73 °C gegenüber 1850–1900",
+          "finding": "1995: +0,73 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,70 bis +0,76 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 0.6829,
+          "display": "+0,68 °C gegenüber 1850–1900",
+          "finding": "2000: +0,68 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,65 bis +0,72 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 0.9597,
+          "display": "+0,96 °C gegenüber 1850–1900",
+          "finding": "2005: +0,96 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +0,93 bis +0,99 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 1.031,
+          "display": "+1,03 °C gegenüber 1850–1900",
+          "finding": "2010: +1,03 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,00 bis +1,06 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 1.1753,
+          "display": "+1,18 °C gegenüber 1850–1900",
+          "finding": "2015: +1,18 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,14 bis +1,21 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 1.2736,
+          "display": "+1,27 °C gegenüber 1850–1900",
+          "finding": "2020: +1,27 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,24 bis +1,31 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 1.4054,
+          "display": "+1,41 °C gegenüber 1850–1900",
+          "finding": "2025: +1,41 °C gegenüber dem Mittel 1850–1900 · beobachtet.",
+          "uncertainty": "95-%-Bereich +1,37 bis +1,44 °C.",
+          "sourceRefs": [
+            "src_hadcrut5_5100"
+          ]
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "pages2k_global_temperature_1700_1849",
+          "label": "Historische Rekonstruktion · PAGES2k",
+          "period": "1700–1849",
+          "method": "Median des methodenübergreifenden 7000-Mitglieder-Ensembles der PAGES2k-Rekonstruktionen.",
+          "uncertainty": "95-%-Bereich des vollständigen Rekonstruktionsensembles; Proxyrekonstruktion, keine direkte Messung.",
+          "sourceRefs": [
+            "src_pages2k_2019"
+          ],
+          "provenance": {
+            "sourceFile": "Full_ensemble_median_and_95pct_range.txt",
+            "sourceUrl": "https://www.ncei.noaa.gov/pub/data/paleo/pages2k/neukom2019temp/recons/Full_ensemble_median_and_95pct_range.txt",
+            "locator": "Jahreszeilen 1700–1849; Bezugszeilen 1850–1900 für die Umrechnung.",
+            "fields": [
+              "Year → Jahr",
+              "Full ensemble median → Rekonstruktionswert",
+              "Full ensemble 2.5th/97.5th percentile → 95-%-Bereich"
+            ],
+            "extraction": "Übernommen wurden 150 Jahreswerte von 1700 bis 1849 aus dem vollständigen Ensemblemedian.",
+            "transformation": "Von jedem Wert und seinen Grenzen wurde ausschließlich das PAGES2k-Mittel 1850–1900 (-0.379412 °C in der ursprünglichen 1961–1990-Anomalieskala) abgezogen. Keine Interpolation."
+          },
+          "points": [
+            {
+              "year": 1700,
+              "value": -0.1654,
+              "display": "-0,17 °C gegenüber 1850–1900",
+              "finding": "1700: -0,17 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,51 bis +0,12 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1701,
+              "value": -0.2162,
+              "display": "-0,22 °C gegenüber 1850–1900",
+              "finding": "1701: -0,22 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,48 bis +0,07 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1702,
+              "value": -0.1856,
+              "display": "-0,19 °C gegenüber 1850–1900",
+              "finding": "1702: -0,19 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,52 bis +0,08 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1703,
+              "value": -0.0963,
+              "display": "-0,10 °C gegenüber 1850–1900",
+              "finding": "1703: -0,10 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,20 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1704,
+              "value": -0.2017,
+              "display": "-0,20 °C gegenüber 1850–1900",
+              "finding": "1704: -0,20 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,46 bis +0,13 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1705,
+              "value": -0.2175,
+              "display": "-0,22 °C gegenüber 1850–1900",
+              "finding": "1705: -0,22 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,46 bis +0,08 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1706,
+              "value": -0.1754,
+              "display": "-0,18 °C gegenüber 1850–1900",
+              "finding": "1706: -0,18 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,46 bis +0,13 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1707,
+              "value": -0.1058,
+              "display": "-0,11 °C gegenüber 1850–1900",
+              "finding": "1707: -0,11 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,35 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1708,
+              "value": -0.1318,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1708: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,14 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1709,
+              "value": -0.1135,
+              "display": "-0,11 °C gegenüber 1850–1900",
+              "finding": "1709: -0,11 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,40 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1710,
+              "value": -0.0504,
+              "display": "-0,05 °C gegenüber 1850–1900",
+              "finding": "1710: -0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1711,
+              "value": -0.0779,
+              "display": "-0,08 °C gegenüber 1850–1900",
+              "finding": "1711: -0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,33 bis +0,18 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1712,
+              "value": 0.0123,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1712: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1713,
+              "value": -0.0074,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1713: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1714,
+              "value": -0.1144,
+              "display": "-0,11 °C gegenüber 1850–1900",
+              "finding": "1714: -0,11 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,15 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1715,
+              "value": -0.0634,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1715: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,20 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1716,
+              "value": -0.0535,
+              "display": "-0,05 °C gegenüber 1850–1900",
+              "finding": "1716: -0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1717,
+              "value": -0.0886,
+              "display": "-0,09 °C gegenüber 1850–1900",
+              "finding": "1717: -0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1718,
+              "value": -0.0291,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1718: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1719,
+              "value": -0.0683,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1719: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,30 bis +0,20 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1720,
+              "value": 0.0307,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1720: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,23 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1721,
+              "value": -0.0319,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1721: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1722,
+              "value": 0.0857,
+              "display": "+0,09 °C gegenüber 1850–1900",
+              "finding": "1722: +0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,34 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1723,
+              "value": -0.0204,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1723: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1724,
+              "value": 0.0064,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1724: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1725,
+              "value": -0.008,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1725: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,25 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1726,
+              "value": 0.0107,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1726: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1727,
+              "value": 0.0103,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1727: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1728,
+              "value": 0.022,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1728: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,31 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1729,
+              "value": 0.0465,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1729: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,30 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1730,
+              "value": 0.0113,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1730: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,27 bis +0,25 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1731,
+              "value": -0.0565,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1731: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,33 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1732,
+              "value": -0.0013,
+              "display": "-0,00 °C gegenüber 1850–1900",
+              "finding": "1732: -0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1733,
+              "value": -0.0277,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1733: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,30 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1734,
+              "value": 0.0485,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1734: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,27 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1735,
+              "value": -0.0335,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1735: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1736,
+              "value": -0.0371,
+              "display": "-0,04 °C gegenüber 1850–1900",
+              "finding": "1736: -0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,31 bis +0,25 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1737,
+              "value": -0.0414,
+              "display": "-0,04 °C gegenüber 1850–1900",
+              "finding": "1737: -0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1738,
+              "value": -0.0542,
+              "display": "-0,05 °C gegenüber 1850–1900",
+              "finding": "1738: -0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1739,
+              "value": 0.0249,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1739: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1740,
+              "value": -0.0623,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1740: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,35 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1741,
+              "value": -0.0124,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1741: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,30 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1742,
+              "value": -0.1495,
+              "display": "-0,15 °C gegenüber 1850–1900",
+              "finding": "1742: -0,15 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,42 bis +0,13 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1743,
+              "value": -0.0208,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1743: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1744,
+              "value": -0.0473,
+              "display": "-0,05 °C gegenüber 1850–1900",
+              "finding": "1744: -0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,31 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1745,
+              "value": -0.1135,
+              "display": "-0,11 °C gegenüber 1850–1900",
+              "finding": "1745: -0,11 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,16 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1746,
+              "value": -0.1291,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1746: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,18 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1747,
+              "value": 0.0193,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1747: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,31 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1748,
+              "value": 0.0069,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1748: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1749,
+              "value": -0.0263,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1749: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1750,
+              "value": -0.0194,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1750: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1751,
+              "value": -0.0391,
+              "display": "-0,04 °C gegenüber 1850–1900",
+              "finding": "1751: -0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1752,
+              "value": -0.0231,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1752: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1753,
+              "value": -0.0267,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1753: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1754,
+              "value": -0.0677,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1754: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,33 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1755,
+              "value": -0.0562,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1755: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,21 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1756,
+              "value": 0.0277,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1756: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1757,
+              "value": 0.0173,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1757: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1758,
+              "value": -0.0666,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1758: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1759,
+              "value": 0.0225,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1759: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,21 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1760,
+              "value": 0.0099,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1760: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1761,
+              "value": 0.0479,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1761: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,20 bis +0,34 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1762,
+              "value": 0.0255,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1762: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1763,
+              "value": 0.0552,
+              "display": "+0,06 °C gegenüber 1850–1900",
+              "finding": "1763: +0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,32 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1764,
+              "value": -0.0058,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1764: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,27 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1765,
+              "value": 0.0505,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1765: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,31 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1766,
+              "value": 0.0675,
+              "display": "+0,07 °C gegenüber 1850–1900",
+              "finding": "1766: +0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,20 bis +0,33 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1767,
+              "value": 0.0355,
+              "display": "+0,04 °C gegenüber 1850–1900",
+              "finding": "1767: +0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1768,
+              "value": -0.0903,
+              "display": "-0,09 °C gegenüber 1850–1900",
+              "finding": "1768: -0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,33 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1769,
+              "value": 0.0124,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1769: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1770,
+              "value": 0.0172,
+              "display": "+0,02 °C gegenüber 1850–1900",
+              "finding": "1770: +0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1771,
+              "value": 0.0013,
+              "display": "+0,00 °C gegenüber 1850–1900",
+              "finding": "1771: +0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1772,
+              "value": -0.0214,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1772: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1773,
+              "value": 0.077,
+              "display": "+0,08 °C gegenüber 1850–1900",
+              "finding": "1773: +0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,32 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1774,
+              "value": 0.1158,
+              "display": "+0,12 °C gegenüber 1850–1900",
+              "finding": "1774: +0,12 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,15 bis +0,35 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1775,
+              "value": 0.0097,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1775: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1776,
+              "value": 0.0797,
+              "display": "+0,08 °C gegenüber 1850–1900",
+              "finding": "1776: +0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,21 bis +0,31 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1777,
+              "value": 0.0802,
+              "display": "+0,08 °C gegenüber 1850–1900",
+              "finding": "1777: +0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,32 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1778,
+              "value": 0.0016,
+              "display": "+0,00 °C gegenüber 1850–1900",
+              "finding": "1778: +0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1779,
+              "value": -0.0064,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1779: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1780,
+              "value": -0.0047,
+              "display": "-0,00 °C gegenüber 1850–1900",
+              "finding": "1780: -0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1781,
+              "value": -0.004,
+              "display": "-0,00 °C gegenüber 1850–1900",
+              "finding": "1781: -0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1782,
+              "value": -0.0381,
+              "display": "-0,04 °C gegenüber 1850–1900",
+              "finding": "1782: -0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,21 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1783,
+              "value": -0.0846,
+              "display": "-0,08 °C gegenüber 1850–1900",
+              "finding": "1783: -0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,35 bis +0,15 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1784,
+              "value": -0.0183,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1784: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1785,
+              "value": 0.0028,
+              "display": "+0,00 °C gegenüber 1850–1900",
+              "finding": "1785: +0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1786,
+              "value": 0.0334,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1786: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1787,
+              "value": -0.0736,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1787: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,31 bis +0,18 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1788,
+              "value": -0.0172,
+              "display": "-0,02 °C gegenüber 1850–1900",
+              "finding": "1788: -0,02 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1789,
+              "value": -0.009,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1789: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,27 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1790,
+              "value": -0.0889,
+              "display": "-0,09 °C gegenüber 1850–1900",
+              "finding": "1790: -0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1791,
+              "value": 0.0537,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1791: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1792,
+              "value": 0.0813,
+              "display": "+0,08 °C gegenüber 1850–1900",
+              "finding": "1792: +0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,34 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1793,
+              "value": 0.0547,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1793: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1794,
+              "value": 0.0905,
+              "display": "+0,09 °C gegenüber 1850–1900",
+              "finding": "1794: +0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1795,
+              "value": 0.0325,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1795: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1796,
+              "value": 0.0872,
+              "display": "+0,09 °C gegenüber 1850–1900",
+              "finding": "1796: +0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1797,
+              "value": 0.0085,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1797: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1798,
+              "value": 0.1392,
+              "display": "+0,14 °C gegenüber 1850–1900",
+              "finding": "1798: +0,14 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,15 bis +0,35 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1799,
+              "value": 0.053,
+              "display": "+0,05 °C gegenüber 1850–1900",
+              "finding": "1799: +0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,20 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1800,
+              "value": 0.0307,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1800: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,21 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1801,
+              "value": 0.0885,
+              "display": "+0,09 °C gegenüber 1850–1900",
+              "finding": "1801: +0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,18 bis +0,32 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1802,
+              "value": 0.0714,
+              "display": "+0,07 °C gegenüber 1850–1900",
+              "finding": "1802: +0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,23 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1803,
+              "value": 0.1425,
+              "display": "+0,14 °C gegenüber 1850–1900",
+              "finding": "1803: +0,14 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,16 bis +0,36 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1804,
+              "value": 0.1975,
+              "display": "+0,20 °C gegenüber 1850–1900",
+              "finding": "1804: +0,20 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,05 bis +0,43 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1805,
+              "value": 0.0682,
+              "display": "+0,07 °C gegenüber 1850–1900",
+              "finding": "1805: +0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,17 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1806,
+              "value": 0.0286,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1806: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,20 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1807,
+              "value": 0.0835,
+              "display": "+0,08 °C gegenüber 1850–1900",
+              "finding": "1807: +0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,17 bis +0,31 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1808,
+              "value": 0.0626,
+              "display": "+0,06 °C gegenüber 1850–1900",
+              "finding": "1808: +0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,22 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1809,
+              "value": -0.1212,
+              "display": "-0,12 °C gegenüber 1850–1900",
+              "finding": "1809: -0,12 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,12 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1810,
+              "value": -0.1655,
+              "display": "-0,17 °C gegenüber 1850–1900",
+              "finding": "1810: -0,17 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,42 bis +0,09 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1811,
+              "value": -0.0834,
+              "display": "-0,08 °C gegenüber 1850–1900",
+              "finding": "1811: -0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1812,
+              "value": -0.1318,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1812: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,39 bis +0,11 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1813,
+              "value": -0.1025,
+              "display": "-0,10 °C gegenüber 1850–1900",
+              "finding": "1813: -0,10 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,12 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1814,
+              "value": -0.1362,
+              "display": "-0,14 °C gegenüber 1850–1900",
+              "finding": "1814: -0,14 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,10 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1815,
+              "value": -0.1915,
+              "display": "-0,19 °C gegenüber 1850–1900",
+              "finding": "1815: -0,19 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,49 bis +0,04 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1816,
+              "value": -0.1785,
+              "display": "-0,18 °C gegenüber 1850–1900",
+              "finding": "1816: -0,18 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,50 bis +0,05 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1817,
+              "value": -0.1505,
+              "display": "-0,15 °C gegenüber 1850–1900",
+              "finding": "1817: -0,15 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,09 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1818,
+              "value": -0.1874,
+              "display": "-0,19 °C gegenüber 1850–1900",
+              "finding": "1818: -0,19 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,45 bis +0,05 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1819,
+              "value": -0.1604,
+              "display": "-0,16 °C gegenüber 1850–1900",
+              "finding": "1819: -0,16 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,09 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1820,
+              "value": -0.1325,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1820: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,10 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1821,
+              "value": -0.1801,
+              "display": "-0,18 °C gegenüber 1850–1900",
+              "finding": "1821: -0,18 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,45 bis +0,07 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1822,
+              "value": -0.0915,
+              "display": "-0,09 °C gegenüber 1850–1900",
+              "finding": "1822: -0,09 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,34 bis +0,14 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1823,
+              "value": -0.0055,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1823: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,22 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1824,
+              "value": -0.0456,
+              "display": "-0,05 °C gegenüber 1850–1900",
+              "finding": "1824: -0,05 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,28 bis +0,18 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1825,
+              "value": -0.0095,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1825: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,25 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1826,
+              "value": -0.0124,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1826: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1827,
+              "value": -0.0653,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1827: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,32 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1828,
+              "value": 0.0352,
+              "display": "+0,04 °C gegenüber 1850–1900",
+              "finding": "1828: +0,04 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,19 bis +0,28 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1829,
+              "value": 0.0333,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1829: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,20 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1830,
+              "value": 0.0047,
+              "display": "+0,00 °C gegenüber 1850–1900",
+              "finding": "1830: +0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,21 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1831,
+              "value": 0.0057,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1831: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,24 bis +0,24 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1832,
+              "value": -0.1005,
+              "display": "-0,10 °C gegenüber 1850–1900",
+              "finding": "1832: -0,10 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,16 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1833,
+              "value": -0.0803,
+              "display": "-0,08 °C gegenüber 1850–1900",
+              "finding": "1833: -0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,37 bis +0,17 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1834,
+              "value": -0.0322,
+              "display": "-0,03 °C gegenüber 1850–1900",
+              "finding": "1834: -0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,29 bis +0,20 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1835,
+              "value": -0.1464,
+              "display": "-0,15 °C gegenüber 1850–1900",
+              "finding": "1835: -0,15 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,43 bis +0,09 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1836,
+              "value": -0.2261,
+              "display": "-0,23 °C gegenüber 1850–1900",
+              "finding": "1836: -0,23 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,53 bis +0,04 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1837,
+              "value": -0.2019,
+              "display": "-0,20 °C gegenüber 1850–1900",
+              "finding": "1837: -0,20 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,48 bis +0,04 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1838,
+              "value": -0.1111,
+              "display": "-0,11 °C gegenüber 1850–1900",
+              "finding": "1838: -0,11 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,13 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1839,
+              "value": -0.0987,
+              "display": "-0,10 °C gegenüber 1850–1900",
+              "finding": "1839: -0,10 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,36 bis +0,14 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1840,
+              "value": -0.1165,
+              "display": "-0,12 °C gegenüber 1850–1900",
+              "finding": "1840: -0,12 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,39 bis +0,10 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1841,
+              "value": -0.14,
+              "display": "-0,14 °C gegenüber 1850–1900",
+              "finding": "1841: -0,14 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,39 bis +0,10 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1842,
+              "value": -0.1576,
+              "display": "-0,16 °C gegenüber 1850–1900",
+              "finding": "1842: -0,16 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,39 bis +0,08 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1843,
+              "value": -0.1734,
+              "display": "-0,17 °C gegenüber 1850–1900",
+              "finding": "1843: -0,17 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,41 bis +0,06 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1844,
+              "value": -0.0694,
+              "display": "-0,07 °C gegenüber 1850–1900",
+              "finding": "1844: -0,07 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,35 bis +0,16 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1845,
+              "value": -0.1347,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1845: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,42 bis +0,09 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1846,
+              "value": -0.0068,
+              "display": "-0,01 °C gegenüber 1850–1900",
+              "finding": "1846: -0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,33 bis +0,23 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1847,
+              "value": -0.0845,
+              "display": "-0,08 °C gegenüber 1850–1900",
+              "finding": "1847: -0,08 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,12 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1848,
+              "value": -0.0594,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1848: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,14 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1849,
+              "value": -0.1574,
+              "display": "-0,16 °C gegenüber 1850–1900",
+              "finding": "1849: -0,16 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,43 bis +0,08 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayHistoricalReconstruction": [
+        {
+          "id": "pages2k_global_temperature_1700_1849",
+          "label": "Historische Rekonstruktion · PAGES2k",
+          "period": "1700–1849",
+          "method": "Median des methodenübergreifenden 7000-Mitglieder-Ensembles der PAGES2k-Rekonstruktionen.",
+          "uncertainty": "95-%-Bereich des vollständigen Rekonstruktionsensembles; Proxyrekonstruktion, keine direkte Messung.",
+          "sourceRefs": [
+            "src_pages2k_2019"
+          ],
+          "provenance": {
+            "sourceFile": "Full_ensemble_median_and_95pct_range.txt",
+            "sourceUrl": "https://www.ncei.noaa.gov/pub/data/paleo/pages2k/neukom2019temp/recons/Full_ensemble_median_and_95pct_range.txt",
+            "locator": "Jahreszeilen 1700–1849; Bezugszeilen 1850–1900 für die Umrechnung.",
+            "fields": [
+              "Year → Jahr",
+              "Full ensemble median → Rekonstruktionswert",
+              "Full ensemble 2.5th/97.5th percentile → 95-%-Bereich"
+            ],
+            "extraction": "Übernommen wurden 150 Jahreswerte von 1700 bis 1849 aus dem vollständigen Ensemblemedian.",
+            "transformation": "Von jedem Wert und seinen Grenzen wurde ausschließlich das PAGES2k-Mittel 1850–1900 (-0.379412 °C in der ursprünglichen 1961–1990-Anomalieskala) abgezogen. Keine Interpolation."
+          },
+          "points": [
+            {
+              "year": 1700,
+              "value": -0.1654,
+              "display": "-0,17 °C gegenüber 1850–1900",
+              "finding": "1700: -0,17 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,51 bis +0,12 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1720,
+              "value": 0.0307,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1720: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,23 bis +0,30 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1740,
+              "value": -0.0623,
+              "display": "-0,06 °C gegenüber 1850–1900",
+              "finding": "1740: -0,06 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,35 bis +0,19 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1760,
+              "value": 0.0099,
+              "display": "+0,01 °C gegenüber 1850–1900",
+              "finding": "1760: +0,01 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,29 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1780,
+              "value": -0.0047,
+              "display": "-0,00 °C gegenüber 1850–1900",
+              "finding": "1780: -0,00 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,26 bis +0,26 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1800,
+              "value": 0.0307,
+              "display": "+0,03 °C gegenüber 1850–1900",
+              "finding": "1800: +0,03 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,21 bis +0,27 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1820,
+              "value": -0.1325,
+              "display": "-0,13 °C gegenüber 1850–1900",
+              "finding": "1820: -0,13 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,38 bis +0,10 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            },
+            {
+              "year": 1849,
+              "value": -0.1574,
+              "display": "-0,16 °C gegenüber 1850–1900",
+              "finding": "1849: -0,16 °C gegenüber dem Mittel 1850–1900 · rekonstruiert.",
+              "uncertainty": "95-%-Bereich -0,43 bis +0,08 °C.",
+              "sourceRefs": [
+                "src_pages2k_2019"
+              ]
+            }
+          ]
+        }
+      ],
+      "projections": [
+        {
+          "id": "global_temperature_ipcc_ssp119",
+          "scenario": "SSP1-1.9",
+          "scenarioLabel": "SSP1-1.9 · sehr niedrige Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP1-1.9; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.5,
+              "display": "2021–2040: +1,50 °C · SSP1-1.9",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,50 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +1,70 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 1.6,
+              "display": "2041–2060: +1,60 °C · SSP1-1.9",
+              "finding": "2041–2060: IPCC-Bestschätzung +1,60 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +2,00 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 1.4,
+              "display": "2081–2100: +1,40 °C · SSP1-1.9",
+              "finding": "2081–2100: IPCC-Bestschätzung +1,40 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,00 bis +1,80 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "global_temperature_ipcc_ssp245",
+          "scenario": "SSP2-4.5",
+          "scenarioLabel": "SSP2-4.5 · mittlere Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP2-4.5; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.5,
+              "display": "2021–2040: +1,50 °C · SSP2-4.5",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,50 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +1,80 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2,
+              "display": "2041–2060: +2,00 °C · SSP2-4.5",
+              "finding": "2041–2060: IPCC-Bestschätzung +2,00 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,60 bis +2,50 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 2.7,
+              "display": "2081–2100: +2,70 °C · SSP2-4.5",
+              "finding": "2081–2100: IPCC-Bestschätzung +2,70 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +2,10 bis +3,50 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "global_temperature_ipcc_ssp585",
+          "scenario": "SSP5-8.5",
+          "scenarioLabel": "SSP5-8.5 · sehr hohe Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP5-8.5; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.6,
+              "display": "2021–2040: +1,60 °C · SSP5-8.5",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,60 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,30 bis +1,90 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2.4,
+              "display": "2041–2060: +2,40 °C · SSP5-8.5",
+              "finding": "2041–2060: IPCC-Bestschätzung +2,40 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,90 bis +3,00 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 4.4,
+              "display": "2081–2100: +4,40 °C · SSP5-8.5",
+              "finding": "2081–2100: IPCC-Bestschätzung +4,40 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +3,30 bis +5,70 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "global_temperature_ipcc_ssp119",
+          "scenario": "SSP1-1.9",
+          "scenarioLabel": "SSP1-1.9 · sehr niedrige Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP1-1.9; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.5,
+              "display": "2021–2040: +1,50 °C · SSP1-1.9",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,50 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +1,70 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 1.6,
+              "display": "2041–2060: +1,60 °C · SSP1-1.9",
+              "finding": "2041–2060: IPCC-Bestschätzung +1,60 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +2,00 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 1.4,
+              "display": "2081–2100: +1,40 °C · SSP1-1.9",
+              "finding": "2081–2100: IPCC-Bestschätzung +1,40 °C gegenüber 1850–1900 unter SSP1-1.9.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,00 bis +1,80 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "global_temperature_ipcc_ssp245",
+          "scenario": "SSP2-4.5",
+          "scenarioLabel": "SSP2-4.5 · mittlere Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP2-4.5; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.5,
+              "display": "2021–2040: +1,50 °C · SSP2-4.5",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,50 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,20 bis +1,80 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2,
+              "display": "2041–2060: +2,00 °C · SSP2-4.5",
+              "finding": "2041–2060: IPCC-Bestschätzung +2,00 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,60 bis +2,50 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 2.7,
+              "display": "2081–2100: +2,70 °C · SSP2-4.5",
+              "finding": "2081–2100: IPCC-Bestschätzung +2,70 °C gegenüber 1850–1900 unter SSP2-4.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +2,10 bis +3,50 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "global_temperature_ipcc_ssp585",
+          "scenario": "SSP5-8.5",
+          "scenarioLabel": "SSP5-8.5 · sehr hohe Emissionen",
+          "period": "2021–2100",
+          "method": "IPCC AR6 WGI, Tabelle SPM.1: bewertete Bestschätzung der GSAT-Änderung gegenüber 1850–1900.",
+          "uncertainty": "Sehr wahrscheinlicher Bereich der IPCC-Bewertung; jeder Punkt steht für ein 20-Jahres-Mittel, nicht für das einzelne Mittelpunktjahr.",
+          "sourceRefs": [
+            "src_ipcc_ar6_spm"
+          ],
+          "provenance": {
+            "sourceFile": "IPCC_AR6_WGI_SPM_final.pdf",
+            "sourceUrl": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+            "locator": "Tabelle SPM.1, Zeile SSP5-8.5; Spalten 2021–2040, 2041–2060 und 2081–2100.",
+            "fields": [
+              "Best estimate → Kurvenwert",
+              "Very likely range → Unsicherheitsangabe"
+            ],
+            "extraction": "Übernommen wurden die drei publizierten 20-Jahres-Mittel; dargestellt am jeweiligen Periodenmittelpunkt 2030, 2050 und 2090.",
+            "transformation": "Keine Wertumrechnung und keine Interpolation. Nur der Darstellungszeitpunkt ist der gerundete Mittelpunkt des publizierten Zeitraums."
+          },
+          "grade": "robust_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 1.6,
+              "display": "2021–2040: +1,60 °C · SSP5-8.5",
+              "finding": "2021–2040: IPCC-Bestschätzung +1,60 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,30 bis +1,90 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2.4,
+              "display": "2041–2060: +2,40 °C · SSP5-8.5",
+              "finding": "2041–2060: IPCC-Bestschätzung +2,40 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +1,90 bis +3,00 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 4.4,
+              "display": "2081–2100: +4,40 °C · SSP5-8.5",
+              "finding": "2081–2100: IPCC-Bestschätzung +4,40 °C gegenüber 1850–1900 unter SSP5-8.5.",
+              "uncertainty": "Sehr wahrscheinlicher Bereich +3,30 bis +5,70 °C.",
+              "sourceRefs": [
+                "src_ipcc_ar6_spm"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 176,
+          "outputPointCount": 36,
+          "intervalYears": 5,
+          "rule": "Nur vorhandene Originalmesswerte; mindestens fünf Jahre Abstand. Erster und letzter Messpunkt sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 150,
+          "outputPointCount": 8,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 9,
+          "outputPointCount": 9,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_pages2k_2019",
+          "title": "PAGES2k 2019 Global Common Era Temperature Reconstructions · full ensemble median and 95% range",
+          "publisher": "NOAA/NCEI World Data Service for Paleoclimatology",
+          "year": 2019,
+          "url": "https://www.ncei.noaa.gov/pub/data/paleo/pages2k/neukom2019temp/recons/Full_ensemble_median_and_95pct_range.txt",
+          "doi": "10.25921/tkxp-vn12",
+          "access": "open_data"
+        },
+        {
+          "id": "src_hadcrut5_5100",
+          "title": "HadCRUT.5.1.0.0 analysis summary series · global annual",
+          "publisher": "Met Office",
+          "year": 2026,
+          "url": "https://www.metoffice.gov.uk/hadobs/hadcrut5/data/HadCRUT.5.1.0.0/analysis/diagnostics/HadCRUT.5.1.0.0.analysis.summary_series.global.annual.csv",
+          "access": "open_data"
+        },
+        {
+          "id": "src_ipcc_ar6_spm",
+          "title": "IPCC AR6 WGI Summary for Policymakers · Table SPM.1",
+          "publisher": "Intergovernmental Panel on Climate Change",
+          "year": 2021,
+          "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM_final.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_nasa_absolute_temperature",
+          "title": "The Elusive Absolute Surface Air Temperature",
+          "publisher": "NASA GISS",
+          "year": 2022,
+          "url": "https://data.giss.nasa.gov/gistemp/faq/abs_temp.html",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_metoffice_2025_temperature",
+          "title": "2025 continues series of world’s three warmest years",
+          "publisher": "Met Office",
+          "year": 2026,
+          "url": "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/2025-continues-series-of-worlds-three-warmest-years",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_coal_energy_pilot_v0.1.json#global_coal_tes_1965_2025",
       "boundaryId": "materials-energy",
       "itemId": "coal",
@@ -13772,6 +18007,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "6599a3bfc198c335dea87d2eed8559459487333c8b2ab17554ac5d87679165b4"
+    "hash": "00d1aca6bac4fd8739f817a056b1118986950c81de37f816ac7bc660ed48f21a"
   }
 }
