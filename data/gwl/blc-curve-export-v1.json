@@ -407,6 +407,617 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/gwl_cement_clinker_global_v0.1.json#global_cement_production_1926_2024_owid_usgs",
+      "boundaryId": "materials-energy",
+      "itemId": "cement-clinker-global",
+      "seriesId": "global_cement_production_1926_2024_owid_usgs",
+      "source": "data/knowledge/gwl_cement_clinker_global_v0.1.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globale Zementproduktion · historische Reihe",
+      "metric": "Jährliche globale Produktion hydraulischer Zemente aller Typen",
+      "unit": "billion_tonnes_per_year",
+      "geography": "Global",
+      "dataNature": "observed",
+      "worseningDirection": "increase",
+      "finding": "Die globale Zementproduktion stieg von 62,4 Millionen Tonnen im Jahr 1926 auf geschätzte 4,0 Milliarden Tonnen im Jahr 2024. Seit 2013 bewegt sie sich mit Schwankungen um etwa vier Milliarden Tonnen pro Jahr.",
+      "uncertainty": "USGS-Weltproduktion hydraulischer Zemente aller Typen, von Our World in Data harmonisiert. Weltwerte fehlen vor 1926. Produktdefinitionen änderten sich historisch; 2020 bis 2022 sowie 2024 sind in den USGS-Metadaten als Schätzwerte gekennzeichnet. Einzelne nicht runde Dezimalwerte entstehen durch die numerische Speicherung der gelieferten Reihe.",
+      "observationCoverage": {
+        "startYear": 1926,
+        "endYear": 2024,
+        "spanYears": 98,
+        "pointCount": 99
+      },
+      "observationSourceRefs": [
+        "src_owid_usgs_cement_series_2025",
+        "src_usgs_mcs_2025_data_release",
+        "src_usgs_historical_mineral_statistics_2024"
+      ],
+      "reference": {
+        "type": "no_global_quantity_boundary",
+        "display": "Kein globaler Mengengrenzwert"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1926,
+          "value": 0.0624
+        },
+        {
+          "year": 1927,
+          "value": 0.0678
+        },
+        {
+          "year": 1928,
+          "value": 0.0722
+        },
+        {
+          "year": 1929,
+          "value": 0.0749
+        },
+        {
+          "year": 1930,
+          "value": 0.0723
+        },
+        {
+          "year": 1931,
+          "value": 0.0621
+        },
+        {
+          "year": 1932,
+          "value": 0.0493
+        },
+        {
+          "year": 1933,
+          "value": 0.0482
+        },
+        {
+          "year": 1934,
+          "value": 0.0583
+        },
+        {
+          "year": 1935,
+          "value": 0.0654
+        },
+        {
+          "year": 1936,
+          "value": 0.0628
+        },
+        {
+          "year": 1937,
+          "value": 0.0827
+        },
+        {
+          "year": 1938,
+          "value": 0.0859
+        },
+        {
+          "year": 1939,
+          "value": 0.093
+        },
+        {
+          "year": 1940,
+          "value": 0.081
+        },
+        {
+          "year": 1941,
+          "value": 0.088
+        },
+        {
+          "year": 1942,
+          "value": 0.0809
+        },
+        {
+          "year": 1943,
+          "value": 0.0712
+        },
+        {
+          "year": 1944,
+          "value": 0.0549
+        },
+        {
+          "year": 1945,
+          "value": 0.0495
+        },
+        {
+          "year": 1946,
+          "value": 0.0725
+        },
+        {
+          "year": 1947,
+          "value": 0.0858
+        },
+        {
+          "year": 1948,
+          "value": 0.102
+        },
+        {
+          "year": 1949,
+          "value": 0.115
+        },
+        {
+          "year": 1950,
+          "value": 0.133
+        },
+        {
+          "year": 1951,
+          "value": 0.149
+        },
+        {
+          "year": 1952,
+          "value": 0.161
+        },
+        {
+          "year": 1953,
+          "value": 0.178
+        },
+        {
+          "year": 1954,
+          "value": 0.1949
+        },
+        {
+          "year": 1955,
+          "value": 0.2173
+        },
+        {
+          "year": 1956,
+          "value": 0.2354
+        },
+        {
+          "year": 1957,
+          "value": 0.2469
+        },
+        {
+          "year": 1958,
+          "value": 0.2625
+        },
+        {
+          "year": 1959,
+          "value": 0.2943
+        },
+        {
+          "year": 1960,
+          "value": 0.3165
+        },
+        {
+          "year": 1961,
+          "value": 0.3332
+        },
+        {
+          "year": 1962,
+          "value": 0.3585
+        },
+        {
+          "year": 1963,
+          "value": 0.378
+        },
+        {
+          "year": 1964,
+          "value": 0.4156
+        },
+        {
+          "year": 1965,
+          "value": 0.4334
+        },
+        {
+          "year": 1966,
+          "value": 0.4642
+        },
+        {
+          "year": 1967,
+          "value": 0.4798
+        },
+        {
+          "year": 1968,
+          "value": 0.5152
+        },
+        {
+          "year": 1969,
+          "value": 0.543100032
+        },
+        {
+          "year": 1970,
+          "value": 0.5718
+        },
+        {
+          "year": 1971,
+          "value": 0.59
+        },
+        {
+          "year": 1972,
+          "value": 0.661
+        },
+        {
+          "year": 1973,
+          "value": 0.702
+        },
+        {
+          "year": 1974,
+          "value": 0.7032
+        },
+        {
+          "year": 1975,
+          "value": 0.7022
+        },
+        {
+          "year": 1976,
+          "value": 0.7354
+        },
+        {
+          "year": 1977,
+          "value": 0.797100032
+        },
+        {
+          "year": 1978,
+          "value": 0.853
+        },
+        {
+          "year": 1979,
+          "value": 0.8724
+        },
+        {
+          "year": 1980,
+          "value": 0.883100032
+        },
+        {
+          "year": 1981,
+          "value": 0.886700032
+        },
+        {
+          "year": 1982,
+          "value": 0.8874
+        },
+        {
+          "year": 1983,
+          "value": 0.9166
+        },
+        {
+          "year": 1984,
+          "value": 0.941100032
+        },
+        {
+          "year": 1985,
+          "value": 0.9594
+        },
+        {
+          "year": 1986,
+          "value": 1.008
+        },
+        {
+          "year": 1987,
+          "value": 1.053
+        },
+        {
+          "year": 1988,
+          "value": 1.118
+        },
+        {
+          "year": 1989,
+          "value": 1.148999936
+        },
+        {
+          "year": 1990,
+          "value": 1.16
+        },
+        {
+          "year": 1991,
+          "value": 1.182
+        },
+        {
+          "year": 1992,
+          "value": 1.231000064
+        },
+        {
+          "year": 1993,
+          "value": 1.291000064
+        },
+        {
+          "year": 1994,
+          "value": 1.37
+        },
+        {
+          "year": 1995,
+          "value": 1.444999936
+        },
+        {
+          "year": 1996,
+          "value": 1.492999936
+        },
+        {
+          "year": 1997,
+          "value": 1.547000064
+        },
+        {
+          "year": 1998,
+          "value": 1.54
+        },
+        {
+          "year": 1999,
+          "value": 1.6
+        },
+        {
+          "year": 2000,
+          "value": 1.66
+        },
+        {
+          "year": 2001,
+          "value": 1.75
+        },
+        {
+          "year": 2002,
+          "value": 1.85
+        },
+        {
+          "year": 2003,
+          "value": 2.02
+        },
+        {
+          "year": 2004,
+          "value": 2.190000128
+        },
+        {
+          "year": 2005,
+          "value": 2.350000128
+        },
+        {
+          "year": 2006,
+          "value": 2.62
+        },
+        {
+          "year": 2007,
+          "value": 2.809999872
+        },
+        {
+          "year": 2008,
+          "value": 2.849999872
+        },
+        {
+          "year": 2009,
+          "value": 3.049999872
+        },
+        {
+          "year": 2010,
+          "value": 3.289999872
+        },
+        {
+          "year": 2011,
+          "value": 3.630000128
+        },
+        {
+          "year": 2012,
+          "value": 3.82
+        },
+        {
+          "year": 2013,
+          "value": 4.030000128
+        },
+        {
+          "year": 2014,
+          "value": 4.150000128
+        },
+        {
+          "year": 2015,
+          "value": 4.06
+        },
+        {
+          "year": 2016,
+          "value": 4.14
+        },
+        {
+          "year": 2017,
+          "value": 4.12
+        },
+        {
+          "year": 2018,
+          "value": 4.06
+        },
+        {
+          "year": 2019,
+          "value": 4.2
+        },
+        {
+          "year": 2020,
+          "value": 4.2
+        },
+        {
+          "year": 2021,
+          "value": 4.4
+        },
+        {
+          "year": 2022,
+          "value": 4.1
+        },
+        {
+          "year": 2023,
+          "value": 4.1
+        },
+        {
+          "year": 2024,
+          "value": 4,
+          "display": "2024: 4,0 Mrd. t/Jahr · amtliche Schätzung"
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1926,
+          "value": 0.0624
+        },
+        {
+          "year": 1931,
+          "value": 0.0621
+        },
+        {
+          "year": 1936,
+          "value": 0.0628
+        },
+        {
+          "year": 1941,
+          "value": 0.088
+        },
+        {
+          "year": 1946,
+          "value": 0.0725
+        },
+        {
+          "year": 1951,
+          "value": 0.149
+        },
+        {
+          "year": 1956,
+          "value": 0.2354
+        },
+        {
+          "year": 1961,
+          "value": 0.3332
+        },
+        {
+          "year": 1966,
+          "value": 0.4642
+        },
+        {
+          "year": 1971,
+          "value": 0.59
+        },
+        {
+          "year": 1976,
+          "value": 0.7354
+        },
+        {
+          "year": 1981,
+          "value": 0.886700032
+        },
+        {
+          "year": 1986,
+          "value": 1.008
+        },
+        {
+          "year": 1991,
+          "value": 1.182
+        },
+        {
+          "year": 1996,
+          "value": 1.492999936
+        },
+        {
+          "year": 2001,
+          "value": 1.75
+        },
+        {
+          "year": 2006,
+          "value": 2.62
+        },
+        {
+          "year": 2011,
+          "value": 3.630000128
+        },
+        {
+          "year": 2016,
+          "value": 4.14
+        },
+        {
+          "year": 2024,
+          "value": 4,
+          "display": "2024: 4,0 Mrd. t/Jahr · amtliche Schätzung"
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [],
+      "displayProjections": [],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 99,
+          "outputPointCount": 20,
+          "intervalYears": 5,
+          "rule": "Nur vorhandene Originalmesswerte; mindestens fünf Jahre Abstand. Erster und letzter Messpunkt sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "src_owid_usgs_cement_series_2025",
+          "title": "Cement production",
+          "publisher": "Our World in Data",
+          "year": 2025,
+          "url": "https://ourworldindata.org/explorers/minerals?Mineral=Cement&Metric=Production&Type=Processing&Share+of+global=false&country=~OWID_WRL",
+          "access": "open_data"
+        },
+        {
+          "id": "src_usgs_mcs_2025_data_release",
+          "title": "U.S. Geological Survey Mineral Commodity Summaries 2025 Data Release",
+          "publisher": "U.S. Geological Survey",
+          "year": 2025,
+          "url": "https://doi.org/10.5066/P13XCP3R",
+          "doi": "10.5066/P13XCP3R",
+          "access": "open_data"
+        },
+        {
+          "id": "src_usgs_historical_mineral_statistics_2024",
+          "title": "Historical Statistics for Mineral and Material Commodities",
+          "publisher": "U.S. Geological Survey",
+          "year": 2024,
+          "url": "https://www.usgs.gov/centers/national-minerals-information-center/historical-statistics-mineral-and-material-commodities",
+          "access": "open_data"
+        },
+        {
+          "id": "src_usgs_mcs_2026_cement",
+          "title": "Mineral Commodity Summaries 2026 – Cement",
+          "publisher": "U.S. Geological Survey",
+          "year": 2026,
+          "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_iea_cement_2023",
+          "title": "Cement – Tracking Clean Energy Progress",
+          "publisher": "International Energy Agency",
+          "year": 2023,
+          "url": "https://www.iea.org/reports/cement-3",
+          "access": "open_full_text"
+        },
+        {
+          "id": "src_wu_cement_carbon_2025",
+          "title": "Global and national CO₂ uptake by cement carbonation from 1928 to 2024",
+          "publisher": "Earth System Science Data",
+          "year": 2025,
+          "url": "https://doi.org/10.5194/essd-17-2231-2025",
+          "doi": "10.5194/essd-17-2231-2025",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_climate_arctic_september_sea_ice_v0.1.json#arctic_september_sea_ice_area_1979_2024",
       "boundaryId": "climate",
       "itemId": "arctic-september-sea-ice-area",
@@ -25005,6 +25616,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "2dc11be801b9fbc1f79d04a3a63f5c187d300cc6e819c4e7a45e3f17af8793d9"
+    "hash": "e0b2a38970b7f45906d66da6a4f4526e56f6aa68acdf23cd808d8ca2576b5a1b"
   }
 }
