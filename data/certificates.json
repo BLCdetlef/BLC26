@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "certificates": {
+    "global_temperature_hadcrut5_1850_2025": {
+      "file": "certificates/global_temperature_hadcrut5_1850_2025.pdf",
+      "label": "Beispielprüfbericht HadCRUT5",
+      "kind": "example",
+      "publishedAt": "2026-09-29"
+    }
+  }
+}

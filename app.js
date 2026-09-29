@@ -26,6 +26,7 @@
   let selectedSegment = null;
   let exactLinkedCurveId = null;
   let soloCurveId = null;
+  let certificates = {};
   const selectedDomains = new Set();
   const selectedRoles = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
@@ -444,6 +445,107 @@
     }
     panel.appendChild(details);
   }
+  function isLocalCertificateUploadAvailable() {
+    return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+  }
+  function certificateUrl(entry) {
+    return new URL(entry.file, window.location.href).href;
+  }
+  async function loadCertificates() {
+    try {
+      const response = await fetch(new URL("data/certificates.json", window.location.href), { cache: "no-store", credentials: "same-origin" });
+      if (!response.ok) return;
+      const payload = await response.json();
+      if (payload?.schemaVersion !== 1 || !payload.certificates || typeof payload.certificates !== "object") return;
+      certificates = payload.certificates;
+    } catch {
+      certificates = {};
+    }
+  }
+  function appendCertificatePanel(panel, curve) {
+    const section = document.createElement("section");
+    section.className = "curve-certificate";
+    const heading = document.createElement("strong");
+    heading.className = "curve-certificate-title";
+    heading.textContent = "Prüfbericht und Zertifikat";
+    section.appendChild(heading);
+    const entry = certificates[curve.seriesId];
+    if (entry?.file) {
+      const status = document.createElement("p");
+      status.className = "curve-certificate-status";
+      const badge = document.createElement("span");
+      badge.className = `curve-certificate-badge${entry.kind === "example" ? " is-example" : ""}`;
+      badge.textContent = entry.kind === "example" ? "Beispiel · kein Zertifikat" : "Veröffentlicht";
+      status.append(badge, ` ${entry.label || "PDF-Dokument"}`);
+      const actions = document.createElement("div");
+      actions.className = "curve-certificate-actions";
+      const openLink = document.createElement("a");
+      openLink.href = certificateUrl(entry);
+      openLink.target = "_blank";
+      openLink.rel = "noopener noreferrer";
+      openLink.textContent = "PDF öffnen";
+      const downloadLink = document.createElement("a");
+      downloadLink.href = certificateUrl(entry);
+      downloadLink.download = "";
+      downloadLink.textContent = "PDF herunterladen";
+      actions.append(openLink, downloadLink);
+      section.append(status, actions);
+    } else {
+      const empty = document.createElement("p");
+      empty.className = "curve-certificate-empty";
+      empty.textContent = "Für diese Kurve ist noch kein Prüfbericht oder Zertifikat veröffentlicht.";
+      section.appendChild(empty);
+    }
+    if (isLocalCertificateUploadAvailable()) {
+      const upload = document.createElement("div");
+      upload.className = "curve-certificate-upload";
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "application/pdf,.pdf";
+      input.id = `certificate-upload-${curve.seriesId}`;
+      const label = document.createElement("label");
+      label.htmlFor = input.id;
+      label.textContent = entry?.file ? "Lokale PDF ersetzen" : "Lokale PDF hochladen";
+      const help = document.createElement("small");
+      help.textContent = "Nur lokal sichtbar. Maximal 20 MB; eine neue PDF ersetzt die bisherige Datei dieser Kurve.";
+      const result = document.createElement("output");
+      result.className = "curve-certificate-upload-status";
+      result.setAttribute("aria-live", "polite");
+      input.addEventListener("change", async () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        if (file.type !== "application/pdf" && !file.name.toLocaleLowerCase("de-DE").endsWith(".pdf")) {
+          result.textContent = "Bitte eine PDF-Datei auswählen.";
+          input.value = "";
+          return;
+        }
+        result.textContent = "PDF wird lokal geprüft und gespeichert …";
+        input.disabled = true;
+        try {
+          const response = await fetch(`/api/certificates/${encodeURIComponent(curve.seriesId)}`, {
+            method: "PUT",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/pdf",
+              "X-Original-Filename": encodeURIComponent(file.name)
+            },
+            body: file
+          });
+          const payload = await response.json();
+          if (!response.ok) throw new Error(payload.error || "Upload fehlgeschlagen.");
+          certificates[curve.seriesId] = payload.certificate;
+          renderCurrent();
+          openCurveDetails();
+        } catch (error) {
+          result.textContent = error.message || "Upload fehlgeschlagen.";
+          input.disabled = false;
+        }
+      });
+      upload.append(input, label, help, result);
+      section.appendChild(upload);
+    }
+    panel.appendChild(section);
+  }
   function pointDisplay(point, unit) {
     const display = point.display || `${point.value} ${unit}`;
     const valueOnly = display.replace(new RegExp(`^${point.year}:\\s*`), "");
@@ -568,6 +670,7 @@
       const referencePanel = createReferencePanel();
       curveDetailContent.appendChild(referencePanel);
       showSegmentDetails(referencePanel, selectedCurve, segment);
+      appendCertificatePanel(curveDetailContent, selectedCurve);
     } else {
       curveDetailTitle.textContent = "Kurvendetails";
       closeCurveDetails();
@@ -959,6 +1062,7 @@
       const payload = await response.json();
       const hash = await verifyExport(payload);
       allCurves = payload.curves;
+      await loadCertificates();
       curveSoloStatus.querySelector("button").addEventListener("click", () => {
         soloCurveId = null;
         renderCurrent();

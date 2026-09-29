@@ -152,6 +152,19 @@ button { color: inherit; }
 .curve-provenance p { margin: .28rem 0; }
 .curve-provenance-actions { display: grid; gap: .28rem; margin-top: .55rem; padding-top: .45rem; border-top: 1px solid #dedcd4; }
 .curve-provenance-actions a { width: fit-content; font-size: .7rem; font-weight: 700; }
+.curve-certificate { margin-top: .85rem; padding-top: .75rem; border-top: 1px solid #cac8bf; font-size: .78rem; }
+.curve-certificate-title { display: block; margin-bottom: .45rem; font-size: .88rem; }
+.curve-certificate-status, .curve-certificate-empty { margin: .25rem 0; }
+.curve-certificate-badge { display: inline-block; margin-right: .35rem; padding: .16rem .32rem; background: var(--ink); color: var(--paper); font-size: .62rem; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }
+.curve-certificate-badge.is-example { border: 1px solid #8a6a16; background: #fff8dc; color: #674d0e; }
+.curve-certificate-actions { display: flex; flex-wrap: wrap; gap: .4rem .8rem; margin-top: .45rem; }
+.curve-certificate-actions a { color: inherit; font-size: .72rem; font-weight: 700; text-underline-offset: .12em; }
+.curve-certificate-upload { display: grid; justify-items: start; gap: .35rem; margin-top: .65rem; padding-top: .65rem; border-top: 1px solid #dedcd4; }
+.curve-certificate-upload input[type="file"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.curve-certificate-upload label { padding: .42rem .58rem; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-size: .7rem; font-weight: 700; cursor: pointer; }
+.curve-certificate-upload label:hover, .curve-certificate-upload input:focus-visible + label { background: var(--accent); }
+.curve-certificate-upload small { color: var(--muted); font-size: .66rem; }
+.curve-certificate-upload-status { color: var(--muted); font-size: .7rem; font-weight: 700; }
 .curve-data-documentation { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid #cac8bf; }
 .curve-data-documentation summary { width: fit-content; font-size: .7rem; font-weight: 800; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .12em; cursor: pointer; }
 .curve-data-documentation p { margin-top: .45rem; }

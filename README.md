@@ -21,8 +21,8 @@ der Griff rechts öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargeste
 Segment. Ein Klick auf eine Kurve öffnet automatisch am unteren Bildrand ein eigenes
 technisches Detailfenster mit Grenzwert, Datenherkunft und Aufbereitung. Auf Smartphones ist die Diagrammansicht
 für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
-Zwei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage und
-das GWL-Panel; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
+Drei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage,
+das GWL-Panel und den Podcast ZUSTAND; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
 Der Grundlagenfilter folgt der Reihenfolge des GWL-Panels und zeigt sowohl alle
 neun Planetaren Grenzen als auch dessen ergänzende Einflussbereiche. Grundlagen
 ohne verfügbare BLC26-Kurve bleiben mit dem Zähler 0 sichtbar.
@@ -83,6 +83,23 @@ Alternativ:
 ```powershell
 python -m http.server 3000
 ```
+
+## Prüfberichte und Zertifikate
+
+Im technischen Detailbereich zeigt jede Kurve höchstens einen veröffentlichten
+Prüfbericht oder ein Zertifikat als PDF. Die Zuordnung steht in
+`data/certificates.json`; die Dateien liegen im Ordner `certificates`.
+
+Der Upload ist ausschließlich unter `localhost`, `127.0.0.1` oder `::1` sichtbar.
+Dazu BLC26 mit `start-server.cmd` beziehungsweise `node scripts/serve-local.mjs`
+starten, eine Kurve öffnen und im Abschnitt „Prüfbericht und Zertifikat“ eine PDF
+auswählen. Der lokale Server prüft Kurvenkennung, Dateityp, PDF-Dateikopf und die
+Größenbegrenzung von 20 MB. Eine neue Datei ersetzt die bisherige PDF derselben
+Kurve und aktualisiert das Manifest. Für die öffentliche Bereitstellung müssen
+PDF und Manifest anschließend gemeinsam geprüft, committed und gepusht werden.
+
+Ein gewöhnlicher statischer Server wie `python -m http.server` kann die PDFs
+anzeigen, unterstützt aber keinen Upload.
 
 ## Veröffentlichung
 
