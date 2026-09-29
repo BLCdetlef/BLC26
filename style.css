@@ -116,11 +116,11 @@ button { color: inherit; }
 .legend-types .legend-projection::before { border-top-style: dotted; }
 .legend-types .legend-threshold::before { top: .05rem; left: .72rem; width: 0; height: .9rem; border-top: 0; border-left: 4px solid var(--ink); }
 .legend-types .legend-threshold::after { display: none; }
-.curve-detail-panel { position: fixed; z-index: 18; right: clamp(3rem, 8vw, 8rem); bottom: 0; left: clamp(3rem, 8vw, 8rem); max-height: min(68dvh, 42rem); padding: 1rem 1.2rem 1.2rem; overflow: hidden; border: 1px solid var(--ink); border-bottom: 0; background: rgb(248 247 242 / 98%); box-shadow: 0 -.5rem 1.8rem rgb(23 23 23 / 18%); transform: translateY(102%); transition: transform .24s ease; }
+.curve-detail-panel { position: fixed; z-index: 18; right: clamp(3rem, 8vw, 8rem); bottom: 4cm; left: clamp(3rem, 8vw, 8rem); max-height: min(68dvh, calc(100dvh - 4cm - 1rem), 42rem); padding: 1rem 1.2rem 1.2rem; overflow: hidden; border: 1px solid var(--ink); background: rgb(248 247 242 / 98%); box-shadow: 0 -.5rem 1.8rem rgb(23 23 23 / 18%); transform: translateY(calc(102% + 4cm)); transition: transform .24s ease; }
 .curve-detail-panel[aria-hidden="false"] { transform: translateY(0); }
 .curve-detail-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: .65rem; border-bottom: .28rem solid var(--ink); }
 .curve-detail-heading h2 { margin: .08rem 0 0; font-size: 1.15rem; line-height: 1.1; }
-.curve-detail-content { max-height: calc(min(68dvh, 42rem) - 5rem); padding-top: .75rem; overflow-y: auto; }
+.curve-detail-content { max-height: calc(min(68dvh, calc(100dvh - 4cm - 1rem), 42rem) - 5rem); padding-top: .75rem; overflow-y: auto; }
 .curve-detail-content .curve-reference { display: grid; grid-template-columns: minmax(11rem, .55fr) minmax(0, 1.45fr); gap: .7rem 1.2rem; margin: 0; padding: 0; border: 0; background: transparent; }
 .curve-reference-overview { grid-column: 1; grid-row: 1 / span 2; padding-right: 1.2rem; border-right: 1px solid #cac8bf; }
 .curve-detail-content .curve-provenance { grid-column: 2; grid-row: 1; min-width: 0; margin: 0; overflow-wrap: anywhere; }
@@ -161,8 +161,8 @@ button { color: inherit; }
   .panel-heading { gap: .6rem; padding-bottom: .7rem; }
   .panel-heading h2 { font-size: 1.35rem; }
   .panel-context-link { min-height: 2rem; padding: .42rem .5rem; }
-  .curve-detail-panel { right: 2.3rem; left: 2.3rem; max-height: 74dvh; padding: .75rem; }
-  .curve-detail-content { max-height: calc(74dvh - 4.5rem); }
+  .curve-detail-panel { right: 2.3rem; left: 2.3rem; max-height: min(74dvh, calc(100dvh - 4cm - .5rem)); padding: .75rem; }
+  .curve-detail-content { max-height: calc(min(74dvh, calc(100dvh - 4cm - .5rem)) - 4.5rem); }
   .curve-detail-content .curve-reference { grid-template-columns: 1fr; }
   .curve-reference-overview, .curve-detail-content .curve-provenance, .curve-detail-content .curve-data-documentation { grid-column: 1; grid-row: auto; padding-right: 0; border-right: 0; }
 }

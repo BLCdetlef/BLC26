@@ -1,6 +1,8 @@
 "use strict";
 
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const { requestedCurveId, findCurve, visibleCurves, gwlContributionUrl, selectedGwlContributionUrl } = require("../curve-link.js");
 
 const curveId = "knowledge:data/knowledge/example.json#stable_series";
@@ -32,6 +34,15 @@ assert.equal(selectedGwlContributionUrl(selectableCurves, "removed"), null);
 assert.equal(selectedGwlContributionUrl([firstCurve], "second"), null);
 assert.equal(gwlContributionUrl(secondCurve).includes("intern"), false);
 assert.equal(gwlContributionUrl(firstCurve).includes("Darf"), false);
+
+const projectRoot = path.resolve(__dirname, "..");
+const curveExport = JSON.parse(fs.readFileSync(path.join(projectRoot, "data", "gwl", "blc-curve-export-v1.json"), "utf8"));
+const globalTemperature = curveExport.curves.find(curve => curve.seriesId === "global_temperature_hadcrut5_1850_2025");
+assert.ok(globalTemperature, "Die HadCRUT5-Kurve muss im GWL-Export enthalten sein.");
+assert.equal(
+  gwlContributionUrl(globalTemperature),
+  "https://blcdetlef.github.io/gwl-panel/?boundary=climate&item=global-temperature"
+);
 
 const nitrogenId = "knowledge:data/knowledge/gwl_nutrient_cycles_nitrogen_v0.2.json#nitrogen_fixation_1961_2022";
 const phosphorusId = "knowledge:data/knowledge/gwl_nutrient_cycles_phosphorus_v0.2.json#phosphorus_cropland_1961_2022";

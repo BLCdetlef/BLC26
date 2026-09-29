@@ -857,7 +857,6 @@
       }
       createFilters(payload.curves);
       renderCurrent();
-      if (linkedCurve) openCurveDetails();
       importStatus.className = "import-status is-valid";
       importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
     } catch (error) {
