@@ -416,8 +416,8 @@
       "domainId": "eah_material_energy_flows",
       "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
-      "label": "Globale Zementproduktion · historische Reihe",
-      "metric": "Jährliche globale Produktion hydraulischer Zemente aller Typen",
+      "label": "Globale Zementproduktion",
+      "metric": "Jährliche globale Produktion hydraulischer Zemente aller Typen · Produktionsstatistik einschließlich amtlicher Schätzwerte",
       "unit": "billion_tonnes_per_year",
       "geography": "Global",
       "dataNature": "observed",
@@ -25616,6 +25616,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "e0b2a38970b7f45906d66da6a4f4526e56f6aa68acdf23cd808d8ca2576b5a1b"
+    "hash": "cfc221db7998c7d8cca3b56fcb7685b7c13201e330ad3068195c890d479de906"
   }
 }

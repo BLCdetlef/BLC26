@@ -44,6 +44,11 @@
     { domainId: "eah_tech_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
   ]);
   const presentation = Object.freeze({
+    global_cement_production_1926_2024_owid_usgs: {
+      label: "Globale Zementproduktion",
+      detail: "Jährliche globale Produktion hydraulischer Zemente aller Typen · Produktionsstatistik einschließlich amtlicher Schätzwerte",
+      unit: "Mrd. t/Jahr"
+    },
     biosphere_hanpp_1910_2020: {
       label: "Menschliche Beanspruchung der Ökosystemproduktion",
       detail: "Anteil der natürlichen Primärproduktion, den Menschen nutzen oder verändern · höher = stärkere Beanspruchung",
@@ -202,6 +207,10 @@
     panel.appendChild(overview);
     appendLabeledText(overview, "Segment", segment.label);
     if (segment.period) appendLabeledText(overview, "Zeitraum", segment.period);
+    if (curve.seriesId === "global_cement_production_1926_2024_owid_usgs") {
+      appendLabeledText(overview, "Messgröße", curve.metric);
+      appendLabeledText(overview, "Einheit", presentation[curve.seriesId].unit);
+    }
     if (segment.type !== "observed") {
       if (segment.method) appendLabeledText(overview, "Methode", segment.method);
       if (segment.uncertainty) appendLabeledText(overview, "Einordnung", segment.uncertainty);
@@ -369,7 +378,7 @@
     return {
       type: "observed",
       id: "observations",
-      label: curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
+      label: curve.seriesId === "global_cement_production_1926_2024_owid_usgs" ? "Produktionsstatistik" : curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
       period: `${curve.observationCoverage.startYear}–${curve.observationCoverage.endYear}`,
       method: curve.methodNote,
       uncertainty: curve.uncertainty,
