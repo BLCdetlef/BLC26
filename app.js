@@ -12,7 +12,7 @@
   const filterContent = document.getElementById("filterContent");
   const panelBackdrop = document.getElementById("panelBackdrop");
   const curveLinkStatus = document.getElementById("curveLinkStatus");
-  const curveSoloStatus = document.getElementById("curveSoloStatus");
+  const selectionApi = window.BRUCHLAST_SELECTION;
   const historicalEvents = Array.isArray(window.BRUCHLAST_EVENTS) ? window.BRUCHLAST_EVENTS : [];
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const curveLinkApi = window.BRUCHLAST_CURVE_LINK;
@@ -24,11 +24,10 @@
   let allCurves = [];
   let selectedCurveId = null;
   let selectedSegment = null;
-  let exactLinkedCurveId = null;
-  let soloCurveId = null;
+  let startView = null;
+  let updateCurveTable = () => {};
   let certificates = {};
-  const selectedDomains = new Set();
-  const selectedRoles = new Set();
+  const selectedCurveIds = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
   const foundationCatalog = Object.freeze([
     { domainId: "climate_change", label: "Klimawandel", group: "Planetare Grenzen" },
@@ -72,7 +71,11 @@
     global_forest_cover_1992_2022: {
       label: "Verbleibende globale Waldfläche",
       detail: "Anteil an der potenziellen natürlichen Waldfläche · niedriger = weniger Wald",
-      unit: "% der potenziellen Waldfläche"
+      unit: "% der potenziellen Waldfläche",
+      fixedExtent: { minimum: 0, maximum: 100 },
+      scaleNote: "Feste Skala 0–100 % der potenziellen Waldfläche. 100 % ist die Bezugsgröße, kein zusätzlicher historischer Datenpunkt.",
+      showHistoricalReconstruction: false,
+      observationMethod: "Hauptreihe 1992–2022 aus der Copernicus/ESA-CCI-Auswertung des Planetary Health Check 2025. Die Stützwerte wurden näherungsweise aus Figure 28 abgelesen. Die historische Rekonstruktion wird wegen abweichender Walddefinition und Bezugsfläche nicht dargestellt."
     },
     global_surface_omega_arag_oceansoda_1982_2021: {
       label: "Aragonit-Sättigung des Oberflächenozeans",
@@ -207,6 +210,10 @@
     panel.appendChild(overview);
     appendLabeledText(overview, "Segment", segment.label);
     if (segment.period) appendLabeledText(overview, "Zeitraum", segment.period);
+    if (presentation[curve.seriesId]?.scaleNote) appendLabeledText(overview, "Darstellung", presentation[curve.seriesId].scaleNote);
+    if (segment.type === "observed" && presentation[curve.seriesId]?.observationMethod) {
+      appendLabeledText(overview, "Methode", segment.method);
+    }
     if (curve.seriesId === "global_cement_production_1926_2024_owid_usgs") {
       appendLabeledText(overview, "Messgröße", curve.metric);
       appendLabeledText(overview, "Einheit", presentation[curve.seriesId].unit);
@@ -365,7 +372,7 @@
     return `${source}-Szenario`;
   }
   function resolveSegment(curve, selection = selectedSegment) {
-    if (selection?.curveId === curve.curveId && selection.type === "historical") {
+    if (selection?.curveId === curve.curveId && selection.type === "historical" && presentation[curve.seriesId]?.showHistoricalReconstruction !== false) {
       const data = (curve.historicalReconstruction || []).find(item => item.id === selection.id);
       const display = (curve.displayHistoricalReconstruction || []).find(item => item.id === selection.id);
       if (data) return { ...data, type: "historical", label: data.label || "Rekonstruktion", displayPointCount: display?.points?.length || 0, derivationKey: "historicalReconstruction" };
@@ -380,7 +387,7 @@
       id: "observations",
       label: curve.seriesId === "global_cement_production_1926_2024_owid_usgs" ? "Produktionsstatistik" : curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
       period: `${curve.observationCoverage.startYear}–${curve.observationCoverage.endYear}`,
-      method: curve.methodNote,
+      method: presentation[curve.seriesId]?.observationMethod || curve.methodNote,
       uncertainty: curve.uncertainty,
       sourceRefs: curve.observationSourceRefs || [],
       provenance: curve.observationProvenance,
@@ -454,8 +461,8 @@
     }
     panel.appendChild(details);
   }
-  function isLocalCertificateUploadAvailable() {
-    return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+  function isLocalEditorHost() {
+    return ["localhost", "127.0.0.1", "::1", "[::1]"].includes(window.location.hostname);
   }
   function certificateUrl(entry) {
     return new URL(entry.file, window.location.href).href;
@@ -505,7 +512,7 @@
       empty.textContent = "Für diese Kurve ist noch kein Prüfbericht oder Zertifikat veröffentlicht.";
       section.appendChild(empty);
     }
-    if (isLocalCertificateUploadAvailable()) {
+    if (isLocalEditorHost()) {
       const upload = document.createElement("div");
       upload.className = "curve-certificate-upload";
       const input = document.createElement("input");
@@ -560,7 +567,7 @@
     const valueOnly = display.replace(new RegExp(`^${point.year}:\\s*`), "");
     return `${point.year} · ${valueOnly}`;
   }
-  function createLegend(curves, onSelect, onSolo) {
+  function createLegend(curves, onSelect) {
     const legend = document.createElement("div");
     legend.className = "series-legend";
     const series = document.createElement("div");
@@ -578,14 +585,12 @@
       const label = document.createElement("strong");
       label.textContent = meta.label;
       item.appendChild(label);
-      const solo = document.createElement("button");
-      solo.type = "button";
-      solo.className = "legend-solo";
-      solo.textContent = soloCurveId === curve.curveId ? "Einzelansicht aktiv" : "Nur diese Kurve";
-      solo.disabled = soloCurveId === curve.curveId;
-      solo.setAttribute("aria-label", `${meta.label}: nur diese Kurve anzeigen`);
-      solo.addEventListener("click", () => onSolo(curve));
-      row.append(item, solo);
+      if (meta.scaleNote) {
+        const scale = document.createElement("small");
+        scale.textContent = meta.scaleNote;
+        item.appendChild(scale);
+      }
+      row.append(item);
       series.appendChild(row);
     });
     legend.appendChild(series);
@@ -642,24 +647,10 @@
     openCurveDetails();
   }
   function renderCurrent() {
-    const isolatedCurveId = soloCurveId || exactLinkedCurveId;
-    const visibleCurves = curveLinkApi.visibleCurves(allCurves, selectedDomains, selectedRoles, isolatedCurveId);
+    const visibleCurves = selectionApi.visibleCurves(allCurves, selectedCurveIds);
     chart.replaceChildren(renderChart(visibleCurves));
-    legendContent.replaceChildren(createLegend(visibleCurves, curve => {
-      chooseSegment(curve);
-    }, curve => {
-      soloCurveId = curve.curveId;
-      selectedCurveId = curve.curveId;
-      selectedSegment = null;
-      renderCurrent();
-      closePanels();
-    }));
-    const soloCurve = allCurves.find(curve => curve.curveId === soloCurveId);
-    curveSoloStatus.hidden = !soloCurve;
-    if (soloCurve) {
-      const meta = presentation[soloCurve.seriesId] || { label: soloCurve.label };
-      curveSoloStatus.querySelector("span").textContent = `Einzelansicht: ${meta.label}`;
-    }
+    legendContent.replaceChildren(createLegend(visibleCurves, curve => chooseSegment(curve)));
+    updateCurveTable();
     const selectedCurve = visibleCurves.find(curve => curve.curveId === selectedCurveId);
     curveDetailContent.replaceChildren();
     curveDetailContent.scrollTop = 0;
@@ -686,73 +677,196 @@
     }
     seriesCount.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven`;
     const result = filterContent.querySelector(".filter-result");
-    if (result) result.textContent = `${visibleCurves.length} Kurven werden angezeigt`;
+    if (result) result.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven ausgewählt${Object.values(visibleSegments).some(Boolean) ? "" : " · Alle Darstellungsarten sind ausgeschaltet"}`;
+  }
+  function currentView() {
+    return { version: 1, curveIds: allCurves.filter(curve => selectedCurveIds.has(curve.curveId)).map(curve => curve.curveId), segments: { ...visibleSegments } };
+  }
+  function applyView(view) {
+    selectedCurveIds.clear();
+    view.curveIds.forEach(id => selectedCurveIds.add(id));
+    Object.assign(visibleSegments, view.segments);
   }
   function createFilters(curves) {
     filterContent.replaceChildren();
+    const hint = document.createElement("p");
+    hint.className = "selection-hint";
+    hint.textContent = "Häkchen bestimmen das Diagramm. Suche und Filter durchsuchen nur die Tabelle; deine Auswahl bleibt erhalten.";
     const search = document.createElement("input");
     search.className = "filter-search";
     search.type = "search";
-    search.placeholder = "Grundlage suchen";
-    search.setAttribute("aria-label", "Grundlage suchen");
-    const knownDomainIds = new Set(foundationCatalog.map(item => item.domainId));
-    const additionalDomains = [...new Map(curves.filter(curve => !knownDomainIds.has(curve.domainId)).map(curve => [curve.domainId, curve.domainLabel])).entries()]
-      .map(([domainId, label]) => ({ domainId, label, group: "Weitere Grundlagen" }));
-    const domains = [...foundationCatalog, ...additionalDomains];
-    const domainSection = makeFilterSection("Grundlage", domains.map(domain => {
-      const count = curves.filter(curve => curve.domainId === domain.domainId).length;
-      return { value: domain.domainId, label: domain.label, group: domain.group, checked: selectedDomains.has(domain.domainId), disabled: count === 0, count };
-    }), (domainId, checked) => {
-      exactLinkedCurveId = null;
-      soloCurveId = null;
-      if (checked) selectedDomains.add(domainId); else selectedDomains.delete(domainId);
-      renderCurrent();
-    }, true);
-    const roleSection = makeFilterSection("Kurventyp", [
-      { value: "core", label: "Kernkurven", checked: selectedRoles.has("core"), count: curves.filter(curve => curve.curveRole === "core").length },
-      { value: "deep_dive", label: "Vertiefung", checked: selectedRoles.has("deep_dive"), count: curves.filter(curve => curve.curveRole === "deep_dive").length }
-    ], (role, checked) => {
-      exactLinkedCurveId = null;
-      soloCurveId = null;
-      if (checked) selectedRoles.add(role); else selectedRoles.delete(role);
-      renderCurrent();
-    });
-    const segmentSection = makeFilterSection("Darstellung", [
-      { value: "observed", label: "Beobachtungen", checked: true },
-      { value: "historical", label: "Historische Rekonstruktionen", checked: true },
-      { value: "projection", label: "Szenarien", checked: true }
-    ], (segment, checked) => { visibleSegments[segment] = checked; renderCurrent(); });
-    const actions = document.createElement("div");
-    actions.className = "filter-actions";
-    const allButton = document.createElement("button");
-    allButton.type = "button";
-    allButton.textContent = "Alle";
-    const noneButton = document.createElement("button");
-    noneButton.type = "button";
-    noneButton.textContent = "Keine";
-    const syncChecks = checked => {
-      exactLinkedCurveId = null;
-      soloCurveId = null;
-      [domainSection, roleSection].forEach(section => section.querySelectorAll('input[type="checkbox"]').forEach(input => { if (!input.disabled) input.checked = checked; }));
-      selectedDomains.clear(); selectedRoles.clear();
-      if (checked) {
-        domains.filter(domain => curves.some(curve => curve.domainId === domain.domainId)).forEach(domain => selectedDomains.add(domain.domainId));
-        ["core", "deep_dive"].forEach(role => selectedRoles.add(role));
-      }
-      renderCurrent();
+    search.placeholder = "Kurve oder Grundlage suchen";
+    search.setAttribute("aria-label", search.placeholder);
+    const listFilters = document.createElement("div");
+    listFilters.className = "selection-list-filters";
+    const createSelect = (label, options) => {
+      const wrapper = document.createElement("label");
+      wrapper.textContent = label;
+      const select = document.createElement("select");
+      options.forEach(([value, text]) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = text;
+        select.append(option);
+      });
+      wrapper.append(select);
+      listFilters.append(wrapper);
+      return select;
     };
-    allButton.addEventListener("click", () => syncChecks(true));
-    noneButton.addEventListener("click", () => syncChecks(false));
-    actions.append(allButton, noneButton);
+    const domains = [...foundationCatalog];
+    curves.forEach(curve => {
+      if (!domains.some(domain => domain.domainId === curve.domainId)) domains.push({ domainId: curve.domainId, label: curve.domainLabel });
+    });
+    const domainSelect = createSelect("Grundlage", [["", "Alle Grundlagen"], ...domains.map(domain => [domain.domainId, domain.label + " (" + curves.filter(curve => curve.domainId === domain.domainId).length + ")"])]);
+    const roleSelect = createSelect("Kurventyp", [["", "Alle Kurventypen"], ["core", "Kernkurven"], ["deep_dive", "Vertiefung"]]);
+    const onlySelectedLabel = document.createElement("label");
+    onlySelectedLabel.className = "selection-only";
+    const onlySelected = document.createElement("input");
+    onlySelected.type = "checkbox";
+    onlySelectedLabel.append(onlySelected, "Nur ausgewählte zeigen");
     const result = document.createElement("p");
     result.className = "filter-result";
-    search.addEventListener("input", () => {
-      const term = search.value.trim().toLocaleLowerCase("de-DE");
-      domainSection.querySelectorAll(".filter-option").forEach(option => { option.hidden = Boolean(term) && !option.dataset.filterText.includes(term); });
+    result.setAttribute("role", "status");
+    const matches = document.createElement("p");
+    matches.className = "selection-hint";
+    matches.setAttribute("role", "status");
+    const table = document.createElement("table");
+    table.className = "curve-selection-table";
+    const caption = document.createElement("caption");
+    caption.textContent = "Kurvenauswahl";
+    const head = document.createElement("thead");
+    const headings = document.createElement("tr");
+    ["Anzeigen", "Kurve", "Grundlage / Typ"].forEach(text => {
+      const cell = document.createElement("th");
+      cell.scope = "col";
+      cell.textContent = text;
+      headings.append(cell);
     });
-    filterContent.append(search, domainSection, roleSection, segmentSection, actions, result);
+    head.append(headings);
+    const body = document.createElement("tbody");
+    const rows = curves.map(curve => {
+      const row = document.createElement("tr");
+      const checkCell = document.createElement("td");
+      const nameCell = document.createElement("td");
+      const infoCell = document.createElement("td");
+      const name = presentation[curve.seriesId]?.label || curve.label;
+      const domain = domains.find(item => item.domainId === curve.domainId)?.label || curve.domainLabel;
+      const check = document.createElement("input");
+      check.type = "checkbox";
+      check.setAttribute("aria-label", name + " anzeigen");
+      check.addEventListener("change", () => {
+        if (check.checked) selectedCurveIds.add(curve.curveId); else selectedCurveIds.delete(curve.curveId);
+        renderCurrent();
+      });
+      const swatch = document.createElement("span");
+      swatch.className = "selection-swatch";
+      swatch.style.setProperty("--series-color", curveColor(curve));
+      swatch.setAttribute("aria-hidden", "true");
+      const label = document.createElement("label");
+      check.id = "curve-choice-" + curves.indexOf(curve);
+      label.htmlFor = check.id;
+      label.textContent = name;
+      nameCell.append(swatch, label);
+      infoCell.textContent = domain + " · " + (curve.curveRole === "core" ? "Kernkurve" : "Vertiefung");
+      checkCell.append(check);
+      row.append(checkCell, nameCell, infoCell);
+      body.append(row);
+      return { curve, row, check, text: (name + " " + curve.label + " " + domain).toLocaleLowerCase("de-DE") };
+    });
+    table.append(caption, head, body);
+    const segmentSection = makeFilterSection("Darstellung", [
+      { value: "observed", label: "Hauptreihen", checked: visibleSegments.observed },
+      { value: "historical", label: "Historische Rekonstruktionen", checked: visibleSegments.historical },
+      { value: "projection", label: "Szenarien", checked: visibleSegments.projection }
+    ], (segment, checked) => { visibleSegments[segment] = checked; renderCurrent(); });
+    const actions = document.createElement("div");
+    actions.className = "filter-actions selection-actions";
+    const button = (text, action) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.textContent = text;
+      item.addEventListener("click", action);
+      actions.append(item);
+      return item;
+    };
+    button("Startansicht wiederherstellen", () => {
+      applyView(startView);
+      selectedCurveId = null;
+      selectedSegment = null;
+      search.value = domainSelect.value = roleSelect.value = "";
+      onlySelected.checked = false;
+      curveLinkStatus.hidden = true;
+      const url = new URL(window.location.href);
+      ["curve", "curves", "segments"].forEach(key => url.searchParams.delete(key));
+      window.history.replaceState(null, "", url);
+      renderCurrent();
+    });
+    button("Auswahl leeren", () => { selectedCurveIds.clear(); renderCurrent(); });
+    button("Tabellentreffer hinzufügen", () => {
+      rows.filter(item => !item.row.hidden).forEach(item => selectedCurveIds.add(item.curve.curveId));
+      renderCurrent();
+    });
+    const message = document.createElement("p");
+    message.className = "selection-message";
+    message.setAttribute("role", "status");
+    const linkField = document.createElement("input");
+    linkField.className = "filter-search";
+    linkField.readOnly = true;
+    linkField.hidden = true;
+    linkField.setAttribute("aria-label", "Link zur aktuellen Kurvenauswahl");
+    button("Auswahl als Link kopieren", async () => {
+      const url = selectionApi.selectionUrl(window.location.href, currentView());
+      linkField.value = url;
+      linkField.hidden = false;
+      try {
+        await navigator.clipboard.writeText(url);
+        message.textContent = "Link zur Auswahl kopiert.";
+      } catch {
+        linkField.focus();
+        linkField.select();
+        message.textContent = "Bitte den markierten Link kopieren.";
+      }
+    });
+    if (isLocalEditorHost()) {
+      const save = button("Als öffentliche Startansicht übernehmen", async () => {
+        save.disabled = true;
+        message.textContent = "Startansicht wird gespeichert …";
+        try {
+          const response = await fetch("api/start-view", {
+            method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(currentView())
+          });
+          if (response.status === 404 || response.status === 405) throw new Error("Zum Speichern BLC26 über start-server.cmd starten.");
+          const payload = await response.json();
+          if (!response.ok) throw new Error(payload.error || "Speichern fehlgeschlagen.");
+          startView = selectionApi.validateView(payload.view, allCurves);
+          message.textContent = "Startansicht lokal gespeichert. Nach Veröffentlichung gilt sie auch für die Homepage.";
+        } catch (error) { message.textContent = error.message; }
+        finally { save.disabled = false; }
+      });
+    }
+    updateCurveTable = () => {
+      if (!linkField.hidden && linkField.value !== selectionApi.selectionUrl(window.location.href, currentView())) {
+        linkField.hidden = true;
+        message.textContent = "";
+      }
+      const term = search.value.trim().toLocaleLowerCase("de-DE");
+      rows.forEach(({ curve, row, check, text }) => {
+        check.checked = selectedCurveIds.has(curve.curveId);
+        row.hidden = Boolean((term && !text.includes(term)) || (domainSelect.value && curve.domainId !== domainSelect.value) ||
+          (roleSelect.value && curve.curveRole !== roleSelect.value) || (onlySelected.checked && !check.checked));
+      });
+      const count = rows.filter(item => !item.row.hidden).length;
+      matches.textContent = count ? count + " Kurven in der Tabelle" : "Keine Treffer. Suche oder Tabellenfilter ändern.";
+      segmentSection.querySelectorAll("input").forEach((input, index) => {
+        input.checked = visibleSegments[["observed", "historical", "projection"][index]];
+      });
+    };
+    search.addEventListener("input", updateCurveTable);
+    [domainSelect, roleSelect, onlySelected].forEach(input => input.addEventListener("change", updateCurveTable));
+    filterContent.append(hint, search, listFilters, onlySelectedLabel, result, actions, message, linkField, segmentSection, matches, table);
   }
   function visibleReconstructions(curve) {
+    if (presentation[curve.seriesId]?.showHistoricalReconstruction === false) return [];
     const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
     const visibleBreakYears = new Set((curve.methodBreaks || []).filter(marker => marker.showValues === true).map(marker => Number(marker.year)));
     return (curve.historicalReconstruction || []).map(segment => ({
@@ -761,6 +875,7 @@
     })).filter(segment => segment.points.length);
   }
   function visibleDisplayReconstructions(curve) {
+    if (presentation[curve.seriesId]?.showHistoricalReconstruction === false) return [];
     const firstObservedYear = Math.min(...curve.observations.map(point => Number(point.year)));
     const visibleBreakYears = new Set((curve.methodBreaks || []).filter(marker => marker.showValues === true).map(marker => Number(marker.year)));
     return (curve.displayHistoricalReconstruction || []).map(segment => ({
@@ -787,6 +902,8 @@
     return element;
   }
   function extent(curve) {
+    const fixed = presentation[curve.seriesId]?.fixedExtent;
+    if (fixed) return fixed;
     const points = [...curve.observations, ...visibleReconstructions(curve).flatMap(segment => segment.points), ...(curve.projections || []).flatMap(series => series.points)];
     const values = points.map(point => Number(point.value));
     const minimum = Math.min(...values);
@@ -844,7 +961,7 @@
     if (!curves.length) {
       const empty = document.createElement("p");
       empty.className = "empty-state";
-      empty.textContent = "Keine Kurve ausgewählt. Filter rechts öffnen und mindestens eine Grundlage aktivieren.";
+      empty.textContent = "Keine Kurve ausgewählt. Rechts die Kurvenauswahl öffnen und Kurven ankreuzen oder die Startansicht wiederherstellen.";
       figure.appendChild(empty);
       return figure;
     }
@@ -888,22 +1005,9 @@
         "stroke-width": 28,
         "aria-hidden": "true"
       });
-      target.addEventListener("pointerup", event => {
-        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
-        event.preventDefault();
-        event.stopPropagation();
-        lastTouchInteractionAt = Date.now();
-        const now = Date.now();
-        const isSecondTap = touchSelection?.curveId === curve.curveId && now - touchSelection.time <= 550;
-        if (isSecondTap) {
-          touchSelection = null;
-          hideTouchValue();
-          chooseSegment(curve, type, id);
-          return;
-        }
+      const showValue = (event, hintText) => {
         const nearest = nearestPoint(points, event, y);
         if (!nearest) return;
-        touchSelection = { curveId: curve.curveId, time: now };
         svg.querySelector(".curve-touch-marker")?.remove();
         svg.appendChild(svgElement("circle", {
           class: "curve-touch-marker",
@@ -919,11 +1023,37 @@
         const value = document.createElement("span");
         value.textContent = pointDisplay(nearest.point, curve.unit);
         const hint = document.createElement("small");
-        hint.textContent = "Nochmals tippen: Kurvendetails";
+        hint.textContent = hintText;
         valuePopover.append(curveName, value, hint);
         valuePopover.style.left = `${(nearest.pointX / width) * 100}%`;
         valuePopover.style.top = `${(nearest.pointY / height) * 100}%`;
         valuePopover.hidden = false;
+      };
+      const showMouseValue = event => {
+        if (event.pointerType !== "mouse") return;
+        touchSelection = null;
+        showValue(event, "Klicken: Kurvendetails");
+      };
+      target.addEventListener("pointerenter", showMouseValue);
+      target.addEventListener("pointermove", showMouseValue);
+      target.addEventListener("pointerleave", event => {
+        if (event.pointerType === "mouse") hideTouchValue();
+      });
+      target.addEventListener("pointerup", event => {
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+        event.preventDefault();
+        event.stopPropagation();
+        const now = Date.now();
+        lastTouchInteractionAt = now;
+        const isSecondTap = touchSelection?.curveId === curve.curveId && now - touchSelection.time <= 550;
+        if (isSecondTap) {
+          touchSelection = null;
+          hideTouchValue();
+          chooseSegment(curve, type, id);
+          return;
+        }
+        touchSelection = { curveId: curve.curveId, time: now };
+        showValue(event, "Nochmals tippen: Kurvendetails");
       });
       target.addEventListener("click", event => {
         event.stopPropagation();
@@ -1057,12 +1187,12 @@
     figure.append(svg, valuePopover);
     const caption = document.createElement("figcaption");
     caption.className = "chart-caption";
-    caption.textContent = "Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips; Herkunft und Aufbereitung öffnen sich nach Auswahl einer Kurve im technischen Detailfenster. Ober- und unterhalb jeder Kurve bleiben jeweils 20 % Darstellungsraum frei. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.";
+    caption.textContent = "Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips; Herkunft und Aufbereitung öffnen sich nach Auswahl einer Kurve im technischen Detailfenster. Automatisch skalierte Kurven erhalten oben und unten jeweils 20 % Darstellungsraum. Die Waldfläche verwendet einen festen Bezugsrahmen von 0–100 % der potenziellen Waldfläche. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.";
     figure.appendChild(caption);
     return figure;
   }
   async function init() {
-    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !curveDetailPanel || !curveDetailTitle || !curveDetailContent || !filterContent || !panelBackdrop || !curveLinkStatus || !curveSoloStatus || !curveLinkApi) return;
+    if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !curveDetailPanel || !curveDetailTitle || !curveDetailContent || !filterContent || !panelBackdrop || !curveLinkStatus || !selectionApi || !curveLinkApi) return;
     try {
       const sourceUrl = new URL(config.import.source, window.location.href);
       if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
@@ -1072,26 +1202,42 @@
       const hash = await verifyExport(payload);
       allCurves = payload.curves;
       await loadCertificates();
-      curveSoloStatus.querySelector("button").addEventListener("click", () => {
-        soloCurveId = null;
-        renderCurrent();
-      });
-      payload.curves.forEach(curve => { selectedDomains.add(curve.domainId); selectedRoles.add(curve.curveRole); });
+      try {
+        const response = await fetch("data/start-view.json", { cache: "no-store", credentials: "same-origin" });
+        if (!response.ok) throw new Error("Startansicht nicht verfügbar.");
+        startView = selectionApi.validateView(await response.json(), allCurves, true);
+        if (startView.missing.length) {
+          curveLinkStatus.hidden = false;
+          curveLinkStatus.textContent = "Einige Kurven der Startansicht sind nicht mehr verfügbar. Bitte die Auswahl prüfen.";
+        }
+      } catch {
+        startView = { version: 1, curveIds: [], segments: { observed: true, historical: true, projection: true } };
+        curveLinkStatus.hidden = false;
+        curveLinkStatus.textContent = "Die Startansicht konnte nicht geladen werden. Bitte Kurven über die Kurvenauswahl hinzufügen.";
+      }
+      applyView(startView);
       const requestedCurveId = curveLinkApi.requestedCurveId(window.location.href);
       const linkedCurve = curveLinkApi.findCurve(payload.curves, requestedCurveId);
       if (requestedCurveId !== null && !linkedCurve) {
         curveLinkStatus.hidden = false;
-        curveLinkStatus.textContent = "Die verlinkte Kurve ist nicht verfügbar. Sie wurde möglicherweise entfernt oder die Direktlink-ID ist unbekannt.";
+        curveLinkStatus.textContent = "Die verlinkte Kurve ist nicht verfügbar. Die Startansicht wird angezeigt.";
       } else if (linkedCurve) {
+        selectedCurveIds.clear();
+        selectedCurveIds.add(linkedCurve.curveId);
+        Object.assign(visibleSegments, { observed: true, historical: true, projection: true });
         selectedCurveId = linkedCurve.curveId;
-        exactLinkedCurveId = linkedCurve.curveId;
-        selectedDomains.clear();
-        selectedRoles.clear();
-        selectedDomains.add(linkedCurve.domainId);
-        selectedRoles.add(linkedCurve.curveRole);
+      } else {
+        try {
+          const linkedView = selectionApi.requestedView(window.location.href, allCurves);
+          if (linkedView) applyView(linkedView);
+        } catch (error) {
+          curveLinkStatus.hidden = false;
+          curveLinkStatus.textContent = error.message + " Die Startansicht wird angezeigt.";
+        }
       }
       createFilters(payload.curves);
       renderCurrent();
+      if (linkedCurve) openCurveDetails();
       importStatus.className = "import-status is-valid";
       importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
     } catch (error) {

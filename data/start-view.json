@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "curveIds": [
+    "knowledge:data/knowledge/gwl_climate_arctic_september_sea_ice_v0.1.json#arctic_september_sea_ice_area_1979_2024",
+    "knowledge:data/knowledge/gwl_climate_temperature_global_v0.2.json#global_temperature_hadcrut5_1850_2025",
+    "knowledge:data/knowledge/gwl_freshwater_blue_green_timeseries_v0.2.json#blue_water_streamflow",
+    "knowledge:data/knowledge/gwl_nutrient_cycles_phosphorus_v0.2.json#phosphorus_cropland_1961_2022",
+    "knowledge:data/knowledge/gwl_ocean_acidification_v0.1.json#global_surface_omega_arag_oceansoda_1982_2021"
+  ],
+  "segments": {
+    "observed": true,
+    "historical": true,
+    "projection": false
+  }
+}

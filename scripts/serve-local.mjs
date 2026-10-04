@@ -3,6 +3,7 @@ import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { storeStartView } from "./start-view-store.mjs";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const port = 3000;
@@ -74,6 +75,10 @@ async function storeCertificate(request, response, seriesId) {
 async function respond(request, response) {
   try {
     const pathname = decodeURIComponent(new URL(request.url || "/", "http://localhost").pathname);
+    if (request.method === "PUT" && pathname === "/api/start-view") {
+      await storeStartView(request, response, { exportFile: curveExportFile, targetFile: resolve(root, "data", "start-view.json") });
+      return;
+    }
     if (request.method === "PUT" && pathname.startsWith("/api/certificates/")) {
       try {
         await storeCertificate(request, response, pathname.slice("/api/certificates/".length));

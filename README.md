@@ -2,12 +2,16 @@
 
 Digitale, interaktive Fassung des BRUCHLASTcharts.
 
-Alle freigegebenen Langzeitkurven werden in einer gemeinsamen Zeichenfläche auf
+Die ausgewählten freigegebenen Langzeitkurven werden in einer gemeinsamen Zeichenfläche auf
 der Zeitachse 1700–2100 überlagert. Die vertikale Position jeder Kurve zeigt den
 Verlauf innerhalb ihrer eigenen Datenspanne; eine gemeinsame Y-Skala wird nicht
 angezeigt. Originalwerte und Einheiten bleiben in Tooltips und technischen Kurvendetails erhalten.
 Je 20 Prozent vertikaler Darstellungsraum ober- und unterhalb der Daten beruhigen
-das Kurvenbild, ohne die Messwerte zu verändern.
+das Kurvenbild, ohne die Messwerte zu verändern. Ausnahme: Die Waldflächen-Kernkurve
+verwendet einen festen Darstellungsbereich von 0–100 % der potenziellen Waldfläche.
+Damit wird der geringe Rückgang 1992–2022 nicht auf die volle Diagrammhöhe gestreckt.
+100 % ist die Bezugsgröße, kein erfundener historischer Datenpunkt. Legende und
+Kurvendetails erläutern diese eigene Skala; sie gilt nicht für die anderen Kurven.
 
 Oberhalb der Zeichenfläche ordnet ein zurückhaltendes Ereignisband ausgewählte
 historische Zeiträume ein. Dauerhafte Ereignisse erscheinen als helle graue
@@ -17,23 +21,92 @@ Kausalität zwischen Ereignis und Kurvenverlauf.
 
 Die Anwendung startet als ruhige Vollbild-Zeichenfläche. Ein seitlicher Griff
 links öffnet bei Bedarf die Legende für Farben, Linienarten und Punktformen;
-der Griff rechts öffnet die Kurvenfilter nach Grundlage, Kurventyp und dargestelltem
-Segment. Ein Klick auf eine Kurve öffnet automatisch am unteren Bildrand ein eigenes
+der Griff rechts öffnet die Tabelle „Kurven auswählen“. Jede Kurve hat eine eigene
+Checkbox. Suche, Grundlage und Kurventyp filtern ausschließlich die Tabelle;
+ausgewählte Kurven bleiben unabhängig davon im Diagramm. Ein separater Bereich
+„Darstellung“ schaltet Hauptreihen, Rekonstruktionen und Szenarien. Ein Klick auf eine Kurve öffnet automatisch am unteren Bildrand ein eigenes
 technisches Detailfenster mit Grenzwert, Datenherkunft und Aufbereitung. Auf Smartphones ist die Diagrammansicht
 für das Querformat ausgelegt; im Hochformat fordert sie zum Drehen auf.
 Drei runde Schalter oben in der Mitte verlinken auf die Projekt-Homepage,
 das GWL-Panel und den Podcast ZUSTAND; ihre Kurzbezeichnungen erscheinen bei Maus- oder Tastaturfokus.
-Der Grundlagenfilter folgt der Reihenfolge des GWL-Panels und zeigt sowohl alle
+Der Tabellenfilter für Grundlagen folgt der Reihenfolge des GWL-Panels und zeigt sowohl alle
 neun Planetaren Grenzen als auch dessen ergänzende Einflussbereiche. Grundlagen
 ohne verfügbare BLC26-Kurve bleiben mit dem Zähler 0 sichtbar.
 
 Ein Direktlink mit `?curve=<curveId>` öffnet ausschließlich die im GWL-Export
-unverändert enthaltene Kurven-ID, aktiviert ihre Grundlage und ihren Kurventyp
-und zeigt die Kurveninformationen im technischen Detailfenster. Die ID muss URL-kodiert
+unverändert enthaltene Kurven-ID und zeigt die Kurveninformationen im technischen Detailfenster. Die ID muss URL-kodiert
 übergeben werden;
 bei unbekannten oder entfernten IDs bleibt die Standardansicht erhalten und es
 erscheint eine verständliche Meldung. Weitere Kurvennamen oder interne
 Metadaten werden nicht in die URL geschrieben.
+
+## Kurvenauswahl und öffentliche Startansicht
+
+Die Legende erklärt die eingeblendeten Kurven, Farben, Linienarten und Punkte.
+Ein Klick auf einen Kurvennamen öffnet weiterhin die technischen Details.
+Die frühere Einzelansicht in der Legende entfällt; beliebige Kombinationen
+werden ausschließlich mit den Checkboxen in der Kurventabelle zusammengestellt.
+„Tabellentreffer hinzufügen“ ergänzt die sichtbaren Treffer zur bestehenden Auswahl.
+„Auswahl leeren“ entfernt alle Kurven. „Nur ausgewählte zeigen“ begrenzt die Tabelle.
+
+Die veröffentlichte Datei `data/start-view.json` legt die öffentliche Startansicht
+über stabile Kurven-IDs und drei Segment-Schalter fest. Die vorläufige Auswahl
+enthält CO₂, Temperatur, Waldfläche, Phosphoreinsatz und Kunststoffproduktion;
+Hauptreihen und Rekonstruktionen sind aktiviert, Szenarien ausgeschaltet.
+Neue GWL-Importe erweitern die Tabelle, aber nicht automatisch diese Auswahl.
+
+Für die Waldflächen-Kernkurve wird die historische Pongratz-Rekonstruktion in
+BLC26 nicht mehr dargestellt und nicht für die vertikale Skalierung verwendet.
+Ihre Walddefinition und Bezugsfläche erlauben keinen unmittelbaren Anschluss
+an die Hauptreihe 1992–2022. Diese Ausnahme gilt auch bei eingeschaltetem
+Rekonstruktions-Schalter; andere Kurven behalten ihre Rekonstruktionen.
+Der verifizierte GWL-Export bleibt unverändert. Der Methodenhinweis im
+Detailfenster erläutert die tatsächlich gezeigte Hauptreihe. Eine Projektion
+wird erst nach Prüfung ihrer Vergleichbarkeit über den GWL-Export übernommen.
+
+Prüfstand Waldprojektion (4. Oktober 2026):
+
+- [Chen et al. 2022, Tabelle 1](https://www.nature.com/articles/s41597-022-01208-6):
+  Die Modellklasse „Forest“ schließt auch Buschland und bestimmte Mosaikflächen ein.
+  Der ESA-CCI-Bezug allein belegt daher keine Vergleichbarkeit mit der PHC-Kernkurve.
+  Die veröffentlichte Gesamtklasse wird nicht direkt angefügt.
+- [Beier et al., MAgPIE-Forschungsdaten v2](https://zenodo.org/records/14870633):
+  `Data_plots_v2.zip` wurde geprüft, insbesondere `scenario_data/PBindicators_full.csv`,
+  `paper_plots/pbTable_2100.csv` und `output_scripts/PBpaperPlots.R`.
+  Die Datei enthält den Indikator `Planetary Boundary|Land|Forest cover (Mha)`.
+  Die Übersicht nennt 3877,16 Mio. ha als aktuellen Wert 2020 und 4790 Mio. ha
+  als Grenzwert. Bei der im zugehörigen Artikel verwendeten 75-%-Grenze entspricht
+  dies rechnerisch 60,71 % (Nenner: 4790 / 0,75). Unsere PHC-Hauptreihe enthält
+  für 2020 näherungsweise 58,9 %. Diese unterschiedlichen Ausgangswerte und die
+  Vergleichbarkeit der Walddefinitionen sind vor einer Verbindung zu klären.
+  Das Archiv stammt aus der Wiedereinreichung des Manuskripts; die endgültige
+  Publikationsfassung ist bei einer Übernahme zusätzlich abzugleichen.
+
+Ergebnis: Noch keine Projektion für den direkten Anschluss freigegeben.
+Keine Verschiebung oder Skalierung von Szenariowerten auf den letzten BLC-Wert;
+keine Interpolation auf 2022 zur Erzeugung eines optisch nahtlosen Anschlusses.
+
+Zum Ändern BLC26 mit `start-server.cmd` öffnen, Kurven und Darstellung auswählen
+und „Als öffentliche Startansicht übernehmen“ anklicken. Diese Funktion erscheint
+nur auf localhost und schreibt die Konfiguration über den lokalen Server.
+Mindestens eine Kurve und eine Darstellungsart sind erforderlich. Erst mit der
+Veröffentlichung der geänderten Datei erhalten alle Besucher die neue Startansicht.
+„Startansicht wiederherstellen“ setzt Auswahl, Darstellung und Tabellenfilter zurück.
+Die Auswahl wird nicht automatisch im Browser gespeichert.
+
+„Auswahl als Link kopieren“ erzeugt einen Link mit wiederholten `curves`-Parametern
+und `segments`. Die Kurven-IDs werden URL-kodiert; weitere Metadaten fehlen.
+Eine ausdrücklich leere Auswahl lässt sich ebenfalls teilen.
+Ein gültiger `?curve=…`-Einzelkurvenlink hat Vorrang, danach eine geteilte Auswahl,
+danach die öffentliche Startansicht. Ungültige Auswahllinks zeigen eine Meldung
+und behalten die Startansicht bei. Fehlende IDs in einer älteren Startkonfiguration
+werden mit Hinweis ausgelassen; eine defekte oder fehlende Konfiguration fordert
+zur manuellen Auswahl auf, statt ungefragt alle Kurven einzublenden.
+
+Eine Verlinkung oder Einbettung auf th-luebeck.de/zustand sollte die öffentliche
+BLC26-URL ohne Auswahlparameter verwenden, um dieser Startkonfiguration zu folgen.
+Ein Link mit Auswahlparametern zeigt dagegen bewusst eine bestimmte Zusammenstellung.
+Die konkrete Einbindung im TH-CMS wird separat gepflegt.
 
 ## Sichere GWL-Übergabe
 
@@ -72,6 +145,11 @@ Exportversion 1.9 überträgt zusätzlich die genaue Fundstelle innerhalb der Ur
 
    ```powershell
    node scripts/verify-gwl-import.mjs
+   node scripts/test-curve-selection.mjs
+   node scripts/test-curve-links.cjs
+   node scripts/test-reference-status.cjs
+   node scripts/test-certificates.mjs
+   git diff --check
    ```
 
 ## Lokal testen
