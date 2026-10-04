@@ -979,7 +979,7 @@
       return figure;
     }
     const width = 1400;
-    const plotHeight = 460;
+    const plotHeight = isEmbedView ? 700 : 460;
     const eventBandHeight = 26;
     const height = plotHeight + eventBandHeight;
     const plot = { left: 116, right: 76, top: eventBandHeight + 48, bottom: 70 };

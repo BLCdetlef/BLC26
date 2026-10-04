@@ -138,11 +138,11 @@ html.is-embed-view .primary-links,
 html.is-embed-view .panel-handle,
 html.is-embed-view .status,
 html.is-embed-view .import-status { display: none; }
-html.is-embed-view body { padding: .45rem; background: #efeee9; }
+html.is-embed-view body { padding: 0; background: #fff; }
 html.is-embed-view .app-shell {
-  display: grid; width: calc(100vw - .9rem); height: calc(100dvh - .9rem);
+  display: grid; width: 100vw; height: 100dvh;
   grid-template-rows: minmax(0, 1fr) auto; padding: .45rem .75rem .6rem;
-  border: 1px solid #cfcec8; background: #fff; box-shadow: 0 .12rem .5rem rgb(23 23 23 / 7%);
+  border: 0; background: #fff; box-shadow: none;
 }
 html.is-embed-view .chart-shell { min-height: 0; }
 html.is-embed-view .combined-chart { background: #fff; }
@@ -257,9 +257,9 @@ html.is-embed-view .embed-full-link:focus-visible { background: var(--ink); colo
   html.is-embed-view .app-shell { visibility: visible; }
   html.is-embed-view .orientation-notice { display: none; }
   html.is-embed-view .brand-watermark { top: .5rem; left: .65rem; font-size: .9rem; }
-  html.is-embed-view body { padding: .3rem; }
+  html.is-embed-view body { padding: 0; }
   html.is-embed-view .app-shell {
-    width: calc(100vw - .6rem); height: calc(100dvh - .6rem); padding: .35rem .45rem .45rem;
+    width: 100vw; height: 100dvh; padding: .35rem .45rem .45rem;
     grid-template-rows: minmax(0, 1fr) auto auto;
   }
   html.is-embed-view .embed-legend {
