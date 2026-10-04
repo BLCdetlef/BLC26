@@ -97,8 +97,8 @@ Die Auswahl wird nicht automatisch im Browser gespeichert.
 „Auswahl als Link kopieren“ erzeugt einen Link mit wiederholten `curves`-Parametern
 und `segments`. Die Kurven-IDs werden URL-kodiert; weitere Metadaten fehlen.
 Eine ausdrücklich leere Auswahl lässt sich ebenfalls teilen.
-Ein gültiger `?curve=…`-Einzelkurvenlink hat Vorrang, danach eine geteilte Auswahl,
-danach die öffentliche Startansicht. Ungültige Auswahllinks zeigen eine Meldung
+Ein gültiger `?curve=…`-Einzelkurvenlink hat Vorrang, danach eine benannte Ansicht,
+eine geteilte Auswahl und schließlich die öffentliche Startansicht. Ungültige Auswahllinks zeigen eine Meldung
 und behalten die Startansicht bei. Fehlende IDs in einer älteren Startkonfiguration
 werden mit Hinweis ausgelassen; eine defekte oder fehlende Konfiguration fordert
 zur manuellen Auswahl auf, statt ungefragt alle Kurven einzublenden.
@@ -107,6 +107,13 @@ Eine Verlinkung oder Einbettung auf th-luebeck.de/zustand sollte die öffentlich
 BLC26-URL ohne Auswahlparameter verwenden, um dieser Startkonfiguration zu folgen.
 Ein Link mit Auswahlparametern zeigt dagegen bewusst eine bestimmte Zusammenstellung.
 Die konkrete Einbindung im TH-CMS wird separat gepflegt.
+
+Die kurze Adresse `?view=zustand` lädt eine eigene, nicht interaktive
+Einbettungsansicht für die ZUSTAND-Homepage. Sie zeigt fünf kuratierte Leitkurven
+mit Beobachtungswerten und vorhandenen historischen Rekonstruktionen. Einzelne
+Zukunftsszenarien, Seitenleisten, technische Statusanzeigen und die allgemeine
+Navigation bleiben in dieser kompakten Ansicht ausgeblendet. Ein Link rechts
+unten öffnet die vollständige BLC26-Anwendung in einem neuen Tab.
 
 ## Sichere GWL-Übergabe
 

@@ -27,6 +27,11 @@ assert.deepEqual(selection.requestedView(link, curves), { ...view, missing: [] }
 assert.equal(selection.requestedView("https://example.test/", curves), null);
 assert.throws(() => selection.requestedView("https://example.test/?curves=removed", curves));
 assert.throws(() => selection.requestedView("https://example.test/?curves=same-domain-core&segments=unknown", curves));
+const namedViews = { zustand: view };
+assert.deepEqual(selection.requestedNamedView("https://example.test/?view=zustand", namedViews, curves), { name: "zustand", view: { ...view, missing: [] } });
+assert.equal(selection.requestedNamedView("https://example.test/", namedViews, curves), null);
+assert.throws(() => selection.requestedNamedView("https://example.test/?view=unknown", namedViews, curves));
+assert.throws(() => selection.requestedNamedView("https://example.test/?view=../zustand", namedViews, curves));
 const empty = { ...view, curveIds: [], segments: { observed: false, historical: false, projection: false } };
 assert.deepEqual(selection.requestedView(selection.selectionUrl("https://example.test/", empty), curves), { ...empty, missing: [] });
 

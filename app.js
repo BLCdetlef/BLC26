@@ -12,11 +12,15 @@
   const filterContent = document.getElementById("filterContent");
   const panelBackdrop = document.getElementById("panelBackdrop");
   const curveLinkStatus = document.getElementById("curveLinkStatus");
+  const embedLegend = document.getElementById("embedLegend");
   const selectionApi = window.BRUCHLAST_SELECTION;
   const historicalEvents = Array.isArray(window.BRUCHLAST_EVENTS) ? window.BRUCHLAST_EVENTS : [];
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const curveLinkApi = window.BRUCHLAST_CURVE_LINK;
   const svgNamespace = "http://www.w3.org/2000/svg";
+  let namedViewRequest = null;
+  const isEmbedView = new URL(window.location.href).searchParams.get("view") === "zustand";
+  if (isEmbedView) document.documentElement.classList.add("is-embed-view");
   const allowedProjectionGrades = new Set(["robust_scenario_projection", "qualified_scenario_projection"]);
   const allowedCurveRoles = new Set(["core", "deep_dive"]);
   const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
@@ -649,6 +653,15 @@
   function renderCurrent() {
     const visibleCurves = selectionApi.visibleCurves(allCurves, selectedCurveIds);
     chart.replaceChildren(renderChart(visibleCurves));
+    if (isEmbedView && embedLegend) {
+      embedLegend.replaceChildren(...visibleCurves.map(curve => {
+        const item = document.createElement("span");
+        item.className = "embed-legend-item";
+        item.style.setProperty("--series-color", curveColor(curve));
+        item.textContent = presentation[curve.seriesId]?.label || curve.label;
+        return item;
+      }));
+    }
     legendContent.replaceChildren(createLegend(visibleCurves, curve => chooseSegment(curve)));
     updateCurveTable();
     const selectedCurve = visibleCurves.find(curve => curve.curveId === selectedCurveId);
@@ -1216,6 +1229,7 @@
         curveLinkStatus.textContent = "Die Startansicht konnte nicht geladen werden. Bitte Kurven über die Kurvenauswahl hinzufügen.";
       }
       applyView(startView);
+      namedViewRequest = selectionApi.requestedNamedView(window.location.href, config.views, allCurves);
       const requestedCurveId = curveLinkApi.requestedCurveId(window.location.href);
       const linkedCurve = curveLinkApi.findCurve(payload.curves, requestedCurveId);
       if (requestedCurveId !== null && !linkedCurve) {
@@ -1226,6 +1240,8 @@
         selectedCurveIds.add(linkedCurve.curveId);
         Object.assign(visibleSegments, { observed: true, historical: true, projection: true });
         selectedCurveId = linkedCurve.curveId;
+      } else if (namedViewRequest) {
+        applyView(namedViewRequest.view);
       } else {
         try {
           const linkedView = selectionApi.requestedView(window.location.href, allCurves);

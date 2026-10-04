@@ -45,5 +45,14 @@
       segments: Object.fromEntries(segmentNames.map(key => [key, segments.includes(key)])) }, curves);
   }
 
-  return { validateView, visibleCurves, selectionUrl, requestedView };
+  function requestedNamedView(href, views, curves) {
+    const name = new URL(href).searchParams.get("view");
+    if (name === null) return null;
+    if (!/^[a-z0-9-]+$/.test(name) || !Object.prototype.hasOwnProperty.call(views || {}, name)) {
+      throw new Error("Der Link enthält eine unbekannte Ansicht.");
+    }
+    return { name, view: validateView(views[name], curves) };
+  }
+
+  return { validateView, visibleCurves, selectionUrl, requestedView, requestedNamedView };
 });

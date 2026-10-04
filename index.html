@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=1.0.1">
+  <link rel="stylesheet" href="style.css?v=1.0.3">
 </head>
 <body>
   <main class="app-shell" id="appShell">
@@ -29,6 +29,8 @@
       <div id="importStatus" class="import-status" role="status" aria-live="polite">Lokales Übergabepaket wird geladen und verifiziert.</div>
       <div id="curveLinkStatus" class="curve-link-status" role="alert" hidden></div>
     </section>
+    <div id="embedLegend" class="embed-legend" aria-label="Dargestellte Messreihen"></div>
+    <a class="embed-full-link" href="./" target="_blank" rel="noopener noreferrer">Alle Messreihen erkunden <span aria-hidden="true">→</span></a>
     <aside id="legendPanel" class="side-panel side-panel-left" aria-labelledby="legendTitle" aria-hidden="true" inert>
       <div class="panel-heading"><div><span class="panel-kicker">Diagramm</span><h2 id="legendTitle">Legende</h2></div><button class="panel-close" type="button" data-close-panel="legendPanel" aria-label="Legende schließen">×</button></div>
       <div id="legendContent" class="panel-content"></div>
@@ -50,11 +52,11 @@
   </main>
   <div class="orientation-notice" role="status"><span class="orientation-icon" aria-hidden="true">↻</span><strong>Bitte ins Querformat drehen</strong><span>Das BRUCHLASTchart nutzt die gesamte Breite des Displays.</span></div>
 
-  <script src="data.js?v=0.9.6"></script>
+  <script src="data.js?v=0.9.7"></script>
   <script src="events.js?v=0.6.2"></script>
   <script src="reference.js?v=0.6.2"></script>
   <script src="curve-link.js?v=0.7.1"></script>
-  <script src="curve-selection.js?v=1.0.0"></script>
-  <script src="app.js?v=1.0.4"></script>
+  <script src="curve-selection.js?v=1.0.1"></script>
+  <script src="app.js?v=1.0.5"></script>
 </body>
 </html>
