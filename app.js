@@ -43,7 +43,7 @@
     { domainId: "atmospheric_aerosol_loading", label: "Aerosole", group: "Planetare Grenzen" },
     { domainId: "stratospheric_ozone_depletion", label: "Stratosphärisches Ozon", group: "Planetare Grenzen" },
     { domainId: "novel_entities", label: "Neue Substanzen", group: "Planetare Grenzen" },
-    { domainId: "eah_material_energy_flows", label: "Stoff- und Energieströme", group: "Ergänzende Einflussbereiche" },
+    { domainId: "eah_material_energy_flows", label: "Rohstoffe", group: "Ergänzende Einflussbereiche" },
     { domainId: "eah_tech_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
   ]);
   const presentation = Object.freeze({
@@ -1151,6 +1151,21 @@
         bindTouchTarget(curveGroup, curve, "observed", "observations", meta.label, curve.observations, color, y, pathData);
       }
       if (visibleSegments.projection) (curve.projections || []).forEach(projection => {
+        const first = projection.points.reduce((earliest, point) => Number(point.year) < Number(earliest.year) ? point : earliest, projection.points[0]);
+        const last = curve.observations.reduce((latest, point) => Number(point.year) > Number(latest.year) ? point : latest, curve.observations[0]);
+        if (visibleSegments.observed && last && first && Number(last.year) < Number(first.year)) {
+          const transition = svgElement("path", {
+            class: "curve-projection curve-transition",
+            stroke: color,
+            style: "stroke-dasharray: 6 5",
+            d: makePath([last, first], x, y)
+          });
+          const title = svgElement("title");
+          title.textContent = "Übergang vom letzten historischen Wert zum ersten Szenariowert; keine zusätzlichen Datenpunkte";
+          transition.appendChild(title);
+          bindSegmentInteraction(transition, curve, "projection", projection.id, `${meta.label} · Übergang zum Szenario`);
+          curveGroup.appendChild(transition);
+        }
         const pathData = makePath(projection.points, x, y);
         const path = svgElement("path", { class: "curve-projection", stroke: color, d: pathData });
         bindSegmentInteraction(path, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"}`);
@@ -1253,7 +1268,7 @@
       }
       createFilters(payload.curves);
       renderCurrent();
-      if (linkedCurve) openCurveDetails();
+      closeCurveDetails();
       importStatus.className = "import-status is-valid";
       importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
     } catch (error) {

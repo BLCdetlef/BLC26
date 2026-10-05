@@ -1,0 +1,26 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import vm from "node:vm";
+const source = readFileSync(new URL("../app.js", import.meta.url), "utf8");
+const start = source.indexOf("        const first = projection.points.reduce");
+const end = source.indexOf("        const pathData = makePath(projection.points", start);
+assert.ok(start >= 0 && end > start);
+const run = (observations, points, observed = true) => {
+  const children = [];
+  const context = { curve: { observations }, projection: { points, id: "steps" }, visibleSegments: { observed }, color: "black", meta: { label: "Kupfer" }, x: v => v, y: v => v, makePath: points => JSON.stringify(points), bindSegmentInteraction() {}, curveGroup: { appendChild: e => children.push(e) }, svgElement: (tag, attrs) => ({ tag, attrs, appendChild() {} }) };
+  vm.runInNewContext(source.slice(start, end), context);
+  return children;
+};
+const last = {year: 2024, value: 26.717}, first = {year: 2030, value: 31.348};
+const connector = run([{year:1960,value:4.738},last], [first,{year:2050,value:37.451}]);
+assert.equal(connector.length, 1);
+assert.equal(connector[0].attrs.d, JSON.stringify([last, first]));
+assert.equal(connector[0].attrs.style, "stroke-dasharray: 6 5");
+assert.equal(run([last], [first], false).length, 0);
+assert.equal(run([last], [{year:2024,value:27}]).length, 0);
+assert.equal(run([last], [{year:2020,value:25}]).length, 0);
+assert.equal(run([], [first]).length, 0);
+const init = source.slice(source.indexOf("  async function init()"));
+assert.ok(init.includes("      closeCurveDetails();"));
+assert.ok(!init.includes("openCurveDetails()"));
+console.log("PASS: Szenarioanschluss, Sichtbarkeit, fehlende Werte, überlappende Jahre und geschlossene Direktlink-Details.");
