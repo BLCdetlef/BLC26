@@ -4,6 +4,789 @@
   "manifestVersion": "1.1",
   "curves": [
     {
+      "curveId": "knowledge:data/knowledge/02_stoff_energiestroeme_kupfer_global.json#global_refined_copper_usage_1960_2024",
+      "boundaryId": "materials-energy",
+      "itemId": "global-copper-usage",
+      "seriesId": "global_refined_copper_usage_1960_2024",
+      "source": "data/knowledge/02_stoff_energiestroeme_kupfer_global.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globaler Kupferverbrauch",
+      "metric": "Verbrauch/Nachfrage nach raffiniertem Kupfer",
+      "unit": "Mio. t Cu/Jahr",
+      "geography": "Global",
+      "dataNature": "assessed_model_estimate",
+      "worseningDirection": "increase",
+      "finding": "Materialdurchsatz; steigende Werte zeigen eine größere verwendete Menge, keinen errechneten Umweltschaden.",
+      "uncertainty": "ICSG und IEA sind nicht zahlenidentisch: 2021 meldet ICSG 25,211 und IEA 24,946 Mio. t Cu. Der Quellenwechsel ist dokumentiert, ein nahtlos kalibrierter Anschluss nicht belegt. Zukunftswerte sind ein bedingtes Szenario der IEA-Ausgabe 2025, keine Vorhersage. Die Ausgabe 2026 wird nicht beigemischt.",
+      "methodNote": "1960–2023: ICSG refined copper usage (Factbook 2024, S. 60; 2023 vorläufig). Quellenwechsel 2024: historischer IEA-Basiswert (Outlook 2025, S. 293), noch keine Projektion. STEPS-Szenario: ausschließlich veröffentlichte Stützwerte 2030, 2040 und 2050. Raffiniertes Kupfer einschließlich sekundär raffiniertem Kupfer, ohne direkt eingesetzten Schrott. Keine Glättung, Interpolation, Niveauverschiebung oder Kalibrierung.",
+      "contextNotes": [
+        {
+          "id": "copper_source_switch_2024",
+          "label": "Quellenwechsel 2024",
+          "value": "ICSG → IEA",
+          "detail": "1960–2023: ICSG refined copper usage (Factbook 2024, S. 60; 2023 vorläufig). Quellenwechsel 2024: historischer IEA-Basiswert (Outlook 2025, S. 293), noch keine Projektion. STEPS-Szenario: ausschließlich veröffentlichte Stützwerte 2030, 2040 und 2050. Raffiniertes Kupfer einschließlich sekundär raffiniertem Kupfer, ohne direkt eingesetzten Schrott. Keine Glättung, Interpolation, Niveauverschiebung oder Kalibrierung.",
+          "sourceRefs": [
+            "icsg_factbook_2024",
+            "iea_gcm_outlook_2025"
+          ]
+        },
+        {
+          "id": "copper_overlap_2021",
+          "label": "Gegenprüfung desselben Jahres",
+          "value": "2021: ICSG 25,211 / IEA 24,946 Mio. t Cu",
+          "detail": "ICSG und IEA sind nicht zahlenidentisch: 2021 meldet ICSG 25,211 und IEA 24,946 Mio. t Cu. Der Quellenwechsel ist dokumentiert, ein nahtlos kalibrierter Anschluss nicht belegt. Zukunftswerte sind ein bedingtes Szenario der IEA-Ausgabe 2025, keine Vorhersage. Die Ausgabe 2026 wird nicht beigemischt.",
+          "sourceRefs": [
+            "icsg_factbook_2024",
+            "iea_gcm_outlook_2025"
+          ]
+        }
+      ],
+      "observationCoverage": {
+        "startYear": 1960,
+        "endYear": 2024,
+        "spanYears": 64,
+        "pointCount": 65
+      },
+      "observationSourceRefs": [
+        "icsg_factbook_2024",
+        "iea_gcm_outlook_2025"
+      ],
+      "observationProvenance": {
+        "sourceFile": "Factbook2024.pdf; GlobalCriticalMineralsOutlook2025.pdf",
+        "sourceUrl": "https://icsg.org/download/2024-09-23-the-world-copper-factbook-2024/",
+        "locator": "ICSG: Anhang S. 60 (PDF-S. 65), jeweils Refined Usage in drei Jahrblöcken; IEA: Anhang S. 293, Copper demand, Total demand, Historical 2024. Der direkte IEA-PDF-Link ist im Quellenregister und in der Szenarioprovenienz dokumentiert.",
+        "fields": [
+          "ICSG Year und Refined Usage → 1960–2023",
+          "IEA Historical 2024, Total demand → Basiswert 2024"
+        ],
+        "extraction": "64 unveränderte ICSG-Quellenwerte und ein historischer IEA-Basiswert; quellengetrennt recherchiert in research/curve-candidates/02_stoff_energiestroeme_kupfer_global.json.",
+        "transformation": "Quellenwerte in kt Cu / 1000 ergeben Mio. t Cu/Jahr. Keine Glättung, Interpolation oder Kalibrierung."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1960,
+          "value": 4.738,
+          "display": "4,738 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1961,
+          "value": 5.05,
+          "display": "5,050 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1962,
+          "value": 5.048,
+          "display": "5,048 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1963,
+          "value": 5.5,
+          "display": "5,500 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1964,
+          "value": 5.995,
+          "display": "5,995 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 6.193,
+          "display": "6,193 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1966,
+          "value": 6.445,
+          "display": "6,445 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1967,
+          "value": 6.195,
+          "display": "6,195 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 6.523,
+          "display": "6,523 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1969,
+          "value": 7.137,
+          "display": "7,137 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 7.291,
+          "display": "7,291 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 7.296,
+          "display": "7,296 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 7.942,
+          "display": "7,942 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 8.74,
+          "display": "8,740 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 8.31,
+          "display": "8,310 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 7.445,
+          "display": "7,445 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 8.539,
+          "display": "8,539 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 9.057,
+          "display": "9,057 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 9.527,
+          "display": "9,527 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 9.848,
+          "display": "9,848 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 9.396,
+          "display": "9,396 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 9.522,
+          "display": "9,522 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 9.09,
+          "display": "9,090 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 9.51,
+          "display": "9,510 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 9.93,
+          "display": "9,930 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 9.798,
+          "display": "9,798 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 10.112,
+          "display": "10,112 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 10.293,
+          "display": "10,293 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 10.668,
+          "display": "10,668 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 11.081,
+          "display": "11,081 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 10.886,
+          "display": "10,886 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 10.563,
+          "display": "10,563 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 10.866,
+          "display": "10,866 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 10.992,
+          "display": "10,992 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 11.56,
+          "display": "11,560 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 12.043,
+          "display": "12,043 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 12.489,
+          "display": "12,489 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 13.082,
+          "display": "13,082 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 13.44,
+          "display": "13,440 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 14.223,
+          "display": "14,223 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 15.122,
+          "display": "15,122 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 14.938,
+          "display": "14,938 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 15.133,
+          "display": "15,133 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 15.641,
+          "display": "15,641 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 16.743,
+          "display": "16,743 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 16.552,
+          "display": "16,552 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 16.917,
+          "display": "16,917 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 18.026,
+          "display": "18,026 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 17.877,
+          "display": "17,877 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 17.87,
+          "display": "17,870 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 19.136,
+          "display": "19,136 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 19.709,
+          "display": "19,709 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 20.479,
+          "display": "20,479 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 21.408,
+          "display": "21,408 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 22.906,
+          "display": "22,906 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 23.046,
+          "display": "23,046 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 23.481,
+          "display": "23,481 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 23.686,
+          "display": "23,686 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 24.466,
+          "display": "24,466 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 24.316,
+          "display": "24,316 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 24.948,
+          "display": "24,948 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 25.211,
+          "display": "25,211 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 25.83,
+          "display": "25,830 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 26.549,
+          "display": "26,549 Mio. t Cu/Jahr",
+          "uncertainty": "Vorläufiger ICSG-Wert (p).",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 26.717,
+          "display": "26,717 Mio. t Cu/Jahr",
+          "finding": "Historischer IEA-Basiswert; kein STEPS-Szenariowert.",
+          "uncertainty": "Quellenwechsel von ICSG zu IEA, ohne Kalibrierung.",
+          "sourceRefs": [
+            "iea_gcm_outlook_2025"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1960,
+          "value": 4.738,
+          "display": "4,738 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 9.396,
+          "display": "9,396 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 15.122,
+          "display": "15,122 Mio. t Cu/Jahr",
+          "sourceRefs": [
+            "icsg_factbook_2024"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 26.717,
+          "display": "26,717 Mio. t Cu/Jahr",
+          "finding": "Historischer IEA-Basiswert; kein STEPS-Szenariowert.",
+          "uncertainty": "Quellenwechsel von ICSG zu IEA, ohne Kalibrierung.",
+          "sourceRefs": [
+            "iea_gcm_outlook_2025"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_refined_copper_demand_iea_steps_2030_2050",
+          "scenario": "STEPS",
+          "scenarioLabel": "IEA STEPS · Ausgabe 2025",
+          "period": "2030–2050 · publizierte Stützwerte",
+          "method": "Global Critical Minerals Outlook 2025, Anhang S. 293, Copper demand, Total demand; ausschließlich Stated Policies. Basiswert 2024 gehört zur historischen Hauptreihe.",
+          "uncertainty": "ICSG und IEA sind nicht zahlenidentisch: 2021 meldet ICSG 25,211 und IEA 24,946 Mio. t Cu. Der Quellenwechsel ist dokumentiert, ein nahtlos kalibrierter Anschluss nicht belegt. Zukunftswerte sind ein bedingtes Szenario der IEA-Ausgabe 2025, keine Vorhersage. Die Ausgabe 2026 wird nicht beigemischt.",
+          "sourceRefs": [
+            "iea_gcm_outlook_2025"
+          ],
+          "provenance": {
+            "sourceFile": "GlobalCriticalMineralsOutlook2025.pdf",
+            "sourceUrl": "https://iea.blob.core.windows.net/assets/a33abe2e-f799-4787-b09b-2484a6f5a8e4/GlobalCriticalMineralsOutlook2025.pdf",
+            "locator": "Anhang S. 293, Copper demand; Zeile Total demand, Spalten Stated Policies 2030/2040/2050.",
+            "fields": [
+              "Total demand in kt Cu",
+              "Stated Policies 2030, 2040, 2050"
+            ],
+            "extraction": "31 348 / 34 137 / 37 451 kt Cu. Keine jährlichen Zwischenwerte.",
+            "transformation": "kt Cu / 1000 ergibt Mio. t Cu/Jahr; keine Interpolation."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 31.348,
+              "display": "31,348 Mio. t Cu/Jahr",
+              "sourceRefs": [
+                "iea_gcm_outlook_2025"
+              ]
+            },
+            {
+              "year": 2040,
+              "value": 34.137,
+              "display": "34,137 Mio. t Cu/Jahr",
+              "sourceRefs": [
+                "iea_gcm_outlook_2025"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 37.451,
+              "display": "37,451 Mio. t Cu/Jahr",
+              "sourceRefs": [
+                "iea_gcm_outlook_2025"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "global_refined_copper_demand_iea_steps_2030_2050",
+          "scenario": "STEPS",
+          "scenarioLabel": "IEA STEPS · Ausgabe 2025",
+          "period": "2030–2050 · publizierte Stützwerte",
+          "method": "Global Critical Minerals Outlook 2025, Anhang S. 293, Copper demand, Total demand; ausschließlich Stated Policies. Basiswert 2024 gehört zur historischen Hauptreihe.",
+          "uncertainty": "ICSG und IEA sind nicht zahlenidentisch: 2021 meldet ICSG 25,211 und IEA 24,946 Mio. t Cu. Der Quellenwechsel ist dokumentiert, ein nahtlos kalibrierter Anschluss nicht belegt. Zukunftswerte sind ein bedingtes Szenario der IEA-Ausgabe 2025, keine Vorhersage. Die Ausgabe 2026 wird nicht beigemischt.",
+          "sourceRefs": [
+            "iea_gcm_outlook_2025"
+          ],
+          "provenance": {
+            "sourceFile": "GlobalCriticalMineralsOutlook2025.pdf",
+            "sourceUrl": "https://iea.blob.core.windows.net/assets/a33abe2e-f799-4787-b09b-2484a6f5a8e4/GlobalCriticalMineralsOutlook2025.pdf",
+            "locator": "Anhang S. 293, Copper demand; Zeile Total demand, Spalten Stated Policies 2030/2040/2050.",
+            "fields": [
+              "Total demand in kt Cu",
+              "Stated Policies 2030, 2040, 2050"
+            ],
+            "extraction": "31 348 / 34 137 / 37 451 kt Cu. Keine jährlichen Zwischenwerte.",
+            "transformation": "kt Cu / 1000 ergibt Mio. t Cu/Jahr; keine Interpolation."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 31.348,
+              "display": "31,348 Mio. t Cu/Jahr",
+              "sourceRefs": [
+                "iea_gcm_outlook_2025"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 37.451,
+              "display": "37,451 Mio. t Cu/Jahr",
+              "sourceRefs": [
+                "iea_gcm_outlook_2025"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 65,
+          "outputPointCount": 4,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 3,
+          "outputPointCount": 2,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [
+        {
+          "year": 2024,
+          "label": "Quellenwechsel ICSG → IEA; historischer Basiswert, kein Szenario",
+          "showValues": true
+        }
+      ],
+      "sources": [
+        {
+          "id": "icsg_factbook_2024",
+          "title": "The World Copper Factbook 2024",
+          "publisher": "International Copper Study Group",
+          "year": 2024,
+          "url": "https://icsg.org/download/2024-09-23-the-world-copper-factbook-2024/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "iea_gcm_outlook_2025",
+          "title": "Global Critical Minerals Outlook 2025",
+          "publisher": "International Energy Agency",
+          "year": 2025,
+          "url": "https://iea.blob.core.windows.net/assets/a33abe2e-f799-4787-b09b-2484a6f5a8e4/GlobalCriticalMineralsOutlook2025.pdf",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_biosphere_functional_integrity_v0.1.json#biosphere_hanpp_1910_2020",
       "boundaryId": "biosphere",
       "itemId": "functional-integrity-hanpp",
@@ -25616,6 +26399,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "cfc221db7998c7d8cca3b56fcb7685b7c13201e330ad3068195c890d479de906"
+    "hash": "33449cc2fe15213656a032797c9d7da37c812e3fedb435869a33bf262abc173d"
   }
 }
