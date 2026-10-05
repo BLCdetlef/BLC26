@@ -4,6 +4,758 @@
   "manifestVersion": "1.1",
   "curves": [
     {
+      "curveId": "knowledge:data/knowledge/02_stoff_energiestroeme_aluminium_primaerproduktion_global.json#global_primary_aluminium_production_1950_2021",
+      "boundaryId": "materials-energy",
+      "itemId": "global-primary-aluminium-production",
+      "seriesId": "global_primary_aluminium_production_1950_2021",
+      "source": "data/knowledge/02_stoff_energiestroeme_aluminium_primaerproduktion_global.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globale Primäraluminiumproduktion",
+      "metric": "Globale Primäraluminiumproduktion aus Elektrolyse",
+      "unit": "Mio. t Al/Jahr",
+      "geography": "Global",
+      "dataNature": "assessed_model_estimate",
+      "worseningDirection": "increase",
+      "finding": "Produktionsdurchsatz; steigende Werte bedeuten eine größere Menge neu gewonnenen Metalls, keinen quantifizierten Umweltschaden.",
+      "uncertainty": "Die USGS-Reihe umfasst gemeldete, berechnete und geschätzte Werte. Das IAI-Szenario ist bedingt und stammt aus 2021; es ist keine aktuelle bedingungslose Prognose. Quellenwerte sind nicht identisch: 2021 USGS 67,5 und IAI-Factsheet 2024 67,1 Mio. t. Keine Kalibrierung; keine Vermischung mit späteren BAU- oder 1,5-Grad-Ausgaben.",
+      "methodNote": "1950–2021: USGS Data Series 140, World production, globale Primärproduktion. Projektion: IAI B2DS, Ausgabe 2021, fünf Stützwerte 2030/2035/2040/2045/2050. Primärmetall aus Elektrolyse; kein Recycling und keine Legierungszusätze. Quellen- und Methodenwechsel zum Szenario, ohne Niveauanpassung.",
+      "contextNotes": [
+        {
+          "id": "aluminium_projection_method",
+          "label": "Quellen- und Methodenwechsel",
+          "value": "USGS → IAI B2DS (2021)",
+          "detail": "1950–2021: USGS Data Series 140, World production, globale Primärproduktion. Projektion: IAI B2DS, Ausgabe 2021, fünf Stützwerte 2030/2035/2040/2045/2050. Primärmetall aus Elektrolyse; kein Recycling und keine Legierungszusätze. Quellen- und Methodenwechsel zum Szenario, ohne Niveauanpassung. Die USGS-Reihe umfasst gemeldete, berechnete und geschätzte Werte. Das IAI-Szenario ist bedingt und stammt aus 2021; es ist keine aktuelle bedingungslose Prognose. Quellenwerte sind nicht identisch: 2021 USGS 67,5 und IAI-Factsheet 2024 67,1 Mio. t. Keine Kalibrierung; keine Vermischung mit späteren BAU- oder 1,5-Grad-Ausgaben.",
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021",
+            "iai_b2ds_production_2021"
+          ]
+        }
+      ],
+      "observationCoverage": {
+        "startYear": 1950,
+        "endYear": 2021,
+        "spanYears": 71,
+        "pointCount": 72
+      },
+      "observationSourceRefs": [
+        "usgs_ds140_aluminum_2021"
+      ],
+      "observationProvenance": {
+        "sourceFile": "ds140-aluminum-2021.xlsx",
+        "sourceUrl": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/ds140-aluminum-2021.xlsx",
+        "locator": "Zeilen 56–127: 1950–2021; Einheit im Tabellenkopf; eingebettetes Word-Dokument, Abschnitt World Production",
+        "fields": [
+          "Year (Spalte A)",
+          "World production (Spalte P)"
+        ],
+        "extraction": "72 lückenlose Jahreswerte 1950–2021, Blatt Aluminum, Spalte P. Globale Primärproduktion in eingebetteter Methodennotiz bestätigt.",
+        "transformation": "Spalte P / 1 000 000; keine Interpolation oder Glättung"
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1950,
+          "value": 1.49,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1951,
+          "value": 1.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1952,
+          "value": 2.06,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1953,
+          "value": 2.47,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1954,
+          "value": 2.81,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 3.14,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1956,
+          "value": 3.37,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1957,
+          "value": 3.37,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1958,
+          "value": 3.51,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1959,
+          "value": 4.06,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 4.49,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1961,
+          "value": 4.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1962,
+          "value": 5.06,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1963,
+          "value": 5.32,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1964,
+          "value": 5.94,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 6.31,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1966,
+          "value": 6.88,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1967,
+          "value": 7.57,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 8.02,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1969,
+          "value": 8.97,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 9.65,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 10.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 11,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 12.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 13.2,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 12.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 12.6,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 13.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 14.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 14.6,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 15.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 15.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 13.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 13.9,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 15.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 15.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 15.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 16.5,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 18.5,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 19,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 19.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 19.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 19.5,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 19.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 19.2,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 19.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 20.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 21.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 22.6,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 23.6,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 24.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 24.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 26.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 28,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 29.9,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 31.9,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 33.9,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 37.9,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 39.7,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 37.2,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 41.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 46.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 49.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 52.2,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 54.1,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 57.8,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 59.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 59.4,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 63.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 62.6,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 65,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 67.5,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1950,
+          "value": 1.49,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 9.65,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 19.3,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 67.5,
+          "sourceRefs": [
+            "usgs_ds140_aluminum_2021"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_primary_aluminium_iai_b2ds_2030_2050",
+          "scenario": "B2DS",
+          "scenarioLabel": "IAI B2DS · Ausgabe 2021",
+          "period": "2030–2050",
+          "method": "IAI Production (Mt), Primary, B2DS-Spalte Q; Szenarionotiz: Average of BLS and BOS, used in the pathways documents. Methodik Abschnitt 2.0 definiert Primäraluminium als flüssiges Metall aus Elektrolyse.",
+          "uncertainty": "Die USGS-Reihe umfasst gemeldete, berechnete und geschätzte Werte. Das IAI-Szenario ist bedingt und stammt aus 2021; es ist keine aktuelle bedingungslose Prognose. Quellenwerte sind nicht identisch: 2021 USGS 67,5 und IAI-Factsheet 2024 67,1 Mio. t. Keine Kalibrierung; keine Vermischung mit späteren BAU- oder 1,5-Grad-Ausgaben.",
+          "sourceRefs": [
+            "iai_b2ds_production_2021"
+          ],
+          "provenance": {
+            "sourceFile": "B2DS-aligned GHG Emissions by Unit Process - Data.xlsx",
+            "sourceUrl": "https://international-aluminium.org/wp-content/uploads/2021/09/B2DS-aligned-GHG-Emissions-by-Unit-Process-Data-and-Methodology.zip",
+            "locator": "Sheet1!Q22,Q34,Q46,Q58,Q70; Spalte Q B2DS; Zeile Primary in den Jahrblöcken 2030/2035/2040/2045/2050. Szenarionotizen A80:A83.",
+            "fields": [
+              "Primary (Spalte M)",
+              "B2DS (Spalte Q)",
+              "IAI Production (Mt)"
+            ],
+            "extraction": "Fünf numerische Quellenwerte aus den zwischengespeicherten XLSX-Zellen; BLS/BOS/BRS nicht beigemischt.",
+            "transformation": "Mt = Mio. t; keine numerische Umrechnung, Glättung, Interpolation oder Kalibrierung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 65.83549656925233,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            },
+            {
+              "year": 2035,
+              "value": 70.62168292171813,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            },
+            {
+              "year": 2040,
+              "value": 77.26412240615268,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            },
+            {
+              "year": 2045,
+              "value": 80.59892450562849,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 81.45976102686238,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "global_primary_aluminium_iai_b2ds_2030_2050",
+          "scenario": "B2DS",
+          "scenarioLabel": "IAI B2DS · Ausgabe 2021",
+          "period": "2030–2050",
+          "method": "IAI Production (Mt), Primary, B2DS-Spalte Q; Szenarionotiz: Average of BLS and BOS, used in the pathways documents. Methodik Abschnitt 2.0 definiert Primäraluminium als flüssiges Metall aus Elektrolyse.",
+          "uncertainty": "Die USGS-Reihe umfasst gemeldete, berechnete und geschätzte Werte. Das IAI-Szenario ist bedingt und stammt aus 2021; es ist keine aktuelle bedingungslose Prognose. Quellenwerte sind nicht identisch: 2021 USGS 67,5 und IAI-Factsheet 2024 67,1 Mio. t. Keine Kalibrierung; keine Vermischung mit späteren BAU- oder 1,5-Grad-Ausgaben.",
+          "sourceRefs": [
+            "iai_b2ds_production_2021"
+          ],
+          "provenance": {
+            "sourceFile": "B2DS-aligned GHG Emissions by Unit Process - Data.xlsx",
+            "sourceUrl": "https://international-aluminium.org/wp-content/uploads/2021/09/B2DS-aligned-GHG-Emissions-by-Unit-Process-Data-and-Methodology.zip",
+            "locator": "Sheet1!Q22,Q34,Q46,Q58,Q70; Spalte Q B2DS; Zeile Primary in den Jahrblöcken 2030/2035/2040/2045/2050. Szenarionotizen A80:A83.",
+            "fields": [
+              "Primary (Spalte M)",
+              "B2DS (Spalte Q)",
+              "IAI Production (Mt)"
+            ],
+            "extraction": "Fünf numerische Quellenwerte aus den zwischengespeicherten XLSX-Zellen; BLS/BOS/BRS nicht beigemischt.",
+            "transformation": "Mt = Mio. t; keine numerische Umrechnung, Glättung, Interpolation oder Kalibrierung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 65.83549656925233,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 81.45976102686238,
+              "sourceRefs": [
+                "iai_b2ds_production_2021"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 72,
+          "outputPointCount": 4,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 5,
+          "outputPointCount": 2,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "usgs_ds140_aluminum_2021",
+          "title": "Aluminum – Historical Statistics (Data Series 140), 2021 update",
+          "publisher": "U.S. Geological Survey",
+          "year": 2023,
+          "url": "https://www.usgs.gov/media/files/aluminum-historical-statistics-data-series-140",
+          "access": "open_full_text"
+        },
+        {
+          "id": "iai_b2ds_production_2021",
+          "title": "B2DS-aligned GHG Emissions by Unit Process – Data and Methodology",
+          "publisher": "International Aluminium Institute",
+          "year": 2021,
+          "url": "https://international-aluminium.org/wp-content/uploads/2021/09/B2DS-aligned-GHG-Emissions-by-Unit-Process-Data-and-Methodology.zip",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/02_stoff_energiestroeme_kupfer_global.json#global_refined_copper_usage_1960_2024",
       "boundaryId": "materials-energy",
       "itemId": "global-copper-usage",
@@ -11,7 +763,7 @@
       "source": "data/knowledge/02_stoff_energiestroeme_kupfer_global.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globaler Kupferverbrauch",
       "metric": "Verbrauch/Nachfrage nach raffiniertem Kupfer",
@@ -787,6 +1539,1380 @@
       ]
     },
     {
+      "curveId": "knowledge:data/knowledge/02_stoff_energiestroeme_sand_gebaeude_global.json#global_building_sand_usage_globus_1970_2019",
+      "boundaryId": "materials-energy",
+      "itemId": "global-building-sand-usage",
+      "seriesId": "global_building_sand_usage_globus_1970_2019",
+      "source": "data/knowledge/02_stoff_energiestroeme_sand_gebaeude_global.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globaler Sandverbrauch für Gebäude",
+      "metric": "Sandbedarf für Beton und Glas in Wohn- und Nichtwohngebäuden",
+      "unit": "Mio. t/Jahr",
+      "geography": "Global",
+      "dataNature": "assessed_model_estimate",
+      "worseningDirection": "increase",
+      "coverageExceptionRuleId": "blc_documented_single_year_coverage_exception",
+      "finding": "Materialdurchsatz; steigende Werte beschreiben größere Sandmengen, keinen quantifizierten Umweltschaden.",
+      "uncertainty": "Modellierte Jahresflüsse, keine direkte Messreihe. Historische Sandintensitäten werden im Originalcode auf dem Stand 2020 gehalten; ältere Gebäudebestände beruhen auf Rückrechnungen. Erfasst sind Wohn- und Nichtwohngebäude, Beton und Glas; Straßen, Bahn und weitere Infrastruktur sowie Kies sind ausgeschlossen. Das Baseline-Szenario ist bedingt. Die breiter abgegrenzte Bauwesenstudie von Zhuang et al. wird nicht eingefügt.",
+      "methodNote": "1970–2019: historische GloBUS-Modellschätzung, aus veröffentlichten Beton- und Glaszuflüssen mit dem Sandrechenweg der Autoren abgeleitet. Ab 2020: veröffentlichter GloBUS-Baseline-Szenariopfad bis 2060. Gleiche Quelle, gleiche Gebäudeabgrenzung; Übergang von historischer Schätzung zu Zukunftsszenario, kein Quellenwechsel. Anschluss 2019 → 2020: +1,67 %; keine Niveauanpassung. Vom Benutzer am 2026-10-05 ausdrücklich freigegebene Einjahresausnahme: 1970–2019 umfasst 50 jährliche Modellwerte, aber 49 Jahre Zeitabstand. Zukunftswerte zählen nicht zur Mindestabdeckung. Keine Ergänzung früher Initialisierungswerte und keine erfundene historische Rekonstruktion.",
+      "contextNotes": [
+        {
+          "id": "building_sand_projection_transition",
+          "label": "Übergang zum Zukunftsszenario",
+          "value": "2020 · GloBUS Baseline",
+          "detail": "1970–2019: historische GloBUS-Modellschätzung, aus veröffentlichten Beton- und Glaszuflüssen mit dem Sandrechenweg der Autoren abgeleitet. Ab 2020: veröffentlichter GloBUS-Baseline-Szenariopfad bis 2060. Gleiche Quelle, gleiche Gebäudeabgrenzung; Übergang von historischer Schätzung zu Zukunftsszenario, kein Quellenwechsel. Anschluss 2019 → 2020: +1,67 %; keine Niveauanpassung. Modellierte Jahresflüsse, keine direkte Messreihe. Historische Sandintensitäten werden im Originalcode auf dem Stand 2020 gehalten; ältere Gebäudebestände beruhen auf Rückrechnungen. Erfasst sind Wohn- und Nichtwohngebäude, Beton und Glas; Straßen, Bahn und weitere Infrastruktur sowie Kies sind ausgeschlossen. Das Baseline-Szenario ist bedingt. Die breiter abgegrenzte Bauwesenstudie von Zhuang et al. wird nicht eingefügt.",
+          "sourceRefs": [
+            "globus_v1",
+            "zhong_2022"
+          ]
+        },
+        {
+          "id": "building_sand_coverage_exception",
+          "label": "Freigegebene Zeitraum-Ausnahme",
+          "value": "49 Jahre · 50 Jahreswerte",
+          "detail": "Vom Benutzer am 2026-10-05 ausdrücklich freigegebene Einjahresausnahme: 1970–2019 umfasst 50 jährliche Modellwerte, aber 49 Jahre Zeitabstand. Zukunftswerte zählen nicht zur Mindestabdeckung. Keine Ergänzung früher Initialisierungswerte und keine erfundene historische Rekonstruktion.",
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        }
+      ],
+      "observationCoverage": {
+        "startYear": 1970,
+        "endYear": 2019,
+        "spanYears": 49,
+        "pointCount": 50
+      },
+      "observationSourceRefs": [
+        "globus_v1",
+        "zhong_2022"
+      ],
+      "observationProvenance": {
+        "sourceFile": "Zh-xy/GloBUS-v1.0.zip",
+        "sourceUrl": "https://zenodo.org/records/5897264",
+        "locator": "output_material/concrete_glass_output.csv; files_recovery_rate/recovery_rate.csv; files_sand_factor/sand_primary_per_kg.csv; output_sand/Sand_total.csv; GloBUS.py, Sandberechnung",
+        "fields": [
+          "Region",
+          "flow",
+          "type",
+          "area",
+          "material",
+          "Jahresspalten 1970–2019"
+        ],
+        "extraction": "50 historische Sandwerte aus 624 Beton-/Glas-Materialzuflüssen für 26 Regionen abgeleitet; Zuordnung nach Region, Gebäudetyp, Gebiet und Material geprüft.",
+        "transformation": "Pro Region und Gebäudetyp: (Materialzufluss − min(Materialzufluss, Materialabfluss × Rückgewinnungsrate)) × Sandfaktor. Summe über alle Gebäudetypen, Beton/Glas und 26 Regionen. kt / 1000 → Mio. t. Historische Faktoren 2020 wie im Originalcode. Keine Interpolation oder zusätzliche Extrapolation."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1970,
+          "value": 835.0397729539171,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 842.9018168312076,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 1065.8742315403522,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 1123.3797092792395,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 843.3570264851936,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 912.0440465475735,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 1152.703869384011,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 1166.2710248050469,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 1249.2284348053938,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 1299.820235972212,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 1286.9686217032415,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 1098.2337420999386,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 1019.6198696831948,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 1433.45688998485,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 1519.755528056448,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 1706.0820032090398,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 1543.3514916889885,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 1734.4182383290868,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 1896.3471556554935,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 1333.7906187746153,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 1481.2491542415007,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 1634.4573339653791,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 2252.228490198638,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 2302.1886937072472,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 1881.0008385213473,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 2415.306851073486,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 2552.1754306693133,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 1956.752255767688,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 1958.9401514045371,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 2424.174005384225,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 2341.916810389965,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 1905.2296103523613,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 2230.353788078973,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 2163.53050325008,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 2717.25822467892,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 2923.1685084435035,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 3338.165347271918,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 3493.0393292614986,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 4703.308569325302,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 2762.677738238082,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 3204.9976435559934,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 5081.843750508962,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 2724.154552348115,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 2844.5431680812308,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 2814.066984562255,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 3190.3066758485625,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 3106.932750022668,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 3086.673606575941,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 3090.6069948931777,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 3117.87926250022,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1970,
+          "value": 835.0397729539171,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 1481.2491542415007,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 3117.87926250022,
+          "sourceRefs": [
+            "globus_v1"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_building_sand_globus_baseline_2020_2060",
+          "scenario": "GloBUS_baseline",
+          "scenarioLabel": "GloBUS · Baseline",
+          "period": "2020–2060",
+          "method": "1970–2019: historische GloBUS-Modellschätzung, aus veröffentlichten Beton- und Glaszuflüssen mit dem Sandrechenweg der Autoren abgeleitet. Ab 2020: veröffentlichter GloBUS-Baseline-Szenariopfad bis 2060. Gleiche Quelle, gleiche Gebäudeabgrenzung; Übergang von historischer Schätzung zu Zukunftsszenario, kein Quellenwechsel. Anschluss 2019 → 2020: +1,67 %; keine Niveauanpassung.",
+          "uncertainty": "Modellierte Jahresflüsse, keine direkte Messreihe. Historische Sandintensitäten werden im Originalcode auf dem Stand 2020 gehalten; ältere Gebäudebestände beruhen auf Rückrechnungen. Erfasst sind Wohn- und Nichtwohngebäude, Beton und Glas; Straßen, Bahn und weitere Infrastruktur sowie Kies sind ausgeschlossen. Das Baseline-Szenario ist bedingt. Die breiter abgegrenzte Bauwesenstudie von Zhuang et al. wird nicht eingefügt.",
+          "sourceRefs": [
+            "globus_v1",
+            "zhong_2022"
+          ],
+          "provenance": {
+            "sourceFile": "Zh-xy/GloBUS-v1.0.zip",
+            "sourceUrl": "https://zenodo.org/records/5897264",
+            "locator": "output_sand/Sand_total.csv; 26 Regionenzeilen, Jahresspalten 2020–2060",
+            "fields": [
+              "Region",
+              "2020–2060"
+            ],
+            "extraction": "41 Jahressummen über 26 Regionen; alle 1066 regionalen Werte mit Originalrechenweg gegengeprüft.",
+            "transformation": "Summe der regionalen kt-Werte / 1000 → Mio. t/Jahr; keine Interpolation, Kalibrierung oder Glättung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2020,
+              "value": 3169.9572457838867,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2021,
+              "value": 3062.890393306845,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2022,
+              "value": 3127.254287492748,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2023,
+              "value": 3203.875174919172,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2024,
+              "value": 3288.259743137043,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2025,
+              "value": 3378.8617953470775,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2026,
+              "value": 3211.1848918556016,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2027,
+              "value": 3290.9669852681177,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2028,
+              "value": 3372.592840083156,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2029,
+              "value": 3455.0936173543028,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2030,
+              "value": 3537.76163197597,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2031,
+              "value": 3397.5784560986363,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2032,
+              "value": 3470.4944904190065,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2033,
+              "value": 3544.4328623311753,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2034,
+              "value": 3617.981480882008,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2035,
+              "value": 3677.93339838407,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2036,
+              "value": 3555.336785503695,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2037,
+              "value": 3623.1470940819545,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2038,
+              "value": 3692.1961879794194,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2039,
+              "value": 3762.2824638835414,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2040,
+              "value": 3833.1382097897554,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2041,
+              "value": 3726.0786571545923,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2042,
+              "value": 3793.63248674967,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2043,
+              "value": 3862.275148440588,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2044,
+              "value": 3930.890659011323,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2045,
+              "value": 3999.9953494799647,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2046,
+              "value": 3861.9217733573178,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2047,
+              "value": 3927.4483043762016,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2048,
+              "value": 3994.170852848366,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2049,
+              "value": 4062.342621108381,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 4132.796406193314,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2051,
+              "value": 4120.416375736875,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2052,
+              "value": 4188.98236636936,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2053,
+              "value": 4258.462414046682,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2054,
+              "value": 4329.360634628352,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2055,
+              "value": 4401.167224580659,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2056,
+              "value": 4327.76684341098,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2057,
+              "value": 4396.284504973821,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2058,
+              "value": 4465.841140483807,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2059,
+              "value": 4536.1172421002175,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2060,
+              "value": 4607.282148599731,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "global_building_sand_globus_baseline_2020_2060",
+          "scenario": "GloBUS_baseline",
+          "scenarioLabel": "GloBUS · Baseline",
+          "period": "2020–2060",
+          "method": "1970–2019: historische GloBUS-Modellschätzung, aus veröffentlichten Beton- und Glaszuflüssen mit dem Sandrechenweg der Autoren abgeleitet. Ab 2020: veröffentlichter GloBUS-Baseline-Szenariopfad bis 2060. Gleiche Quelle, gleiche Gebäudeabgrenzung; Übergang von historischer Schätzung zu Zukunftsszenario, kein Quellenwechsel. Anschluss 2019 → 2020: +1,67 %; keine Niveauanpassung.",
+          "uncertainty": "Modellierte Jahresflüsse, keine direkte Messreihe. Historische Sandintensitäten werden im Originalcode auf dem Stand 2020 gehalten; ältere Gebäudebestände beruhen auf Rückrechnungen. Erfasst sind Wohn- und Nichtwohngebäude, Beton und Glas; Straßen, Bahn und weitere Infrastruktur sowie Kies sind ausgeschlossen. Das Baseline-Szenario ist bedingt. Die breiter abgegrenzte Bauwesenstudie von Zhuang et al. wird nicht eingefügt.",
+          "sourceRefs": [
+            "globus_v1",
+            "zhong_2022"
+          ],
+          "provenance": {
+            "sourceFile": "Zh-xy/GloBUS-v1.0.zip",
+            "sourceUrl": "https://zenodo.org/records/5897264",
+            "locator": "output_sand/Sand_total.csv; 26 Regionenzeilen, Jahresspalten 2020–2060",
+            "fields": [
+              "Region",
+              "2020–2060"
+            ],
+            "extraction": "41 Jahressummen über 26 Regionen; alle 1066 regionalen Werte mit Originalrechenweg gegengeprüft.",
+            "transformation": "Summe der regionalen kt-Werte / 1000 → Mio. t/Jahr; keine Interpolation, Kalibrierung oder Glättung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2020,
+              "value": 3169.9572457838867,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2040,
+              "value": 3833.1382097897554,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            },
+            {
+              "year": 2060,
+              "value": 4607.282148599731,
+              "sourceRefs": [
+                "globus_v1"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 50,
+          "outputPointCount": 3,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 41,
+          "outputPointCount": 3,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "globus_v1",
+          "title": "GloBUS v1.0",
+          "publisher": "Zenodo",
+          "year": 2022,
+          "url": "https://zenodo.org/records/5897264",
+          "access": "open_full_text"
+        },
+        {
+          "id": "zhong_2022",
+          "title": "Increasing material efficiencies of buildings to address the global sand crisis",
+          "publisher": "Nature Sustainability",
+          "year": 2022,
+          "url": "https://www.nature.com/articles/s41893-022-00857-0",
+          "access": "abstract_and_open_data"
+        }
+      ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/02_stoff_energiestroeme_stahlproduktion_global.json#global_crude_steel_production_worldsteel_1950_2025",
+      "boundaryId": "materials-energy",
+      "itemId": "global-crude-steel-production",
+      "seriesId": "global_crude_steel_production_worldsteel_1950_2025",
+      "source": "data/knowledge/02_stoff_energiestroeme_stahlproduktion_global.json",
+      "domainType": "influence_area",
+      "domainId": "eah_material_energy_flows",
+      "domainLabel": "Stoff- und Energieströme",
+      "curveRole": "deep_dive",
+      "label": "Globale Rohstahlproduktion",
+      "metric": "Globale Rohstahlproduktion, alle Prozessrouten",
+      "unit": "Mio. t Rohstahl/Jahr",
+      "geography": "Global",
+      "dataNature": "observed",
+      "worseningDirection": "increase",
+      "finding": "Materialdurchsatz; keine quantifizierte Umwelt- oder Gesundheitswirkung.",
+      "uncertainty": "Historische Werte sind gerundete Verbandsstatistiken mit Meldungen, Schätzungen und Revisionen. Vor 2011 sind überwiegend Fünfjahresstützwerte publiziert; fehlende Jahreswerte werden nicht ergänzt. Das IEA-Szenario stammt aus 2020 und ist keine aktuelle Prognose. IEA-Basiswert 2019: 1.869 Mio. t, revidierter worldsteel-Wert 2019: 1.879 Mio. t. Primäre und schrottbasierte Rohstahlrouten sind enthalten; Fertigstahl, Endverbrauch und Primärproduktion allein sind andere Größen.",
+      "methodNote": "1950–2025: World Steel in Figures 2026, globale Rohstahlproduktion; 28 publizierte Stützwerte. 2030/2050: IEA STEPS, Iron and Steel Technology Roadmap, Ausgabe 2020. Die IEA definiert demand in diesem Diagramm ausdrücklich als globale Rohstahlproduktion. Quellen- und Methodenwechsel von Produktionsstatistik zu bedingtem Szenario. Keine Kalibrierung; Anschluss 2025 → 2030: +13,63 % über fünf Jahre, kein unmittelbarer Niveausprung im selben Jahr.",
+      "contextNotes": [
+        {
+          "id": "steel_projection_method",
+          "label": "Quellen- und Methodenwechsel",
+          "value": "worldsteel → IEA STEPS (2020)",
+          "detail": "1950–2025: World Steel in Figures 2026, globale Rohstahlproduktion; 28 publizierte Stützwerte. 2030/2050: IEA STEPS, Iron and Steel Technology Roadmap, Ausgabe 2020. Die IEA definiert demand in diesem Diagramm ausdrücklich als globale Rohstahlproduktion. Quellen- und Methodenwechsel von Produktionsstatistik zu bedingtem Szenario. Keine Kalibrierung; Anschluss 2025 → 2030: +13,63 % über fünf Jahre, kein unmittelbarer Niveausprung im selben Jahr. Historische Werte sind gerundete Verbandsstatistiken mit Meldungen, Schätzungen und Revisionen. Vor 2011 sind überwiegend Fünfjahresstützwerte publiziert; fehlende Jahreswerte werden nicht ergänzt. Das IEA-Szenario stammt aus 2020 und ist keine aktuelle Prognose. IEA-Basiswert 2019: 1.869 Mio. t, revidierter worldsteel-Wert 2019: 1.879 Mio. t. Primäre und schrottbasierte Rohstahlrouten sind enthalten; Fertigstahl, Endverbrauch und Primärproduktion allein sind andere Größen.",
+          "sourceRefs": [
+            "worldsteel_2026",
+            "iea_steel_roadmap_2020"
+          ]
+        }
+      ],
+      "observationCoverage": {
+        "startYear": 1950,
+        "endYear": 2025,
+        "spanYears": 75,
+        "pointCount": 28
+      },
+      "observationSourceRefs": [
+        "worldsteel_2026"
+      ],
+      "observationProvenance": {
+        "sourceFile": "World Steel in Figures 2026 (HTML)",
+        "sourceUrl": "https://worldsteel.org/data/world-steel-in-figures/world-steel-in-figures-2026/",
+        "locator": "World crude steel production 1950 to 2025; Tabelle Years / World",
+        "fields": [
+          "Years",
+          "World (million tonnes)"
+        ],
+        "extraction": "28 publizierte Stützwerte; 1950–2010 überwiegend Fünfjahresschritte, 2011–2025 jährlich. Einheitlich Ausgabe 2026 einschließlich Revisionen.",
+        "transformation": "Keine Umrechnung, Glättung oder Interpolation; nur Rohstahl-Welttabelle."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1950,
+          "value": 189,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 270,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 347,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 456,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 595,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 644,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 717,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 719,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 770,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 753,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 850,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 1148,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 1435,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 1540,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 1563,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 1654,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 1676,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 1626,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 1634,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 1738,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 1831,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 1879,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 1883,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 1963,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 1889,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 1904,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 1887,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 1849,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1950,
+          "value": 189,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 270,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 347,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 456,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 595,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 644,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 717,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 719,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 770,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 753,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 850,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 1148,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 1435,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 1626,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 1883,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 1849,
+          "sourceRefs": [
+            "worldsteel_2026"
+          ]
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [
+        {
+          "id": "global_crude_steel_iea_steps_2030_2050",
+          "scenario": "STEPS",
+          "scenarioLabel": "IEA STEPS · Ausgabe 2020",
+          "period": "2030–2050",
+          "method": "1950–2025: World Steel in Figures 2026, globale Rohstahlproduktion; 28 publizierte Stützwerte. 2030/2050: IEA STEPS, Iron and Steel Technology Roadmap, Ausgabe 2020. Die IEA definiert demand in diesem Diagramm ausdrücklich als globale Rohstahlproduktion. Quellen- und Methodenwechsel von Produktionsstatistik zu bedingtem Szenario. Keine Kalibrierung; Anschluss 2025 → 2030: +13,63 % über fünf Jahre, kein unmittelbarer Niveausprung im selben Jahr.",
+          "uncertainty": "Historische Werte sind gerundete Verbandsstatistiken mit Meldungen, Schätzungen und Revisionen. Vor 2011 sind überwiegend Fünfjahresstützwerte publiziert; fehlende Jahreswerte werden nicht ergänzt. Das IEA-Szenario stammt aus 2020 und ist keine aktuelle Prognose. IEA-Basiswert 2019: 1.869 Mio. t, revidierter worldsteel-Wert 2019: 1.879 Mio. t. Primäre und schrottbasierte Rohstahlrouten sind enthalten; Fertigstahl, Endverbrauch und Primärproduktion allein sind andere Größen.",
+          "sourceRefs": [
+            "iea_steel_roadmap_2020"
+          ],
+          "provenance": {
+            "sourceFile": "IEA-Diagramm, data-chart-chartoptions",
+            "sourceUrl": "https://www.iea.org/data-and-statistics/charts/contribution-of-material-efficiency-strategies-to-reductions-in-global-steel-demand-2019-2050",
+            "locator": "Erstes data-chart-chartoptions: series[name=STEPS].data[1] = 2030 und data[5] = 2050; Jahresgruppen über xAxis.plotLines.label.text",
+            "fields": [
+              "STEPS",
+              "Mt/year",
+              "2030",
+              "2050"
+            ],
+            "extraction": "Zwei absolute Rohstahl-Produktionswerte aus eingebetteter Diagrammkonfiguration; keine Wasserfall-Differenzen oder SDS-Werte übernommen.",
+            "transformation": "Mt/year = Mio. t/Jahr; keine Digitalisierung, Interpolation, Kalibrierung oder eigene Fortschreibung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 2101,
+              "sourceRefs": [
+                "iea_steel_roadmap_2020"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2535,
+              "sourceRefs": [
+                "iea_steel_roadmap_2020"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "global_crude_steel_iea_steps_2030_2050",
+          "scenario": "STEPS",
+          "scenarioLabel": "IEA STEPS · Ausgabe 2020",
+          "period": "2030–2050",
+          "method": "1950–2025: World Steel in Figures 2026, globale Rohstahlproduktion; 28 publizierte Stützwerte. 2030/2050: IEA STEPS, Iron and Steel Technology Roadmap, Ausgabe 2020. Die IEA definiert demand in diesem Diagramm ausdrücklich als globale Rohstahlproduktion. Quellen- und Methodenwechsel von Produktionsstatistik zu bedingtem Szenario. Keine Kalibrierung; Anschluss 2025 → 2030: +13,63 % über fünf Jahre, kein unmittelbarer Niveausprung im selben Jahr.",
+          "uncertainty": "Historische Werte sind gerundete Verbandsstatistiken mit Meldungen, Schätzungen und Revisionen. Vor 2011 sind überwiegend Fünfjahresstützwerte publiziert; fehlende Jahreswerte werden nicht ergänzt. Das IEA-Szenario stammt aus 2020 und ist keine aktuelle Prognose. IEA-Basiswert 2019: 1.869 Mio. t, revidierter worldsteel-Wert 2019: 1.879 Mio. t. Primäre und schrottbasierte Rohstahlrouten sind enthalten; Fertigstahl, Endverbrauch und Primärproduktion allein sind andere Größen.",
+          "sourceRefs": [
+            "iea_steel_roadmap_2020"
+          ],
+          "provenance": {
+            "sourceFile": "IEA-Diagramm, data-chart-chartoptions",
+            "sourceUrl": "https://www.iea.org/data-and-statistics/charts/contribution-of-material-efficiency-strategies-to-reductions-in-global-steel-demand-2019-2050",
+            "locator": "Erstes data-chart-chartoptions: series[name=STEPS].data[1] = 2030 und data[5] = 2050; Jahresgruppen über xAxis.plotLines.label.text",
+            "fields": [
+              "STEPS",
+              "Mt/year",
+              "2030",
+              "2050"
+            ],
+            "extraction": "Zwei absolute Rohstahl-Produktionswerte aus eingebetteter Diagrammkonfiguration; keine Wasserfall-Differenzen oder SDS-Werte übernommen.",
+            "transformation": "Mt/year = Mio. t/Jahr; keine Digitalisierung, Interpolation, Kalibrierung oder eigene Fortschreibung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2030,
+              "value": 2101,
+              "sourceRefs": [
+                "iea_steel_roadmap_2020"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 2535,
+              "sourceRefs": [
+                "iea_steel_roadmap_2020"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 28,
+          "outputPointCount": 16,
+          "intervalYears": 5,
+          "rule": "Nur vorhandene Originalmesswerte; mindestens fünf Jahre Abstand. Erster und letzter Messpunkt sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 0,
+          "outputPointCount": 0,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 2,
+          "outputPointCount": 2,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [],
+      "sources": [
+        {
+          "id": "worldsteel_2026",
+          "title": "World Steel in Figures 2026",
+          "publisher": "worldsteel",
+          "year": 2026,
+          "url": "https://worldsteel.org/data/world-steel-in-figures/world-steel-in-figures-2026/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "iea_steel_roadmap_2020",
+          "title": "Contribution of material efficiency strategies to reductions in global steel demand, 2019–2050; Iron and Steel Technology Roadmap",
+          "publisher": "IEA",
+          "year": 2020,
+          "url": "https://www.iea.org/data-and-statistics/charts/contribution-of-material-efficiency-strategies-to-reductions-in-global-steel-demand-2019-2050",
+          "access": "open_full_text"
+        }
+      ]
+    },
+    {
       "curveId": "knowledge:data/knowledge/gwl_biosphere_functional_integrity_v0.1.json#biosphere_hanpp_1910_2020",
       "boundaryId": "biosphere",
       "itemId": "functional-integrity-hanpp",
@@ -1197,7 +3323,7 @@
       "source": "data/knowledge/gwl_cement_clinker_global_v0.1.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Zementproduktion",
       "metric": "Jährliche globale Produktion hydraulischer Zemente aller Typen · Produktionsstatistik einschließlich amtlicher Schätzwerte",
@@ -18285,7 +20411,7 @@
       "source": "data/knowledge/gwl_coal_energy_pilot_v0.1.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Energieversorgung aus Kohle · Energy Institute 2026",
       "metric": "Globale Energieversorgung aus Kohle",
@@ -20209,7 +22335,7 @@
       "source": "data/knowledge/gwl_natural_gas_energy_pilot_v0.1.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Energieversorgung aus Erdgas · Energy Institute 2026",
       "metric": "Globale Energieversorgung aus Erdgas",
@@ -22306,7 +24432,7 @@
       "source": "data/knowledge/gwl_oil_energy_pilot_v0.1b.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Energieversorgung aus Erdöl · Energy Institute 2026",
       "metric": "Globale Energieversorgung aus Erdöl",
@@ -25099,7 +27225,7 @@
       "source": "data/knowledge/gwl_solar_energy_pilot_v0.1.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Energieversorgung aus Solarenergie · Energy Institute 2026",
       "metric": "Globale Energieversorgung aus Solarenergie",
@@ -25744,7 +27870,7 @@
       "source": "data/knowledge/gwl_wind_energy_pilot_v0.1.json",
       "domainType": "influence_area",
       "domainId": "eah_material_energy_flows",
-      "domainLabel": "Rohstoffe",
+      "domainLabel": "Stoff- und Energieströme",
       "curveRole": "deep_dive",
       "label": "Globale Energieversorgung aus Wind · Energy Institute 2026",
       "metric": "Globale Energieversorgung aus Wind",
@@ -26399,6 +28525,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "bc4d2254814d2c61926fbee1f1e1eacb53fa6369f2435deeb9312277c411fdf4"
+    "hash": "6d67027390253ae0adb1abf63f694549afd8d9e508c411cfc5eb0aad54c6ac44"
   }
 }
