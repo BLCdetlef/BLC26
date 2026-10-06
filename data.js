@@ -15,6 +15,7 @@ window.BRUCHLAST_DATA = Object.freeze({
     })
   }),
   import: Object.freeze({
+    supplementalSource: "data/knowledge/germany_living_space_per_capita.json",
     source: "data/gwl/blc-curve-export-v1.json",
     format: "gwl-blc-curve-export-v1",
     version: "1.9"

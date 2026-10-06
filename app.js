@@ -187,6 +187,19 @@
       }
       validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, "Rekonstruktionen");
       validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, "Projektionen");
+      if (curve.observationSegments) {
+        const originals = new Set(curve.observations.map(pointKey));
+        const assigned = new Set();
+        for (const segment of curve.observationSegments) {
+          if (!segment.id || !segment.label || !validProvenance(segment.provenance) || !validPoints(segment.points) || !segment.points.length) fail(`${curve.curveId}: ungültiges Statistiksegment.`);
+          for (const point of segment.points) {
+            const key = pointKey(point);
+            if (!originals.has(key) || assigned.has(key)) fail(`${curve.curveId}: Statistiksegmente sind nicht eindeutig.`);
+            assigned.add(key);
+          }
+        }
+        if (assigned.size !== originals.size) fail(`${curve.curveId}: Statistiksegmente sind unvollständig.`);
+      }
       if (curve.displayDerivation?.interpolation !== false || !Array.isArray(curve.displayDerivation?.transformations) || curve.displayDerivation.transformations.length) fail(`${curve.curveId}: transparente Darstellungsherleitung fehlt.`);
       for (const note of curve.contextNotes || []) {
         if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(`${curve.curveId}: unvollständiger ergänzender Kontext.`);
@@ -215,7 +228,7 @@
     appendLabeledText(overview, "Segment", segment.label);
     if (segment.period) appendLabeledText(overview, "Zeitraum", segment.period);
     if (presentation[curve.seriesId]?.scaleNote) appendLabeledText(overview, "Darstellung", presentation[curve.seriesId].scaleNote);
-    if (segment.type === "observed" && presentation[curve.seriesId]?.observationMethod) {
+    if (segment.type === "observed" && (presentation[curve.seriesId]?.observationMethod || curve.observationSegments)) {
       appendLabeledText(overview, "Methode", segment.method);
     }
     if (curve.seriesId === "global_cement_production_1926_2024_owid_usgs") {
@@ -376,6 +389,10 @@
     return `${source}-Szenario`;
   }
   function resolveSegment(curve, selection = selectedSegment) {
+    if (curve.observationSegments && (!selection || selection.curveId !== curve.curveId || selection.type === "observed")) {
+      const data = curve.observationSegments.find(segment => segment.id === selection?.id) || curve.observationSegments.at(-1);
+      return { ...data, type: "observed", displayPointCount: curve.displayObservations.filter(point => data.points.some(original => pointKey(original) === pointKey(point))).length, derivationKey: "observations" };
+    }
     if (selection?.curveId === curve.curveId && selection.type === "historical" && presentation[curve.seriesId]?.showHistoricalReconstruction !== false) {
       const data = (curve.historicalReconstruction || []).find(item => item.id === selection.id);
       const display = (curve.displayHistoricalReconstruction || []).find(item => item.id === selection.id);
@@ -428,7 +445,7 @@
       actions.appendChild(originalDataLink);
     }
     const importedDataLink = document.createElement("a");
-    importedDataLink.href = config.import.source;
+    importedDataLink.href = curve.localImport ? config.import.supplementalSource : config.import.source;
     importedDataLink.target = "_blank";
     importedDataLink.rel = "noopener noreferrer";
     importedDataLink.textContent = "Importierte Daten anzeigen";
@@ -1144,11 +1161,27 @@
         }
       }
       if (visibleSegments.observed) {
-        const pathData = makePath(curve.observations, x, y);
-        const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: pathData });
-        bindSegmentInteraction(observedPath, curve, "observed", "observations", `${meta.label} · Messwerte`);
-        curveGroup.appendChild(observedPath);
-        bindTouchTarget(curveGroup, curve, "observed", "observations", meta.label, curve.observations, color, y, pathData);
+        const segments = curve.observationSegments || [{ id: "observations", label: "Messwerte", points: curve.observations }];
+        segments.forEach(segment => {
+          const pathData = makePath(segment.points, x, y);
+          const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: pathData });
+          bindSegmentInteraction(observedPath, curve, "observed", segment.id, `${meta.label} · ${segment.label}`);
+          curveGroup.appendChild(observedPath);
+          bindTouchTarget(curveGroup, curve, "observed", segment.id, meta.label, segment.points, color, y, pathData);
+        });
+        (curve.methodBreaks || []).filter(marker => marker.showMarker === true).forEach(marker => {
+          const point = curve.observations.find(point => Number(point.year) === Number(marker.year));
+          if (!point) return;
+          const group = svgElement("g", { class: "curve-method-break", role: "img", "aria-label": `${marker.year}: ${marker.label}` });
+          group.appendChild(svgElement("line", { stroke: color, "stroke-width": 1.5, "stroke-dasharray": "3 3", x1: x(marker.year), x2: x(marker.year), y1: y(point.value) - 16, y2: y(point.value) + 16 }));
+          appendText(group, "text", String(marker.year), { x: x(marker.year) + 5, y: y(point.value) - 18, fill: color, "font-size": 11 });
+          const title = svgElement("title");
+          title.textContent = `${marker.year}: ${marker.label}`;
+          group.appendChild(title);
+          const segment = segments.find(segment => segment.points.some(original => pointKey(original) === pointKey(point)));
+          bindSegmentInteraction(group, curve, "observed", segment.id, `${meta.label} · ${marker.label}`);
+          curveGroup.appendChild(group);
+        });
       }
       if (visibleSegments.projection) (curve.projections || []).forEach(projection => {
         const first = projection.points.reduce((earliest, point) => Number(point.year) < Number(earliest.year) ? point : earliest, projection.points[0]);
@@ -1183,10 +1216,11 @@
       });
       if (visibleSegments.observed) curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-        bindSegmentInteraction(circle, curve, "observed", "observations", `${meta.label} · Messwerte`);
+        const segment = curve.observationSegments?.find(segment => segment.points.some(original => pointKey(original) === pointKey(point)));
+        bindSegmentInteraction(circle, curve, "observed", segment?.id || "observations", `${meta.label} · ${segment?.label || "Messwerte"}`);
         const tooltip = svgElement("title");
         const dataType = curve.dataNature === "assessed_model_estimate" ? "wissenschaftlich geschätzt" : "beobachtet";
-        tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed")} · ${dataType} · unveränderter Quellenwert`;
+        tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed")} · ${segment?.label || dataType} · unveränderter Quellenwert`;
         circle.appendChild(tooltip);
         curveGroup.appendChild(circle);
       });
@@ -1228,6 +1262,22 @@
       if (!response.ok) fail(`Lokales Übergabepaket nicht verfügbar (${response.status}).`);
       const payload = await response.json();
       const hash = await verifyExport(payload);
+      if (config.import.supplementalSource) {
+        const localUrl = new URL(config.import.supplementalSource, window.location.href);
+        if (localUrl.origin !== window.location.origin) fail("Externe Ergänzungsquellen sind nicht erlaubt.");
+        const localResponse = await fetch(localUrl, { cache: "no-store", credentials: "same-origin" });
+        if (!localResponse.ok) fail("Lokale Ergänzungsreihe nicht verfügbar.");
+        const localPayload = await localResponse.json();
+        await verifyExport(localPayload);
+        const ids = new Set(payload.curves.map(curve => curve.curveId));
+        const series = new Set(payload.curves.map(curve => curve.seriesId));
+        for (const curve of localPayload.curves) {
+          if (ids.has(curve.curveId) || series.has(curve.seriesId)) fail("Doppelte lokale Ergänzungsreihe.");
+          ids.add(curve.curveId);
+          series.add(curve.seriesId);
+          payload.curves.push({ ...curve, localImport: true });
+        }
+      }
       allCurves = payload.curves;
       await loadCertificates();
       try {

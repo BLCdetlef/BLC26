@@ -1,0 +1,1205 @@
+{
+  "format": "gwl-blc-curve-export-v1",
+  "version": "1.9",
+  "manifestVersion": "blc-local-housing-2026-10-06",
+  "curves": [
+    {
+      "curveId": "knowledge:data/knowledge/germany_living_space_per_capita.json#germany_living_space_per_capita_1950_2025",
+      "seriesId": "germany_living_space_per_capita_1950_2025",
+      "source": "data/knowledge/germany_living_space_per_capita.json",
+      "domainType": "influence_area",
+      "domainId": "eah_tech_social_environment",
+      "domainLabel": "Technologische & soziale Umwelt",
+      "curveRole": "deep_dive",
+      "label": "Wohnfläche je Einwohner · Deutschland",
+      "metric": "Verfügbare Wohnfläche des Wohnungsbestands pro Einwohner; bis 1989 früheres Bundesgebiet",
+      "unit": "m²/Person",
+      "geography": "Früheres Bundesgebiet bis 1989; Gesamtdeutschland ab 1990",
+      "dataNature": "observed",
+      "worseningDirection": "increase",
+      "finding": "Amtliche Bestandskennzahl zur Wohnflächenentwicklung; keine Aussage über Verteilung oder individuelle Wohnversorgung.",
+      "uncertainty": "Frühe Werte nur für das frühere Bundesgebiet. Gebiets- und Methodenwechsel werden als getrennte Statistiksegmente dargestellt. Kein gesamtdeutscher Rückschluss vor 1990; keine Zukunftsprojektion belegt.",
+      "methodNote": "Historische amtliche Statistik 1950–1989 und Wohnungsfortschreibung 1990–2025. Wohnungsbestand geteilt durch Bevölkerung, einschließlich Leerstand; vor 2010 ohne Wohnheime. Linien verbinden nur Werte innerhalb desselben Statistiksegments. Keine West-Ost-Korrektur oder Interpolation.",
+      "observationCoverage": {
+        "startYear": 1950,
+        "endYear": 2025
+      },
+      "observationSourceRefs": [
+        "uba_2003",
+        "destatis_1990",
+        "destatis_2003",
+        "destatis_2016",
+        "destatis_2026"
+      ],
+      "observationProvenance": {
+        "sourceFile": "GENESIS 31231-0001",
+        "sourceUrl": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Wohnen/Tabellen/liste-wohnungsbestand.html",
+        "locator": "Wohnungsbestand im Zeitvergleich, Deutschland; Zeile Wohnfläche je Einwohner, Spalten 2022–2025, Fußnote 2; Stand 16.07.2026.",
+        "fields": [
+          "Jahr / Stichtag",
+          "Wohnfläche je Person / Einwohner (m²)"
+        ],
+        "extraction": "48,9 / 49,0 / 49,2 / 49,5 m²/Einwohner.",
+        "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+      },
+      "observations": [
+        {
+          "year": 1950,
+          "value": 15,
+          "display": "15,0 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 19.4,
+          "display": "19,4 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 23.8,
+          "display": "23,8 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 26.4,
+          "display": "26,4 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 31.1,
+          "display": "31,1 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 33.6,
+          "display": "33,6 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 35.5,
+          "display": "35,5 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 36.9,
+          "display": "36,9 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 36.7,
+          "display": "36,7 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 34.8,
+          "display": "34,8 m²/Person",
+          "sourceRefs": [
+            "destatis_1990"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 34.9,
+          "display": "34,9 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 35.1,
+          "display": "35,1 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 35.4,
+          "display": "35,4 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 36.2,
+          "display": "36,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 36.7,
+          "display": "36,7 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 37.2,
+          "display": "37,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 37.9,
+          "display": "37,9 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 38.4,
+          "display": "38,4 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 39,
+          "display": "39,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 39.5,
+          "display": "39,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 39.8,
+          "display": "39,8 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 40.1,
+          "display": "40,1 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 40.5,
+          "display": "40,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 40.8,
+          "display": "40,8 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 41.2,
+          "display": "41,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 41.6,
+          "display": "41,6 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 41.9,
+          "display": "41,9 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 42.2,
+          "display": "42,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 42.5,
+          "display": "42,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 45,
+          "display": "45,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 46.1,
+          "display": "46,1 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 46.2,
+          "display": "46,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 46.3,
+          "display": "46,3 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 46.5,
+          "display": "46,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 46.2,
+          "display": "46,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 46.3,
+          "display": "46,3 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 46.5,
+          "display": "46,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 46.7,
+          "display": "46,7 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 47,
+          "display": "47,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 47.4,
+          "display": "47,4 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 47.7,
+          "display": "47,7 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 48.9,
+          "display": "48,9 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 49,
+          "display": "49,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2024,
+          "value": 49.2,
+          "display": "49,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 49.5,
+          "display": "49,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1950,
+          "value": 15,
+          "display": "15,0 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 19.4,
+          "display": "19,4 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 23.8,
+          "display": "23,8 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 31.1,
+          "display": "31,1 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 35.5,
+          "display": "35,5 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 36.7,
+          "display": "36,7 m²/Person",
+          "sourceRefs": [
+            "uba_2003"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 34.8,
+          "display": "34,8 m²/Person",
+          "sourceRefs": [
+            "destatis_1990"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 35.4,
+          "display": "35,4 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 36.2,
+          "display": "36,2 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 39,
+          "display": "39,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 40.8,
+          "display": "40,8 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 42.5,
+          "display": "42,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 45,
+          "display": "45,0 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 46.1,
+          "display": "46,1 m²/Person",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 46.3,
+          "display": "46,3 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 47.7,
+          "display": "47,7 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 48.9,
+          "display": "48,9 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 49.5,
+          "display": "49,5 m²/Person",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        }
+      ],
+      "observationSegments": [
+        {
+          "id": "west",
+          "label": "Früheres Bundesgebiet · historische Statistik",
+          "period": "1950–1989",
+          "method": "Historische amtliche Wohnflächenstatistik; bis 1989 ausschließlich früheres Bundesgebiet.",
+          "sourceRefs": [
+            "uba_2003"
+          ],
+          "provenance": {
+            "sourceFile": "2341.pdf",
+            "sourceUrl": "https://www.umweltbundesamt.de/sites/default/files/medien/publikation/long/2341.pdf",
+            "locator": "Tabelle 2.2-1, gedruckte S. 7 / PDF-S. 23; Zeilen 1950–1989; Fußnote zum Gebietsstand.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "Neun veröffentlichte Stützwerte. Angaben ab 1990 dieser Tabelle werden wegen abweichender Werte nicht übernommen.",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 1950,
+              "value": 15,
+              "display": "15,0 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1960,
+              "value": 19.4,
+              "display": "19,4 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1968,
+              "value": 23.8,
+              "display": "23,8 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1972,
+              "value": 26.4,
+              "display": "26,4 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1978,
+              "value": 31.1,
+              "display": "31,1 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1982,
+              "value": 33.6,
+              "display": "33,6 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1987,
+              "value": 35.5,
+              "display": "35,5 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1988,
+              "value": 36.9,
+              "display": "36,9 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            },
+            {
+              "year": 1989,
+              "value": 36.7,
+              "display": "36,7 m²/Person",
+              "sourceRefs": [
+                "uba_2003"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "germany_old",
+          "label": "Gesamtdeutschland · alte Zählungsgrundlagen",
+          "period": "1990–1993",
+          "method": "West 1990: 36,4 m²; Gesamtdeutschland: 34,8 m². Differenz 1,6 m² (4,4 % des Westwertes); keine rechnerische Anpassung früherer Werte.",
+          "sourceRefs": [
+            "destatis_1990",
+            "destatis_2003"
+          ],
+          "provenance": {
+            "sourceFile": "2050300037004.pdf",
+            "sourceUrl": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00005698/2050300037004.pdf",
+            "locator": "Tabelle 1.1, PDF-S. 5, Zeilen Deutschland 1991–1993; Methodik PDF-S. 3. 1990 separat aus Destatis: 35 Jahre Deutsche Einheit, Abschnitt Wohnfläche pro Kopf steigt.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "1990: 34,8; 1991: 34,9; 1992: 35,1; 1993: 35,4 m²/Einwohner.",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 1990,
+              "value": 34.8,
+              "display": "34,8 m²/Person",
+              "sourceRefs": [
+                "destatis_1990"
+              ]
+            },
+            {
+              "year": 1991,
+              "value": 34.9,
+              "display": "34,9 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1992,
+              "value": 35.1,
+              "display": "35,1 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1993,
+              "value": 35.4,
+              "display": "35,4 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "germany_1995",
+          "label": "Gesamtdeutschland · GWZ 1987/1995",
+          "period": "1994–2009",
+          "method": "Ab Berichtsjahr 1994 basieren die ostdeutschen Bestandsergebnisse auf der Gebäude- und Wohnungszählung 1995; davor Zählung 1981. Der Sprung ist nicht als reiner Zuwachs zu lesen.",
+          "sourceRefs": [
+            "destatis_2003",
+            "destatis_2016"
+          ],
+          "provenance": {
+            "sourceFile": "2050300037004.pdf / 2050300167004.pdf",
+            "sourceUrl": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00005698/2050300037004.pdf",
+            "locator": "2003: Tabelle 1.1, PDF-S. 5, Deutschland 1994–2003, Fußnote 1 und Methodik PDF-S. 3. 2016: Tabelle 1.1, PDF-S. 6, Deutschland 2004–2009.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "16 publizierte Jahreswerte; zweite Fundstelle: https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033055/2050300167004.pdf",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 1994,
+              "value": 36.2,
+              "display": "36,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1995,
+              "value": 36.7,
+              "display": "36,7 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1996,
+              "value": 37.2,
+              "display": "37,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1997,
+              "value": 37.9,
+              "display": "37,9 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1998,
+              "value": 38.4,
+              "display": "38,4 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 1999,
+              "value": 39,
+              "display": "39,0 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 2000,
+              "value": 39.5,
+              "display": "39,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 2001,
+              "value": 39.8,
+              "display": "39,8 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 2002,
+              "value": 40.1,
+              "display": "40,1 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 2003,
+              "value": 40.5,
+              "display": "40,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2003"
+              ]
+            },
+            {
+              "year": 2004,
+              "value": 40.8,
+              "display": "40,8 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2005,
+              "value": 41.2,
+              "display": "41,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2006,
+              "value": 41.6,
+              "display": "41,6 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2007,
+              "value": 41.9,
+              "display": "41,9 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2008,
+              "value": 42.2,
+              "display": "42,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2009,
+              "value": 42.5,
+              "display": "42,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "germany_2010",
+          "label": "Gesamtdeutschland · revidierter Bestand 2010",
+          "period": "2010–2010",
+          "method": "Die veröffentlichte Reihe verwendet ab 2010 die Gebäude- und Wohnungszählung 2011 einschließlich Wohnheimen. Bis 2009 sind Wohnheime nicht enthalten; keine Verbindung über den Methodenwechsel.",
+          "sourceRefs": [
+            "destatis_2016"
+          ],
+          "provenance": {
+            "sourceFile": "2050300167004.pdf",
+            "sourceUrl": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033055/2050300167004.pdf",
+            "locator": "Tabelle 1.1, PDF-S. 6, Deutschland 2010, Fußnote 1.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "45,0 m²; einzelner belegter Punkt, kein künstlicher Anschluss.",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 2010,
+              "value": 45,
+              "display": "45,0 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "germany_2011",
+          "label": "Gesamtdeutschland · Zensus 2011",
+          "period": "2011–2021",
+          "method": "Zusätzlich zur neuen Wohnungsgrundlage ändert sich die Bevölkerungsgrundlage durch den Zensus 2011. Die Veränderung pro Kopf umfasst statistische Revisionen.",
+          "sourceRefs": [
+            "destatis_2016",
+            "destatis_2026"
+          ],
+          "provenance": {
+            "sourceFile": "2050300167004.pdf / GENESIS 31231-0001",
+            "sourceUrl": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033055/2050300167004.pdf",
+            "locator": "Tabelle 1.1, PDF-S. 6, Deutschland 2011–2014. 2015–2021: aktuelle GENESIS-Tabelle 31231-0001, Wohnfläche je Einwohner.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "2011–2014 aus Fachserie; 2015–2021 aus aktuellem GENESIS-Stand, einschließlich revidiertem Wert 2016 = 46,3 statt 46,5 in der Ausgabe 2016.",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 2011,
+              "value": 46.1,
+              "display": "46,1 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2012,
+              "value": 46.2,
+              "display": "46,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2013,
+              "value": 46.3,
+              "display": "46,3 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2014,
+              "value": 46.5,
+              "display": "46,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2016"
+              ]
+            },
+            {
+              "year": 2015,
+              "value": 46.2,
+              "display": "46,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2016,
+              "value": 46.3,
+              "display": "46,3 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2017,
+              "value": 46.5,
+              "display": "46,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2018,
+              "value": 46.7,
+              "display": "46,7 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2019,
+              "value": 47,
+              "display": "47,0 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2020,
+              "value": 47.4,
+              "display": "47,4 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2021,
+              "value": 47.7,
+              "display": "47,7 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "germany_2022",
+          "label": "Gesamtdeutschland · Zensus 2022",
+          "period": "2022–2025",
+          "method": "Ab 2022 Fortschreibung auf Basis der Gebäude- und Wohnungszählung 2022 sowie der neuen Bevölkerungsgrundlage. 47,7 → 48,9 m² enthält einen Methodenwechsel.",
+          "sourceRefs": [
+            "destatis_2026"
+          ],
+          "provenance": {
+            "sourceFile": "GENESIS 31231-0001",
+            "sourceUrl": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Wohnen/Tabellen/liste-wohnungsbestand.html",
+            "locator": "Wohnungsbestand im Zeitvergleich, Deutschland; Zeile Wohnfläche je Einwohner, Spalten 2022–2025, Fußnote 2; Stand 16.07.2026.",
+            "fields": [
+              "Jahr / Stichtag",
+              "Wohnfläche je Person / Einwohner (m²)"
+            ],
+            "extraction": "48,9 / 49,0 / 49,2 / 49,5 m²/Einwohner.",
+            "transformation": "Keine Interpolation, Glättung, Niveauverschiebung oder pauschale West-Ost-Korrektur; publizierte Werte unverändert."
+          },
+          "points": [
+            {
+              "year": 2022,
+              "value": 48.9,
+              "display": "48,9 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2023,
+              "value": 49,
+              "display": "49,0 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2024,
+              "value": 49.2,
+              "display": "49,2 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            },
+            {
+              "year": 2025,
+              "value": 49.5,
+              "display": "49,5 m²/Person",
+              "sourceRefs": [
+                "destatis_2026"
+              ]
+            }
+          ]
+        }
+      ],
+      "methodBreaks": [
+        {
+          "year": 1990,
+          "label": "Gebietswechsel: früheres Bundesgebiet → Gesamtdeutschland",
+          "detail": "West 1990: 36,4 m²; Gesamtdeutschland: 34,8 m². Differenz 1,6 m² (4,4 % des Westwertes); keine rechnerische Anpassung früherer Werte.",
+          "showValues": true,
+          "showMarker": true
+        },
+        {
+          "year": 1994,
+          "label": "Neue Zählungsgrundlage im Osten",
+          "detail": "Ab Berichtsjahr 1994 basieren die ostdeutschen Bestandsergebnisse auf der Gebäude- und Wohnungszählung 1995; davor Zählung 1981. Der Sprung ist nicht als reiner Zuwachs zu lesen.",
+          "showValues": true,
+          "showMarker": true
+        },
+        {
+          "year": 2010,
+          "label": "Zensus 2011: neue Wohnungsgrundlage",
+          "detail": "Die veröffentlichte Reihe verwendet ab 2010 die Gebäude- und Wohnungszählung 2011 einschließlich Wohnheimen. Bis 2009 sind Wohnheime nicht enthalten; keine Verbindung über den Methodenwechsel.",
+          "showValues": true,
+          "showMarker": true
+        },
+        {
+          "year": 2011,
+          "label": "Zensus 2011: Bevölkerungsgrundlage",
+          "detail": "Zusätzlich zur neuen Wohnungsgrundlage ändert sich die Bevölkerungsgrundlage durch den Zensus 2011. Die Veränderung pro Kopf umfasst statistische Revisionen.",
+          "showValues": true,
+          "showMarker": true
+        },
+        {
+          "year": 2022,
+          "label": "Neue Grundlage: Zensus 2022",
+          "detail": "Ab 2022 Fortschreibung auf Basis der Gebäude- und Wohnungszählung 2022 sowie der neuen Bevölkerungsgrundlage. 47,7 → 48,9 m² enthält einen Methodenwechsel.",
+          "showValues": true,
+          "showMarker": true
+        }
+      ],
+      "historicalReconstruction": [],
+      "displayHistoricalReconstruction": [],
+      "projections": [],
+      "displayProjections": [],
+      "reference": {
+        "type": "no_planetary_threshold",
+        "display": "Für Wohnfläche pro Kopf ist hier kein belastbarer planetarer Grenzwert definiert."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "status": "not_assessable",
+          "reason": "no_planetary_threshold"
+        },
+        "highRisk": {
+          "status": "not_assessable",
+          "reason": "no_planetary_threshold"
+        }
+      },
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 45,
+          "outputPointCount": 18,
+          "intervalYears": 5,
+          "rule": "Vorhandene Werte im Abstand von mindestens fünf Jahren innerhalb eines Statistiksegments; erste und letzte Werte sowie beide Seiten aller Methodenwechsel bleiben sichtbar. Keine Linienverbindung zwischen Segmenten."
+        }
+      },
+      "contextNotes": [
+        {
+          "id": "housing_break_1990",
+          "label": "Gebietswechsel: früheres Bundesgebiet → Gesamtdeutschland",
+          "value": "1990",
+          "detail": "West 1990: 36,4 m²; Gesamtdeutschland: 34,8 m². Differenz 1,6 m² (4,4 % des Westwertes); keine rechnerische Anpassung früherer Werte.",
+          "sourceRefs": [
+            "destatis_1990"
+          ]
+        },
+        {
+          "id": "housing_break_1994",
+          "label": "Neue Zählungsgrundlage im Osten",
+          "value": "1994",
+          "detail": "Ab Berichtsjahr 1994 basieren die ostdeutschen Bestandsergebnisse auf der Gebäude- und Wohnungszählung 1995; davor Zählung 1981. Der Sprung ist nicht als reiner Zuwachs zu lesen.",
+          "sourceRefs": [
+            "destatis_2003"
+          ]
+        },
+        {
+          "id": "housing_break_2010",
+          "label": "Zensus 2011: neue Wohnungsgrundlage",
+          "value": "2010",
+          "detail": "Die veröffentlichte Reihe verwendet ab 2010 die Gebäude- und Wohnungszählung 2011 einschließlich Wohnheimen. Bis 2009 sind Wohnheime nicht enthalten; keine Verbindung über den Methodenwechsel.",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "id": "housing_break_2011",
+          "label": "Zensus 2011: Bevölkerungsgrundlage",
+          "value": "2011",
+          "detail": "Zusätzlich zur neuen Wohnungsgrundlage ändert sich die Bevölkerungsgrundlage durch den Zensus 2011. Die Veränderung pro Kopf umfasst statistische Revisionen.",
+          "sourceRefs": [
+            "destatis_2016"
+          ]
+        },
+        {
+          "id": "housing_break_2022",
+          "label": "Neue Grundlage: Zensus 2022",
+          "value": "2022",
+          "detail": "Ab 2022 Fortschreibung auf Basis der Gebäude- und Wohnungszählung 2022 sowie der neuen Bevölkerungsgrundlage. 47,7 → 48,9 m² enthält einen Methodenwechsel.",
+          "sourceRefs": [
+            "destatis_2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "uba_2003",
+          "title": "Berücksichtigung von Umweltgesichtspunkten bei Subventionen – Sektorstudie Wohnungsbau",
+          "publisher": "Umweltbundesamt / ifo",
+          "year": 2003,
+          "url": "https://www.umweltbundesamt.de/sites/default/files/medien/publikation/long/2341.pdf"
+        },
+        {
+          "id": "destatis_1990",
+          "title": "35 Jahre Deutsche Einheit",
+          "publisher": "Statistisches Bundesamt",
+          "year": 2025,
+          "url": "https://www.destatis.de/DE/Themen/Querschnitt/35-Jahre-Deutsche-Einheit/_inhalt.html"
+        },
+        {
+          "id": "destatis_2003",
+          "title": "Bestand an Wohnungen 2003 – Fachserie 5 Reihe 3",
+          "publisher": "Statistisches Bundesamt",
+          "year": 2004,
+          "url": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00005698/2050300037004.pdf"
+        },
+        {
+          "id": "destatis_2016",
+          "title": "Bestand an Wohnungen 2016 – Fachserie 5 Reihe 3",
+          "publisher": "Statistisches Bundesamt",
+          "year": 2017,
+          "url": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033055/2050300167004.pdf"
+        },
+        {
+          "id": "destatis_2026",
+          "title": "Wohnungsbestand im Zeitvergleich / GENESIS 31231-0001",
+          "publisher": "Statistisches Bundesamt",
+          "year": 2026,
+          "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Wohnen/Tabellen/liste-wohnungsbestand.html"
+        }
+      ]
+    }
+  ],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "hash": "2955ffd62be4d1d14c08e89938ae3c35c32373d0a528af9d1f168a884fcc2571"
+  }
+}
