@@ -11,7 +11,7 @@ window.BRUCHLAST_DATA = Object.freeze({
         "knowledge:data/knowledge/gwl_climate_arctic_september_sea_ice_v0.1.json#arctic_september_sea_ice_area_1979_2024",
         "knowledge:data/knowledge/gwl_climate_temperature_global_v0.2.json#global_temperature_hadcrut5_1850_2025"
       ]),
-      segments: Object.freeze({ observed: true, historical: true, projection: false })
+      segments: Object.freeze({ observed: true, historical: true, projection: true })
     })
   }),
   import: Object.freeze({

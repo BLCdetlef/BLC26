@@ -10,6 +10,6 @@
   "segments": {
     "observed": true,
     "historical": true,
-    "projection": false
+    "projection": true
   }
 }
