@@ -22291,7 +22291,22 @@
           "boundary_baseline und boundary_upper_end → Referenzbereich"
         ],
         "extraction": "Aus der jährlichen Quellreihe wurden die vorhandenen Werte für 1905, 1910, …, 2015 und das letzte Jahr 2019 übernommen.",
-        "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation und kein Ablesen aus einer Abbildung."
+        "transformation": "Quellanteile wurden mit 100 in Prozent umgerechnet und auf zwei Dezimalstellen gerundet; keine Interpolation und kein Ablesen aus einer Abbildung.",
+        "valueExample": {
+          "year": 2019,
+          "sourceValue": 0.228374699767961,
+          "sourceUnit": "Anteil zwischen 0 und 1",
+          "divisor": 0.01,
+          "roundingDigits": 2,
+          "sourceLine": 120,
+          "sourceColumn": "ensemble_median",
+          "sourceColumnNumber": 6,
+          "retrievedAt": "07.10.2026",
+          "sourceHeader": "\"variable\";\"area\";\"year\";\"scenario\";\"class\";\"ensemble_median\";\"IQR_min\";\"IQR_max\";\"boundary_baseline\";\"boundary_upper_end\"",
+          "sourceRow": "\"dis\";\"global\";2019;\"obsclim_histsoc_default\";\"summed_deviations\";0.228374699767961;0.195545998233646;0.314432584019097;0.103120271152472;0.129369214836191",
+          "sourceLocator": "Virkki et al. (2026), Zenodo-Datensatz 19663531, Version v1.0.0, Datei PHC_dis_global_land_area_with_local_deviations_annual_mean_ensemble_median_IQR.csv. CSV-Zeile 120 (Kopfzeile zählt als Zeile 1), Spalte 6 „ensemble_median“: 0.228374699767961. Zeilenauswahl: variable=dis; area=global; year=2019; scenario=obsclim_histsoc_default; class=summed_deviations. Die Datei verwendet Semikolons als Feldtrenner. Download geprüft am 07.10.2026; MD5 2f4ebd7961fa88ca57e37e4c1ff27bb8.",
+          "calculationText": "Der Quellenwert ist der Median eines Modellensembles für den jährlichen Anteil der globalen eisfreien Landfläche mit ungewöhnlich hohem oder niedrigem Abfluss; es handelt sich nicht um eine Wassermenge. Der Datenanbieter liefert diesen Flächenanteil bereits als ensemble_median. GWL berechnet weder den Ensemble-Median noch den Flächenanteil erneut. Umrechnung: 0,228374699767961 × 100 = 22,8374699767961 %. Gleichwertig: Anteil ÷ 0,01. Speicherung und Anzeige auf zwei Nachkommastellen: round(22,8374699767961; 2) = 22,84 %. Die X-Koordinate 2019 wird aus Spalte 3 „year“ unverändert übernommen. Der Quellenwert ist ein Jahreswert, kein gleitendes Zehnjahresmittel. Die Unsicherheitsgrenzen werden ebenso umgerechnet: IQR_min 0,195545998233646 × 100 → 19,55 %; IQR_max 0,314432584019097 × 100 → 31,44 %. Der Referenzwert 12,94 % ist eine separate Modellgrenze und kein Divisor dieser Umrechnung. Keine zusätzliche Mittelung, Interpolation oder Schätzung aus einer Abbildung im GWL-Import."
+        }
       },
       "reference": {
         "type": "planetary_boundaries_model",
@@ -32734,6 +32749,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "36af01ea7a66bbbab5e997ace2ad52d42fba72cbf872a72336e4734105fae4ac"
+    "hash": "3316e6052947f44e6445257fa80e5d1e87baf8df9f14aa3f1ef1bb7738e18634"
   }
 }
