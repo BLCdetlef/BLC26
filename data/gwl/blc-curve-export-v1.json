@@ -5139,7 +5139,17 @@
           "nsidc_cdr → monatliche Meereisfläche der Nordhalbkugel in 10^6 km²"
         ],
         "extraction": "Ausgelesen wurden alle 46 Septemberwerte 1979–2024 aus nsidc_cdr. Quelldatei geprüft mit MD5 2e51a0e75d689ad84889beb656e6901d.",
-        "transformation": "Keine Glättung, Mittelung oder Interpolation im GWL-Import; 10^6 km² wird nur als Mio. km² beschriftet."
+        "transformation": "Septemberwerte werden auf sechs Nachkommastellen gespeichert. Keine Glättung, zusätzliche Mittelung oder Interpolation im GWL-Import; 10^6 km² wird nur als Mio. km² beschriftet.",
+        "valueExample": {
+          "year": 2024,
+          "sourceValue": 3.895940124988556,
+          "sourceUnit": "10⁶ km²",
+          "divisor": 1,
+          "roundingDigits": 6,
+          "sourceLocator": "UHH Sea Ice Area Product, Version 2025_fv0.01, Datei SeaIceArea__NorthernHemisphere__monthly__UHH__v2025_fv0.01.nc, Variable nsidc_cdr[2096] bei nullbasierter Zählung (2097. Zeitelement bei Zählung ab 1). Zugehörige Zeitkoordinate: time[2096] = 63811 Tage seit 1850-01-01; das liegt im September 2024. Rohwert: 3.895940124988556; Variablenattribut units = 1e6 km2. Originaldatei am 07.10.2026 ausgelesen; MD5 2e51a0e75d689ad84889beb656e6901d. Die NetCDF-Datei hat keine CSV-Zeilennummern; Variable und Zeitindex identifizieren den Wert eindeutig.",
+          "sourceUrl": "https://www.fdr.uni-hamburg.de/record/18163/files/SeaIceArea__NorthernHemisphere__monthly__UHH__v2025_fv0.01.nc?download=1",
+          "calculationText": "Auswahl: nsidc_cdr und Zeitkoordinate im September 2024 → Rohwert 3,895940124988556 in 10⁶ km². Das UHH-Produkt liefert bereits ein Monatsmittel; GWL berechnet daraus weder ein Jahresmittel noch ein tägliches Minimum. 10⁶ km² = Mio. km², daher keine Einheitenumrechnung. Speicherung auf sechs Nachkommastellen: round(3,895940124988556; 6) = 3,895940 Mio. km² → JSON-Wert 3.89594. Tooltip auf zwei Nachkommastellen: 3,90 Mio. km². Die X-Koordinate ist das Jahr 2024, ausgewählt aus dem September-Zeitelement. Keine zusätzliche Mittelung, Glättung oder Interpolation im GWL-Import."
+        }
       },
       "thresholdAssessments": {
         "boundary": {
@@ -32704,6 +32714,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "0a5a44b7457faf16336b07994d5303e0ce72dc8af85e35f0e9c4ad8f68270933"
+    "hash": "d4cb2b55d3f25cc9dbd3aea5fab9f4c41edd020faa0062c5fda7416db5e249c1"
   }
 }

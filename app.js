@@ -502,7 +502,10 @@
     const example = segment.provenance?.valueExample;
     if (!example) return;
     const point = segment.points.find(item => item.year === example.year);
-    if (!point || point.value !== example.sourceValue / example.divisor) return;
+    const convertedValue = example.sourceValue / example.divisor;
+    const storedValue = Number.isInteger(example.roundingDigits) && example.roundingDigits >= 0 && example.roundingDigits <= 12
+      ? Number(convertedValue.toFixed(example.roundingDigits)) : convertedValue;
+    if (!point || point.value !== storedValue) return;
     const location = importedExampleLocation(curve, segment, point);
     const block = document.createElement("section");
     block.className = "curve-value-example";
@@ -678,7 +681,7 @@
   }
   function pointDisplay(point, unit) {
     const display = point.display || `${point.value} ${unit}`;
-    const valueOnly = display.replace(new RegExp(`^${point.year}:\\s*`), "");
+    const valueOnly = display.replace(new RegExp(`^${point.year}\\s*[:·]\\s*`), "");
     return `${point.year} · ${valueOnly}`;
   }
   function createLegend(curves, onSelect) {
