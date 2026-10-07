@@ -29736,7 +29736,19 @@
           "Population"
         ],
         "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-        "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+        "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+        "valueExample": {
+          "year": 1990,
+          "sourceValue": 5327803106,
+          "sourceUnit": "Menschen",
+          "divisor": 1000000000,
+          "sourceLine": 77290,
+          "sourceColumn": "Population",
+          "sourceColumnNumber": 5,
+          "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+          "sourceRow": "World,OWID_WRL,1990,,5327803106",
+          "retrievedAt": "2026-10-07"
+        }
       },
       "thresholdAssessments": {
         "boundary": {
@@ -30403,7 +30415,19 @@
               "Population"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 1700,
+              "sourceValue": 595456896,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77090,
+              "sourceColumn": "Population",
+              "sourceColumnNumber": 5,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,1700,,595456896",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "points": [
             {
@@ -30508,7 +30532,19 @@
               "Population"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 1900,
+              "sourceValue": 1627273655,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77200,
+              "sourceColumn": "Population",
+              "sourceColumnNumber": 5,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,1900,,1627273655",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "points": [
             {
@@ -31735,7 +31771,19 @@
               "Population"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 1700,
+              "sourceValue": 595456896,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77090,
+              "sourceColumn": "Population",
+              "sourceColumnNumber": 5,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,1700,,595456896",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "points": [
             {
@@ -31800,7 +31848,19 @@
               "Population"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 1900,
+              "sourceValue": 1627273655,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77200,
+              "sourceColumn": "Population",
+              "sourceColumnNumber": 5,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,1900,,1627273655",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "points": [
             {
@@ -31892,7 +31952,19 @@
               "Population (projections) (Projected)"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 2100,
+              "sourceValue": 10180160744,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77400,
+              "sourceColumn": "Population (projections) (Projected)",
+              "sourceColumnNumber": 4,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,2100,10180160744,",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "grade": "qualified_scenario_projection",
           "points": [
@@ -32537,7 +32609,19 @@
               "Population (projections) (Projected)"
             ],
             "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
-            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung.",
+            "valueExample": {
+              "year": 2100,
+              "sourceValue": 10180160744,
+              "sourceUnit": "Menschen",
+              "divisor": 1000000000,
+              "sourceLine": 77400,
+              "sourceColumn": "Population (projections) (Projected)",
+              "sourceColumnNumber": 4,
+              "sourceHeader": "Entity,Code,Year,Population (projections) (Projected),Population",
+              "sourceRow": "World,OWID_WRL,2100,10180160744,",
+              "retrievedAt": "2026-10-07"
+            }
           },
           "grade": "qualified_scenario_projection",
           "points": [
@@ -32654,6 +32738,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "b76ad25d8211609b7fd173e3057574fc1a3badcd5efcb340cdeecbbf76bd3d09"
+    "hash": "6bc132dbdb7eff399de11317064f734b44340d62c84233e519b1d36cd1a3df84"
   }
 }

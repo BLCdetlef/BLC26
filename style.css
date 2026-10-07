@@ -271,3 +271,8 @@ html.is-embed-view .embed-full-link:focus-visible { background: var(--ink); colo
   }
 }
 @media (prefers-reduced-motion: reduce) { .side-panel, .panel-handle, .curve-detail-panel { transition: none; } }
+
+.curve-value-example { margin: .7rem 0; padding: .65rem; background: #f3f2ec; border: 1px solid #dedcd4; font-size: .72rem; }
+.curve-value-example ol { margin: .5rem 0 0; padding-left: 1.3rem; }
+.curve-value-example li { margin-bottom: .7rem; }
+.curve-value-example pre { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; font-size: .65rem; padding: .4rem; background: #fff; }

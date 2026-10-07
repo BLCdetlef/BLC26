@@ -26,6 +26,7 @@
   const allowedThresholdStatuses = new Set(["crossed", "already_crossed_at_start", "not_crossed", "series_ends_before_known_crossing", "not_assessable"]);
   const seriesColors = ["#171717", "#b4472d", "#24708a", "#66843c", "#745084", "#9b762d"];
   let allCurves = [];
+  let importedExportText = "";
   let selectedCurveId = null;
   let selectedSegment = null;
   let startView = null;
@@ -459,6 +460,86 @@
     section.appendChild(actions);
     panel.appendChild(section);
   }
+  function importedExampleLocation(curve, segment, point) {
+    const curveIndex = allCurves.indexOf(curve);
+    let listKey = "observations", listIndex = -1, displayKey = "displayObservations";
+    if (segment.type === "historical") {
+      listKey = "historicalReconstruction";
+      displayKey = "displayHistoricalReconstruction";
+      listIndex = curve[listKey].findIndex(item => item.id === segment.id);
+    } else if (segment.type === "projection") {
+      listKey = "projections";
+      displayKey = "displayProjections";
+      listIndex = curve[listKey].findIndex(item => item.id === segment.id);
+    }
+    const fullPoints = listIndex < 0 ? curve.observations : curve[listKey][listIndex].points;
+    const displayIndex = listIndex < 0 ? -1 : curve[displayKey].findIndex(item => item.id === segment.id);
+    const shownPoints = displayIndex < 0 ? curve.displayObservations : curve[displayKey][displayIndex].points;
+    const pointIndex = fullPoints.findIndex(item => pointKey(item) === pointKey(point));
+    const shownIndex = shownPoints.findIndex(item => pointKey(item) === pointKey(point));
+    const pointer = listIndex < 0 ? '/curves/' + curveIndex + '/observations/' + pointIndex : '/curves/' + curveIndex + '/' + listKey + '/' + listIndex + '/points/' + pointIndex;
+    const displayPointer = displayIndex < 0 ? '/curves/' + curveIndex + '/displayObservations/' + shownIndex : '/curves/' + curveIndex + '/' + displayKey + '/' + displayIndex + '/points/' + shownIndex;
+    const locate = (key, segmentId) => {
+      const curveStart = importedExportText.indexOf('"curveId": ' + JSON.stringify(curve.curveId));
+      if (curveStart < 0) return null;
+      let start = importedExportText.indexOf('"' + key + '": [', curveStart);
+      if (start < 0) return null;
+      if (segmentId) {
+        start = importedExportText.indexOf('"id": ' + JSON.stringify(segmentId), start);
+        if (start < 0) return null;
+        start = importedExportText.indexOf('"points": [', start);
+      }
+      const pattern = new RegExp('"year":\\s*' + point.year + '\\s*,\\s*"value":\\s*' + String(point.value).replaceAll('.', '\\.') + '(?=\\s*[,}])');
+      const match = pattern.exec(importedExportText.slice(start));
+      if (!match) return null;
+      const yearOffset = start + match.index;
+      const valueOffset = yearOffset + match[0].indexOf('"value"');
+      return {yearLine: importedExportText.slice(0, yearOffset).split(/\r?\n/).length, valueLine: importedExportText.slice(0, valueOffset).split(/\r?\n/).length};
+    };
+    return {pointer, displayPointer: shownIndex >= 0 ? displayPointer : null, lines: locate(listKey, listIndex < 0 ? null : segment.id), displayLines: shownIndex >= 0 ? locate(displayKey, displayIndex < 0 ? null : segment.id) : null};
+  }
+  function appendSegmentValueExample(parent, curve, segment) {
+    const example = segment.provenance?.valueExample;
+    if (!example) return;
+    const point = segment.points.find(item => item.year === example.year);
+    if (!point || point.value !== example.sourceValue / example.divisor) return;
+    const location = importedExampleLocation(curve, segment, point);
+    const block = document.createElement("section");
+    block.className = "curve-value-example";
+    const title = document.createElement("strong");
+    title.textContent = "Ein Wert rückwärts nachvollzogen";
+    block.appendChild(title);
+    const steps = document.createElement("ol");
+    const step = (label, text) => {
+      const item = document.createElement("li");
+      appendLabeledText(item, label, text);
+      steps.appendChild(item);
+      return item;
+    };
+    const precise = value => new Intl.NumberFormat("de-DE", {maximumFractionDigits: 12}).format(value);
+    step("Anzeige im Diagramm", 'X-Achse: Jahr ' + point.year + '. Y-Wert der Kurve: ' + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.');
+    const imported = step("Importierte Daten anzeigen", (location.lines ? 'Jahr in Zeile ' + location.lines.yearLine + ', Wert in Zeile ' + location.lines.valueLine + '. ' : '') + 'JSON-Pfad: ' + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
+    if (location.displayPointer) appendLabeledText(imported, "Sichtbare Punktmarke", (location.displayLines ? 'Jahr in Zeile ' + location.displayLines.yearLine + ', Wert in Zeile ' + location.displayLines.valueLine + '. ' : '') + 'Dieselbe Koordinate unter ' + location.displayPointer + '.');
+    const importLink = document.createElement("a");
+    importLink.href = config.import.source;
+    importLink.target = "_blank";
+    importLink.rel = "noopener noreferrer";
+    importLink.textContent = "Importierte Daten anzeigen";
+    imported.appendChild(importLink);
+    const original = step("Originaldatensatz öffnen", 'CSV-Zeile ' + example.sourceLine + ' (Kopfzeile zählt als Zeile 1), Spalte ' + example.sourceColumnNumber + ' „' + example.sourceColumn + '“: ' + precise(example.sourceValue) + ' ' + example.sourceUnit + '. Identifikation: Entity=World; Code=OWID_WRL; Year=' + example.year + '. Zeilennummer bezieht sich auf den Download vom ' + example.retrievedAt + '; bei einer neuen Datenversion kann sie sich ändern.');
+    const raw = document.createElement("pre");
+    raw.textContent = example.sourceHeader + '\n' + example.sourceRow;
+    original.appendChild(raw);
+    const originalLink = document.createElement("a");
+    originalLink.href = segment.provenance.sourceUrl;
+    originalLink.target = "_blank";
+    originalLink.rel = "noopener noreferrer";
+    originalLink.textContent = "Originaldatensatz öffnen";
+    original.appendChild(originalLink);
+    step("Rechenweg", precise(example.sourceValue) + ' Menschen ÷ ' + precise(example.divisor) + ' = ' + precise(point.value) + ' ' + curve.unit + '. Tooltip gerundet auf höchstens drei Nachkommastellen: ' + point.display + '. Das Jahr ' + point.year + ' wird unverändert übernommen. Keine Interpolation oder Glättung.');
+    block.appendChild(steps);
+    parent.appendChild(block);
+  }
   function appendSegmentDataDocumentation(panel, curve, segment) {
     const details = document.createElement("details");
     details.className = "curve-data-documentation";
@@ -466,6 +547,7 @@
     const summary = document.createElement("summary");
     summary.textContent = "Aufbereitung und Auswahlregeln anzeigen";
     details.appendChild(summary);
+    appendSegmentValueExample(details, curve, segment);
     const rule = curve.displayDerivation?.[segment.derivationKey];
     if (rule) appendLabeledText(details, "Punktauswahl", `${segment.points?.length || 0} belegte Werte → ${segment.displayPointCount || 0} sichtbare Punkte. ${rule.rule}`);
     appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
@@ -1267,7 +1349,8 @@
       if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
       const response = await fetch(sourceUrl, { cache: "no-store", credentials: "same-origin" });
       if (!response.ok) fail(`Lokales Übergabepaket nicht verfügbar (${response.status}).`);
-      const payload = await response.json();
+      importedExportText = await response.text();
+      const payload = JSON.parse(importedExportText);
       const hash = await verifyExport(payload);
       allCurves = payload.curves;
       await loadCertificates();
