@@ -29696,11 +29696,2964 @@
           "url": "https://www.iea.org/reports/the-role-of-critical-minerals-in-clean-energy-transitions/mineral-requirements-for-clean-energy-transitions"
         }
       ]
+    },
+    {
+      "curveId": "knowledge:data/knowledge/world_population_global.json#world_population_un_1950_2023",
+      "boundaryId": "mental-load",
+      "itemId": "world-population",
+      "seriesId": "world_population_un_1950_2023",
+      "source": "data/knowledge/world_population_global.json",
+      "domainType": "influence_area",
+      "domainId": "eah_tech_social_environment",
+      "domainLabel": "Technologische & soziale Umwelt",
+      "curveRole": "deep_dive",
+      "label": "Weltbevölkerung – UN",
+      "metric": "Weltbevölkerung zur Jahresmitte",
+      "unit": "Mrd. Menschen",
+      "geography": "Global",
+      "dataNature": "assessed_model_estimate",
+      "worseningDirection": "increase",
+      "finding": "Bevölkerungsgröße; steigende Werte bedeuten mehr Menschen, keine bewertete Verschlechterung.",
+      "uncertainty": "Demografische Schätzungen, keine jährliche Vollzählung. Quellenwechsel 1800 und 1950 ohne Kalibrierung. Bevölkerungszahl allein beschreibt weder Umweltbelastung noch eine ökologische Tragfähigkeitsgrenze oder individuelle Gesundheitswirkung.",
+      "methodNote": "1700–1799: publizierte HYDE-3.3-Stützwerte; 1800–1949: Gapminder v7, Weltaggregation durch OWID; 1950–2023: UN WPP 2024, Bevölkerung zur Jahresmitte; 2024–2100: UN WPP 2024, mittlere Projektion. Bezug der World-Reihen über OWID, keine eigene Länderaggregation. Alle Abschnitte ohne zeitliche Überlappung; nur Originalstützwerte, Umrechnung in Milliarden Menschen.",
+      "observationCoverage": {
+        "startYear": 1950,
+        "endYear": 2023,
+        "spanYears": 73,
+        "pointCount": 74
+      },
+      "observationSourceRefs": [
+        "un_wpp_2024"
+      ],
+      "observationProvenance": {
+        "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+        "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+        "locator": "Entity=World, Code=OWID_WRL, Year=1950–2023; Population. Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+        "fields": [
+          "Entity",
+          "Code",
+          "Year",
+          "Population"
+        ],
+        "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+        "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+      },
+      "thresholdAssessments": {
+        "boundary": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        },
+        "highRisk": {
+          "thresholdValue": null,
+          "thresholdUnit": null,
+          "exceedanceOperator": null,
+          "status": "not_assessable",
+          "reason": "threshold_definition_incomplete_or_unit_mismatch"
+        }
+      },
+      "observations": [
+        {
+          "year": 1950,
+          "value": 2.493092852,
+          "display": "2,493 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1951,
+          "value": 2.536927034,
+          "display": "2,537 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1952,
+          "value": 2.58408634,
+          "display": "2,584 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1953,
+          "value": 2.634106241,
+          "display": "2,634 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1954,
+          "value": 2.685894857,
+          "display": "2,686 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1955,
+          "value": 2.740213796,
+          "display": "2,74 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1956,
+          "value": 2.795409991,
+          "display": "2,795 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1957,
+          "value": 2.852618331,
+          "display": "2,853 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1958,
+          "value": 2.911249671,
+          "display": "2,911 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1959,
+          "value": 2.96595035,
+          "display": "2,966 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1960,
+          "value": 3.015470889,
+          "display": "3,015 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1961,
+          "value": 3.064869675,
+          "display": "3,065 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1962,
+          "value": 3.123374312,
+          "display": "3,123 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1963,
+          "value": 3.192807826,
+          "display": "3,193 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1964,
+          "value": 3.264487343,
+          "display": "3,264 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1965,
+          "value": 3.33453371,
+          "display": "3,335 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1966,
+          "value": 3.404041131,
+          "display": "3,404 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1967,
+          "value": 3.473412877,
+          "display": "3,473 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1968,
+          "value": 3.545187246,
+          "display": "3,545 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1969,
+          "value": 3.619491581,
+          "display": "3,619 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 3.694683794,
+          "display": "3,695 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1971,
+          "value": 3.769847867,
+          "display": "3,77 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1972,
+          "value": 3.844917684,
+          "display": "3,845 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1973,
+          "value": 3.920805041,
+          "display": "3,921 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1974,
+          "value": 3.9964161,
+          "display": "3,996 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1975,
+          "value": 4.070735279,
+          "display": "4,071 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1976,
+          "value": 4.144246382,
+          "display": "4,144 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1977,
+          "value": 4.217863796,
+          "display": "4,218 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1978,
+          "value": 4.292097499,
+          "display": "4,292 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1979,
+          "value": 4.36853952,
+          "display": "4,369 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1980,
+          "value": 4.44760624,
+          "display": "4,448 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1981,
+          "value": 4.528777306,
+          "display": "4,529 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1982,
+          "value": 4.612673415,
+          "display": "4,613 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1983,
+          "value": 4.697327573,
+          "display": "4,697 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1984,
+          "value": 4.782175518,
+          "display": "4,782 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1985,
+          "value": 4.868943457,
+          "display": "4,869 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1986,
+          "value": 4.958072839,
+          "display": "4,958 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1987,
+          "value": 5.04974639,
+          "display": "5,05 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1988,
+          "value": 5.14199254,
+          "display": "5,142 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1989,
+          "value": 5.234431736,
+          "display": "5,234 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 5.327803106,
+          "display": "5,328 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1991,
+          "value": 5.418735886,
+          "display": "5,419 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1992,
+          "value": 5.505989815,
+          "display": "5,506 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1993,
+          "value": 5.591544802,
+          "display": "5,592 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1994,
+          "value": 5.675551258,
+          "display": "5,676 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1995,
+          "value": 5.758878977,
+          "display": "5,759 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1996,
+          "value": 5.84205573,
+          "display": "5,842 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1997,
+          "value": 5.924787819,
+          "display": "5,925 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1998,
+          "value": 6.007066691,
+          "display": "6,007 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1999,
+          "value": 6.089006328,
+          "display": "6,089 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2000,
+          "value": 6.171702992,
+          "display": "6,172 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2001,
+          "value": 6.254936464,
+          "display": "6,255 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2002,
+          "value": 6.337730343,
+          "display": "6,338 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2003,
+          "value": 6.420361633,
+          "display": "6,42 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2004,
+          "value": 6.503377774,
+          "display": "6,503 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2005,
+          "value": 6.586970132,
+          "display": "6,587 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2006,
+          "value": 6.671452019,
+          "display": "6,671 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2007,
+          "value": 6.757308776,
+          "display": "6,757 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2008,
+          "value": 6.844457659,
+          "display": "6,844 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2009,
+          "value": 6.932766416,
+          "display": "6,933 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2010,
+          "value": 7.021732143,
+          "display": "7,022 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2011,
+          "value": 7.110923773,
+          "display": "7,111 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2012,
+          "value": 7.201202478,
+          "display": "7,201 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2013,
+          "value": 7.291793585,
+          "display": "7,292 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2014,
+          "value": 7.381616239,
+          "display": "7,382 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2015,
+          "value": 7.470491876,
+          "display": "7,47 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2016,
+          "value": 7.558554527,
+          "display": "7,559 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2017,
+          "value": 7.645617952,
+          "display": "7,646 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2018,
+          "value": 7.729902779,
+          "display": "7,73 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2019,
+          "value": 7.811293699,
+          "display": "7,811 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2020,
+          "value": 7.887001289,
+          "display": "7,887 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2021,
+          "value": 7.954448387,
+          "display": "7,954 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2022,
+          "value": 8.021407196,
+          "display": "8,021 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 8.091734933,
+          "display": "8,092 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        }
+      ],
+      "displayObservations": [
+        {
+          "year": 1950,
+          "value": 2.493092852,
+          "display": "2,493 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1970,
+          "value": 3.694683794,
+          "display": "3,695 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 1990,
+          "value": 5.327803106,
+          "display": "5,328 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        },
+        {
+          "year": 2023,
+          "value": 8.091734933,
+          "display": "8,092 Mrd. Menschen",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ]
+        }
+      ],
+      "historicalReconstruction": [
+        {
+          "id": "world_population_hyde_1700_1799",
+          "label": "Historische Rekonstruktion · HYDE 3.3",
+          "period": "1700–1799 · verfügbare Stützwerte",
+          "method": "HYDE 3.3 (2023), globale historische Rekonstruktion via OWID.",
+          "uncertainty": "Historische Rekonstruktion mit unregelmäßigen Stützjahren; keine ergänzten Zwischenwerte.",
+          "sourceRefs": [
+            "hyde_2023"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=1700–1799; Population. Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "points": [
+            {
+              "year": 1700,
+              "value": 0.595456896,
+              "display": "0,595 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1710,
+              "value": 0.617975872,
+              "display": "0,618 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1720,
+              "value": 0.648184768,
+              "display": "0,648 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1730,
+              "value": 0.670899968,
+              "display": "0,671 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1740,
+              "value": 0.702227776,
+              "display": "0,702 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1750,
+              "value": 0.753279296,
+              "display": "0,753 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1760,
+              "value": 0.788254976,
+              "display": "0,788 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1770,
+              "value": 0.827951488,
+              "display": "0,828 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1780,
+              "value": 0.900945152,
+              "display": "0,901 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1790,
+              "value": 0.942261696,
+              "display": "0,942 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "world_population_gapminder_1800_1949",
+          "label": "Historische Rekonstruktion · Gapminder v7",
+          "period": "1800–1949",
+          "method": "Gapminder v7 (2022); publizierte Weltaggregation von OWID.",
+          "uncertainty": "Historische Schätzungen; Anschluss an HYDE und UN ohne Niveaukorrektur.",
+          "sourceRefs": [
+            "gapminder_v7"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=1800–1949; Population. Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "points": [
+            {
+              "year": 1800,
+              "value": 0.983104755,
+              "display": "0,983 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1801,
+              "value": 0.986464967,
+              "display": "0,986 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1802,
+              "value": 0.98986475,
+              "display": "0,99 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1803,
+              "value": 0.993304404,
+              "display": "0,993 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1804,
+              "value": 0.996784263,
+              "display": "0,997 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1805,
+              "value": 1.000304675,
+              "display": "1 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1806,
+              "value": 1.003866016,
+              "display": "1,004 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1807,
+              "value": 1.007468698,
+              "display": "1,007 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1808,
+              "value": 1.011113144,
+              "display": "1,011 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1809,
+              "value": 1.014799822,
+              "display": "1,015 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1810,
+              "value": 1.020150076,
+              "display": "1,02 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1811,
+              "value": 1.025557675,
+              "display": "1,026 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1812,
+              "value": 1.031616616,
+              "display": "1,032 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1813,
+              "value": 1.038342722,
+              "display": "1,038 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1814,
+              "value": 1.045238421,
+              "display": "1,045 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1815,
+              "value": 1.052307852,
+              "display": "1,052 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1816,
+              "value": 1.059555372,
+              "display": "1,06 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1817,
+              "value": 1.066985519,
+              "display": "1,067 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1818,
+              "value": 1.074603043,
+              "display": "1,075 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1819,
+              "value": 1.082114553,
+              "display": "1,082 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1820,
+              "value": 1.089507052,
+              "display": "1,09 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1821,
+              "value": 1.096534977,
+              "display": "1,097 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1822,
+              "value": 1.103392066,
+              "display": "1,103 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1823,
+              "value": 1.110594705,
+              "display": "1,111 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1824,
+              "value": 1.117897019,
+              "display": "1,118 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1825,
+              "value": 1.125304048,
+              "display": "1,125 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1826,
+              "value": 1.132861806,
+              "display": "1,133 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1827,
+              "value": 1.140524282,
+              "display": "1,141 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1828,
+              "value": 1.148292956,
+              "display": "1,148 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1829,
+              "value": 1.15561846,
+              "display": "1,156 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1830,
+              "value": 1.162497339,
+              "display": "1,162 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1831,
+              "value": 1.168886301,
+              "display": "1,169 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1832,
+              "value": 1.174792985,
+              "display": "1,175 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1833,
+              "value": 1.180213555,
+              "display": "1,18 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1834,
+              "value": 1.185694036,
+              "display": "1,186 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1835,
+              "value": 1.191237685,
+              "display": "1,191 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1836,
+              "value": 1.196838401,
+              "display": "1,197 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1837,
+              "value": 1.202503348,
+              "display": "1,203 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1838,
+              "value": 1.208233715,
+              "display": "1,208 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1839,
+              "value": 1.213934891,
+              "display": "1,214 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1840,
+              "value": 1.219617217,
+              "display": "1,22 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1841,
+              "value": 1.22528381,
+              "display": "1,225 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1842,
+              "value": 1.230929323,
+              "display": "1,231 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1843,
+              "value": 1.236555463,
+              "display": "1,237 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1844,
+              "value": 1.242258939,
+              "display": "1,242 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1845,
+              "value": 1.248042343,
+              "display": "1,248 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1846,
+              "value": 1.253907423,
+              "display": "1,254 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1847,
+              "value": 1.259855932,
+              "display": "1,26 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1848,
+              "value": 1.26588973,
+              "display": "1,266 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1849,
+              "value": 1.271136843,
+              "display": "1,271 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1850,
+              "value": 1.275602897,
+              "display": "1,276 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1851,
+              "value": 1.27876818,
+              "display": "1,279 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1852,
+              "value": 1.281158448,
+              "display": "1,281 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1853,
+              "value": 1.282781891,
+              "display": "1,283 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1854,
+              "value": 1.284514999,
+              "display": "1,285 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1855,
+              "value": 1.28635912,
+              "display": "1,286 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1856,
+              "value": 1.288315736,
+              "display": "1,288 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1857,
+              "value": 1.290386388,
+              "display": "1,29 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1858,
+              "value": 1.2925727,
+              "display": "1,293 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1859,
+              "value": 1.29512186,
+              "display": "1,295 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1860,
+              "value": 1.298027373,
+              "display": "1,298 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1861,
+              "value": 1.301279942,
+              "display": "1,301 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1862,
+              "value": 1.3048831,
+              "display": "1,305 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1863,
+              "value": 1.308825538,
+              "display": "1,309 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1864,
+              "value": 1.312850777,
+              "display": "1,313 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1865,
+              "value": 1.31695221,
+              "display": "1,317 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1866,
+              "value": 1.321129252,
+              "display": "1,321 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1867,
+              "value": 1.325389634,
+              "display": "1,325 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1868,
+              "value": 1.329732282,
+              "display": "1,33 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1869,
+              "value": 1.334654211,
+              "display": "1,335 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1870,
+              "value": 1.340168478,
+              "display": "1,34 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1871,
+              "value": 1.346202715,
+              "display": "1,346 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1872,
+              "value": 1.352896118,
+              "display": "1,353 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1873,
+              "value": 1.360163018,
+              "display": "1,36 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1874,
+              "value": 1.367501771,
+              "display": "1,368 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1875,
+              "value": 1.374940414,
+              "display": "1,375 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1876,
+              "value": 1.382459121,
+              "display": "1,382 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1877,
+              "value": 1.390028839,
+              "display": "1,39 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1878,
+              "value": 1.397666358,
+              "display": "1,398 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1879,
+              "value": 1.405838237,
+              "display": "1,406 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1880,
+              "value": 1.414583216,
+              "display": "1,415 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1881,
+              "value": 1.423919001,
+              "display": "1,424 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1882,
+              "value": 1.433850986,
+              "display": "1,434 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1883,
+              "value": 1.444371648,
+              "display": "1,444 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1884,
+              "value": 1.455021634,
+              "display": "1,455 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1885,
+              "value": 1.465857041,
+              "display": "1,466 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1886,
+              "value": 1.476798447,
+              "display": "1,477 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1887,
+              "value": 1.487893376,
+              "display": "1,488 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1888,
+              "value": 1.499115427,
+              "display": "1,499 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1889,
+              "value": 1.510109709,
+              "display": "1,51 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1890,
+              "value": 1.520891633,
+              "display": "1,521 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1891,
+              "value": 1.531425085,
+              "display": "1,531 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1892,
+              "value": 1.541712153,
+              "display": "1,542 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1893,
+              "value": 1.551756342,
+              "display": "1,552 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1894,
+              "value": 1.561938512,
+              "display": "1,562 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1895,
+              "value": 1.572272041,
+              "display": "1,572 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1896,
+              "value": 1.582693744,
+              "display": "1,583 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1897,
+              "value": 1.593261169,
+              "display": "1,593 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1898,
+              "value": 1.603953574,
+              "display": "1,604 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1899,
+              "value": 1.615300901,
+              "display": "1,615 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1900,
+              "value": 1.627273655,
+              "display": "1,627 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1901,
+              "value": 1.639887187,
+              "display": "1,64 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1902,
+              "value": 1.653151632,
+              "display": "1,653 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1903,
+              "value": 1.667064512,
+              "display": "1,667 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1904,
+              "value": 1.681154888,
+              "display": "1,681 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1905,
+              "value": 1.69542751,
+              "display": "1,695 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1906,
+              "value": 1.7098873,
+              "display": "1,71 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1907,
+              "value": 1.724558347,
+              "display": "1,725 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1908,
+              "value": 1.73944148,
+              "display": "1,739 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1909,
+              "value": 1.753729257,
+              "display": "1,754 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1910,
+              "value": 1.767417985,
+              "display": "1,767 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1911,
+              "value": 1.780422213,
+              "display": "1,78 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1912,
+              "value": 1.792912374,
+              "display": "1,793 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1913,
+              "value": 1.804803374,
+              "display": "1,805 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1914,
+              "value": 1.816884694,
+              "display": "1,817 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1915,
+              "value": 1.829102909,
+              "display": "1,829 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1916,
+              "value": 1.841395693,
+              "display": "1,841 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1917,
+              "value": 1.853777065,
+              "display": "1,854 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1918,
+              "value": 1.866778878,
+              "display": "1,867 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1919,
+              "value": 1.880624916,
+              "display": "1,881 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1920,
+              "value": 1.895426673,
+              "display": "1,895 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1921,
+              "value": 1.910916276,
+              "display": "1,911 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1922,
+              "value": 1.927207651,
+              "display": "1,927 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1923,
+              "value": 1.944216846,
+              "display": "1,944 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1924,
+              "value": 1.9614892,
+              "display": "1,961 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1925,
+              "value": 1.979027667,
+              "display": "1,979 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1926,
+              "value": 1.996813608,
+              "display": "1,997 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1927,
+              "value": 2.014848732,
+              "display": "2,015 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1928,
+              "value": 2.033160306,
+              "display": "2,033 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1929,
+              "value": 2.052125441,
+              "display": "2,052 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1930,
+              "value": 2.071786711,
+              "display": "2,072 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1931,
+              "value": 2.092158599,
+              "display": "2,092 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1932,
+              "value": 2.113215566,
+              "display": "2,113 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1933,
+              "value": 2.134919626,
+              "display": "2,135 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1934,
+              "value": 2.156892673,
+              "display": "2,157 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1935,
+              "value": 2.179140887,
+              "display": "2,179 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1936,
+              "value": 2.201762907,
+              "display": "2,202 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1937,
+              "value": 2.224730578,
+              "display": "2,225 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1938,
+              "value": 2.248127325,
+              "display": "2,248 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1939,
+              "value": 2.270675197,
+              "display": "2,271 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1940,
+              "value": 2.291979566,
+              "display": "2,292 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1941,
+              "value": 2.312098978,
+              "display": "2,312 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1942,
+              "value": 2.331135363,
+              "display": "2,331 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1943,
+              "value": 2.349014611,
+              "display": "2,349 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1944,
+              "value": 2.366918849,
+              "display": "2,367 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1945,
+              "value": 2.384671779,
+              "display": "2,385 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1946,
+              "value": 2.402301767,
+              "display": "2,402 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1947,
+              "value": 2.42129182,
+              "display": "2,421 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1948,
+              "value": 2.441897177,
+              "display": "2,442 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1949,
+              "value": 2.467923023,
+              "display": "2,468 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayHistoricalReconstruction": [
+        {
+          "id": "world_population_hyde_1700_1799",
+          "label": "Historische Rekonstruktion · HYDE 3.3",
+          "period": "1700–1799 · verfügbare Stützwerte",
+          "method": "HYDE 3.3 (2023), globale historische Rekonstruktion via OWID.",
+          "uncertainty": "Historische Rekonstruktion mit unregelmäßigen Stützjahren; keine ergänzten Zwischenwerte.",
+          "sourceRefs": [
+            "hyde_2023"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=1700–1799; Population. Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "points": [
+            {
+              "year": 1700,
+              "value": 0.595456896,
+              "display": "0,595 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1720,
+              "value": 0.648184768,
+              "display": "0,648 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1740,
+              "value": 0.702227776,
+              "display": "0,702 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1760,
+              "value": 0.788254976,
+              "display": "0,788 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            },
+            {
+              "year": 1790,
+              "value": 0.942261696,
+              "display": "0,942 Mrd. Menschen",
+              "sourceRefs": [
+                "hyde_2023"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "world_population_gapminder_1800_1949",
+          "label": "Historische Rekonstruktion · Gapminder v7",
+          "period": "1800–1949",
+          "method": "Gapminder v7 (2022); publizierte Weltaggregation von OWID.",
+          "uncertainty": "Historische Schätzungen; Anschluss an HYDE und UN ohne Niveaukorrektur.",
+          "sourceRefs": [
+            "gapminder_v7"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=1800–1949; Population. Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "points": [
+            {
+              "year": 1800,
+              "value": 0.983104755,
+              "display": "0,983 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1820,
+              "value": 1.089507052,
+              "display": "1,09 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1840,
+              "value": 1.219617217,
+              "display": "1,22 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1860,
+              "value": 1.298027373,
+              "display": "1,298 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1880,
+              "value": 1.414583216,
+              "display": "1,415 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1900,
+              "value": 1.627273655,
+              "display": "1,627 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1920,
+              "value": 1.895426673,
+              "display": "1,895 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            },
+            {
+              "year": 1949,
+              "value": 2.467923023,
+              "display": "2,468 Mrd. Menschen",
+              "sourceRefs": [
+                "gapminder_v7"
+              ]
+            }
+          ]
+        }
+      ],
+      "projections": [
+        {
+          "id": "world_population_un_medium_2024_2100",
+          "scenario": "UN_MEDIUM",
+          "scenarioLabel": "UN WPP 2024 · mittlere Projektion",
+          "period": "2024–2100",
+          "method": "Publizierte UN-Medium-Variante via OWID. Keine eigene Trendfortschreibung.",
+          "uncertainty": "Bedingte demografische Projektion. Der verwendete OWID-Download enthält ausschließlich den mittleren Pfad und keine numerischen probabilistischen Intervallgrenzen; daher wird kein Unsicherheitsband erzeugt.",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=2024–2100; Population (projections) (Projected). Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population (projections) (Projected)"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2024,
+              "value": 8.161972574,
+              "display": "8,162 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2025,
+              "value": 8.231613067,
+              "display": "8,232 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2026,
+              "value": 8.300678396,
+              "display": "8,301 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2027,
+              "value": 8.369094344,
+              "display": "8,369 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2028,
+              "value": 8.436618881,
+              "display": "8,437 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2029,
+              "value": 8.503285316,
+              "display": "8,503 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2030,
+              "value": 8.569124917,
+              "display": "8,569 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2031,
+              "value": 8.634119328,
+              "display": "8,634 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2032,
+              "value": 8.698229811,
+              "display": "8,698 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2033,
+              "value": 8.761449082,
+              "display": "8,761 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2034,
+              "value": 8.82378491,
+              "display": "8,824 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2035,
+              "value": 8.88521018,
+              "display": "8,885 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2036,
+              "value": 8.945686621,
+              "display": "8,946 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2037,
+              "value": 9.005152615,
+              "display": "9,005 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2038,
+              "value": 9.063572924,
+              "display": "9,064 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2039,
+              "value": 9.120928368,
+              "display": "9,121 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2040,
+              "value": 9.177190199,
+              "display": "9,177 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2041,
+              "value": 9.232281571,
+              "display": "9,232 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2042,
+              "value": 9.286110373,
+              "display": "9,286 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2043,
+              "value": 9.338661313,
+              "display": "9,339 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2044,
+              "value": 9.389873693,
+              "display": "9,39 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2045,
+              "value": 9.439639664,
+              "display": "9,44 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2046,
+              "value": 9.487889603,
+              "display": "9,488 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2047,
+              "value": 9.534545979,
+              "display": "9,535 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2048,
+              "value": 9.579536037,
+              "display": "9,58 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2049,
+              "value": 9.62282403,
+              "display": "9,623 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2050,
+              "value": 9.664378585,
+              "display": "9,664 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2051,
+              "value": 9.704192294,
+              "display": "9,704 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2052,
+              "value": 9.742264517,
+              "display": "9,742 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2053,
+              "value": 9.778614615,
+              "display": "9,779 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2054,
+              "value": 9.813251657,
+              "display": "9,813 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2055,
+              "value": 9.846237566,
+              "display": "9,846 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2056,
+              "value": 9.877680389,
+              "display": "9,878 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2057,
+              "value": 9.907637192,
+              "display": "9,908 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2058,
+              "value": 9.936164376,
+              "display": "9,936 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2059,
+              "value": 9.963337084,
+              "display": "9,963 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2060,
+              "value": 9.989232293,
+              "display": "9,989 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2061,
+              "value": 10.013916203,
+              "display": "10,014 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2062,
+              "value": 10.037466594,
+              "display": "10,037 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2063,
+              "value": 10.059950036,
+              "display": "10,06 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2064,
+              "value": 10.081402737,
+              "display": "10,081 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2065,
+              "value": 10.101849558,
+              "display": "10,102 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2066,
+              "value": 10.121317108,
+              "display": "10,121 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2067,
+              "value": 10.139808356,
+              "display": "10,14 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2068,
+              "value": 10.15730194,
+              "display": "10,157 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2069,
+              "value": 10.173782133,
+              "display": "10,174 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2070,
+              "value": 10.18924195,
+              "display": "10,189 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2071,
+              "value": 10.203681571,
+              "display": "10,204 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2072,
+              "value": 10.217055171,
+              "display": "10,217 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2073,
+              "value": 10.229327828,
+              "display": "10,229 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2074,
+              "value": 10.240485058,
+              "display": "10,24 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2075,
+              "value": 10.250496436,
+              "display": "10,25 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2076,
+              "value": 10.259351438,
+              "display": "10,259 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2077,
+              "value": 10.267045018,
+              "display": "10,267 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2078,
+              "value": 10.273556322,
+              "display": "10,274 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2079,
+              "value": 10.278887467,
+              "display": "10,279 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2080,
+              "value": 10.283078027,
+              "display": "10,283 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2081,
+              "value": 10.286161733,
+              "display": "10,286 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2082,
+              "value": 10.288205059,
+              "display": "10,288 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2083,
+              "value": 10.289247324,
+              "display": "10,289 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2084,
+              "value": 10.289315239,
+              "display": "10,289 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2085,
+              "value": 10.28845661,
+              "display": "10,288 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2086,
+              "value": 10.286708355,
+              "display": "10,287 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2087,
+              "value": 10.284111371,
+              "display": "10,284 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2088,
+              "value": 10.280704579,
+              "display": "10,281 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2089,
+              "value": 10.276518274,
+              "display": "10,277 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2090,
+              "value": 10.271565066,
+              "display": "10,272 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2091,
+              "value": 10.265861714,
+              "display": "10,266 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2092,
+              "value": 10.259408378,
+              "display": "10,259 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2093,
+              "value": 10.252184759,
+              "display": "10,252 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2094,
+              "value": 10.244185834,
+              "display": "10,244 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2095,
+              "value": 10.2354036,
+              "display": "10,235 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2096,
+              "value": 10.225850873,
+              "display": "10,226 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2097,
+              "value": 10.215549308,
+              "display": "10,216 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2098,
+              "value": 10.20448986,
+              "display": "10,204 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2099,
+              "value": 10.19268907,
+              "display": "10,193 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2100,
+              "value": 10.180160744,
+              "display": "10,18 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayProjections": [
+        {
+          "id": "world_population_un_medium_2024_2100",
+          "scenario": "UN_MEDIUM",
+          "scenarioLabel": "UN WPP 2024 · mittlere Projektion",
+          "period": "2024–2100",
+          "method": "Publizierte UN-Medium-Variante via OWID. Keine eigene Trendfortschreibung.",
+          "uncertainty": "Bedingte demografische Projektion. Der verwendete OWID-Download enthält ausschließlich den mittleren Pfad und keine numerischen probabilistischen Intervallgrenzen; daher wird kein Unsicherheitsband erzeugt.",
+          "sourceRefs": [
+            "un_wpp_2024"
+          ],
+          "provenance": {
+            "sourceFile": "research/curve-candidates/world-population/population-with-projections.csv",
+            "sourceUrl": "https://ourworldindata.org/grapher/population-with-projections.csv",
+            "locator": "Entity=World, Code=OWID_WRL, Year=2024–2100; Population (projections) (Projected). Metadaten: population-with-projections.metadata.json, Download 07.10.2026.",
+            "fields": [
+              "Entity",
+              "Code",
+              "Year",
+              "Population (projections) (Projected)"
+            ],
+            "extraction": "Nur publizierte World-Zeilen und der angegebene Zeitraum; keine eigene Länderaggregation.",
+            "transformation": "Personenzahl / 1.000.000.000 = Milliarden Menschen. Keine Interpolation, Glättung oder Kalibrierung."
+          },
+          "grade": "qualified_scenario_projection",
+          "points": [
+            {
+              "year": 2024,
+              "value": 8.161972574,
+              "display": "8,162 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2044,
+              "value": 9.389873693,
+              "display": "9,39 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2064,
+              "value": 10.081402737,
+              "display": "10,081 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            },
+            {
+              "year": 2100,
+              "value": 10.180160744,
+              "display": "10,18 Mrd. Menschen",
+              "sourceRefs": [
+                "un_wpp_2024"
+              ]
+            }
+          ]
+        }
+      ],
+      "displayDerivation": {
+        "interpolation": false,
+        "transformations": [],
+        "observations": {
+          "inputPointCount": 74,
+          "outputPointCount": 4,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
+        },
+        "historicalReconstruction": {
+          "inputPointCount": 160,
+          "outputPointCount": 13,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Rekonstruktionswerte; mindestens 20 Jahre Abstand je Segment. Erster und letzter Wert jedes Segments bleiben erhalten."
+        },
+        "projections": {
+          "inputPointCount": 77,
+          "outputPointCount": 4,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Modellwerte qualifizierter Szenarien; mindestens 20 Jahre Abstand je Szenario. Erster und letzter Wert jedes Szenarios bleiben erhalten."
+        }
+      },
+      "methodBreaks": [
+        {
+          "year": 1800,
+          "label": "Quellenwechsel HYDE → Gapminder",
+          "detail": "Historische Rekonstruktionen unterschiedlicher Herkunft; keine Kalibrierung."
+        },
+        {
+          "year": 1950,
+          "label": "Quellenwechsel Gapminder → UN",
+          "detail": "Beginn der demografischen UN-Schätzreihe."
+        },
+        {
+          "year": 2024,
+          "label": "Beginn der UN-Projektion",
+          "detail": "Ab 2024 mittlere Projektion der Revision 2024, keine historischen Schätzwerte."
+        }
+      ],
+      "sources": [
+        {
+          "id": "un_wpp_2024",
+          "title": "World Population Prospects 2024",
+          "publisher": "United Nations DESA, Population Division",
+          "year": 2024,
+          "url": "https://population.un.org/wpp/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "hyde_2023",
+          "title": "History Database of the Global Environment 3.3",
+          "publisher": "PBL / Utrecht University",
+          "year": 2023,
+          "url": "https://landuse.sites.uu.nl/hyde/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "gapminder_v7",
+          "title": "Population, version 7",
+          "publisher": "Gapminder",
+          "year": 2022,
+          "url": "https://www.gapminder.org/data/documentation/gd003/",
+          "access": "open_full_text"
+        },
+        {
+          "id": "owid_population",
+          "title": "Population – HYDE, Gapminder, UN; source documentation and processing",
+          "publisher": "Our World in Data",
+          "year": 2024,
+          "url": "https://ourworldindata.org/population-sources",
+          "access": "open_full_text"
+        }
+      ]
     }
   ],
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "f661d3c752d36278accd3db4bfe333b1accdbbfedb62369ba9b0a24c1b93be67"
+    "hash": "b76ad25d8211609b7fd173e3057574fc1a3badcd5efcb340cdeecbbf76bd3d09"
   }
 }
