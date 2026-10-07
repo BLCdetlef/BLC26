@@ -117,37 +117,7 @@ unten öffnet die vollständige BLC26-Anwendung in einem neuen Tab.
 
 ## Sichere GWL-Übergabe
 
-BLC26 ruft keine Kurvendaten von einer öffentlichen Laufzeit-API ab. Es liest die gemeinsam mit BLC26 versionierte Datei `data/gwl/blc-curve-export-v1.json` sowie die separat verifizierte lokale Ergänzungsreihe `data/knowledge/germany_living_space_per_capita.json`. Beide Pakete werden vor der Zusammenführung auf Format und SHA-256 geprüft; doppelte Kurven-IDs werden abgewiesen. Die Ergänzung ist kein GWL-Export und verändert dessen Datei oder Integritätsblock nicht.
-
-### Wohnfläche je Einwohner · Deutschland
-
-Die ergänzende Wohnflächenkurve ist unter „Technologische & soziale Umwelt“ in
-der Kurvenauswahl verfügbar. Sie umfasst 45 veröffentlichte Originalwerte von
-1950 bis 2025. Die Start- und Homepage-Auswahl wird dadurch nicht erweitert.
-Das Skript `node scripts/build-housing-series.mjs` erzeugt die lokale Datendatei
-reproduzierbar aus den mit Fundstellen dokumentierten Originalwerten.
-
-Sechs einzeln anklickbare Statistiksegmente unterscheiden das frühere
-Bundesgebiet 1950–1989, Gesamtdeutschland 1990–1993, die geänderte östliche
-Zählungsgrundlage 1994–2009, den revidierten Bestand 2010, die Grundlage des
-Zensus 2011 für 2011–2021 und den Zensus 2022 für 2022–2025.
-An den Übergängen sind die Linien unterbrochen. Jahresmarker mit Tooltip und
-Segmentdetails erläutern den Gebiets- oder Methodenwechsel; Originalwerte
-werden weder verschoben noch pauschal korrigiert. Auch 2010 bleibt als einzelner
-belegter Punkt erhalten. Der statistische Methodenwechsel ab 1994 beruht auf
-der rückwirkend verwendeten ostdeutschen Gebäude- und Wohnungszählung 1995.
-Der revidierte Wohnungsbestand ab 2010 enthält Wohnheime; der Zensus 2011
-ändert zusätzlich die Bevölkerungsgrundlage. Die jeweils verwendete Quelle
-steht am Datenpunkt und im Detailfenster des Segments. Für 2016 gilt der
-aktuelle GENESIS-Wert 46,3 m², nicht der ältere Veröffentlichungswert 46,5 m².
-
-Die frühen westdeutschen Werte sind historische amtliche Statistik, keine
-Rekonstruktion für Gesamtdeutschland. Die Kennzahl beschreibt den gesamten
-verfügbaren Wohnungsbestand pro Einwohner einschließlich Leerstand, nicht die
-individuell bewohnte Fläche. Eine Zukunftsprojektion und ein planetarer
-Grenzwert werden mangels geprüfter Grundlage nicht ergänzt.
-
-Zusätzliche Prüfung: `node scripts/test-housing-series.mjs`.
+BLC26 ruft keine Kurvendaten von einer öffentlichen Laufzeit-API ab. Es liest ausschließlich die gemeinsam mit BLC26 versionierte Datei `data/gwl/blc-curve-export-v1.json`.
 
 Vor der Darstellung prüft der Browser:
 
