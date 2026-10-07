@@ -5750,7 +5750,17 @@
               "walsh → monatliche Meereisfläche der Nordhalbkugel in 10^6 km²"
             ],
             "extraction": "Ausgelesen wurden alle 129 Septemberwerte 1850–1978 aus walsh. Quelldatei geprüft mit MD5 d959e75624e061f76a1f909e0b4bb64a.",
-            "transformation": "Keine Glättung oder Interpolation; das Segment endet vor Beginn des satellitengestützten Beobachtungssegments."
+            "transformation": "Septemberwerte werden auf sechs Nachkommastellen gespeichert. Keine zusätzliche Mittelung, Glättung oder Interpolation im GWL-Import; das Segment endet vor Beginn des satellitengestützten Beobachtungssegments.",
+            "valueExample": {
+              "year": 1850,
+              "sourceValue": 6.93744787024891,
+              "sourceUnit": "10⁶ km²",
+              "divisor": 1,
+              "roundingDigits": 6,
+              "sourceLocator": "UHH Sea Ice Area Product, Version 2024_fv0.01, Datei SeaIceArea__NorthernHemisphere__monthly__UHH__v2024_fv0.01.nc, Variable walsh[8] bei nullbasierter Zählung (9. Zeitelement bei Zählung ab 1). Zugehörige Zeitkoordinate: time[8] = 258 Tage seit 1850-01-01, entsprechend 1850-09-16 als Zeitposition des September-Monatswerts. Rohwert: 6.93744787024891; Variablenattribut units = 1e6 km2. Originaldatei am 07.10.2026 ausgelesen; MD5 d959e75624e061f76a1f909e0b4bb64a. Die NetCDF-Datei hat keine CSV-Zeilennummern; Variable und Zeitindex identifizieren den Wert eindeutig.",
+              "sourceUrl": "https://www.fdr.uni-hamburg.de/record/11346/files/SeaIceArea__NorthernHemisphere__monthly__UHH__v2024_fv0.01.nc?download=1",
+              "calculationText": "Auswahl: walsh und Zeitkoordinate im September 1850 → Rohwert 6,93744787024891 in 10⁶ km². Das UHH-Produkt liefert bereits eine monatliche Meereisfläche aus den Walsh-v2-Konzentrationsfeldern. Diese historische Rekonstruktion führt unterschiedliche Beobachtungsquellen zusammen und füllt Lücken; der Wert ist keine direkte Satellitenmessung. Die Flächenberechnung aus Gitterzellfläche × Eiskonzentration erfolgt bereits beim Datenanbieter. GWL übernimmt den Septemberwert, ohne diese Berechnung erneut auszuführen. 10⁶ km² = Mio. km², daher keine Einheitenumrechnung. Speicherung auf sechs Nachkommastellen: round(6,93744787024891; 6) = 6,937448 Mio. km². Tooltip auf zwei Nachkommastellen: 6,94 Mio. km². Die X-Koordinate ist das Jahr 1850; 1850-09-16 bezeichnet die Zeitposition des Monatswerts, keine einzelne Tagesmessung. Keine zusätzliche Mittelung, Glättung oder Interpolation im GWL-Import."
+            }
           },
           "points": [
             {
@@ -7065,7 +7075,17 @@
               "walsh → monatliche Meereisfläche der Nordhalbkugel in 10^6 km²"
             ],
             "extraction": "Ausgelesen wurden alle 129 Septemberwerte 1850–1978 aus walsh. Quelldatei geprüft mit MD5 d959e75624e061f76a1f909e0b4bb64a.",
-            "transformation": "Keine Glättung oder Interpolation; das Segment endet vor Beginn des satellitengestützten Beobachtungssegments."
+            "transformation": "Septemberwerte werden auf sechs Nachkommastellen gespeichert. Keine zusätzliche Mittelung, Glättung oder Interpolation im GWL-Import; das Segment endet vor Beginn des satellitengestützten Beobachtungssegments.",
+            "valueExample": {
+              "year": 1850,
+              "sourceValue": 6.93744787024891,
+              "sourceUnit": "10⁶ km²",
+              "divisor": 1,
+              "roundingDigits": 6,
+              "sourceLocator": "UHH Sea Ice Area Product, Version 2024_fv0.01, Datei SeaIceArea__NorthernHemisphere__monthly__UHH__v2024_fv0.01.nc, Variable walsh[8] bei nullbasierter Zählung (9. Zeitelement bei Zählung ab 1). Zugehörige Zeitkoordinate: time[8] = 258 Tage seit 1850-01-01, entsprechend 1850-09-16 als Zeitposition des September-Monatswerts. Rohwert: 6.93744787024891; Variablenattribut units = 1e6 km2. Originaldatei am 07.10.2026 ausgelesen; MD5 d959e75624e061f76a1f909e0b4bb64a. Die NetCDF-Datei hat keine CSV-Zeilennummern; Variable und Zeitindex identifizieren den Wert eindeutig.",
+              "sourceUrl": "https://www.fdr.uni-hamburg.de/record/11346/files/SeaIceArea__NorthernHemisphere__monthly__UHH__v2024_fv0.01.nc?download=1",
+              "calculationText": "Auswahl: walsh und Zeitkoordinate im September 1850 → Rohwert 6,93744787024891 in 10⁶ km². Das UHH-Produkt liefert bereits eine monatliche Meereisfläche aus den Walsh-v2-Konzentrationsfeldern. Diese historische Rekonstruktion führt unterschiedliche Beobachtungsquellen zusammen und füllt Lücken; der Wert ist keine direkte Satellitenmessung. Die Flächenberechnung aus Gitterzellfläche × Eiskonzentration erfolgt bereits beim Datenanbieter. GWL übernimmt den Septemberwert, ohne diese Berechnung erneut auszuführen. 10⁶ km² = Mio. km², daher keine Einheitenumrechnung. Speicherung auf sechs Nachkommastellen: round(6,93744787024891; 6) = 6,937448 Mio. km². Tooltip auf zwei Nachkommastellen: 6,94 Mio. km². Die X-Koordinate ist das Jahr 1850; 1850-09-16 bezeichnet die Zeitposition des Monatswerts, keine einzelne Tagesmessung. Keine zusätzliche Mittelung, Glättung oder Interpolation im GWL-Import."
+            }
           },
           "points": [
             {
@@ -32714,6 +32734,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "d4cb2b55d3f25cc9dbd3aea5fab9f4c41edd020faa0062c5fda7416db5e249c1"
+    "hash": "36af01ea7a66bbbab5e997ace2ad52d42fba72cbf872a72336e4734105fae4ac"
   }
 }

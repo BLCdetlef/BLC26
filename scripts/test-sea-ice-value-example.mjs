@@ -40,3 +40,23 @@ console.log(`PASS: Meereisbeispiel 2024, Import-Wertzeile ${result.lines.valueLi
 vm.runInNewContext(app.slice(app.indexOf("  function pointDisplay("),app.indexOf("  function createLegend("))+";this.format=pointDisplay;",ctx);
 assert.equal(ctx.format(point,curve.unit),point.display);
 assert.equal(ctx.format({year:2024,value:3.89594,display:"2024: 3,90 Mio. km²"},curve.unit),"2024 · 3,90 Mio. km²");
+
+const reconstruction = {...curve.historicalReconstruction[0],type:'historical'};
+const reconstructionExample = reconstruction.provenance.valueExample;
+assert.equal(reconstructionExample.year,1850);
+assert.equal(reconstructionExample.sourceValue,6.93744787024891);
+const reconstructionPoint = reconstruction.points.find(p=>p.year===1850);
+assert.equal(reconstructionPoint.value,6.937448);
+assert.equal(Number(reconstructionExample.sourceValue.toFixed(reconstructionExample.roundingDigits)),reconstructionPoint.value);
+const historicalLocation = ctx.locate(curve,reconstruction,reconstructionPoint);
+assert.equal(pointerValue(historicalLocation.pointer+'/value'),reconstructionPoint.value);
+assert.equal(pointerValue(historicalLocation.displayPointer+'/value'),reconstructionPoint.value);
+assert.ok(lines[historicalLocation.lines.valueLine-1].includes('"value": 6.937448,'));
+const historicalPanel = el('div');ctx.render(historicalPanel,curve,reconstruction);
+const historicalOutput = text(historicalPanel);
+assert.ok(historicalOutput.includes('6,94 Mio. km²'));
+assert.ok(historicalOutput.includes('walsh[8]'));
+assert.ok(historicalOutput.includes('Wert in Zeile '+historicalLocation.lines.valueLine));
+assert.ok(historicalOutput.includes(reconstructionExample.calculationText));
+assert.ok(!historicalOutput.includes('CSV-Zeile undefined'));
+console.log('PASS: Walsh-Rekonstruktion 1850, Import-Wertzeile '+historicalLocation.lines.valueLine+', NetCDF-Zeitindex 8 und Rundung geprüft.');
