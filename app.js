@@ -150,6 +150,21 @@
     const digest = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
     return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
   }
+  function validateObservationSegments(curve) {
+    if (curve.observationSegments === undefined) return;
+    if (!Array.isArray(curve.observationSegments) || !curve.observationSegments.length) fail(curve.curveId + ': Statistiksegmente fehlen.');
+    const sourceIds = new Set((curve.sources || []).map(source => source.id));
+    const seen = new Set();
+    const joined = [];
+    for (const [index, segment] of curve.observationSegments.entries()) {
+      if (!segment.id || seen.has(segment.id) || !validPoints(segment.points) || !segment.points.length || !validProvenance(segment.provenance) || !segment.sourceRefs?.length || segment.sourceRefs.some(ref => !sourceIds.has(ref))) fail(curve.curveId + ': ungültiges Statistiksegment.');
+      seen.add(segment.id);
+      if (segment.points.some(point => !point.sourceRefs?.length || point.sourceRefs.some(ref => !segment.sourceRefs.includes(ref)))) fail(curve.curveId + ': Punktquelle außerhalb des Statistiksegments.');
+      if (index && !curve.methodBreaks?.some(marker => Number(marker.year) === Number(segment.points[0].year) && marker.label && marker.detail)) fail(curve.curveId + ': Erklärung des Statistikwechsels fehlt.');
+      joined.push(...segment.points);
+    }
+    if (JSON.stringify(joined) !== JSON.stringify(curve.observations) || joined.some((point, index) => index && Number(point.year) <= Number(joined[index - 1].year))) fail(curve.curveId + ': Statistiksegmente decken die Originalwerte nicht genau einmal chronologisch ab.');
+  }
   async function verifyExport(payload) {
     const allowedTopFields = new Set(["format", "version", "manifestVersion", "curves", "integrity"]);
     if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
@@ -176,6 +191,7 @@
       if (curve.observationProvenance && !validProvenance(curve.observationProvenance)) fail(`${curve.curveId}: ungültige Herkunft der Hauptreihe.`);
       const observationYears = new Set(curve.observations.map(point => Number(point.year)));
       if (curve.displayObservations.some(point => !observationYears.has(Number(point.year)))) fail(`${curve.curveId}: Darstellungsreihe enthält keinen Originalpunkt.`);
+      validateObservationSegments(curve);
       referenceApi.validateReference(curve);
       for (const kind of ["boundary", "highRisk"]) {
         const assessment = curve.thresholdAssessments?.[kind];
@@ -375,7 +391,14 @@
     if (kind === "historical") return `${source}-Rekonstruktion`;
     return `${source}-Szenario`;
   }
+  function observationSegmentForPoint(curve, point) {
+    return curve.observationSegments?.find(segment => segment.points.some(candidate => Number(candidate.year) === Number(point.year)));
+  }
   function resolveSegment(curve, selection = selectedSegment) {
+    if (selection?.curveId === curve.curveId && selection.type === "observed") {
+      const data = curve.observationSegments?.find(segment => segment.id === selection.id);
+      if (data) return { ...data, type: "observed", uncertainty: curve.uncertainty, displayPointCount: Math.max(data.points.length === 1 ? 1 : 0, curve.displayObservations.filter(point => data.points.some(candidate => Number(candidate.year) === Number(point.year))).length), derivationKey: "observations" };
+    }
     if (selection?.curveId === curve.curveId && selection.type === "historical" && presentation[curve.seriesId]?.showHistoricalReconstruction !== false) {
       const data = (curve.historicalReconstruction || []).find(item => item.id === selection.id);
       const display = (curve.displayHistoricalReconstruction || []).find(item => item.id === selection.id);
@@ -445,7 +468,7 @@
     details.appendChild(summary);
     const rule = curve.displayDerivation?.[segment.derivationKey];
     if (rule) appendLabeledText(details, "Punktauswahl", `${segment.points?.length || 0} belegte Werte → ${segment.displayPointCount || 0} sichtbare Punkte. ${rule.rule}`);
-    appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
+    appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
     if (segment.type === "observed" && curve.contextNotes?.length) {
       const contextHeading = document.createElement("strong");
       contextHeading.className = "curve-context-heading";
@@ -1144,11 +1167,27 @@
         }
       }
       if (visibleSegments.observed) {
-        const pathData = makePath(curve.observations, x, y);
-        const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: pathData });
-        bindSegmentInteraction(observedPath, curve, "observed", "observations", `${meta.label} · Messwerte`);
-        curveGroup.appendChild(observedPath);
-        bindTouchTarget(curveGroup, curve, "observed", "observations", meta.label, curve.observations, color, y, pathData);
+        const segments = curve.observationSegments || [{ id: "observations", label: "Messwerte", points: curve.observations }];
+        segments.forEach(segment => {
+          const pathData = makePath(segment.points, x, y);
+          const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: pathData });
+          bindSegmentInteraction(observedPath, curve, "observed", segment.id, meta.label + " · " + segment.label);
+          const title = svgElement("title");
+          title.textContent = [segment.label, segment.period, segment.geography, segment.method].filter(Boolean).join(" · ");
+          observedPath.appendChild(title);
+          curveGroup.appendChild(observedPath);
+          // A section containing one original value has no drawable line.
+          if (segment.points.length === 1 && !curve.displayObservations.some(point => Number(point.year) === Number(segment.points[0].year))) {
+            const point = segment.points[0];
+            const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
+            bindSegmentInteraction(circle, curve, "observed", segment.id, meta.label + " · " + segment.label);
+            const tooltip = svgElement("title");
+            tooltip.textContent = pointDisplay(point, meta.unit) + " · " + segment.label + " · " + segment.method;
+            circle.appendChild(tooltip);
+            curveGroup.appendChild(circle);
+          }
+          bindTouchTarget(curveGroup, curve, "observed", segment.id, meta.label, segment.points, color, y, pathData);
+        });
       }
       if (visibleSegments.projection) (curve.projections || []).forEach(projection => {
         const first = projection.points.reduce((earliest, point) => Number(point.year) < Number(earliest.year) ? point : earliest, projection.points[0]);
@@ -1183,10 +1222,12 @@
       });
       if (visibleSegments.observed) curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-        bindSegmentInteraction(circle, curve, "observed", "observations", `${meta.label} · Messwerte`);
+        const observationSegment = observationSegmentForPoint(curve, point);
+        bindSegmentInteraction(circle, curve, "observed", observationSegment?.id || "observations", `${meta.label} · ${observationSegment?.label || "Messwerte"}`);
         const tooltip = svgElement("title");
         const dataType = curve.dataNature === "assessed_model_estimate" ? "wissenschaftlich geschätzt" : "beobachtet";
         tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed")} · ${dataType} · unveränderter Quellenwert`;
+        if (observationSegment) tooltip.textContent += " · " + observationSegment.label + " · " + observationSegment.geography;
         circle.appendChild(tooltip);
         curveGroup.appendChild(circle);
       });

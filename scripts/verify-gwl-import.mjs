@@ -23,6 +23,24 @@ const signedPayload = { format: payload.format, version: payload.version, manife
 const hash = crypto.createHash("sha256").update(JSON.stringify(signedPayload), "utf8").digest("hex");
 if (hash !== payload.integrity.hash) fail("SHA-256-Prüfung fehlgeschlagen.");
 
+const validPoints = points => Array.isArray(points) && points.every(point => Number.isFinite(Number(point.year)) && Number.isFinite(Number(point.value)));
+const validProvenance = provenance => provenance && provenanceFields.every(field => field === 'fields' ? Array.isArray(provenance[field]) && provenance[field].length : typeof provenance[field] === 'string' && provenance[field].trim()) && /^https:///.test(provenance.sourceUrl);
+function validateObservationSegments(curve) {
+    if (curve.observationSegments === undefined) return;
+    if (!Array.isArray(curve.observationSegments) || !curve.observationSegments.length) fail(curve.curveId + ': Statistiksegmente fehlen.');
+    const sourceIds = new Set((curve.sources || []).map(source => source.id));
+    const seen = new Set();
+    const joined = [];
+    for (const [index, segment] of curve.observationSegments.entries()) {
+      if (!segment.id || seen.has(segment.id) || !validPoints(segment.points) || !segment.points.length || !validProvenance(segment.provenance) || !segment.sourceRefs?.length || segment.sourceRefs.some(ref => !sourceIds.has(ref))) fail(curve.curveId + ': ungültiges Statistiksegment.');
+      seen.add(segment.id);
+      if (segment.points.some(point => !point.sourceRefs?.length || point.sourceRefs.some(ref => !segment.sourceRefs.includes(ref)))) fail(curve.curveId + ': Punktquelle außerhalb des Statistiksegments.');
+      if (index && !curve.methodBreaks?.some(marker => Number(marker.year) === Number(segment.points[0].year) && marker.label && marker.detail)) fail(curve.curveId + ': Erklärung des Statistikwechsels fehlt.');
+      joined.push(...segment.points);
+    }
+    if (JSON.stringify(joined) !== JSON.stringify(curve.observations) || joined.some((point, index) => index && Number(point.year) <= Number(joined[index - 1].year))) fail(curve.curveId + ': Statistiksegmente decken die Originalwerte nicht genau einmal chronologisch ab.');
+  }
+
 const seen = new Set();
 const seenSeries = new Set();
 for (const curve of payload.curves) {
@@ -75,6 +93,7 @@ for (const curve of payload.curves) {
     for (const segment of curve.historicalReconstruction || []) verifyProvenance(segment.provenance, `${curve.curveId} / ${segment.id}`);
     for (const segment of curve.projections || []) verifyProvenance(segment.provenance, `${curve.curveId} / ${segment.id}`);
   }
+  validateObservationSegments(curve);
   const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
   for (const note of curve.contextNotes || []) {
     if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(`${curve.curveId}: unvollständiger ergänzender Kontext.`);

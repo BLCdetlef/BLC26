@@ -189,3 +189,9 @@ anzeigen, unterstützt aber keinen Upload.
 ## Veröffentlichung
 
 GitHub Pages kann die Dateien direkt aus dem Hauptzweig und dem Repository-Stammverzeichnis bereitstellen.
+
+## Statistikabschnitte der Hauptreihe
+
+Der reguläre GWL-Import enthält optional `observationSegments` mit Originalwerten, Gebietsbezug, Methoden und Herkunft je Abschnitt. BLC zeichnet jeden Abschnitt mit der bestehenden Hauptlinien-Darstellung; über Gebiets- oder Zensuswechsel wird keine Linie gezogen. Auswahl über Linie, Punkt, Tastatur oder Berührung öffnet die Herkunft dieses Abschnitts im vorhandenen Detailfenster. Dauerhafte Jahresbeschriftungen oder neue Markertypen werden nicht eingeführt. Ein Abschnitt mit genau einem Originalwert erhält einen regulären Punkt, falls er im exportierten Punktraster nicht enthalten ist; es werden keine Werte erzeugt. Die übrige Fünfjahresauswahl bleibt erhalten.
+
+Wohnfläche je Einwohner: 45 Originalwerte 1950–2025; bis 1989 früheres Bundesgebiet, ab 1990 Gesamtdeutschland. Sechs Statistikabschnitte, keine Rekonstruktion oder Zukunftsprojektion. GWL-Beitrag und Export sind die Datenquelle; keine separate lokale Kurvendatei.
