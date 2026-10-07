@@ -23062,7 +23062,7 @@
       "metric": "",
       "unit": "%",
       "geography": "Global",
-      "dataNature": "observed",
+      "dataNature": "assessed_model_estimate",
       "worseningDirection": "decrease",
       "finding": "Figure 28 zeigt einen langfristig leicht rückläufigen globalen Waldanteil zwischen 1992 und 2022. Das GWL-Panel verwendet ausgewählte Stützjahre statt aller Jahreswerte.",
       "uncertainty": "Die Stützwerte 1992–2020 wurden näherungsweise aus Figure 28 des Planetary Health Check 2025 abgelesen. Sie dienen der Trenddarstellung und sind keine veröffentlichten tabellarischen Originalwerte. 2022 ist auf den berichteten aktuellen Wert von rund 59 % gerundet.",
@@ -23108,7 +23108,17 @@
           "2022 assessment value → gerundeter aktueller Wert"
         ],
         "extraction": "Näherungsweise abgelesen wurden die acht Stützjahre 1992, 1995, 2000, 2005, 2010, 2015, 2020 und 2022.",
-        "transformation": "1992–2020 sind grafisch abgelesene Näherungswerte; 2022 ist der berichtete Wert von rund 59 %. Keine Interpolation oder rechnerische Harmonisierung mit der historischen Rekonstruktion."
+        "transformation": "1992–2020 sind grafisch abgelesene Näherungswerte; 2022 ist der berichtete Wert von rund 59 %. Keine Interpolation oder rechnerische Harmonisierung mit der historischen Rekonstruktion.",
+        "valueExample": {
+          "year": 1992,
+          "sourceValue": 60.2,
+          "sourceUnit": "%",
+          "divisor": 1,
+          "sourceLocator": "Planetary Health Check 2025, Seite 95 (auch PDF-Seite 95), Figure 28 „Global recent forest decline“: Teilgrafik oben links „Global Forest Extent (%)“, linker Beginn der grünen globalen Kurve bei 1992, knapp oberhalb der 60-%-Linie. Daraus wurde für das GWL-Panel näherungsweise 60,2 % abgelesen. Dieser Wert steht nicht als Zahl in einer Tabellen- oder CSV-Zeile der Quelle. Die Skalenmarken 58 %, 60 % und 62 % beziehen sich auf den Anteil an der potenziellen natürlichen Waldfläche; 75 % ist der getrennte Grenzwert. Gegenprüfung der Abbildung am 07.10.2026.",
+          "sourceUrl": "https://publications.pik-potsdam.de/pubman/item/item_32589_1/component/file_32845/PlanetaryHealthCheck2025.pdf#page=95",
+          "axisNote": "BLC zeigt für diese Waldkurve einen festen Bezugsrahmen von 0–100 % der potenziellen natürlichen Waldfläche. Der Diagrammwert 60,2 % ist eine grafisch abgelesene Näherung; das Zeichen ≈ im Tooltip kennzeichnet diese begrenzte Genauigkeit.",
+          "calculationText": "Grafisches Ablesen: Jahr 1992 am linken Beginn der globalen Kurve → Lage knapp oberhalb der 60-%-Skalenlinie → näherungsweise 60,2 %. Der Quellenmaßstab ist bereits Prozent, daher keine Einheitenumrechnung: ≈ 60,2 % → gespeicherter JSON-Wert 60.2 → Tooltip „≈ 60,2 %“. Die zugrunde liegende Definition lautet Waldfläche ÷ potenzielle natürliche Waldfläche × 100; die dafür benötigten Flächensummen werden hier nicht aus der Abbildung rekonstruiert. Keine Interpolation, Glättung oder Anpassung an die historische Waldrekonstruktion."
+        }
       },
       "reference": {
         "type": "planetary_boundaries_model",
@@ -23281,50 +23291,6 @@
           ]
         },
         {
-          "year": 2000,
-          "value": 59.6,
-          "display": "≈ 59,6 %",
-          "finding": "Für 2000 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,6 % der potenziellen natürlichen Waldfläche.",
-          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
-          "sourceRefs": [
-            "src_phc_2025_report",
-            "src_phc_land_2025"
-          ]
-        },
-        {
-          "year": 2005,
-          "value": 59.5,
-          "display": "≈ 59,5 %",
-          "finding": "Für 2005 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,5 % der potenziellen natürlichen Waldfläche.",
-          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
-          "sourceRefs": [
-            "src_phc_2025_report",
-            "src_phc_land_2025"
-          ]
-        },
-        {
-          "year": 2010,
-          "value": 59.4,
-          "display": "≈ 59,4 %",
-          "finding": "Für 2010 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,4 % der potenziellen natürlichen Waldfläche.",
-          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
-          "sourceRefs": [
-            "src_phc_2025_report",
-            "src_phc_land_2025"
-          ]
-        },
-        {
-          "year": 2015,
-          "value": 59.1,
-          "display": "≈ 59,1 %",
-          "finding": "Für 2015 liegt der globale Waldanteil nach näherungsweisem Ablesen von Figure 28 bei rund 59,1 % der potenziellen natürlichen Waldfläche.",
-          "uncertainty": "Geschätzter Stützwert aus der veröffentlichten Kurve in Figure 28 (PHC 2025), nicht aus einer numerischen Originaltabelle. Für Trenddarstellung geeignet, nicht für Präzisionsauswertungen.",
-          "sourceRefs": [
-            "src_phc_2025_report",
-            "src_phc_land_2025"
-          ]
-        },
-        {
           "year": 2022,
           "value": 59,
           "display": "≈ 59,0 %",
@@ -23433,9 +23399,9 @@
         "transformations": [],
         "observations": {
           "inputPointCount": 8,
-          "outputPointCount": 6,
-          "intervalYears": 5,
-          "rule": "Nur vorhandene Originalmesswerte; mindestens fünf Jahre Abstand. Erster und letzter Messpunkt sowie belegte Grenzübertritte bleiben erhalten."
+          "outputPointCount": 2,
+          "intervalYears": 20,
+          "rule": "Nur vorhandene Werte der veröffentlichten wissenschaftlichen Schätzreihe; mindestens 20 Jahre Abstand. Erster und letzter Wert sowie belegte Grenzübertritte bleiben erhalten."
         },
         "historicalReconstruction": {
           "inputPointCount": 2,
@@ -32738,6 +32704,6 @@
   "integrity": {
     "algorithm": "SHA-256",
     "scope": "UTF-8 JSON.stringify({format,version,manifestVersion,curves})",
-    "hash": "6bc132dbdb7eff399de11317064f734b44340d62c84233e519b1d36cd1a3df84"
+    "hash": "0a5a44b7457faf16336b07994d5303e0ce72dc8af85e35f0e9c4ad8f68270933"
   }
 }

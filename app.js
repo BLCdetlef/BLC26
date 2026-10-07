@@ -517,7 +517,7 @@
       return item;
     };
     const precise = value => new Intl.NumberFormat("de-DE", {maximumFractionDigits: 12}).format(value);
-    step("Anzeige im Diagramm", 'X-Achse: Jahr ' + point.year + '. Y-Wert der Kurve: ' + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.');
+    step("Anzeige im Diagramm", 'X-Achse: Jahr ' + point.year + '. Y-Wert der Kurve: ' + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. ' + (example.axisNote || 'Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.'));
     const imported = step("Importierte Daten anzeigen", (location.lines ? 'Jahr in Zeile ' + location.lines.yearLine + ', Wert in Zeile ' + location.lines.valueLine + '. ' : '') + 'JSON-Pfad: ' + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
     if (location.displayPointer) appendLabeledText(imported, "Sichtbare Punktmarke", (location.displayLines ? 'Jahr in Zeile ' + location.displayLines.yearLine + ', Wert in Zeile ' + location.displayLines.valueLine + '. ' : '') + 'Dieselbe Koordinate unter ' + location.displayPointer + '.');
     const importLink = document.createElement("a");
@@ -526,17 +526,22 @@
     importLink.rel = "noopener noreferrer";
     importLink.textContent = "Importierte Daten anzeigen";
     imported.appendChild(importLink);
-    const original = step("Originaldatensatz öffnen", 'CSV-Zeile ' + example.sourceLine + ' (Kopfzeile zählt als Zeile 1), Spalte ' + example.sourceColumnNumber + ' „' + example.sourceColumn + '“: ' + precise(example.sourceValue) + ' ' + example.sourceUnit + '. Identifikation: Entity=World; Code=OWID_WRL; Year=' + example.year + '. Zeilennummer bezieht sich auf den Download vom ' + example.retrievedAt + '; bei einer neuen Datenversion kann sie sich ändern.');
-    const raw = document.createElement("pre");
-    raw.textContent = example.sourceHeader + '\n' + example.sourceRow;
-    original.appendChild(raw);
+    const originalText = example.sourceLocator
+      ? example.sourceLocator
+      : 'CSV-Zeile ' + example.sourceLine + ' (Kopfzeile zählt als Zeile 1), Spalte ' + example.sourceColumnNumber + ' „' + example.sourceColumn + '“: ' + precise(example.sourceValue) + ' ' + example.sourceUnit + '. Identifikation: Entity=World; Code=OWID_WRL; Year=' + example.year + '. Zeilennummer bezieht sich auf den Download vom ' + example.retrievedAt + '; bei einer neuen Datenversion kann sie sich ändern.';
+    const original = step("Originaldatensatz öffnen", originalText);
+    if (example.sourceRow) {
+      const raw = document.createElement("pre");
+      raw.textContent = example.sourceHeader + '\n' + example.sourceRow;
+      original.appendChild(raw);
+    }
     const originalLink = document.createElement("a");
-    originalLink.href = segment.provenance.sourceUrl;
+    originalLink.href = example.sourceUrl || segment.provenance.sourceUrl;
     originalLink.target = "_blank";
     originalLink.rel = "noopener noreferrer";
     originalLink.textContent = "Originaldatensatz öffnen";
     original.appendChild(originalLink);
-    step("Rechenweg", precise(example.sourceValue) + ' Menschen ÷ ' + precise(example.divisor) + ' = ' + precise(point.value) + ' ' + curve.unit + '. Tooltip gerundet auf höchstens drei Nachkommastellen: ' + point.display + '. Das Jahr ' + point.year + ' wird unverändert übernommen. Keine Interpolation oder Glättung.');
+    step("Rechenweg", example.calculationText || (precise(example.sourceValue) + ' ' + example.sourceUnit + ' ÷ ' + precise(example.divisor) + ' = ' + precise(point.value) + ' ' + curve.unit + '. Tooltip gerundet auf höchstens drei Nachkommastellen: ' + point.display + '. Das Jahr ' + point.year + ' wird unverändert übernommen. Keine Interpolation oder Glättung.'));
     block.appendChild(steps);
     parent.appendChild(block);
   }
