@@ -32,6 +32,7 @@
   let startView = null;
   let updateCurveTable = () => {};
   let certificates = {};
+  const certificatePublicationStatus = {};
   const selectedCurveIds = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
   const foundationCatalog = Object.freeze([
@@ -608,7 +609,7 @@
       status.className = "curve-certificate-status";
       const badge = document.createElement("span");
       badge.className = `curve-certificate-badge${entry.kind === "example" ? " is-example" : ""}`;
-      badge.textContent = entry.kind === "example" ? "Beispiel · kein Zertifikat" : "Veröffentlicht";
+      badge.textContent = entry.kind === "example" ? "Beispiel · kein Zertifikat" : isLocalEditorHost() ? "PDF lokal verfügbar" : "Veröffentlicht";
       status.append(badge, ` ${entry.label || "PDF-Dokument"}`);
       const actions = document.createElement("div");
       actions.className = "curve-certificate-actions";
@@ -638,21 +639,28 @@
       input.id = `certificate-upload-${curve.seriesId}`;
       const label = document.createElement("label");
       label.htmlFor = input.id;
-      label.textContent = entry?.file ? "Lokale PDF ersetzen" : "Lokale PDF hochladen";
+      label.textContent = entry?.file ? "PDF ersetzen und veröffentlichen" : "PDF hochladen und veröffentlichen";
       const help = document.createElement("small");
-      help.textContent = "Nur lokal sichtbar. Maximal 20 MB; eine neue PDF ersetzt die bisherige Datei dieser Kurve.";
+      help.textContent = "Nur PDF bis 2 MB. Die Datei ersetzt die bisherige PDF und wird nach Prüfung automatisch veröffentlicht.";
       const result = document.createElement("output");
       result.className = "curve-certificate-upload-status";
       result.setAttribute("aria-live", "polite");
+      result.textContent = certificatePublicationStatus[curve.seriesId] || "";
       input.addEventListener("change", async () => {
         const file = input.files?.[0];
         if (!file) return;
-        if (file.type !== "application/pdf" && !file.name.toLocaleLowerCase("de-DE").endsWith(".pdf")) {
+        if ((file.type && file.type !== "application/pdf") || !file.name.toLocaleLowerCase("de-DE").endsWith(".pdf")) {
           result.textContent = "Bitte eine PDF-Datei auswählen.";
           input.value = "";
           return;
         }
-        result.textContent = "PDF wird lokal geprüft und gespeichert …";
+        if (file.size > 2 * 1024 * 1024) {
+          result.textContent = "Die PDF ist größer als 2 MB.";
+          input.value = "";
+          return;
+        }
+        delete certificatePublicationStatus[curve.seriesId];
+        result.textContent = "PDF wird gespeichert, geprüft und an GitHub übertragen …";
         input.disabled = true;
         try {
           const response = await fetch(`/api/certificates/${encodeURIComponent(curve.seriesId)}`, {
@@ -664,14 +672,19 @@
             },
             body: file
           });
+          if ([404, 405, 501].includes(response.status)) throw new Error("Zum Veröffentlichen BLC26 über die Desktop-Verknüpfung öffnen und die Seite neu laden.");
           const payload = await response.json();
           if (!response.ok) throw new Error(payload.error || "Upload fehlgeschlagen.");
+          if (!payload.publication) throw new Error("PDF nur lokal gespeichert. Bitte den BLC26-Server neu starten und erneut hochladen.");
           certificates[curve.seriesId] = payload.certificate;
+          certificatePublicationStatus[curve.seriesId] = "PDF an GitHub übertragen ✓ · Die öffentliche Seite wird automatisch aktualisiert.";
           renderCurrent();
           openCurveDetails();
         } catch (error) {
           result.textContent = error.message || "Upload fehlgeschlagen.";
+          certificatePublicationStatus[curve.seriesId] = result.textContent;
           input.disabled = false;
+          input.value = "";
         }
       });
       upload.append(input, label, help, result);

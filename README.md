@@ -164,6 +164,7 @@ Exportversion 1.9 überträgt zusätzlich die genaue Fundstelle innerhalb der Ur
    node scripts/test-reference-status.cjs
    node scripts/test-certificates.mjs
    node scripts/test-start-view-publication.mjs
+   node scripts/test-certificate-upload.mjs
    git diff --check
    ```
 
@@ -187,9 +188,14 @@ Der Upload ist ausschließlich unter `localhost`, `127.0.0.1` oder `::1` sichtba
 Dazu BLC26 mit `start-server.cmd` beziehungsweise `node scripts/serve-local.mjs`
 starten, eine Kurve öffnen und im Abschnitt „Prüfbericht und Zertifikat“ eine PDF
 auswählen. Der lokale Server prüft Kurvenkennung, Dateityp, PDF-Dateikopf und die
-Größenbegrenzung von 20 MB. Eine neue Datei ersetzt die bisherige PDF derselben
-Kurve und aktualisiert das Manifest. Für die öffentliche Bereitstellung müssen
-PDF und Manifest anschließend gemeinsam geprüft, committed und gepusht werden.
+Größenbegrenzung von 2 MB (2.097.152 Byte), zusätzlich zur Prüfung im Browser.
+Eine neue Datei ersetzt die bisherige PDF derselben Kurve und aktualisiert das
+Manifest. Der Upload führt automatisch die Projektprüfungen aus, committet
+ausschließlich diese PDF und `data/certificates.json` und pusht nach `origin/main`.
+Die Erfolgsmeldung bestätigt die Übertragung an GitHub; GitHub Pages veröffentlicht
+anschließend. Bei einem Fehler bleibt eine bereits gespeicherte PDF lokal erhalten;
+erneutes Hochladen derselben Datei wiederholt die Veröffentlichung. Andere lokale
+Änderungen stoppen den Ablauf. Die dauerhafte Freigabe ist in `AGENTS.md` dokumentiert.
 
 Ein gewöhnlicher statischer Server wie `python -m http.server` kann die PDFs
 anzeigen, unterstützt aber keinen Upload.

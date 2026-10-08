@@ -20,3 +20,9 @@ Er darf nach erfolgreichen Prüfungen ausschließlich `data/start-view.json` com
 und nach `origin/main` pushen, ohne erneut nachzufragen. Andere lokale Änderungen
 und unveröffentlichte Commits müssen separat abgeschlossen werden. Der Button
 bestätigt die Übertragung an GitHub; GitHub Pages veröffentlicht anschließend.
+
+Der Benutzer hat auch „PDF hochladen und veröffentlichen“ dauerhaft autorisiert:
+Nach erfolgreichen Prüfungen dürfen `data/certificates.json` und die zugehörige
+`certificates/<seriesId>.pdf` gemeinsam committed und nach `origin/main` gepusht
+werden, ohne erneut nachzufragen. Nur PDF-Dateien bis 2 MB sind zulässig.
+Andere lokale Änderungen und unveröffentlichte Commits werden nicht mitübertragen.
