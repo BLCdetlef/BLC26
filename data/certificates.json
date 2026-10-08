@@ -18,6 +18,12 @@
       "label": "Globale Kunststoffproduktion Zertifikat",
       "kind": "certificate",
       "publishedAt": "2026-10-08"
+    },
+    "global_cement_production_1926_2024_owid_usgs": {
+      "file": "certificates/global_cement_production_1926_2024_owid_usgs.pdf",
+      "label": "Zertifikat Zement",
+      "kind": "certificate",
+      "publishedAt": "2026-10-08"
     }
   }
 }
