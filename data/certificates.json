@@ -6,6 +6,12 @@
       "label": "Beispielprüfbericht HadCRUT5",
       "kind": "example",
       "publishedAt": "2026-09-29"
+    },
+    "global_forest_cover_1992_2022": {
+      "file": "certificates/global_forest_cover_1992_2022.pdf",
+      "label": "Kurvenprüfung Waldfläche",
+      "kind": "certificate",
+      "publishedAt": "2026-10-08"
     }
   }
 }
