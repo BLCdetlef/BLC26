@@ -3,9 +3,9 @@
   "certificates": {
     "global_temperature_hadcrut5_1850_2025": {
       "file": "certificates/global_temperature_hadcrut5_1850_2025.pdf",
-      "label": "Beispielprüfbericht HadCRUT5",
-      "kind": "example",
-      "publishedAt": "2026-09-29"
+      "label": "Prüfbereicht Globale Temperaturaenderung",
+      "kind": "certificate",
+      "publishedAt": "2026-10-08"
     },
     "global_forest_cover_1992_2022": {
       "file": "certificates/global_forest_cover_1992_2022.pdf",
