@@ -14,3 +14,9 @@ Vor jeder Analyse, Änderung, Ausführung von Tests, jedem Commit und jedem Push
 Bei einem abweichenden Projektpfad oder Remote nichts verändern. Insbesondere nicht in früheren Arbeitskopien unter `C:\Users\haud\Documents\ChatGPT` arbeiten. Stattdessen den Benutzer auf die falsche Projektzuordnung hinweisen und stoppen.
 
 Vor einem Commit müssen die projektspezifischen Prüfungen und `git diff --check` erfolgreich sein. Ein Push erfolgt nur nach ausdrücklicher Freigabe des Benutzers.
+
+Der Benutzer hat den lokalen Button „Startansicht veröffentlichen“ dauerhaft autorisiert:
+Er darf nach erfolgreichen Prüfungen ausschließlich `data/start-view.json` committen
+und nach `origin/main` pushen, ohne erneut nachzufragen. Andere lokale Änderungen
+und unveröffentlichte Commits müssen separat abgeschlossen werden. Der Button
+bestätigt die Übertragung an GitHub; GitHub Pages veröffentlicht anschließend.

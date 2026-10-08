@@ -87,10 +87,17 @@ Keine Verschiebung oder Skalierung von Szenariowerten auf den letzten BLC-Wert;
 keine Interpolation auf 2022 zur Erzeugung eines optisch nahtlosen Anschlusses.
 
 Zum Ändern BLC26 mit `start-server.cmd` öffnen, Kurven und Darstellung auswählen
-und „Als öffentliche Startansicht übernehmen“ anklicken. Diese Funktion erscheint
-nur auf localhost und schreibt die Konfiguration über den lokalen Server.
-Mindestens eine Kurve und eine Darstellungsart sind erforderlich. Erst mit der
-Veröffentlichung der geänderten Datei erhalten alle Besucher die neue Startansicht.
+und „Startansicht veröffentlichen“ anklicken. Diese Funktion erscheint
+nur auf localhost und speichert `data/start-view.json`, führt die Projektprüfungen
+aus und erstellt automatisch einen Commit ausschließlich für diese Datei.
+Anschließend wird nach `origin/main` gepusht; der GitHub-Pages-Workflow aktualisiert
+die öffentliche Seite. Die Anzahl neben dem Button bestätigt die auf GitHub
+übernommenen Kurven, noch nicht den Abschluss des anschließenden Pages-Deployments.
+Mindestens eine Kurve und eine Darstellungsart sind erforderlich. Git-Zugang und
+Netzwerkverbindung müssen verfügbar sein. Andere lokale Änderungen oder
+unveröffentlichte Commits stoppen die Veröffentlichung. Bei einem Push-Fehler bleibt
+die Auswahl lokal erhalten; ein erneuter Klick kann den Startansicht-Commit übertragen.
+Der Ablauf ist vom Benutzer dauerhaft autorisiert (siehe `AGENTS.md`).
 „Startansicht wiederherstellen“ setzt Auswahl, Darstellung und Tabellenfilter zurück.
 Die Auswahl wird nicht automatisch im Browser gespeichert.
 
@@ -156,6 +163,7 @@ Exportversion 1.9 überträgt zusätzlich die genaue Fundstelle innerhalb der Ur
    node scripts/test-curve-links.cjs
    node scripts/test-reference-status.cjs
    node scripts/test-certificates.mjs
+   node scripts/test-start-view-publication.mjs
    git diff --check
    ```
 
@@ -163,7 +171,7 @@ Exportversion 1.9 überträgt zusätzlich die genaue Fundstelle innerhalb der Ur
 
 `start-server.cmd` doppelt anklicken und anschließend `http://localhost:3000` öffnen. Der lokale Server benötigt nur Node.js, lädt keine Pakete nach und wird mit `Strg+C` beendet.
 
-Alternativ:
+Zur reinen Ansicht (der Veröffentlichungsbutton benötigt den Node-Server):
 
 ```powershell
 python -m http.server 3000

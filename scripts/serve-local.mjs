@@ -4,9 +4,11 @@ import { createServer } from "node:http";
 import { extname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { storeStartView } from "./start-view-store.mjs";
+import { createStartViewPublisher } from "./publish-start-view.mjs";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const port = 3000;
+const publishStartView = createStartViewPublisher(root);
 const types = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -75,8 +77,8 @@ async function storeCertificate(request, response, seriesId) {
 async function respond(request, response) {
   try {
     const pathname = decodeURIComponent(new URL(request.url || "/", "http://localhost").pathname);
-    if (request.method === "PUT" && pathname === "/api/start-view") {
-      await storeStartView(request, response, { exportFile: curveExportFile, targetFile: resolve(root, "data", "start-view.json") });
+    if (request.method === "PUT" && ["/api/start-view", "/api/start-view/publish"].includes(pathname)) {
+      await storeStartView(request, response, { exportFile: curveExportFile, targetFile: resolve(root, "data", "start-view.json"), publish: pathname.endsWith("/publish") ? publishStartView : undefined });
       return;
     }
     if (request.method === "PUT" && pathname.startsWith("/api/certificates/")) {

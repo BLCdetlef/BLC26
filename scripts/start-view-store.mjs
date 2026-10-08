@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import selection from "../curve-selection.js";
 
 // Only the local editor may write the public default; static hosting stays read-only.
-export async function storeStartView(request, response, { exportFile, targetFile }) {
+export async function storeStartView(request, response, { exportFile, targetFile, publish }) {
   const reply = (status, payload) => {
     response.writeHead(status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
     response.end(JSON.stringify(payload));
@@ -33,11 +33,14 @@ export async function storeStartView(request, response, { exportFile, targetFile
   }
   const temporary = `${targetFile}.${randomUUID()}.tmp`;
   try {
-    await writeFile(temporary, `${JSON.stringify(view, null, 2)}\n`, "utf8");
-    await rename(temporary, targetFile);
-    reply(200, { view });
-  } catch {
-    reply(500, { error: "Die Startansicht konnte nicht gespeichert werden." });
+    const persist = async () => {
+      await writeFile(temporary, `${JSON.stringify(view, null, 2)}\n`, "utf8");
+      await rename(temporary, targetFile);
+    };
+    const publication = publish ? await publish(view, persist) : (await persist(), undefined);
+    reply(200, { view, publication });
+  } catch (error) {
+    reply(500, { error: publish ? error.message : "Die Startansicht konnte nicht gespeichert werden." });
   } finally {
     await rm(temporary, { force: true });
   }

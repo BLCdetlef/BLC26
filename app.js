@@ -954,21 +954,32 @@
       }
     });
     if (isLocalEditorHost()) {
-      const save = button("Als öffentliche Startansicht übernehmen", async () => {
+      const publicationRow = document.createElement("div");
+      publicationRow.className = "start-view-publication";
+      const publicationCount = document.createElement("span");
+      publicationCount.className = "publication-count";
+      publicationCount.setAttribute("role", "status");
+      const save = button("Startansicht veröffentlichen", async () => {
         save.disabled = true;
-        message.textContent = "Startansicht wird gespeichert …";
+        publicationCount.textContent = "";
+        message.textContent = "Startansicht wird gespeichert, geprüft und an GitHub übertragen …";
         try {
-          const response = await fetch("api/start-view", {
+          const response = await fetch("api/start-view/publish", {
             method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(currentView())
           });
-          if (response.status === 404 || response.status === 405) throw new Error("Zum Speichern BLC26 über start-server.cmd starten.");
+          if ([404, 405, 501].includes(response.status)) throw new Error("Zum Veröffentlichen den Server auf Port 3000 beenden und BLC26 über start-server.cmd starten.");
           const payload = await response.json();
           if (!response.ok) throw new Error(payload.error || "Speichern fehlgeschlagen.");
+          if (!payload.publication) throw new Error("Bitte den BLC26-Server neu starten; die Veröffentlichung ist noch nicht verfügbar.");
           startView = selectionApi.validateView(payload.view, allCurves);
-          message.textContent = "Startansicht lokal gespeichert. Nach Veröffentlichung gilt sie auch für die Homepage.";
+          publicationCount.textContent = `${payload.publication.curveCount} Kurven ✓`;
+          publicationCount.title = "Anzahl der zuletzt erfolgreich an GitHub übertragenen Kurven";
+          message.textContent = "An GitHub übertragen. Die öffentliche Seite wird jetzt automatisch aktualisiert.";
         } catch (error) { message.textContent = error.message; }
         finally { save.disabled = false; }
       });
+      publicationRow.append(save, publicationCount);
+      actions.append(publicationRow);
     }
     updateCurveTable = () => {
       if (!linkField.hidden && linkField.value !== selectionApi.selectionUrl(window.location.href, currentView())) {

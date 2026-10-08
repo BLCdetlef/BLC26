@@ -46,7 +46,17 @@ const exportFile = join(directory, "export.json");
 const targetFile = join(directory, "start-view.json");
 await writeFile(exportFile, JSON.stringify({ curves }));
 await writeFile(targetFile, JSON.stringify(view));
-const server = createServer((request, response) => storeStartView(request, response, { exportFile, targetFile }));
+let publicationCalls = 0;
+let publicationFails = false;
+const server = createServer((request, response) => storeStartView(request, response, {
+  exportFile, targetFile,
+  publish: request.url === "/api/start-view/publish" ? async (publishedView, persist) => {
+    publicationCalls += 1;
+    if (publicationFails) throw new Error("Veröffentlichung fehlgeschlagen");
+    await persist();
+    return { curveCount: publishedView.curveIds.length, commit: "test", deployment: "pending" };
+  } : undefined
+}));
 await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const put = (body, headers = {}) => fetch(`${origin}/api/start-view`, {
@@ -75,6 +85,20 @@ try {
     await rejected.text();
     assert.equal(await readFile(targetFile, "utf8"), saved, "Abgelehnte Eingaben dürfen die Startansicht nicht verändern.");
   }
+  const publish = body => fetch(`${origin}/api/start-view/publish`, {
+    method: "PUT", headers: { "Content-Type": "application/json", Origin: origin }, body: JSON.stringify(body)
+  });
+  const invalidPublication = await publish({ ...view, curveIds: [] });
+  assert.equal(invalidPublication.status, 400);
+  await invalidPublication.text();
+  assert.equal(publicationCalls, 0, "Ungültige Auswahlen dürfen keine Git-Veröffentlichung auslösen.");
+  const publication = await publish(view);
+  assert.equal(publication.status, 200);
+  assert.equal((await publication.json()).publication.curveCount, view.curveIds.length);
+  publicationFails = true;
+  const failedPublication = await publish(view);
+  assert.equal(failedPublication.status, 500);
+  assert.match((await failedPublication.json()).error, /Veröffentlichung fehlgeschlagen/);
 } finally {
   server.closeAllConnections();
   await new Promise(resolve => server.close(resolve));
