@@ -24,6 +24,12 @@
       "label": "Zertifikat Zement",
       "kind": "certificate",
       "publishedAt": "2026-10-08"
+    },
+    "global_mean_sea_level_satellite_1993_2024": {
+      "file": "certificates/global_mean_sea_level_satellite_1993_2024.pdf",
+      "label": "Mittlerer Meeresspiegel",
+      "kind": "certificate",
+      "publishedAt": "2026-10-13"
     }
   }
 }
