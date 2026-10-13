@@ -2,6 +2,22 @@
 
 Digitale, interaktive Fassung des BRUCHLASTcharts.
 
+Die Sprachwahl oben rechts schaltet zwischen Deutsch und Englisch um.
+Die gewählte Sprache wird nach Möglichkeit lokal gespeichert; `?lang=de` oder
+`?lang=en` hat Vorrang und kann auch in geteilten Auswahl- und Einbettungslinks
+verwendet werden. Beim Umschalten bleiben Kurvenauswahl und Segment-Schalter
+erhalten. Oberfläche, historische Ereignisse und die fachlichen Erläuterungen
+werden übersetzt; Originalquellen, Quelldateinamen, zitierte Datenzeilen und
+PDF-/Word-Dokumente behalten ihre Originalsprache. GWL wird dadurch nicht umgestellt.
+Die englischen Texte stehen separat in `locales/en.js` und `locales/en-data.js`;
+das signierte GWL-Importpaket wird vor jeder Übersetzung unverändert geprüft.
+Die Sprachprüfung `node scripts/test-language.mjs` kontrolliert unter anderem
+unveränderte Zahlen, IDs, Quellenzitate und Grenzbewertungen für alle Kurven.
+Die optionale Browserprüfung `node scripts/check-language-browser.cjs` benötigt
+einen laufenden lokalen Server und Playwright. Bei Bedarf legen
+`BLC_PLAYWRIGHT_MODULE` und `BLC_BROWSER_EXECUTABLE` die vorhandene
+Playwright-Installation und den Browser fest; es werden keine Pakete nachgeladen.
+
 Die ausgewählten freigegebenen Langzeitkurven werden in einer gemeinsamen Zeichenfläche auf
 der Zeitachse 1700–2100 überlagert. Die vertikale Position jeder Kurve zeigt den
 Verlauf innerhalb ihrer eigenen Datenspanne; eine gemeinsame Y-Skala wird nicht

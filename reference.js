@@ -6,6 +6,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
+  const t = globalThis.BRUCHLAST_I18N?.t || ((text, ...values) => text.replace(/\{(\d+)\}/g, (match, index) => index < values.length ? String(values[index]) : match));
   const allowedRoles = new Set(["boundary"]);
   const allowedQualifiers = new Set(["exact", "approximate"]);
   const allowedOperators = new Set([">", "<"]);
@@ -47,27 +48,27 @@
 
   function referenceStatus(curve) {
     const reference = validateReference(curve);
-    if (!reference) return { state: "missing", label: "Für diese Kurve ist noch kein vergleichbarer Grenzwert hinterlegt." };
+    if (!reference) return { state: "missing", label: t("Für diese Kurve ist noch kein vergleichbarer Grenzwert hinterlegt.") };
     if (["no_global_quantity_boundary", "no_planetary_threshold"].includes(reference.type)) return { state: "missing", label: reference.display };
     if (!("role" in reference) || !("qualifier" in reference) || !("exceedanceOperator" in reference)) {
-      return { state: "reference-only", label: "Für diese Modellreferenz ist keine Statusbewertung freigegeben.", reference };
+      return { state: "reference-only", label: t("Für diese Modellreferenz ist keine Statusbewertung freigegeben."), reference };
     }
     const observation = latestObservation(curve.observations);
-    if (!observation) return { state: "unknown", label: "Für diese Kurve ist keine aktuelle Bewertung möglich." };
+    if (!observation) return { state: "unknown", label: t("Für diese Kurve ist keine aktuelle Bewertung möglich.") };
     const assessment = curve.thresholdAssessments?.boundary;
     if (assessment && allowedThresholdStatuses.has(assessment.status)) {
-      if (assessment.status === "already_crossed_at_start") return { state: "exceeded", label: `Beim ersten Messpunkt ${assessment.firstCrossingPoint.year} bereits überschritten`, observation, reference };
-      if (assessment.status === "crossed") return { state: "exceeded", label: `Erstmals im Datensatz ${assessment.firstCrossingPoint.year} überschritten`, observation, reference };
-      if (assessment.status === "not_crossed") return { state: "not-exceeded", label: `In der geprüften Reihe bis ${assessment.lastCheckedPoint.year} nicht überschritten`, observation, reference };
-      if (assessment.status === "series_ends_before_known_crossing") return { state: "external-crossing", label: `Reihe endet ${assessment.lastCheckedPoint.year} vor der separat belegten Überschreitung ${assessment.knownCrossingPoint.year}`, observation, reference };
-      return { state: "unknown", label: "Mit dieser Reihe nicht beurteilbar", observation, reference };
+      if (assessment.status === "already_crossed_at_start") return { state: "exceeded", label: t("Beim ersten Messpunkt {0} bereits überschritten", assessment.firstCrossingPoint.year), observation, reference };
+      if (assessment.status === "crossed") return { state: "exceeded", label: t("Erstmals im Datensatz {0} überschritten", assessment.firstCrossingPoint.year), observation, reference };
+      if (assessment.status === "not_crossed") return { state: "not-exceeded", label: t("In der geprüften Reihe bis {0} nicht überschritten", assessment.lastCheckedPoint.year), observation, reference };
+      if (assessment.status === "series_ends_before_known_crossing") return { state: "external-crossing", label: t("Reihe endet {0} vor der separat belegten Überschreitung {1}", assessment.lastCheckedPoint.year, assessment.knownCrossingPoint.year), observation, reference };
+      return { state: "unknown", label: t("Mit dieser Reihe nicht beurteilbar"), observation, reference };
     }
     const value = Number(observation.value);
     const threshold = Number(reference.value);
     const exceeded = reference.exceedanceOperator === ">" ? value > threshold : value < threshold;
-    if (exceeded) return { state: "exceeded", label: "Modellreferenz überschritten", observation, reference };
-    if (value === threshold) return { state: "reached", label: "Modellreferenz erreicht", observation, reference };
-    return { state: "not-exceeded", label: "Modellreferenz nicht überschritten", observation, reference };
+    if (exceeded) return { state: "exceeded", label: t("Modellreferenz überschritten"), observation, reference };
+    if (value === threshold) return { state: "reached", label: t("Modellreferenz erreicht"), observation, reference };
+    return { state: "not-exceeded", label: t("Modellreferenz nicht überschritten"), observation, reference };
   }
 
   return { latestObservation, referenceStatus, validateReference };

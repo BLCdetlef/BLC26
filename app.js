@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  const { t, locale, language, localize } = window.BRUCHLAST_I18N;
   const config = window.BRUCHLAST_DATA;
   const chart = document.getElementById("chart");
   const seriesCount = document.getElementById("seriesCount");
@@ -14,7 +15,7 @@
   const curveLinkStatus = document.getElementById("curveLinkStatus");
   const embedLegend = document.getElementById("embedLegend");
   const selectionApi = window.BRUCHLAST_SELECTION;
-  const historicalEvents = Array.isArray(window.BRUCHLAST_EVENTS) ? window.BRUCHLAST_EVENTS : [];
+  const historicalEvents = Array.isArray(window.BRUCHLAST_EVENTS) ? localize(window.BRUCHLAST_EVENTS) : [];
   const referenceApi = window.BRUCHLAST_REFERENCE;
   const curveLinkApi = window.BRUCHLAST_CURVE_LINK;
   const svgNamespace = "http://www.w3.org/2000/svg";
@@ -36,77 +37,77 @@
   const selectedCurveIds = new Set();
   const visibleSegments = { observed: true, historical: true, projection: true };
   const foundationCatalog = Object.freeze([
-    { domainId: "climate_change", label: "Klimawandel", group: "Planetare Grenzen" },
-    { domainId: "biosphere_integrity", label: "Biosphärenintegrität", group: "Planetare Grenzen" },
-    { domainId: "land_system_change", label: "Landnutzung", group: "Planetare Grenzen" },
-    { domainId: "freshwater_change", label: "Süßwasser", group: "Planetare Grenzen" },
-    { domainId: "nutrient_cycles", label: "Nährstoffkreisläufe", group: "Planetare Grenzen" },
-    { domainId: "ocean_acidification", label: "Ozeanversauerung", group: "Planetare Grenzen" },
-    { domainId: "atmospheric_aerosol_loading", label: "Aerosole", group: "Planetare Grenzen" },
-    { domainId: "stratospheric_ozone_depletion", label: "Stratosphärisches Ozon", group: "Planetare Grenzen" },
-    { domainId: "novel_entities", label: "Neue Substanzen", group: "Planetare Grenzen" },
-    { domainId: "eah_material_energy_flows", label: "Rohstoffe", group: "Ergänzende Einflussbereiche" },
-    { domainId: "eah_tech_social_environment", label: "Technologische & soziale Umwelt", group: "Ergänzende Einflussbereiche" }
+    { domainId: "climate_change", label: t("Klimawandel"), group: t("Planetare Grenzen") },
+    { domainId: "biosphere_integrity", label: t("Biosphärenintegrität"), group: t("Planetare Grenzen") },
+    { domainId: "land_system_change", label: t("Landnutzung"), group: t("Planetare Grenzen") },
+    { domainId: "freshwater_change", label: t("Süßwasser"), group: t("Planetare Grenzen") },
+    { domainId: "nutrient_cycles", label: t("Nährstoffkreisläufe"), group: t("Planetare Grenzen") },
+    { domainId: "ocean_acidification", label: t("Ozeanversauerung"), group: t("Planetare Grenzen") },
+    { domainId: "atmospheric_aerosol_loading", label: t("Aerosole"), group: t("Planetare Grenzen") },
+    { domainId: "stratospheric_ozone_depletion", label: t("Stratosphärisches Ozon"), group: t("Planetare Grenzen") },
+    { domainId: "novel_entities", label: t("Neue Substanzen"), group: t("Planetare Grenzen") },
+    { domainId: "eah_material_energy_flows", label: t("Rohstoffe"), group: t("Ergänzende Einflussbereiche") },
+    { domainId: "eah_tech_social_environment", label: t("Technologische & soziale Umwelt"), group: t("Ergänzende Einflussbereiche") }
   ]);
   const presentation = Object.freeze({
     global_cement_production_1926_2024_owid_usgs: {
-      label: "Globale Zementproduktion",
-      detail: "Jährliche globale Produktion hydraulischer Zemente aller Typen · Produktionsstatistik einschließlich amtlicher Schätzwerte",
-      unit: "Mrd. t/Jahr"
+      label: t("Globale Zementproduktion"),
+      detail: t("Jährliche globale Produktion hydraulischer Zemente aller Typen · Produktionsstatistik einschließlich amtlicher Schätzwerte"),
+      unit: t("Mrd. t/Jahr")
     },
     biosphere_hanpp_1910_2020: {
-      label: "Menschliche Beanspruchung der Ökosystemproduktion",
-      detail: "Anteil der natürlichen Primärproduktion, den Menschen nutzen oder verändern · höher = stärkere Beanspruchung",
+      label: t("Menschliche Beanspruchung der Ökosystemproduktion"),
+      detail: t("Anteil der natürlichen Primärproduktion, den Menschen nutzen oder verändern · höher = stärkere Beanspruchung"),
       unit: "% HANPP"
     },
     global_co2_noaa_annual: {
-      label: "Atmosphärisches CO₂",
-      detail: "Globales Jahresmittel der CO₂-Konzentration",
+      label: t("Atmosphärisches CO₂"),
+      detail: t("Globales Jahresmittel der CO₂-Konzentration"),
       unit: "ppm"
     },
     green_water_rootzone_soil_moisture: {
-      label: "Landfläche mit ungewöhnlicher Bodenfeuchte",
-      detail: "Anteil mit ungewöhnlich trockener oder nasser Bodenfeuchte · höher = mehr gestörte Fläche",
-      unit: "% der eisfreien Landfläche"
+      label: t("Landfläche mit ungewöhnlicher Bodenfeuchte"),
+      detail: t("Anteil mit ungewöhnlich trockener oder nasser Bodenfeuchte · höher = mehr gestörte Fläche"),
+      unit: t("% der eisfreien Landfläche")
     },
     blue_water_streamflow: {
-      label: "Landfläche mit ungewöhnlichem Flussabfluss",
-      detail: "Anteil mit ungewöhnlich hohem oder niedrigem Abfluss · höher = mehr gestörte Fläche",
-      unit: "% der eisfreien Landfläche"
+      label: t("Landfläche mit ungewöhnlichem Flussabfluss"),
+      detail: t("Anteil mit ungewöhnlich hohem oder niedrigem Abfluss · höher = mehr gestörte Fläche"),
+      unit: t("% der eisfreien Landfläche")
     },
     global_forest_cover_1992_2022: {
-      label: "Verbleibende globale Waldfläche",
-      detail: "Anteil an der potenziellen natürlichen Waldfläche · niedriger = weniger Wald",
-      unit: "% der potenziellen Waldfläche",
+      label: t("Verbleibende globale Waldfläche"),
+      detail: t("Anteil an der potenziellen natürlichen Waldfläche · niedriger = weniger Wald"),
+      unit: t("% der potenziellen Waldfläche"),
       fixedExtent: { minimum: 0, maximum: 100 },
-      scaleNote: "Feste Skala 0–100 % der potenziellen Waldfläche. 100 % ist die Bezugsgröße, kein zusätzlicher historischer Datenpunkt.",
+      scaleNote: t("Feste Skala 0–100 % der potenziellen Waldfläche. 100 % ist die Bezugsgröße, kein zusätzlicher historischer Datenpunkt."),
       showHistoricalReconstruction: false,
-      observationMethod: "Hauptreihe 1992–2022 aus der Copernicus/ESA-CCI-Auswertung des Planetary Health Check 2025. Die Stützwerte wurden näherungsweise aus Figure 28 abgelesen. Die historische Rekonstruktion wird wegen abweichender Walddefinition und Bezugsfläche nicht dargestellt."
+      observationMethod: t("Hauptreihe 1992–2022 aus der Copernicus/ESA-CCI-Auswertung des Planetary Health Check 2025. Die Stützwerte wurden näherungsweise aus Figure 28 abgelesen. Die historische Rekonstruktion wird wegen abweichender Walddefinition und Bezugsfläche nicht dargestellt.")
     },
     global_surface_omega_arag_oceansoda_1982_2021: {
-      label: "Aragonit-Sättigung des Oberflächenozeans",
-      detail: "Globales flächengewichtetes Jahresmittel · niedriger = stärkere Ozeanversauerung",
+      label: t("Aragonit-Sättigung des Oberflächenozeans"),
+      detail: t("Globales flächengewichtetes Jahresmittel · niedriger = stärkere Ozeanversauerung"),
       unit: "Ωarag"
     },
     nitrogen_fixation_1961_2022: {
-      label: "Anthropogene Stickstofffixierung",
-      detail: "Globale Fixierung für die Landwirtschaft · höher = stärkere Belastung",
-      unit: "Tg N/Jahr"
+      label: t("Anthropogene Stickstofffixierung"),
+      detail: t("Globale Fixierung für die Landwirtschaft · höher = stärkere Belastung"),
+      unit: t("Tg N/Jahr")
     },
     phosphorus_cropland_1961_2022: {
-      label: "Mineralischer Phosphoreinsatz",
-      detail: "Global aggregierte Anwendung auf Ackerflächen · höher = stärkere Belastung",
-      unit: "Tg P/Jahr"
+      label: t("Mineralischer Phosphoreinsatz"),
+      detail: t("Global aggregierte Anwendung auf Ackerflächen · höher = stärkere Belastung"),
+      unit: t("Tg P/Jahr")
     },
     global_plastics_production_1950_2019: {
-      label: "Globale Kunststoffproduktion",
-      detail: "Jährlich produzierte primäre Kunststoffe · höher = mehr neue Substanzen in der Umwelt",
-      unit: "Mio. t/Jahr"
+      label: t("Globale Kunststoffproduktion"),
+      detail: t("Jährlich produzierte primäre Kunststoffe · höher = mehr neue Substanzen in der Umwelt"),
+      unit: t("Mio. t/Jahr")
     },
     global_oil_tes_1965_2025: {
-      label: "Globale Energieversorgung aus Erdöl",
-      detail: "Jährliche globale Total Energy Supply aus Erdöl · höher = größerer fossiler Energiestrom",
-      unit: "TWh/Jahr"
+      label: t("Globale Energieversorgung aus Erdöl"),
+      detail: t("Jährliche globale Total Energy Supply aus Erdöl · höher = größerer fossiler Energiestrom"),
+      unit: t("TWh/Jahr")
     }
   });
 
@@ -135,81 +136,81 @@
     return `${Number(point?.year)}:${Number(point?.value)}`;
   }
   function validateDisplaySegments(curve, fullSegments, displaySegments, label) {
-    if (!Array.isArray(displaySegments) || displaySegments.length !== fullSegments.length) fail(`${curve.curveId}: Darstellungssegmente für ${label} fehlen.`);
+    if (!Array.isArray(displaySegments) || displaySegments.length !== fullSegments.length) fail(t("{0}: Darstellungssegmente für {1} fehlen.", curve.curveId, label));
     const fullById = new Map(fullSegments.map(segment => [segment.id, segment]));
     for (const displaySegment of displaySegments) {
       const fullSegment = fullById.get(displaySegment.id);
-      if (!fullSegment || !validPoints(displaySegment.points) || !displaySegment.points.length) fail(`${curve.curveId}: ungültiges Darstellungssegment für ${label}.`);
+      if (!fullSegment || !validPoints(displaySegment.points) || !displaySegment.points.length) fail(t("{0}: ungültiges Darstellungssegment für {1}.", curve.curveId, label));
       const originals = new Set(fullSegment.points.map(pointKey));
-      if (displaySegment.points.some(point => !originals.has(pointKey(point)))) fail(`${curve.curveId}: ${label} enthält einen nicht belegten Zwischenwert.`);
+      if (displaySegment.points.some(point => !originals.has(pointKey(point)))) fail(t("{0}: {1} enthält einen nicht belegten Zwischenwert.", curve.curveId, label));
     }
   }
   function formatNumber(value) {
-    return new Intl.NumberFormat("de-DE", { maximumFractionDigits: 6 }).format(Number(value));
+    return new Intl.NumberFormat(locale, { maximumFractionDigits: 6 }).format(Number(value));
   }
   async function sha256(value) {
-    if (!window.crypto?.subtle) fail("SHA-256-Prüfung ist in diesem Browserkontext nicht verfügbar.");
+    if (!window.crypto?.subtle) fail(t("SHA-256-Prüfung ist in diesem Browserkontext nicht verfügbar."));
     const digest = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
     return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
   }
   function validateObservationSegments(curve) {
     if (curve.observationSegments === undefined) return;
-    if (!Array.isArray(curve.observationSegments) || !curve.observationSegments.length) fail(curve.curveId + ': Statistiksegmente fehlen.');
+    if (!Array.isArray(curve.observationSegments) || !curve.observationSegments.length) fail(curve.curveId + t(": Statistiksegmente fehlen."));
     const sourceIds = new Set((curve.sources || []).map(source => source.id));
     const seen = new Set();
     const joined = [];
     for (const [index, segment] of curve.observationSegments.entries()) {
-      if (!segment.id || seen.has(segment.id) || !validPoints(segment.points) || !segment.points.length || !validProvenance(segment.provenance) || !segment.sourceRefs?.length || segment.sourceRefs.some(ref => !sourceIds.has(ref))) fail(curve.curveId + ': ungültiges Statistiksegment.');
+      if (!segment.id || seen.has(segment.id) || !validPoints(segment.points) || !segment.points.length || !validProvenance(segment.provenance) || !segment.sourceRefs?.length || segment.sourceRefs.some(ref => !sourceIds.has(ref))) fail(curve.curveId + t(": ungültiges Statistiksegment."));
       seen.add(segment.id);
-      if (segment.points.some(point => !point.sourceRefs?.length || point.sourceRefs.some(ref => !segment.sourceRefs.includes(ref)))) fail(curve.curveId + ': Punktquelle außerhalb des Statistiksegments.');
-      if (index && !curve.methodBreaks?.some(marker => Number(marker.year) === Number(segment.points[0].year) && marker.label && marker.detail)) fail(curve.curveId + ': Erklärung des Statistikwechsels fehlt.');
+      if (segment.points.some(point => !point.sourceRefs?.length || point.sourceRefs.some(ref => !segment.sourceRefs.includes(ref)))) fail(curve.curveId + t(": Punktquelle außerhalb des Statistiksegments."));
+      if (index && !curve.methodBreaks?.some(marker => Number(marker.year) === Number(segment.points[0].year) && marker.label && marker.detail)) fail(curve.curveId + t(": Erklärung des Statistikwechsels fehlt."));
       joined.push(...segment.points);
     }
-    if (JSON.stringify(joined) !== JSON.stringify(curve.observations) || joined.some((point, index) => index && Number(point.year) <= Number(joined[index - 1].year))) fail(curve.curveId + ': Statistiksegmente decken die Originalwerte nicht genau einmal chronologisch ab.');
+    if (JSON.stringify(joined) !== JSON.stringify(curve.observations) || joined.some((point, index) => index && Number(point.year) <= Number(joined[index - 1].year))) fail(curve.curveId + t(": Statistiksegmente decken die Originalwerte nicht genau einmal chronologisch ab."));
   }
   async function verifyExport(payload) {
     const allowedTopFields = new Set(["format", "version", "manifestVersion", "curves", "integrity"]);
-    if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail("Übergabepaket ist kein gültiges Objekt.");
-    for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(`Unbekanntes Exportfeld: ${field}`);
-    if (payload.format !== config.import.format || payload.version !== config.import.version) fail("Unbekanntes Exportformat.");
-    if (!Array.isArray(payload.curves) || !payload.curves.length) fail("Das Übergabepaket enthält keine Kurven.");
-    if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail("Integritätsangabe fehlt.");
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) fail(t("Übergabepaket ist kein gültiges Objekt."));
+    for (const field of Object.keys(payload)) if (!allowedTopFields.has(field)) fail(t("Unbekanntes Exportfeld: {0}", field));
+    if (payload.format !== config.import.format || payload.version !== config.import.version) fail(t("Unbekanntes Exportformat."));
+    if (!Array.isArray(payload.curves) || !payload.curves.length) fail(t("Das Übergabepaket enthält keine Kurven."));
+    if (payload.integrity?.algorithm !== "SHA-256" || !/^[a-f0-9]{64}$/.test(payload.integrity?.hash || "")) fail(t("Integritätsangabe fehlt."));
     const signedPayload = { format: payload.format, version: payload.version, manifestVersion: payload.manifestVersion, curves: payload.curves };
     const actualHash = await sha256(JSON.stringify(signedPayload));
-    if (actualHash !== payload.integrity.hash) fail("Integritätsprüfung fehlgeschlagen. Das Paket wurde verändert oder beschädigt.");
+    if (actualHash !== payload.integrity.hash) fail(t("Integritätsprüfung fehlgeschlagen. Das Paket wurde verändert oder beschädigt."));
     const seen = new Set();
     const seenSeries = new Set();
     for (const curve of payload.curves) {
-      if (!curve?.curveId || seen.has(curve.curveId)) fail("Kurven-ID fehlt oder ist doppelt.");
+      if (!curve?.curveId || seen.has(curve.curveId)) fail(t("Kurven-ID fehlt oder ist doppelt."));
       seen.add(curve.curveId);
-      if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(`${curve.curveId}: fachliche Kategorie fehlt.`);
-      if (seenSeries.has(curve.seriesId)) fail(`${curve.seriesId}: Kurve ist doppelt enthalten.`);
-      if (!allowedCurveRoles.has(curve.curveRole)) fail(`${curve.curveId}: ungültige curveRole.`);
+      if (!curve.domainType || !curve.domainId || !curve.domainLabel) fail(t("{0}: fachliche Kategorie fehlt.", curve.curveId));
+      if (seenSeries.has(curve.seriesId)) fail(t("{0}: Kurve ist doppelt enthalten.", curve.seriesId));
+      if (!allowedCurveRoles.has(curve.curveRole)) fail(t("{0}: ungültige curveRole.", curve.curveId));
       seenSeries.add(curve.seriesId);
-      if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(`${curve.curveId}: unzulässiger Quellverweis.`);
-      if (!["observed", "assessed_model_estimate"].includes(curve.dataNature)) fail(`${curve.curveId}: Art der Hauptreihe fehlt oder ist ungültig.`);
-      if (!validPoints(curve.observations) || curve.observations.length < 2) fail(`${curve.curveId}: gültige Beobachtungsreihe fehlt.`);
-      if (!validPoints(curve.displayObservations) || curve.displayObservations.length < 2) fail(`${curve.curveId}: gültige Darstellungsreihe fehlt.`);
-      if (curve.observationProvenance && !validProvenance(curve.observationProvenance)) fail(`${curve.curveId}: ungültige Herkunft der Hauptreihe.`);
+      if (!curve.source?.startsWith("data/knowledge/") || curve.source.includes("..")) fail(t("{0}: unzulässiger Quellverweis.", curve.curveId));
+      if (!["observed", "assessed_model_estimate"].includes(curve.dataNature)) fail(t("{0}: Art der Hauptreihe fehlt oder ist ungültig.", curve.curveId));
+      if (!validPoints(curve.observations) || curve.observations.length < 2) fail(t("{0}: gültige Beobachtungsreihe fehlt.", curve.curveId));
+      if (!validPoints(curve.displayObservations) || curve.displayObservations.length < 2) fail(t("{0}: gültige Darstellungsreihe fehlt.", curve.curveId));
+      if (curve.observationProvenance && !validProvenance(curve.observationProvenance)) fail(t("{0}: ungültige Herkunft der Hauptreihe.", curve.curveId));
       const observationYears = new Set(curve.observations.map(point => Number(point.year)));
-      if (curve.displayObservations.some(point => !observationYears.has(Number(point.year)))) fail(`${curve.curveId}: Darstellungsreihe enthält keinen Originalpunkt.`);
+      if (curve.displayObservations.some(point => !observationYears.has(Number(point.year)))) fail(t("{0}: Darstellungsreihe enthält keinen Originalpunkt.", curve.curveId));
       validateObservationSegments(curve);
       referenceApi.validateReference(curve);
       for (const kind of ["boundary", "highRisk"]) {
         const assessment = curve.thresholdAssessments?.[kind];
-        if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(`${curve.curveId}: ungültiger Grenzstatus für ${kind}.`);
+        if (!assessment || !allowedThresholdStatuses.has(assessment.status)) fail(t("{0}: ungültiger Grenzstatus für {1}.", curve.curveId, kind));
       }
-      for (const segment of curve.historicalReconstruction || []) if (!validPoints(segment.points) || !segment.points.length || (segment.provenance && !validProvenance(segment.provenance))) fail(`${curve.curveId}: ungültige Rekonstruktion.`);
+      for (const segment of curve.historicalReconstruction || []) if (!validPoints(segment.points) || !segment.points.length || (segment.provenance && !validProvenance(segment.provenance))) fail(t("{0}: ungültige Rekonstruktion.", curve.curveId));
       for (const projection of curve.projections || []) {
-        if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length || (projection.provenance && !validProvenance(projection.provenance))) fail(`${curve.curveId}: nicht qualifizierte oder ungültige Projektion.`);
+        if (!allowedProjectionGrades.has(projection.grade) || !validPoints(projection.points) || !projection.points.length || (projection.provenance && !validProvenance(projection.provenance))) fail(t("{0}: nicht qualifizierte oder ungültige Projektion.", curve.curveId));
       }
-      validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, "Rekonstruktionen");
-      validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, "Projektionen");
-      if (curve.displayDerivation?.interpolation !== false || !Array.isArray(curve.displayDerivation?.transformations) || curve.displayDerivation.transformations.length) fail(`${curve.curveId}: transparente Darstellungsherleitung fehlt.`);
+      validateDisplaySegments(curve, curve.historicalReconstruction || [], curve.displayHistoricalReconstruction, t("Rekonstruktionen"));
+      validateDisplaySegments(curve, curve.projections || [], curve.displayProjections, t("Projektionen"));
+      if (curve.displayDerivation?.interpolation !== false || !Array.isArray(curve.displayDerivation?.transformations) || curve.displayDerivation.transformations.length) fail(t("{0}: transparente Darstellungsherleitung fehlt.", curve.curveId));
       for (const note of curve.contextNotes || []) {
-        if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(`${curve.curveId}: unvollständiger ergänzender Kontext.`);
+        if (!note?.id || !note?.label || !note?.value || !note?.detail || !Array.isArray(note.sourceRefs) || !note.sourceRefs.length) fail(t("{0}: unvollständiger ergänzender Kontext.", curve.curveId));
         const sourceIds = new Set((curve.sources || []).map(source => source?.id).filter(Boolean));
-        if (note.sourceRefs.some(sourceRef => !sourceIds.has(sourceRef))) fail(`${curve.curveId}: unbekannte Quelle im ergänzenden Kontext.`);
+        if (note.sourceRefs.some(sourceRef => !sourceIds.has(sourceRef))) fail(t("{0}: unbekannte Quelle im ergänzenden Kontext.", curve.curveId));
       }
     }
     return actualHash;
@@ -230,19 +231,19 @@
     const overview = document.createElement("div");
     overview.className = "curve-reference-overview";
     panel.appendChild(overview);
-    appendLabeledText(overview, "Segment", segment.label);
-    if (segment.period) appendLabeledText(overview, "Zeitraum", segment.period);
-    if (presentation[curve.seriesId]?.scaleNote) appendLabeledText(overview, "Darstellung", presentation[curve.seriesId].scaleNote);
+    appendLabeledText(overview, t("Segment"), segment.label);
+    if (segment.period) appendLabeledText(overview, t("Zeitraum"), segment.period);
+    if (presentation[curve.seriesId]?.scaleNote) appendLabeledText(overview, t("Darstellung"), presentation[curve.seriesId].scaleNote);
     if (segment.type === "observed" && presentation[curve.seriesId]?.observationMethod) {
-      appendLabeledText(overview, "Methode", segment.method);
+      appendLabeledText(overview, t("Methode"), segment.method);
     }
     if (curve.seriesId === "global_cement_production_1926_2024_owid_usgs") {
-      appendLabeledText(overview, "Messgröße", curve.metric);
-      appendLabeledText(overview, "Einheit", presentation[curve.seriesId].unit);
+      appendLabeledText(overview, t("Messgröße"), curve.metric);
+      appendLabeledText(overview, t("Einheit"), presentation[curve.seriesId].unit);
     }
     if (segment.type !== "observed") {
-      if (segment.method) appendLabeledText(overview, "Methode", segment.method);
-      if (segment.uncertainty) appendLabeledText(overview, "Einordnung", segment.uncertainty);
+      if (segment.method) appendLabeledText(overview, t("Methode"), segment.method);
+      if (segment.uncertainty) appendLabeledText(overview, t("Einordnung"), segment.uncertainty);
       appendSegmentProvenance(panel, curve, segment);
       appendSegmentDataDocumentation(panel, curve, segment);
       return;
@@ -257,9 +258,9 @@
       return;
     }
     const kind = document.createElement("p");
-    kind.textContent = "Modellreferenz nach dem Modell der Planetaren Grenzen";
+    kind.textContent = t("Modellreferenz nach dem Modell der Planetaren Grenzen");
     const reference = document.createElement("p");
-    reference.textContent = status.reference.display || `Referenzwert: ${status.reference.qualifier === "approximate" ? "etwa " : ""}${status.reference.value} ${status.reference.unit}`;
+    reference.textContent = status.reference.display || t("Referenzwert: {0}{1} {2}", status.reference.qualifier === "approximate" ? t("etwa ") : "", status.reference.value, status.reference.unit);
     if (status.state === "reference-only") {
       const assessment = document.createElement("p");
       assessment.className = "curve-reference-status";
@@ -271,7 +272,7 @@
       return;
     }
     const current = document.createElement("p");
-    current.textContent = `${curve.dataNature === "assessed_model_estimate" ? "Letzter Schätzwert" : "Letzter Beobachtungswert"} (${status.observation.year}): ${status.observation.display || `${formatNumber(status.observation.value)} ${curve.unit}`}`;
+    current.textContent = `${curve.dataNature === "assessed_model_estimate" ? t("Letzter Schätzwert") : t("Letzter Beobachtungswert")} (${status.observation.year}): ${status.observation.display || `${formatNumber(status.observation.value)} ${curve.unit}`}`;
     const assessment = document.createElement("p");
     assessment.className = "curve-reference-status";
     assessment.textContent = status.label;
@@ -332,7 +333,7 @@
     if (sourceItems.length) {
       const sources = document.createElement("p");
       sources.className = "curve-reference-sources";
-      sources.append("Quelle des Grenzwerts: ");
+      sources.append(t("Quelle des Grenzwerts: "));
       sourceItems.forEach((source, index) => {
         if (index) sources.append("; ");
         const href = source.url || (source.doi ? `https://doi.org/${source.doi}` : "");
@@ -385,13 +386,13 @@
   }
   function shortSourceName(curve, refs) {
     const source = refs?.length ? sourceForRef(curve, refs[0]) : null;
-    return source ? compactSourceName(source) : "Quelle siehe Legende";
+    return source ? compactSourceName(source) : t("Quelle siehe Legende");
   }
   function seriesOriginLabel(curve, refs, kind) {
     const source = shortSourceName(curve, refs);
-    if (kind === "observed") return `${source}-${curve.dataNature === "assessed_model_estimate" ? "Schätzreihe" : "Messreihe"}`;
-    if (kind === "historical") return `${source}-Rekonstruktion`;
-    return `${source}-Szenario`;
+    if (kind === "observed") return `${source}-${curve.dataNature === "assessed_model_estimate" ? t("Schätzreihe") : t("Messreihe")}`;
+    if (kind === "historical") return t("{0}-Rekonstruktion", source);
+    return t("{0}-Szenario", source);
   }
   function observationSegmentForPoint(curve, point) {
     return curve.observationSegments?.find(segment => segment.points.some(candidate => Number(candidate.year) === Number(point.year)));
@@ -404,17 +405,17 @@
     if (selection?.curveId === curve.curveId && selection.type === "historical" && presentation[curve.seriesId]?.showHistoricalReconstruction !== false) {
       const data = (curve.historicalReconstruction || []).find(item => item.id === selection.id);
       const display = (curve.displayHistoricalReconstruction || []).find(item => item.id === selection.id);
-      if (data) return { ...data, type: "historical", label: data.label || "Rekonstruktion", displayPointCount: display?.points?.length || 0, derivationKey: "historicalReconstruction" };
+      if (data) return { ...data, type: "historical", label: data.label || t("Rekonstruktion"), displayPointCount: display?.points?.length || 0, derivationKey: "historicalReconstruction" };
     }
     if (selection?.curveId === curve.curveId && selection.type === "projection") {
       const data = (curve.projections || []).find(item => item.id === selection.id);
       const display = (curve.displayProjections || []).find(item => item.id === selection.id);
-      if (data) return { ...data, type: "projection", label: data.scenarioLabel || data.scenario || "Modellierung", displayPointCount: display?.points?.length || 0, derivationKey: "projections" };
+      if (data) return { ...data, type: "projection", label: data.scenarioLabel || data.scenario || t("Modellierung"), displayPointCount: display?.points?.length || 0, derivationKey: "projections" };
     }
     return {
       type: "observed",
       id: "observations",
-      label: curve.seriesId === "global_cement_production_1926_2024_owid_usgs" ? "Produktionsstatistik" : curve.dataNature === "assessed_model_estimate" ? "Wissenschaftliche Schätzreihe" : "Messwerte",
+      label: curve.seriesId === "global_cement_production_1926_2024_owid_usgs" ? t("Produktionsstatistik") : curve.dataNature === "assessed_model_estimate" ? t("Wissenschaftliche Schätzreihe") : t("Messwerte"),
       period: `${curve.observationCoverage.startYear}–${curve.observationCoverage.endYear}`,
       method: presentation[curve.seriesId]?.observationMethod || curve.methodNote,
       uncertainty: curve.uncertainty,
@@ -430,17 +431,17 @@
     section.className = "curve-provenance";
     const heading = document.createElement("strong");
     heading.className = "curve-provenance-title";
-    heading.textContent = "Datenherkunft dieses Segments";
+    heading.textContent = t("Datenherkunft dieses Segments");
     section.appendChild(heading);
     const sources = uniqueSources(curve, segment.sourceRefs || []);
-    appendLabeledText(section, "Quelle", [...new Set(sources.map(compactSourceName))].join(" · ") || "nicht dokumentiert");
+    appendLabeledText(section, t("Quelle"), [...new Set(sources.map(compactSourceName))].join(" · ") || t("nicht dokumentiert"));
     const provenance = segment.provenance;
-    if (provenance?.sourceFile) appendLabeledText(section, "Quelldatei", provenance.sourceFile);
-    if (provenance?.locator) appendLabeledText(section, "Fundstelle", provenance.locator);
-    if (provenance?.fields?.length) appendLabeledText(section, "Ausgelesene Felder", provenance.fields.join("; "));
-    if (provenance?.extraction) appendLabeledText(section, "Übernommener Bereich", provenance.extraction);
-    if (provenance?.transformation) appendLabeledText(section, "Verarbeitung", provenance.transformation);
-    if (!provenance) appendLabeledText(section, "Fundstelle", "Für dieses Segment ist die genaue Fundstelle im Export noch nicht dokumentiert.");
+    if (provenance?.sourceFile) appendLabeledText(section, t("Quelldatei"), provenance.sourceFile);
+    if (provenance?.locator) appendLabeledText(section, t("Fundstelle"), provenance.locator);
+    if (provenance?.fields?.length) appendLabeledText(section, t("Ausgelesene Felder"), provenance.fields.join("; "));
+    if (provenance?.extraction) appendLabeledText(section, t("Übernommener Bereich"), provenance.extraction);
+    if (provenance?.transformation) appendLabeledText(section, t("Verarbeitung"), provenance.transformation);
+    if (!provenance) appendLabeledText(section, t("Fundstelle"), t("Für dieses Segment ist die genaue Fundstelle im Export noch nicht dokumentiert."));
     const actions = document.createElement("div");
     actions.className = "curve-provenance-actions";
     const primaryHref = provenance?.sourceUrl || (sources[0] ? sourceHref(sources[0]) : "");
@@ -449,14 +450,14 @@
       originalDataLink.href = primaryHref;
       originalDataLink.target = "_blank";
       originalDataLink.rel = "noopener noreferrer";
-      originalDataLink.textContent = "Originaldatensatz öffnen";
+      originalDataLink.textContent = t("Originaldatensatz öffnen");
       actions.appendChild(originalDataLink);
     }
     const importedDataLink = document.createElement("a");
     importedDataLink.href = config.import.source;
     importedDataLink.target = "_blank";
     importedDataLink.rel = "noopener noreferrer";
-    importedDataLink.textContent = "Importierte Daten anzeigen";
+    importedDataLink.textContent = t("Importierte Daten anzeigen");
     actions.appendChild(importedDataLink);
     section.appendChild(actions);
     panel.appendChild(section);
@@ -511,7 +512,7 @@
     const block = document.createElement("section");
     block.className = "curve-value-example";
     const title = document.createElement("strong");
-    title.textContent = "Ein Wert rückwärts nachvollzogen";
+    title.textContent = t("Ein Wert rückwärts nachvollzogen");
     block.appendChild(title);
     const steps = document.createElement("ol");
     const step = (label, text) => {
@@ -520,20 +521,20 @@
       steps.appendChild(item);
       return item;
     };
-    const precise = value => new Intl.NumberFormat("de-DE", {maximumFractionDigits: 12}).format(value);
-    step("Anzeige im Diagramm", 'X-Achse: Jahr ' + point.year + '. Y-Wert der Kurve: ' + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. ' + (example.axisNote || 'Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.'));
-    const imported = step("Importierte Daten anzeigen", (location.lines ? 'Jahr in Zeile ' + location.lines.yearLine + ', Wert in Zeile ' + location.lines.valueLine + '. ' : '') + 'JSON-Pfad: ' + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
-    if (location.displayPointer) appendLabeledText(imported, "Sichtbare Punktmarke", (location.displayLines ? 'Jahr in Zeile ' + location.displayLines.yearLine + ', Wert in Zeile ' + location.displayLines.valueLine + '. ' : '') + 'Dieselbe Koordinate unter ' + location.displayPointer + '.');
+    const precise = value => new Intl.NumberFormat(locale, {maximumFractionDigits: 12}).format(value);
+    step(t("Anzeige im Diagramm"), t("X-Achse: Jahr ") + point.year + t(". Y-Wert der Kurve: ") + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. ' + (example.axisNote || t("Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.")));
+    const imported = step(t("Importierte Daten anzeigen"), (location.lines ? t("Jahr in Zeile ") + location.lines.yearLine + t(", Wert in Zeile ") + location.lines.valueLine + '. ' : '') + 'JSON-Pfad: ' + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
+    if (location.displayPointer) appendLabeledText(imported, t("Sichtbare Punktmarke"), (location.displayLines ? t("Jahr in Zeile ") + location.displayLines.yearLine + t(", Wert in Zeile ") + location.displayLines.valueLine + '. ' : '') + t("Dieselbe Koordinate unter ") + location.displayPointer + '.');
     const importLink = document.createElement("a");
     importLink.href = config.import.source;
     importLink.target = "_blank";
     importLink.rel = "noopener noreferrer";
-    importLink.textContent = "Importierte Daten anzeigen";
+    importLink.textContent = t("Importierte Daten anzeigen");
     imported.appendChild(importLink);
     const originalText = example.sourceLocator
       ? example.sourceLocator
-      : 'CSV-Zeile ' + example.sourceLine + ' (Kopfzeile zählt als Zeile 1), Spalte ' + example.sourceColumnNumber + ' „' + example.sourceColumn + '“: ' + precise(example.sourceValue) + ' ' + example.sourceUnit + '. Identifikation: Entity=World; Code=OWID_WRL; Year=' + example.year + '. Zeilennummer bezieht sich auf den Download vom ' + example.retrievedAt + '; bei einer neuen Datenversion kann sie sich ändern.';
-    const original = step("Originaldatensatz öffnen", originalText);
+      : t("CSV-Zeile ") + example.sourceLine + t(" (Kopfzeile zählt als Zeile 1), Spalte ") + example.sourceColumnNumber + ' „' + example.sourceColumn + '“: ' + precise(example.sourceValue) + ' ' + example.sourceUnit + t(". Identifikation: Entity=World; Code=OWID_WRL; Year=") + example.year + t(". Zeilennummer bezieht sich auf den Download vom ") + example.retrievedAt + t("; bei einer neuen Datenversion kann sie sich ändern.");
+    const original = step(t("Originaldatensatz öffnen"), originalText);
     if (example.sourceRow) {
       const raw = document.createElement("pre");
       raw.textContent = example.sourceHeader + '\n' + example.sourceRow;
@@ -543,9 +544,9 @@
     originalLink.href = example.sourceUrl || segment.provenance.sourceUrl;
     originalLink.target = "_blank";
     originalLink.rel = "noopener noreferrer";
-    originalLink.textContent = "Originaldatensatz öffnen";
+    originalLink.textContent = t("Originaldatensatz öffnen");
     original.appendChild(originalLink);
-    step("Rechenweg", example.calculationText || (precise(example.sourceValue) + ' ' + example.sourceUnit + ' ÷ ' + precise(example.divisor) + ' = ' + precise(point.value) + ' ' + curve.unit + '. Tooltip gerundet auf höchstens drei Nachkommastellen: ' + point.display + '. Das Jahr ' + point.year + ' wird unverändert übernommen. Keine Interpolation oder Glättung.'));
+    step(t("Rechenweg"), example.calculationText || (precise(example.sourceValue) + ' ' + example.sourceUnit + ' ÷ ' + precise(example.divisor) + ' = ' + precise(point.value) + ' ' + curve.unit + t(". Tooltip gerundet auf höchstens drei Nachkommastellen: ") + point.display + t(". Das Jahr ") + point.year + t(" wird unverändert übernommen. Keine Interpolation oder Glättung.")));
     block.appendChild(steps);
     parent.appendChild(block);
   }
@@ -554,16 +555,16 @@
     details.className = "curve-data-documentation";
     details.open = false;
     const summary = document.createElement("summary");
-    summary.textContent = "Aufbereitung und Auswahlregeln anzeigen";
+    summary.textContent = t("Aufbereitung und Auswahlregeln anzeigen");
     details.appendChild(summary);
     appendSegmentValueExample(details, curve, segment);
     const rule = curve.displayDerivation?.[segment.derivationKey];
-    if (rule) appendLabeledText(details, "Punktauswahl", `${segment.points?.length || 0} belegte Werte → ${segment.displayPointCount || 0} sichtbare Punkte. ${rule.rule}`);
-    appendLabeledText(details, "Liniengrundlage", `Die Linie verwendet alle ${segment.points?.length || segment.points?.length || rule?.inputPointCount || 0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.`);
+    if (rule) appendLabeledText(details, t("Punktauswahl"), t("{0} belegte Werte → {1} sichtbare Punkte. {2}", segment.points?.length || 0, segment.displayPointCount || 0, rule.rule));
+    appendLabeledText(details, t("Liniengrundlage"), t("Die Linie verwendet alle {0} vorhandenen Werte dieses Segments; ausgedünnt werden nur die sichtbaren Punktmarken.", segment.points?.length || segment.points?.length || rule?.inputPointCount || 0));
     if (segment.type === "observed" && curve.contextNotes?.length) {
       const contextHeading = document.createElement("strong");
       contextHeading.className = "curve-context-heading";
-      contextHeading.textContent = "Ergänzender fachlicher Kontext";
+      contextHeading.textContent = t("Ergänzender fachlicher Kontext");
       details.appendChild(contextHeading);
       curve.contextNotes.forEach(note => {
         const context = document.createElement("div");
@@ -573,7 +574,7 @@
         explanation.textContent = note.detail;
         context.appendChild(explanation);
         const sources = uniqueSources(curve, note.sourceRefs || []);
-        appendLabeledText(context, "Quellen", [...new Set(sources.map(compactSourceName))].join(" · ") || "nicht dokumentiert");
+        appendLabeledText(context, t("Quellen"), [...new Set(sources.map(compactSourceName))].join(" · ") || t("nicht dokumentiert"));
         details.appendChild(context);
       });
     }
@@ -601,7 +602,7 @@
     section.className = "curve-certificate";
     const heading = document.createElement("strong");
     heading.className = "curve-certificate-title";
-    heading.textContent = "Prüfbericht und Zertifikat";
+    heading.textContent = t("Prüfbericht und Zertifikat");
     section.appendChild(heading);
     const entry = certificates[curve.seriesId];
     if (entry?.file) {
@@ -609,25 +610,25 @@
       status.className = "curve-certificate-status";
       const badge = document.createElement("span");
       badge.className = `curve-certificate-badge${entry.kind === "example" ? " is-example" : ""}`;
-      badge.textContent = entry.kind === "example" ? "Beispiel · kein Zertifikat" : isLocalEditorHost() ? "PDF lokal verfügbar" : "Veröffentlicht";
-      status.append(badge, ` ${entry.label || "PDF-Dokument"}`);
+      badge.textContent = entry.kind === "example" ? t("Beispiel · kein Zertifikat") : isLocalEditorHost() ? t("PDF lokal verfügbar") : t("Veröffentlicht");
+      status.append(badge, ` ${entry.label || t("PDF-Dokument")}`);
       const actions = document.createElement("div");
       actions.className = "curve-certificate-actions";
       const openLink = document.createElement("a");
       openLink.href = certificateUrl(entry);
       openLink.target = "_blank";
       openLink.rel = "noopener noreferrer";
-      openLink.textContent = "PDF öffnen";
+      openLink.textContent = t("PDF öffnen");
       const downloadLink = document.createElement("a");
       downloadLink.href = certificateUrl(entry);
       downloadLink.download = "";
-      downloadLink.textContent = "PDF herunterladen";
+      downloadLink.textContent = t("PDF herunterladen");
       actions.append(openLink, downloadLink);
       section.append(status, actions);
     } else {
       const empty = document.createElement("p");
       empty.className = "curve-certificate-empty";
-      empty.textContent = "Für diese Kurve ist noch kein Prüfbericht oder Zertifikat veröffentlicht.";
+      empty.textContent = t("Für diese Kurve ist noch kein Prüfbericht oder Zertifikat veröffentlicht.");
       section.appendChild(empty);
     }
     if (isLocalEditorHost()) {
@@ -639,9 +640,9 @@
       input.id = `certificate-upload-${curve.seriesId}`;
       const label = document.createElement("label");
       label.htmlFor = input.id;
-      label.textContent = entry?.file ? "PDF ersetzen und veröffentlichen" : "PDF hochladen und veröffentlichen";
+      label.textContent = entry?.file ? t("PDF ersetzen und veröffentlichen") : t("PDF hochladen und veröffentlichen");
       const help = document.createElement("small");
-      help.textContent = "Nur PDF bis 2 MB. Die Datei ersetzt die bisherige PDF und wird nach Prüfung automatisch veröffentlicht.";
+      help.textContent = t("Nur PDF bis 2 MB. Die Datei ersetzt die bisherige PDF und wird nach Prüfung automatisch veröffentlicht.");
       const result = document.createElement("output");
       result.className = "curve-certificate-upload-status";
       result.setAttribute("aria-live", "polite");
@@ -650,17 +651,17 @@
         const file = input.files?.[0];
         if (!file) return;
         if ((file.type && file.type !== "application/pdf") || !file.name.toLocaleLowerCase("de-DE").endsWith(".pdf")) {
-          result.textContent = "Bitte eine PDF-Datei auswählen.";
+          result.textContent = t("Bitte eine PDF-Datei auswählen.");
           input.value = "";
           return;
         }
         if (file.size > 2 * 1024 * 1024) {
-          result.textContent = "Die PDF ist größer als 2 MB.";
+          result.textContent = t("Die PDF ist größer als 2 MB.");
           input.value = "";
           return;
         }
         delete certificatePublicationStatus[curve.seriesId];
-        result.textContent = "PDF wird gespeichert, geprüft und an GitHub übertragen …";
+        result.textContent = t("PDF wird gespeichert, geprüft und an GitHub übertragen …");
         input.disabled = true;
         try {
           const response = await fetch(`/api/certificates/${encodeURIComponent(curve.seriesId)}`, {
@@ -672,16 +673,16 @@
             },
             body: file
           });
-          if ([404, 405, 501].includes(response.status)) throw new Error("Zum Veröffentlichen BLC26 über die Desktop-Verknüpfung öffnen und die Seite neu laden.");
+          if ([404, 405, 501].includes(response.status)) throw new Error(t("Zum Veröffentlichen BLC26 über die Desktop-Verknüpfung öffnen und die Seite neu laden."));
           const payload = await response.json();
-          if (!response.ok) throw new Error(payload.error || "Upload fehlgeschlagen.");
-          if (!payload.publication) throw new Error("PDF nur lokal gespeichert. Bitte den BLC26-Server neu starten und erneut hochladen.");
+          if (!response.ok) throw new Error(payload.error || t("Upload fehlgeschlagen."));
+          if (!payload.publication) throw new Error(t("PDF nur lokal gespeichert. Bitte den BLC26-Server neu starten und erneut hochladen."));
           certificates[curve.seriesId] = payload.certificate;
-          certificatePublicationStatus[curve.seriesId] = "PDF an GitHub übertragen ✓ · Die öffentliche Seite wird automatisch aktualisiert.";
+          certificatePublicationStatus[curve.seriesId] = t("PDF an GitHub übertragen ✓ · Die öffentliche Seite wird automatisch aktualisiert.");
           renderCurrent();
           openCurveDetails();
         } catch (error) {
-          result.textContent = error.message || "Upload fehlgeschlagen.";
+          result.textContent = error.message || t("Upload fehlgeschlagen.");
           certificatePublicationStatus[curve.seriesId] = result.textContent;
           input.disabled = false;
           input.value = "";
@@ -726,7 +727,7 @@
     legend.appendChild(series);
     const types = document.createElement("div");
     types.className = "legend-types";
-    [["observed", "Hauptreihe · ausgefüllter Punkt"], ["historical", "Rekonstruktion · offener Punkt"], ["projection", "Szenario · gepunktete Linie"], ["threshold", "Erstes Überschreiten eines Grenzwerts"]].forEach(([type, label]) => {
+    [["observed", t("Hauptreihe · ausgefüllter Punkt")], ["historical", t("Rekonstruktion · offener Punkt")], ["projection", t("Szenario · gepunktete Linie")], ["threshold", t("Erstes Überschreiten eines Grenzwerts")]].forEach(([type, label]) => {
       const item = document.createElement("span");
       item.className = `legend-${type}`;
       item.textContent = label;
@@ -811,12 +812,12 @@
       showSegmentDetails(referencePanel, selectedCurve, segment);
       appendCertificatePanel(curveDetailContent, selectedCurve);
     } else {
-      curveDetailTitle.textContent = "Kurvendetails";
+      curveDetailTitle.textContent = t("Kurvendetails");
       closeCurveDetails();
     }
-    seriesCount.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven`;
+    seriesCount.textContent = t("{0} von {1} Kurven", visibleCurves.length, allCurves.length);
     const result = filterContent.querySelector(".filter-result");
-    if (result) result.textContent = `${visibleCurves.length} von ${allCurves.length} Kurven ausgewählt${Object.values(visibleSegments).some(Boolean) ? "" : " · Alle Darstellungsarten sind ausgeschaltet"}`;
+    if (result) result.textContent = t("{0} von {1} Kurven ausgewählt{2}", visibleCurves.length, allCurves.length, Object.values(visibleSegments).some(Boolean) ? "" : t(" · Alle Darstellungsarten sind ausgeschaltet"));
   }
   function currentView() {
     return { version: 1, curveIds: allCurves.filter(curve => selectedCurveIds.has(curve.curveId)).map(curve => curve.curveId), segments: { ...visibleSegments } };
@@ -830,11 +831,11 @@
     filterContent.replaceChildren();
     const hint = document.createElement("p");
     hint.className = "selection-hint";
-    hint.textContent = "Häkchen bestimmen das Diagramm. Suche und Filter durchsuchen nur die Tabelle; deine Auswahl bleibt erhalten.";
+    hint.textContent = t("Häkchen bestimmen das Diagramm. Suche und Filter durchsuchen nur die Tabelle; deine Auswahl bleibt erhalten.");
     const search = document.createElement("input");
     search.className = "filter-search";
     search.type = "search";
-    search.placeholder = "Kurve oder Grundlage suchen";
+    search.placeholder = t("Kurve oder Grundlage suchen");
     search.setAttribute("aria-label", search.placeholder);
     const listFilters = document.createElement("div");
     listFilters.className = "selection-list-filters";
@@ -856,13 +857,13 @@
     curves.forEach(curve => {
       if (!domains.some(domain => domain.domainId === curve.domainId)) domains.push({ domainId: curve.domainId, label: curve.domainLabel });
     });
-    const domainSelect = createSelect("Grundlage", [["", "Alle Grundlagen"], ...domains.map(domain => [domain.domainId, domain.label + " (" + curves.filter(curve => curve.domainId === domain.domainId).length + ")"])]);
-    const roleSelect = createSelect("Kurventyp", [["", "Alle Kurventypen"], ["core", "Kernkurven"], ["deep_dive", "Vertiefung"]]);
+    const domainSelect = createSelect(t("Grundlage"), [["", t("Alle Grundlagen")], ...domains.map(domain => [domain.domainId, domain.label + " (" + curves.filter(curve => curve.domainId === domain.domainId).length + ")"])]);
+    const roleSelect = createSelect(t("Kurventyp"), [["", t("Alle Kurventypen")], ["core", t("Kernkurven")], ["deep_dive", t("Vertiefung")]]);
     const onlySelectedLabel = document.createElement("label");
     onlySelectedLabel.className = "selection-only";
     const onlySelected = document.createElement("input");
     onlySelected.type = "checkbox";
-    onlySelectedLabel.append(onlySelected, "Nur ausgewählte zeigen");
+    onlySelectedLabel.append(onlySelected, t("Nur ausgewählte zeigen"));
     const result = document.createElement("p");
     result.className = "filter-result";
     result.setAttribute("role", "status");
@@ -872,10 +873,10 @@
     const table = document.createElement("table");
     table.className = "curve-selection-table";
     const caption = document.createElement("caption");
-    caption.textContent = "Kurvenauswahl";
+    caption.textContent = t("Kurvenauswahl");
     const head = document.createElement("thead");
     const headings = document.createElement("tr");
-    ["Anzeigen", "Kurve", "Grundlage / Typ"].forEach(text => {
+    [t("Anzeigen"), t("Kurve"), t("Grundlage / Typ")].forEach(text => {
       const cell = document.createElement("th");
       cell.scope = "col";
       cell.textContent = text;
@@ -892,7 +893,7 @@
       const domain = domains.find(item => item.domainId === curve.domainId)?.label || curve.domainLabel;
       const check = document.createElement("input");
       check.type = "checkbox";
-      check.setAttribute("aria-label", name + " anzeigen");
+      check.setAttribute("aria-label", name + t(" anzeigen"));
       check.addEventListener("change", () => {
         if (check.checked) selectedCurveIds.add(curve.curveId); else selectedCurveIds.delete(curve.curveId);
         renderCurrent();
@@ -906,17 +907,17 @@
       label.htmlFor = check.id;
       label.textContent = name;
       nameCell.append(swatch, label);
-      infoCell.textContent = domain + " · " + (curve.curveRole === "core" ? "Kernkurve" : "Vertiefung");
+      infoCell.textContent = domain + " · " + (curve.curveRole === "core" ? t("Kernkurve") : t("Vertiefung"));
       checkCell.append(check);
       row.append(checkCell, nameCell, infoCell);
       body.append(row);
-      return { curve, row, check, text: (name + " " + curve.label + " " + domain).toLocaleLowerCase("de-DE") };
+      return { curve, row, check, text: (name + " " + curve.label + " " + domain).toLocaleLowerCase(locale) };
     });
     table.append(caption, head, body);
-    const segmentSection = makeFilterSection("Darstellung", [
-      { value: "observed", label: "Hauptreihen", checked: visibleSegments.observed },
-      { value: "historical", label: "Historische Rekonstruktionen", checked: visibleSegments.historical },
-      { value: "projection", label: "Szenarien", checked: visibleSegments.projection }
+    const segmentSection = makeFilterSection(t("Darstellung"), [
+      { value: "observed", label: t("Hauptreihen"), checked: visibleSegments.observed },
+      { value: "historical", label: t("Historische Rekonstruktionen"), checked: visibleSegments.historical },
+      { value: "projection", label: t("Szenarien"), checked: visibleSegments.projection }
     ], (segment, checked) => { visibleSegments[segment] = checked; renderCurrent(); });
     const actions = document.createElement("div");
     actions.className = "filter-actions selection-actions";
@@ -928,7 +929,7 @@
       actions.append(item);
       return item;
     };
-    button("Startansicht wiederherstellen", () => {
+    button(t("Startansicht wiederherstellen"), () => {
       applyView(startView);
       selectedCurveId = null;
       selectedSegment = null;
@@ -940,8 +941,8 @@
       window.history.replaceState(null, "", url);
       renderCurrent();
     });
-    button("Auswahl leeren", () => { selectedCurveIds.clear(); renderCurrent(); });
-    button("Tabellentreffer hinzufügen", () => {
+    button(t("Auswahl leeren"), () => { selectedCurveIds.clear(); renderCurrent(); });
+    button(t("Tabellentreffer hinzufügen"), () => {
       rows.filter(item => !item.row.hidden).forEach(item => selectedCurveIds.add(item.curve.curveId));
       renderCurrent();
     });
@@ -952,18 +953,18 @@
     linkField.className = "filter-search";
     linkField.readOnly = true;
     linkField.hidden = true;
-    linkField.setAttribute("aria-label", "Link zur aktuellen Kurvenauswahl");
-    button("Auswahl als Link kopieren", async () => {
+    linkField.setAttribute("aria-label", t("Link zur aktuellen Kurvenauswahl"));
+    button(t("Auswahl als Link kopieren"), async () => {
       const url = selectionApi.selectionUrl(window.location.href, currentView());
       linkField.value = url;
       linkField.hidden = false;
       try {
         await navigator.clipboard.writeText(url);
-        message.textContent = "Link zur Auswahl kopiert.";
+        message.textContent = t("Link zur Auswahl kopiert.");
       } catch {
         linkField.focus();
         linkField.select();
-        message.textContent = "Bitte den markierten Link kopieren.";
+        message.textContent = t("Bitte den markierten Link kopieren.");
       }
     });
     if (isLocalEditorHost()) {
@@ -972,22 +973,22 @@
       const publicationCount = document.createElement("span");
       publicationCount.className = "publication-count";
       publicationCount.setAttribute("role", "status");
-      const save = button("Startansicht veröffentlichen", async () => {
+      const save = button(t("Startansicht veröffentlichen"), async () => {
         save.disabled = true;
         publicationCount.textContent = "";
-        message.textContent = "Startansicht wird gespeichert, geprüft und an GitHub übertragen …";
+        message.textContent = t("Startansicht wird gespeichert, geprüft und an GitHub übertragen …");
         try {
           const response = await fetch("api/start-view/publish", {
             method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(currentView())
           });
-          if ([404, 405, 501].includes(response.status)) throw new Error("Zum Veröffentlichen den Server auf Port 3000 beenden und BLC26 über start-server.cmd starten.");
+          if ([404, 405, 501].includes(response.status)) throw new Error(t("Zum Veröffentlichen den Server auf Port 3000 beenden und BLC26 über start-server.cmd starten."));
           const payload = await response.json();
-          if (!response.ok) throw new Error(payload.error || "Speichern fehlgeschlagen.");
-          if (!payload.publication) throw new Error("Bitte den BLC26-Server neu starten; die Veröffentlichung ist noch nicht verfügbar.");
+          if (!response.ok) throw new Error(payload.error || t("Speichern fehlgeschlagen."));
+          if (!payload.publication) throw new Error(t("Bitte den BLC26-Server neu starten; die Veröffentlichung ist noch nicht verfügbar."));
           startView = selectionApi.validateView(payload.view, allCurves);
-          publicationCount.textContent = `${payload.publication.curveCount} Kurven ✓`;
-          publicationCount.title = "Anzahl der zuletzt erfolgreich an GitHub übertragenen Kurven";
-          message.textContent = "An GitHub übertragen. Die öffentliche Seite wird jetzt automatisch aktualisiert.";
+          publicationCount.textContent = t("{0} Kurven ✓", payload.publication.curveCount);
+          publicationCount.title = t("Anzahl der zuletzt erfolgreich an GitHub übertragenen Kurven");
+          message.textContent = t("An GitHub übertragen. Die öffentliche Seite wird jetzt automatisch aktualisiert.");
         } catch (error) { message.textContent = error.message; }
         finally { save.disabled = false; }
       });
@@ -999,14 +1000,14 @@
         linkField.hidden = true;
         message.textContent = "";
       }
-      const term = search.value.trim().toLocaleLowerCase("de-DE");
+      const term = search.value.trim().toLocaleLowerCase(locale);
       rows.forEach(({ curve, row, check, text }) => {
         check.checked = selectedCurveIds.has(curve.curveId);
         row.hidden = Boolean((term && !text.includes(term)) || (domainSelect.value && curve.domainId !== domainSelect.value) ||
           (roleSelect.value && curve.curveRole !== roleSelect.value) || (onlySelected.checked && !check.checked));
       });
       const count = rows.filter(item => !item.row.hidden).length;
-      matches.textContent = count ? count + " Kurven in der Tabelle" : "Keine Treffer. Suche oder Tabellenfilter ändern.";
+      matches.textContent = count ? count + t(" Kurven in der Tabelle") : t("Keine Treffer. Suche oder Tabellenfilter ändern.");
       segmentSection.querySelectorAll("input").forEach((input, index) => {
         input.checked = visibleSegments[["observed", "historical", "projection"][index]];
       });
@@ -1039,7 +1040,7 @@
   function bindSegmentInteraction(element, curve, type, id, label) {
     element.setAttribute("role", "button");
     element.setAttribute("tabindex", "0");
-    element.setAttribute("aria-label", `${label}: technische Details anzeigen`);
+    element.setAttribute("aria-label", t("{0}: technische Details anzeigen", label));
     if (isSelectedSegment(curve, type, id)) element.classList.add("is-segment-selected");
     const select = event => {
       event.stopPropagation();
@@ -1111,7 +1112,7 @@
     if (!curves.length) {
       const empty = document.createElement("p");
       empty.className = "empty-state";
-      empty.textContent = "Keine Kurve ausgewählt. Rechts die Kurvenauswahl öffnen und Kurven ankreuzen oder die Startansicht wiederherstellen.";
+      empty.textContent = t("Keine Kurve ausgewählt. Rechts die Kurvenauswahl öffnen und Kurven ankreuzen oder die Startansicht wiederherstellen.");
       figure.appendChild(empty);
       return figure;
     }
@@ -1122,7 +1123,7 @@
     const plot = { left: 116, right: 76, top: eventBandHeight + 48, bottom: 70 };
     const plotBottom = height - plot.bottom;
     const x = year => plot.left + ((year - config.range.start) / (config.range.end - config.range.start)) * (width - plot.left - plot.right);
-    const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": `${curves.length} überlagerte Zeitreihen auf einer gemeinsamen Zeitachse von 1700 bis 2100` });
+    const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": t("{0} überlagerte Zeitreihen auf einer gemeinsamen Zeitachse von 1700 bis 2100", curves.length) });
     svg.classList.add("series-chart", "combined-series-chart");
     const valuePopover = document.createElement("output");
     valuePopover.className = "curve-value-popover";
@@ -1182,7 +1183,7 @@
       const showMouseValue = event => {
         if (event.pointerType !== "mouse") return;
         touchSelection = null;
-        showValue(event, "Klicken: Kurvendetails");
+        showValue(event, t("Klicken: Kurvendetails"));
       };
       target.addEventListener("pointerenter", showMouseValue);
       target.addEventListener("pointermove", showMouseValue);
@@ -1203,7 +1204,7 @@
           return;
         }
         touchSelection = { curveId: curve.curveId, time: now };
-        showValue(event, "Nochmals tippen: Kurvendetails");
+        showValue(event, t("Nochmals tippen: Kurvendetails"));
       });
       target.addEventListener("click", event => {
         event.stopPropagation();
@@ -1232,16 +1233,16 @@
     });
     svg.appendChild(svgElement("line", { class: "chart-axis", x1: plot.left, y1: plotBottom, x2: width - plot.right, y2: plotBottom }));
     svg.appendChild(svgElement("line", { class: "chart-axis", x1: plot.left, y1: plot.top, x2: plot.left, y2: plotBottom }));
-    appendText(svg, "text", "Jahr", { class: "axis-title", x: (plot.left + width - plot.right) / 2, y: height - 8 });
+    appendText(svg, "text", t("Jahr"), { class: "axis-title", x: (plot.left + width - plot.right) / 2, y: height - 8 });
     const yAxisTitleX = 90;
-    appendText(svg, "text", "Relativer Verlauf je Kurve", { class: "axis-title", x: yAxisTitleX, y: (plot.top + plotBottom) / 2, transform: `rotate(-90 ${yAxisTitleX} ${(plot.top + plotBottom) / 2})` });
+    appendText(svg, "text", t("Relativer Verlauf je Kurve"), { class: "axis-title", x: yAxisTitleX, y: (plot.top + plotBottom) / 2, transform: `rotate(-90 ${yAxisTitleX} ${(plot.top + plotBottom) / 2})` });
     curves.forEach(curve => {
       const color = curveColor(curve);
       const meta = presentation[curve.seriesId] || { label: curve.label, detail: curve.metric, unit: curve.unit };
       const limits = extent(curve);
       const span = limits.maximum - limits.minimum;
       const y = value => plotBottom - ((value - limits.minimum) / span) * (plotBottom - plot.top);
-      const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}${curve.curveId === selectedCurveId ? " is-selected" : ""}`, tabindex: "0", role: "button", "aria-label": `${meta.label}: Zusatzinformationen anzeigen` });
+      const curveGroup = svgElement("g", { class: `curve-series curve-role-${curve.curveRole}${curve.curveId === selectedCurveId ? " is-selected" : ""}`, tabindex: "0", role: "button", "aria-label": t("{0}: Zusatzinformationen anzeigen", meta.label) });
       const selectCurve = event => {
         if (event && event.target !== curveGroup) return;
         chooseSegment(curve);
@@ -1255,14 +1256,14 @@
       reconstructions.forEach(segment => {
         const pathData = makePath(segment.points, x, y);
         const path = svgElement("path", { class: "curve-historical", stroke: color, d: pathData });
-        bindSegmentInteraction(path, curve, "historical", segment.id, `${meta.label} · ${segment.label || "Rekonstruktion"}`);
+        bindSegmentInteraction(path, curve, "historical", segment.id, `${meta.label} · ${segment.label || t("Rekonstruktion")}`);
         curveGroup.appendChild(path);
         const displaySegment = displayReconstructions.find(item => item.id === segment.id);
         (displaySegment?.points || []).forEach(point => {
           const circle = svgElement("circle", { class: "curve-point is-historical", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-          bindSegmentInteraction(circle, curve, "historical", segment.id, `${meta.label} · ${segment.label || "Rekonstruktion"}`);
+          bindSegmentInteraction(circle, curve, "historical", segment.id, `${meta.label} · ${segment.label || t("Rekonstruktion")}`);
           const tooltip = svgElement("title");
-          tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, segment.sourceRefs, "historical")} · rekonstruiert · unveränderter Quellenwert`;
+          tooltip.textContent = t("{0} · {1} · rekonstruiert · unveränderter Quellenwert", pointDisplay(point, meta.unit), seriesOriginLabel(curve, segment.sourceRefs, "historical"));
           circle.appendChild(tooltip);
           curveGroup.appendChild(circle);
         });
@@ -1281,7 +1282,7 @@
         }
       }
       if (visibleSegments.observed) {
-        const segments = curve.observationSegments || [{ id: "observations", label: "Messwerte", points: curve.observations }];
+        const segments = curve.observationSegments || [{ id: "observations", label: t("Messwerte"), points: curve.observations }];
         segments.forEach(segment => {
           const pathData = makePath(segment.points, x, y);
           const observedPath = svgElement("path", { class: "curve-observed", stroke: color, d: pathData });
@@ -1314,21 +1315,21 @@
             d: makePath([last, first], x, y)
           });
           const title = svgElement("title");
-          title.textContent = "Übergang vom letzten historischen Wert zum ersten Szenariowert; keine zusätzlichen Datenpunkte";
+          title.textContent = t("Übergang vom letzten historischen Wert zum ersten Szenariowert; keine zusätzlichen Datenpunkte");
           transition.appendChild(title);
-          bindSegmentInteraction(transition, curve, "projection", projection.id, `${meta.label} · Übergang zum Szenario`);
+          bindSegmentInteraction(transition, curve, "projection", projection.id, t("{0} · Übergang zum Szenario", meta.label));
           curveGroup.appendChild(transition);
         }
         const pathData = makePath(projection.points, x, y);
         const path = svgElement("path", { class: "curve-projection", stroke: color, d: pathData });
-        bindSegmentInteraction(path, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"}`);
+        bindSegmentInteraction(path, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || t("Modellierung")}`);
         curveGroup.appendChild(path);
         const displayProjection = (curve.displayProjections || []).find(item => item.id === projection.id);
         (displayProjection?.points || []).forEach(point => {
           const circle = svgElement("circle", { class: "curve-point is-projection", fill: "var(--paper)", stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
-          bindSegmentInteraction(circle, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || "Modellierung"}`);
+          bindSegmentInteraction(circle, curve, "projection", projection.id, `${meta.label} · ${projection.scenarioLabel || projection.scenario || t("Modellierung")}`);
           const tooltip = svgElement("title");
-          tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, projection.sourceRefs, "projection")} · modelliert · unveränderter Quellenwert`;
+          tooltip.textContent = t("{0} · {1} · modelliert · unveränderter Quellenwert", pointDisplay(point, meta.unit), seriesOriginLabel(curve, projection.sourceRefs, "projection"));
           circle.appendChild(tooltip);
           curveGroup.appendChild(circle);
         });
@@ -1337,15 +1338,15 @@
       if (visibleSegments.observed) curve.displayObservations.forEach(point => {
         const circle = svgElement("circle", { class: "curve-point", fill: color, stroke: color, cx: x(Number(point.year)), cy: y(Number(point.value)), r: 3.2 });
         const observationSegment = observationSegmentForPoint(curve, point);
-        bindSegmentInteraction(circle, curve, "observed", observationSegment?.id || "observations", `${meta.label} · ${observationSegment?.label || "Messwerte"}`);
+        bindSegmentInteraction(circle, curve, "observed", observationSegment?.id || "observations", `${meta.label} · ${observationSegment?.label || t("Messwerte")}`);
         const tooltip = svgElement("title");
-        const dataType = curve.dataNature === "assessed_model_estimate" ? "wissenschaftlich geschätzt" : "beobachtet";
-        tooltip.textContent = `${pointDisplay(point, meta.unit)} · ${seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed")} · ${dataType} · unveränderter Quellenwert`;
+        const dataType = curve.dataNature === "assessed_model_estimate" ? t("wissenschaftlich geschätzt") : t("beobachtet");
+        tooltip.textContent = t("{0} · {1} · {2} · unveränderter Quellenwert", pointDisplay(point, meta.unit), seriesOriginLabel(curve, point.sourceRefs || curve.observationSourceRefs, "observed"), dataType);
         if (observationSegment) tooltip.textContent += " · " + observationSegment.label + " · " + observationSegment.geography;
         circle.appendChild(tooltip);
         curveGroup.appendChild(circle);
       });
-      [["boundary", "Planetare Grenze"], ["highRisk", "Hoher Risikobereich"]].forEach(([kind, label]) => {
+      [["boundary", t("Planetare Grenze")], ["highRisk", t("Hoher Risikobereich")]].forEach(([kind, label]) => {
         const assessment = curve.thresholdAssessments?.[kind];
         const point = assessment?.firstCrossingPoint;
         if (!visibleSegments.observed || curve.curveRole !== "core" || !point) return;
@@ -1357,7 +1358,7 @@
           x2: x(Number(point.year)),
           y2: y(Number(point.value)) + 8,
           role: "img",
-          "aria-label": `${label}: ${assessment.status === "already_crossed_at_start" ? "beim ersten Messpunkt bereits überschritten" : "erstmals im Datensatz überschritten"}, ${point.year}`
+          "aria-label": `${label}: ${assessment.status === "already_crossed_at_start" ? t("beim ersten Messpunkt bereits überschritten") : t("erstmals im Datensatz überschritten")}, ${point.year}`
         });
         bindSegmentInteraction(marker, curve, "observed", "observations", `${meta.label} · Messwerte`);
         const title = svgElement("title");
@@ -1370,7 +1371,7 @@
     figure.append(svg, valuePopover);
     const caption = document.createElement("figcaption");
     caption.className = "chart-caption";
-    caption.textContent = "Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips; Herkunft und Aufbereitung öffnen sich nach Auswahl einer Kurve im technischen Detailfenster. Automatisch skalierte Kurven erhalten oben und unten jeweils 20 % Darstellungsraum. Die Waldfläche verwendet einen festen Bezugsrahmen von 0–100 % der potenziellen Waldfläche. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.";
+    caption.textContent = t("Alle Kurven liegen in einer gemeinsamen Zeichenfläche. Ihre vertikale Position zeigt jeweils den Verlauf innerhalb der eigenen Datenspanne und besitzt keine gemeinsame Y-Skala. Originalwerte und Einheiten stehen in den Tooltips; Herkunft und Aufbereitung öffnen sich nach Auswahl einer Kurve im technischen Detailfenster. Automatisch skalierte Kurven erhalten oben und unten jeweils 20 % Darstellungsraum. Die Waldfläche verwendet einen festen Bezugsrahmen von 0–100 % der potenziellen Waldfläche. Historische Ereignisse dienen ausschließlich der zeitlichen Orientierung und belegen keine Ursache-Wirkungs-Beziehung.");
     figure.appendChild(caption);
     return figure;
   }
@@ -1378,34 +1379,34 @@
     if (!config?.import || !chart || !seriesCount || !importStatus || !legendContent || !gwlContributionLink || !curveDetailPanel || !curveDetailTitle || !curveDetailContent || !filterContent || !panelBackdrop || !curveLinkStatus || !selectionApi || !curveLinkApi) return;
     try {
       const sourceUrl = new URL(config.import.source, window.location.href);
-      if (sourceUrl.origin !== window.location.origin) fail("Externe Importquellen sind nicht erlaubt.");
+      if (sourceUrl.origin !== window.location.origin) fail(t("Externe Importquellen sind nicht erlaubt."));
       const response = await fetch(sourceUrl, { cache: "no-store", credentials: "same-origin" });
-      if (!response.ok) fail(`Lokales Übergabepaket nicht verfügbar (${response.status}).`);
+      if (!response.ok) fail(t("Lokales Übergabepaket nicht verfügbar ({0}).", response.status));
       importedExportText = await response.text();
       const payload = JSON.parse(importedExportText);
       const hash = await verifyExport(payload);
-      allCurves = payload.curves;
+      allCurves = payload.curves.map(window.BRUCHLAST_I18N.localizeCurve);
       await loadCertificates();
       try {
         const response = await fetch("data/start-view.json", { cache: "no-store", credentials: "same-origin" });
-        if (!response.ok) throw new Error("Startansicht nicht verfügbar.");
+        if (!response.ok) throw new Error(t("Startansicht nicht verfügbar."));
         startView = selectionApi.validateView(await response.json(), allCurves, true);
         if (startView.missing.length) {
           curveLinkStatus.hidden = false;
-          curveLinkStatus.textContent = "Einige Kurven der Startansicht sind nicht mehr verfügbar. Bitte die Auswahl prüfen.";
+          curveLinkStatus.textContent = t("Einige Kurven der Startansicht sind nicht mehr verfügbar. Bitte die Auswahl prüfen.");
         }
       } catch {
         startView = { version: 1, curveIds: [], segments: { observed: true, historical: true, projection: true } };
         curveLinkStatus.hidden = false;
-        curveLinkStatus.textContent = "Die Startansicht konnte nicht geladen werden. Bitte Kurven über die Kurvenauswahl hinzufügen.";
+        curveLinkStatus.textContent = t("Die Startansicht konnte nicht geladen werden. Bitte Kurven über die Kurvenauswahl hinzufügen.");
       }
       applyView(startView);
       namedViewRequest = selectionApi.requestedNamedView(window.location.href, config.views, allCurves);
       const requestedCurveId = curveLinkApi.requestedCurveId(window.location.href);
-      const linkedCurve = curveLinkApi.findCurve(payload.curves, requestedCurveId);
+      const linkedCurve = curveLinkApi.findCurve(allCurves, requestedCurveId);
       if (requestedCurveId !== null && !linkedCurve) {
         curveLinkStatus.hidden = false;
-        curveLinkStatus.textContent = "Die verlinkte Kurve ist nicht verfügbar. Die Startansicht wird angezeigt.";
+        curveLinkStatus.textContent = t("Die verlinkte Kurve ist nicht verfügbar. Die Startansicht wird angezeigt.");
       } else if (linkedCurve) {
         selectedCurveIds.clear();
         selectedCurveIds.add(linkedCurve.curveId);
@@ -1419,26 +1420,46 @@
           if (linkedView) applyView(linkedView);
         } catch (error) {
           curveLinkStatus.hidden = false;
-          curveLinkStatus.textContent = error.message + " Die Startansicht wird angezeigt.";
+          curveLinkStatus.textContent = error.message + t(" Die Startansicht wird angezeigt.");
         }
       }
-      createFilters(payload.curves);
+      createFilters(allCurves);
       renderCurrent();
       closeCurveDetails();
       importStatus.className = "import-status is-valid";
-      importStatus.textContent = `Import verifiziert · SHA-256 ${hash.slice(0, 12)}… · Manifest ${payload.manifestVersion}`;
+      importStatus.textContent = t("Import verifiziert · SHA-256 {0}… · Manifest {1}", hash.slice(0, 12), payload.manifestVersion);
     } catch (error) {
       chart.replaceChildren();
       const message = document.createElement("p");
       message.className = "empty-state is-error";
-      message.textContent = "Import gesperrt. Das lokale Übergabepaket konnte nicht sicher verifiziert werden.";
+      message.textContent = t("Import gesperrt. Das lokale Übergabepaket konnte nicht sicher verifiziert werden.");
       chart.appendChild(message);
-      seriesCount.textContent = "0 Messreihen";
+      seriesCount.textContent = t("0 Messreihen");
       importStatus.className = "import-status is-invalid";
-      importStatus.textContent = error instanceof Error ? error.message : "Unbekannter Importfehler.";
-      console.error("BLC-Import abgebrochen:", error);
+      importStatus.textContent = error instanceof Error ? error.message : t("Unbekannter Importfehler.");
+      console.error(t("BLC-Import abgebrochen:"), error);
     }
   }
+  window.BRUCHLAST_I18N.translatePage();
+  const languageSelect = document.getElementById("languageSelect");
+  languageSelect.value = language;
+  languageSelect.addEventListener("change", () => {
+    const nextLanguage = languageSelect.value;
+    try { localStorage.setItem("blc-language", nextLanguage); } catch { }
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", nextLanguage);
+    // Never publish when changing language. Only the current URL is changed.
+    if (allCurves.length && !isEmbedView) {
+      url.searchParams.delete("curve");
+      url.searchParams.delete("view");
+      url.searchParams.delete("curves");
+      (currentView().curveIds.length ? currentView().curveIds : [""]).forEach(id => url.searchParams.append("curves", id));
+      url.searchParams.set("segments", Object.keys(visibleSegments).filter(key => visibleSegments[key]).join(","));
+    }
+    window.location.assign(url.href);
+  });
+  const fullLink = document.querySelector(".embed-full-link");
+  if (fullLink) fullLink.href = "./?lang=" + language;
   setupPanels();
   tryLandscapeLock();
   window.addEventListener("orientationchange", tryLandscapeLock);

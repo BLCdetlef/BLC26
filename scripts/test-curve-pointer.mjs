@@ -1,3 +1,4 @@
+import { germanUi } from "./language-test-context.mjs";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
@@ -26,7 +27,7 @@ function setup() {
   valuePopover.hidden = true;
   const calls = [];
   let now = 10000;
-  const context = vm.createContext({
+  const context = vm.createContext({...germanUi,
     svg, valuePopover, width: 100, height: 100, x: value => value,
     document: { createElement: () => new Element() },
     svgElement: (_, attributes) => new Element(attributes),

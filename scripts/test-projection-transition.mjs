@@ -1,3 +1,4 @@
+import { germanUi } from "./language-test-context.mjs";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
@@ -7,7 +8,7 @@ const end = source.indexOf("        const pathData = makePath(projection.points"
 assert.ok(start >= 0 && end > start);
 const run = (observations, points, observed = true) => {
   const children = [];
-  const context = { curve: { observations }, projection: { points, id: "steps" }, visibleSegments: { observed }, color: "black", meta: { label: "Kupfer" }, x: v => v, y: v => v, makePath: points => JSON.stringify(points), bindSegmentInteraction() {}, curveGroup: { appendChild: e => children.push(e) }, svgElement: (tag, attrs) => ({ tag, attrs, appendChild() {} }) };
+  const context = {...germanUi, curve: { observations }, projection: { points, id: "steps" }, visibleSegments: { observed }, color: "black", meta: { label: "Kupfer" }, x: v => v, y: v => v, makePath: points => JSON.stringify(points), bindSegmentInteraction() {}, curveGroup: { appendChild: e => children.push(e) }, svgElement: (tag, attrs) => ({ tag, attrs, appendChild() {} }) };
   vm.runInNewContext(source.slice(start, end), context);
   return children;
 };

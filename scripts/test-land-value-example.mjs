@@ -1,3 +1,4 @@
+import { germanUi } from "./language-test-context.mjs";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -15,7 +16,7 @@ assert.match(example.sourceLocator,/nicht als Zahl/);
 assert.match(example.sourceUrl,/#page=95$/);
 const el = tag => ({tag,children:[],textContent:'',appendChild(child){this.children.push(child);}});
 const text = e => e.textContent + e.children.map(text).join(' ');
-const ctx = {allCurves,importedExportText,config:{import:{source:'data/gwl/blc-curve-export-v1.json'}},document:{createElement:el},pointKey:p=>`${p.year}:${p.value}`,pointDisplay:p=>`${p.year} · ${p.display}`,appendLabeledText:(parent,label,value)=>{const child=el('p');child.textContent=label+': '+value;parent.appendChild(child);}};
+const ctx = {...germanUi,allCurves,importedExportText,config:{import:{source:'data/gwl/blc-curve-export-v1.json'}},document:{createElement:el},pointKey:p=>`${p.year}:${p.value}`,pointDisplay:p=>`${p.year} · ${p.display}`,appendLabeledText:(parent,label,value)=>{const child=el('p');child.textContent=label+': '+value;parent.appendChild(child);}};
 vm.runInNewContext(app.slice(app.indexOf('  function importedExampleLocation('),app.indexOf('  function appendSegmentDataDocumentation('))+';this.locate=importedExampleLocation;this.render=appendSegmentValueExample;',ctx);
 const point = curve.observations[0];
 const result = ctx.locate(curve,segment,point);

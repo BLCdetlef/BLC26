@@ -280,3 +280,9 @@ html.is-embed-view .embed-full-link:focus-visible { background: var(--ink); colo
 .curve-value-example ol { margin: .5rem 0 0; padding-left: 1.3rem; }
 .curve-value-example li { margin-bottom: .7rem; }
 .curve-value-example pre { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; font-size: .65rem; padding: .4rem; background: #fff; }
+/* Keep the language choice accessible above the chart on desktop and mobile. */
+.language-control { position: fixed; z-index: 4; top: .7rem; right: 3.2rem; display: flex; align-items: center; gap: .35rem; padding: .2rem .35rem; border: 1px solid #9d9c96; border-radius: .25rem; background: #f8f7f2; color: #343432; font-size: .7rem; }
+.language-control select { max-width: 6rem; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.language-control:focus-within { outline: 2px solid #24708a; outline-offset: 2px; }
+.is-embed-view .language-control { top: .35rem; right: .5rem; }
+@media (max-width: 760px) { .language-control { top: .4rem; right: 2.8rem; } .language-control > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }

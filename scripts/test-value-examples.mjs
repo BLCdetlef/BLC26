@@ -1,3 +1,4 @@
+import { germanUi } from "./language-test-context.mjs";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -7,7 +8,7 @@ const allCurves = JSON.parse(importedExportText).curves;
 const curve = allCurves.find(c => c.seriesId === 'world_population_un_1950_2023');
 const element = tag => ({tag, children: [], textContent: '', appendChild(child) {this.children.push(child);}});
 const text = el => el.textContent + el.children.map(text).join(' ');
-const ctx = {allCurves, importedExportText, config: {import: {source: 'data/gwl/blc-curve-export-v1.json'}}, document: {createElement: element}, pointKey: p => `${p.year}:${p.value}`, pointDisplay: (p, unit) => `${p.year} · ${p.display || `${p.value} ${unit}`}`, appendLabeledText: (el, label, value) => {const p = element('p'); p.textContent = label + ': ' + value; el.appendChild(p);}};
+const ctx = {...germanUi,allCurves, importedExportText, config: {import: {source: 'data/gwl/blc-curve-export-v1.json'}}, document: {createElement: element}, pointKey: p => `${p.year}:${p.value}`, pointDisplay: (p, unit) => `${p.year} · ${p.display || `${p.value} ${unit}`}`, appendLabeledText: (el, label, value) => {const p = element('p'); p.textContent = label + ': ' + value; el.appendChild(p);}};
 const start = app.indexOf('  function importedExampleLocation(');
 const end = app.indexOf('  function appendSegmentDataDocumentation(', start);
 vm.runInNewContext(app.slice(start, end) + ';this.locate=importedExampleLocation;this.render=appendSegmentValueExample;', ctx);
