@@ -522,8 +522,8 @@
       return item;
     };
     const precise = value => new Intl.NumberFormat(locale, {maximumFractionDigits: 12}).format(value);
-    step(t("Anzeige im Diagramm"), t("X-Achse: Jahr ") + point.year + t(". Y-Wert der Kurve: ") + precise(point.value) + ' ' + curve.unit + '; Tooltip: „' + pointDisplay(point, curve.unit) + '“. ' + (example.axisNote || t("Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.")));
-    const imported = step(t("Importierte Daten anzeigen"), (location.lines ? t("Jahr in Zeile ") + location.lines.yearLine + t(", Wert in Zeile ") + location.lines.valueLine + '. ' : '') + 'JSON-Pfad: ' + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
+    step(t("Anzeige im Diagramm"), t("X-Achse: Jahr ") + point.year + t(". Y-Wert der Kurve: ") + precise(point.value) + ' ' + curve.unit + t('; Tooltip: „{0}“. ', pointDisplay(point, curve.unit)) + (example.axisNote || t("Die Y-Achse zeigt den relativen Verlauf je Kurve und hat keine gemeinsame numerische Skala. Die Rundung im Tooltip verändert den zugrunde liegenden Wert nicht.")));
+    const imported = step(t("Importierte Daten anzeigen"), (location.lines ? t("Jahr in Zeile ") + location.lines.yearLine + t(", Wert in Zeile ") + location.lines.valueLine + '. ' : '') + t('JSON-Pfad: ') + location.pointer + '/year = ' + point.year + '; ' + location.pointer + '/value = ' + point.value + '.');
     if (location.displayPointer) appendLabeledText(imported, t("Sichtbare Punktmarke"), (location.displayLines ? t("Jahr in Zeile ") + location.displayLines.yearLine + t(", Wert in Zeile ") + location.displayLines.valueLine + '. ' : '') + t("Dieselbe Koordinate unter ") + location.displayPointer + '.');
     const importLink = document.createElement("a");
     importLink.href = config.import.source;

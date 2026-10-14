@@ -1,5 +1,12 @@
 // English presentation text. Original source names and documents are not translated.
 window.BRUCHLAST_EN = {
+  "Industr.": "Industr.",
+  "Flu": "Flu",
+  "Paris": "Paris",
+  "Covid": "Covid",
+  "Global": "Global",
+  "JSON-Pfad: ": "JSON path: ",
+  "; Tooltip: „{0}“. ": "; Tooltip: “{0}”. ",
   "Quellenwechsel 2024": "Source change in 2024",
   "49 Jahre · 50 Jahreswerte": "49 years · 50 annual values",
   "output_material/concrete_glass_output.csv; files_recovery_rate/recovery_rate.csv; files_sand_factor/sand_primary_per_kg.csv; output_sand/Sand_total.csv; GloBUS.py, Sandberechnung": "output_material/concrete_glass_output.csv; files_recovery_rate/recovery_rate.csv; files_sand_factor/sand_primary_per_kg.csv; output_sand/Sand_total.csv; GloBUS.py, sand calculation",

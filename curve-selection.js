@@ -33,7 +33,7 @@
     const language = url.searchParams.get("lang") || globalThis.BRUCHLAST_I18N?.language;
     url.search = "";
     url.hash = "";
-    if (["de", "en"].includes(language)) url.searchParams.set("lang", language);
+    if (["de", "en", "zh-Hans"].includes(language)) url.searchParams.set("lang", language);
     (view.curveIds.length ? view.curveIds : [""]).forEach(id => url.searchParams.append("curves", id));
     url.searchParams.set("segments", segmentNames.filter(key => view.segments[key]).join(","));
     return url.href;

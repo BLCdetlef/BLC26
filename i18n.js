@@ -1,15 +1,15 @@
 (function (root) {
   "use strict";
-  const supported = new Set(["de", "en"]);
+  const supported = new Set(["de", "en", "zh-Hans"]);
   const url = new URL(root.location.href);
   let saved = "de";
   try { saved = root.localStorage.getItem("blc-language") || "de"; } catch { }
   const requested = url.searchParams.get("lang");
   const language = supported.has(requested) ? requested : supported.has(saved) ? saved : "de";
-  const locale = language === "en" ? "en-GB" : "de-DE";
-  const dictionary = root.BRUCHLAST_EN || {};
+  const locale = language === "zh-Hans" ? "zh-CN" : language === "en" ? "en-GB" : "de-DE";
+  const dictionary = (language === "zh-Hans" ? root.BRUCHLAST_ZH_HANS : root.BRUCHLAST_EN) || {};
   function t(text, ...values) {
-    const translated = language === "en" && Object.hasOwn(dictionary, text) ? dictionary[text] : text;
+    const translated = language !== "de" && Object.hasOwn(dictionary, text) ? dictionary[text] : text;
     return String(translated).replace(/\{(\d+)\}/g, (match, index) => index < values.length ? String(values[index]) : match);
   }
   // Translate presentation fields only. IDs, source quotations, numeric values,

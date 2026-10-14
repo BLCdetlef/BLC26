@@ -2,14 +2,16 @@
 
 Digitale, interaktive Fassung des BRUCHLASTcharts.
 
-Die Sprachwahl oben rechts schaltet zwischen Deutsch und Englisch um.
-Die gewählte Sprache wird nach Möglichkeit lokal gespeichert; `?lang=de` oder
-`?lang=en` hat Vorrang und kann auch in geteilten Auswahl- und Einbettungslinks
+Die Sprachwahl oben rechts schaltet zwischen Deutsch, Englisch und vereinfachtem
+Chinesisch (中文（简体）) um. Die gewählte Sprache wird nach Möglichkeit lokal
+gespeichert; `?lang=de`, `?lang=en` oder `?lang=zh-Hans` hat Vorrang und kann
+auch in geteilten Auswahl- und Einbettungslinks
 verwendet werden. Beim Umschalten bleiben Kurvenauswahl und Segment-Schalter
 erhalten. Oberfläche, historische Ereignisse und die fachlichen Erläuterungen
 werden übersetzt; Originalquellen, Quelldateinamen, zitierte Datenzeilen und
 PDF-/Word-Dokumente behalten ihre Originalsprache. GWL wird dadurch nicht umgestellt.
-Die englischen Texte stehen separat in `locales/en.js` und `locales/en-data.js`;
+Die englischen Texte stehen separat in `locales/en.js` und `locales/en-data.js`,
+die chinesischen in `locales/zh-Hans.js` und `locales/zh-Hans-data.js`;
 das signierte GWL-Importpaket wird vor jeder Übersetzung unverändert geprüft.
 Die Sprachprüfung `node scripts/test-language.mjs` kontrolliert unter anderem
 unveränderte Zahlen, IDs, Quellenzitate und Grenzbewertungen für alle Kurven.

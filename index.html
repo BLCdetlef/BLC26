@@ -7,11 +7,11 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title data-i18n="BRUCHLASTchart – digitale Arbeitsfassung">BRUCHLASTchart – digitale Arbeitsfassung</title>
-  <link rel="stylesheet" href="style.css?v=1.0.8">
+  <link rel="stylesheet" href="style.css?v=1.0.9">
 </head>
 <body>
   <main class="app-shell" id="appShell">
-    <label class="language-control"><span data-i18n="Sprache">Sprache</span><select id="languageSelect" aria-label="Sprache" data-i18n-aria="Sprache"><option value="de" lang="de">Deutsch</option><option value="en" lang="en">English</option></select></label>
+    <label class="language-control"><span data-i18n="Sprache">Sprache</span><select id="languageSelect" aria-label="Sprache" data-i18n-aria="Sprache"><option value="de" lang="de">Deutsch</option><option value="en" lang="en">English</option><option value="zh-Hans" lang="zh-Hans">中文（简体）</option></select></label>
     <h1 class="brand-watermark"><span class="brand-name">BRUCHLAST</span><span class="brand-chart">chart</span></h1>
     <nav class="primary-links" aria-label="Projektbereiche" data-i18n-aria="Projektbereiche">
       <a class="primary-link" href="https://www.th-luebeck.de/zustand" aria-label="Zur Homepage th-luebeck.de/zustand" data-i18n-aria="Zur Homepage th-luebeck.de/zustand" data-tooltip="th-luebeck.de/zustand">
@@ -53,14 +53,16 @@
   </main>
   <div class="orientation-notice" role="status"><span class="orientation-icon" aria-hidden="true">↻</span><strong data-i18n="Bitte ins Querformat drehen">Bitte ins Querformat drehen</strong><span data-i18n="Das BRUCHLASTchart nutzt die gesamte Breite des Displays.">Das BRUCHLASTchart nutzt die gesamte Breite des Displays.</span></div>
 
-  <script src="locales/en.js?v=1"></script>
+  <script src="locales/en.js?v=2"></script>
   <script src="locales/en-data.js?v=1"></script>
-  <script src="i18n.js?v=1"></script>
+  <script src="locales/zh-Hans.js?v=1"></script>
+  <script src="locales/zh-Hans-data.js?v=1"></script>
+  <script src="i18n.js?v=2"></script>
   <script src="data.js?v=0.9.7"></script>
   <script src="events.js?v=0.6.2"></script>
   <script src="reference.js?v=0.6.3"></script>
   <script src="curve-link.js?v=0.7.1"></script>
-  <script src="curve-selection.js?v=1.0.2"></script>
-  <script src="app.js?v=1.1.0"></script>
+  <script src="curve-selection.js?v=1.0.3"></script>
+  <script src="app.js?v=1.2.0"></script>
 </body>
 </html>
